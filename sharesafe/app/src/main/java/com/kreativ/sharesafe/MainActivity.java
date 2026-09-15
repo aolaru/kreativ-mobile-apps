@@ -1,16 +1,21 @@
 package com.kreativ.sharesafe;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ClipData;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.view.Gravity;
 import android.view.View;
@@ -31,6 +36,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,13 +54,16 @@ import java.util.zip.ZipOutputStream;
  */
 public class MainActivity extends Activity {
     private static final int PICK_PHOTOS = 44;
+    private static final int WRITE_GALLERY_PERMISSION = 45;
     private final ArrayList<Uri> selectedPhotos = new ArrayList<>();
     private final ExecutorService worker = Executors.newSingleThreadExecutor();
 
     private TextView selectionText;
     private TextView statusText;
+    private TextView resultSummary;
     private Button cleanButton;
     private Button shareButton;
+    private Button saveButton;
     private ProgressBar progressBar;
     private RadioGroup qualityGroup;
     private RadioGroup shareFormatGroup;
@@ -143,11 +152,26 @@ public class MainActivity extends Activity {
         statusText.setPadding(0, dp(12), 0, dp(4));
         root.addView(statusText, matchWrap());
 
+        resultSummary = label("", 14, Color.rgb(32, 82, 70));
+        resultSummary.setLineSpacing(dp(3), 1f);
+        resultSummary.setPadding(dp(16), dp(14), dp(16), dp(14));
+        resultSummary.setBackgroundResource(R.drawable.result_card);
+        resultSummary.setVisibility(View.GONE);
+        root.addView(resultSummary, matchWrap());
+
+        addSpacer(root, 10);
         shareButton = button("Share cleaned photos", false);
         shareButton.setEnabled(false);
         shareButton.setVisibility(View.GONE);
         shareButton.setOnClickListener(v -> shareLatestExport());
         root.addView(shareButton, matchWrap());
+
+        addSpacer(root, 10);
+        saveButton = button("Save to gallery", false);
+        saveButton.setEnabled(false);
+        saveButton.setVisibility(View.GONE);
+        saveButton.setOnClickListener(v -> saveToGallery());
+        root.addView(saveButton, matchWrap());
 
         addSpacer(root, 24);
         TextView footer = label("How it works  •  ShareSafe redraws every selected photo into a new JPEG file. That process removes embedded camera details such as GPS coordinates, camera model, and timestamps.", 13, Color.rgb(96, 113, 109));
@@ -182,6 +206,9 @@ public class MainActivity extends Activity {
         shareButton.setText("Share cleaned photos");
         shareButton.setEnabled(false);
         shareButton.setVisibility(View.GONE);
+        saveButton.setEnabled(false);
+        saveButton.setVisibility(View.GONE);
+        resultSummary.setVisibility(View.GONE);
         cleanButton.setEnabled(!selectedPhotos.isEmpty());
         selectionText.setText(selectedPhotos.isEmpty() ? "No photos selected" : selectedPhotos.size() + " photo" + (selectedPhotos.size() == 1 ? "" : "s") + " selected");
         statusText.setText(selectedPhotos.isEmpty() ? "" : "Ready to create clean copies.");
@@ -194,6 +221,9 @@ public class MainActivity extends Activity {
         cleanButton.setEnabled(false);
         shareButton.setEnabled(false);
         shareButton.setVisibility(View.GONE);
+        saveButton.setEnabled(false);
+        saveButton.setVisibility(View.GONE);
+        resultSummary.setVisibility(View.GONE);
         progressBar.setProgress(0);
         progressBar.setVisibility(View.VISIBLE);
         statusText.setText("Preparing clean copies…");
@@ -204,11 +234,18 @@ public class MainActivity extends Activity {
                 runOnUiThread(() -> {
                     latestExport = export;
                     progressBar.setVisibility(View.GONE);
-                    String noun = selectedPhotos.size() == 1 ? "photo is" : "photos are";
-                    statusText.setText(selectedPhotos.size() + " clean " + noun + (shareAsZip ? " ready in a ZIP." : " ready to share."));
+                    int count = export.photos.size();
+                    String noun = count == 1 ? "photo is" : "photos are";
+                    statusText.setText(count + " clean " + noun + (shareAsZip ? " ready in a ZIP." : " ready to share."));
+                    resultSummary.setText("Cleaned " + count + (count == 1 ? " photo" : " photos")
+                            + "\nRemoved: location, camera details, and timestamps"
+                            + "\nExport: " + (shareAsZip ? "one ZIP file" : "individual JPEG photos"));
+                    resultSummary.setVisibility(View.VISIBLE);
                     shareButton.setText(shareAsZip ? "Share ZIP" : "Share cleaned photos");
                     shareButton.setEnabled(true);
                     shareButton.setVisibility(View.VISIBLE);
+                    saveButton.setEnabled(true);
+                    saveButton.setVisibility(View.VISIBLE);
                     cleanButton.setEnabled(true);
                 });
             } catch (Exception e) {
@@ -359,6 +396,77 @@ public class MainActivity extends Activity {
         send.setClipData(clipData);
         send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivity(Intent.createChooser(send, "Share cleaned photos"));
+    }
+
+    private void saveToGallery() {
+        if (latestExport == null || latestExport.photos.isEmpty()) return;
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P
+                && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_GALLERY_PERMISSION);
+            return;
+        }
+
+        ArrayList<File> photosToSave = new ArrayList<>(latestExport.photos);
+        saveButton.setEnabled(false);
+        statusText.setText("Saving clean photos to gallery…");
+        worker.execute(() -> {
+            int saved = 0;
+            try {
+                for (File photo : photosToSave) {
+                    savePhotoToGallery(photo);
+                    saved++;
+                }
+                final int savedCount = saved;
+                runOnUiThread(() -> {
+                    statusText.setText("Saved " + savedCount + (savedCount == 1 ? " clean photo" : " clean photos") + " to Pictures/ShareSafe.");
+                    saveButton.setEnabled(true);
+                });
+            } catch (Exception e) {
+                runOnUiThread(() -> {
+                    statusText.setText("Couldn’t save every photo to the gallery.");
+                    saveButton.setEnabled(true);
+                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+                });
+            }
+        });
+    }
+
+    private void savePhotoToGallery(File photo) throws IOException {
+        ContentResolver resolver = getContentResolver();
+        ContentValues values = new ContentValues();
+        values.put(MediaStore.Images.Media.DISPLAY_NAME, photo.getName());
+        values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            values.put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/ShareSafe");
+            values.put(MediaStore.Images.Media.IS_PENDING, 1);
+        }
+        Uri galleryUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        if (galleryUri == null) throw new IOException("Could not create gallery image");
+        boolean complete = false;
+        try (InputStream input = new FileInputStream(photo); OutputStream output = resolver.openOutputStream(galleryUri)) {
+            if (output == null) throw new IOException("Could not open gallery image");
+            byte[] buffer = new byte[8192];
+            int bytesRead;
+            while ((bytesRead = input.read(buffer)) != -1) output.write(buffer, 0, bytesRead);
+            complete = true;
+        } finally {
+            if (complete && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                ContentValues completeValues = new ContentValues();
+                completeValues.put(MediaStore.Images.Media.IS_PENDING, 0);
+                resolver.update(galleryUri, completeValues, null, null);
+            } else if (!complete) {
+                resolver.delete(galleryUri, null, null);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == WRITE_GALLERY_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) saveToGallery();
+            else Toast.makeText(this, "Gallery permission is needed to save on this Android version.", Toast.LENGTH_LONG).show();
+        }
     }
 
     private static class ExportResult {

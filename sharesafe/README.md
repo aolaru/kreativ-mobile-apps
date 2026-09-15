@@ -8,7 +8,8 @@ An offline Android photo-cleaning utility. Select one or more photos, choose a J
 - Redraws selected images as new JPEGs, removing embedded location, camera, and timestamp metadata.
 - Applies EXIF orientation before exporting so common camera photos remain upright.
 - Processes entirely on-device and does not declare internet access.
-- Packages cleaned copies into a ZIP that can be shared using Android's share sheet.
+- Lets people share clean JPEGs directly or package them into a ZIP.
+- Saves clean JPEGs to the device gallery in `Pictures/ShareSafe`.
 
 ## Build and install
 
