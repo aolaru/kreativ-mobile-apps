@@ -57,7 +57,8 @@ public class MainActivity extends Activity {
     private Button shareButton;
     private ProgressBar progressBar;
     private RadioGroup qualityGroup;
-    private File latestZip;
+    private RadioGroup shareFormatGroup;
+    private ExportResult latestExport;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,8 +114,21 @@ public class MainActivity extends Activity {
         qualityGroup.addView(radio("Maximum — larger files", 95, false));
         root.addView(qualityGroup);
 
+        addSpacer(root, 18);
+        TextView formatTitle = label("Share format", 17, Color.rgb(25, 44, 41));
+        formatTitle.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
+        root.addView(formatTitle);
+        TextView formatHint = label("Individual photos are easiest to share in chat apps. Use ZIP for email or archives.", 14, Color.rgb(96, 113, 109));
+        formatHint.setPadding(0, dp(4), 0, dp(6));
+        root.addView(formatHint);
+        shareFormatGroup = new RadioGroup(this);
+        shareFormatGroup.setOrientation(LinearLayout.VERTICAL);
+        shareFormatGroup.addView(radio("Individual photos — recommended", 0, true));
+        shareFormatGroup.addView(radio("One ZIP file", 1, false));
+        root.addView(shareFormatGroup);
+
         addSpacer(root, 22);
-        cleanButton = button("Clean and create share ZIP", true);
+        cleanButton = button("Clean photos", true);
         cleanButton.setEnabled(false);
         cleanButton.setOnClickListener(v -> cleanPhotos());
         root.addView(cleanButton, matchWrap());
@@ -132,7 +146,7 @@ public class MainActivity extends Activity {
         shareButton = button("Share cleaned photos", false);
         shareButton.setEnabled(false);
         shareButton.setVisibility(View.GONE);
-        shareButton.setOnClickListener(v -> shareLatestZip());
+        shareButton.setOnClickListener(v -> shareLatestExport());
         root.addView(shareButton, matchWrap());
 
         addSpacer(root, 24);
@@ -164,7 +178,8 @@ public class MainActivity extends Activity {
         }
         selectedPhotos.clear();
         selectedPhotos.addAll(unique);
-        latestZip = null;
+        latestExport = null;
+        shareButton.setText("Share cleaned photos");
         shareButton.setEnabled(false);
         shareButton.setVisibility(View.GONE);
         cleanButton.setEnabled(!selectedPhotos.isEmpty());
@@ -175,6 +190,7 @@ public class MainActivity extends Activity {
     private void cleanPhotos() {
         if (selectedPhotos.isEmpty()) return;
         final int quality = chosenQuality();
+        final boolean shareAsZip = isZipSelected();
         cleanButton.setEnabled(false);
         shareButton.setEnabled(false);
         shareButton.setVisibility(View.GONE);
@@ -184,11 +200,13 @@ public class MainActivity extends Activity {
 
         worker.execute(() -> {
             try {
-                File zip = exportCleanPhotos(quality);
+                ExportResult export = exportCleanPhotos(quality, shareAsZip);
                 runOnUiThread(() -> {
-                    latestZip = zip;
+                    latestExport = export;
                     progressBar.setVisibility(View.GONE);
-                    statusText.setText(selectedPhotos.size() + " clean photo" + (selectedPhotos.size() == 1 ? " is" : "s are") + " ready in a ZIP.");
+                    String noun = selectedPhotos.size() == 1 ? "photo is" : "photos are";
+                    statusText.setText(selectedPhotos.size() + " clean " + noun + (shareAsZip ? " ready in a ZIP." : " ready to share."));
+                    shareButton.setText(shareAsZip ? "Share ZIP" : "Share cleaned photos");
                     shareButton.setEnabled(true);
                     shareButton.setVisibility(View.VISIBLE);
                     cleanButton.setEnabled(true);
@@ -204,27 +222,45 @@ public class MainActivity extends Activity {
         });
     }
 
-    private File exportCleanPhotos(int quality) throws IOException {
+    private ExportResult exportCleanPhotos(int quality, boolean shareAsZip) throws IOException {
         File exportDir = new File(getCacheDir(), "exports");
         if (!exportDir.exists() && !exportDir.mkdirs()) throw new IOException("Could not create export folder");
         String stamp = new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(new Date());
-        File zipFile = new File(exportDir, "ShareSafe-" + stamp + ".zip");
+        File cleanedDir = new File(exportDir, "ShareSafe-" + stamp);
+        if (!cleanedDir.mkdirs()) throw new IOException("Could not create photo folder");
+        ArrayList<File> cleanedPhotos = new ArrayList<>();
 
+        for (int i = 0; i < selectedPhotos.size(); i++) {
+            Uri uri = selectedPhotos.get(i);
+            Bitmap bitmap = loadRotatedBitmap(uri);
+            if (bitmap == null) continue;
+            File output = new File(cleanedDir, String.format(Locale.US, "%02d_%s", i + 1, cleanName(uri, i + 1)));
+            try (FileOutputStream stream = new FileOutputStream(output)) {
+                if (!bitmap.compress(Bitmap.CompressFormat.JPEG, quality, stream)) throw new IOException("Could not write cleaned photo");
+            }
+            bitmap.recycle();
+            cleanedPhotos.add(output);
+            final int progress = Math.round(((i + 1) * 100f) / selectedPhotos.size());
+            runOnUiThread(() -> progressBar.setProgress(progress));
+        }
+        if (cleanedPhotos.isEmpty()) throw new IOException("No compatible images were selected");
+        File zipFile = shareAsZip ? zipPhotos(exportDir, stamp, cleanedPhotos) : null;
+        return new ExportResult(cleanedPhotos, zipFile);
+    }
+
+    private File zipPhotos(File exportDir, String stamp, ArrayList<File> photos) throws IOException {
+        File zipFile = new File(exportDir, "ShareSafe-" + stamp + ".zip");
+        byte[] buffer = new byte[8192];
         try (ZipOutputStream zip = new ZipOutputStream(new FileOutputStream(zipFile))) {
-            for (int i = 0; i < selectedPhotos.size(); i++) {
-                Uri uri = selectedPhotos.get(i);
-                Bitmap bitmap = loadRotatedBitmap(uri);
-                if (bitmap == null) continue;
-                String name = cleanName(uri, i + 1);
-                zip.putNextEntry(new ZipEntry(name));
-                bitmap.compress(Bitmap.CompressFormat.JPEG, quality, zip);
+            for (File photo : photos) {
+                zip.putNextEntry(new ZipEntry(photo.getName()));
+                try (FileInputStream input = new FileInputStream(photo)) {
+                    int bytesRead;
+                    while ((bytesRead = input.read(buffer)) != -1) zip.write(buffer, 0, bytesRead);
+                }
                 zip.closeEntry();
-                bitmap.recycle();
-                final int progress = Math.round(((i + 1) * 100f) / selectedPhotos.size());
-                runOnUiThread(() -> progressBar.setProgress(progress));
             }
         }
-        if (zipFile.length() == 0) throw new IOException("No compatible images were selected");
         return zipFile;
     }
 
@@ -287,14 +323,52 @@ public class MainActivity extends Activity {
         return (Integer) tag;
     }
 
-    private void shareLatestZip() {
-        if (latestZip == null || !latestZip.exists()) return;
-        Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", latestZip);
+    private boolean isZipSelected() {
+        int id = shareFormatGroup.getCheckedRadioButtonId();
+        return (Integer) shareFormatGroup.findViewById(id).getTag() == 1;
+    }
+
+    private void shareLatestExport() {
+        if (latestExport == null) return;
+        if (latestExport.zipFile != null) shareZip(latestExport.zipFile);
+        else sharePhotos(latestExport.photos);
+    }
+
+    private void shareZip(File zipFile) {
+        if (!zipFile.exists()) return;
+        Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", zipFile);
         Intent send = new Intent(Intent.ACTION_SEND);
         send.setType("application/zip");
         send.putExtra(Intent.EXTRA_STREAM, uri);
         send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(Intent.createChooser(send, "Share cleaned photo ZIP"));
+    }
+
+    private void sharePhotos(ArrayList<File> photos) {
+        ArrayList<Uri> uris = new ArrayList<>();
+        for (File photo : photos) {
+            if (photo.exists()) uris.add(FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", photo));
+        }
+        if (uris.isEmpty()) return;
+        Intent send = new Intent(uris.size() == 1 ? Intent.ACTION_SEND : Intent.ACTION_SEND_MULTIPLE);
+        send.setType("image/jpeg");
+        if (uris.size() == 1) send.putExtra(Intent.EXTRA_STREAM, uris.get(0));
+        else send.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+        ClipData clipData = ClipData.newUri(getContentResolver(), "Cleaned photos", uris.get(0));
+        for (int i = 1; i < uris.size(); i++) clipData.addItem(new ClipData.Item(uris.get(i)));
+        send.setClipData(clipData);
+        send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivity(Intent.createChooser(send, "Share cleaned photos"));
+    }
+
+    private static class ExportResult {
+        final ArrayList<File> photos;
+        final File zipFile;
+
+        ExportResult(ArrayList<File> photos, File zipFile) {
+            this.photos = photos;
+            this.zipFile = zipFile;
+        }
     }
 
     private RadioButton radio(String text, int quality, boolean checked) {
