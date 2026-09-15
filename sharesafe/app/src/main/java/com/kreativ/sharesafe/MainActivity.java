@@ -173,6 +173,11 @@ public class MainActivity extends Activity {
         saveButton.setOnClickListener(v -> saveToGallery());
         root.addView(saveButton, matchWrap());
 
+        addSpacer(root, 10);
+        Button aboutButton = button("Privacy & About", false);
+        aboutButton.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
+        root.addView(aboutButton, matchWrap());
+
         addSpacer(root, 24);
         TextView footer = label("How it works  •  ShareSafe redraws every selected photo into a new JPEG file. That process removes embedded camera details such as GPS coordinates, camera model, and timestamps.", 13, Color.rgb(96, 113, 109));
         footer.setLineSpacing(dp(2), 1f);
