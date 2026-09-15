@@ -1,4 +1,4 @@
-package com.sharesafe.app;
+package com.kreativ.sharesafe;
 
 import android.app.Activity;
 import android.content.ClipData;

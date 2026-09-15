@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.sharesafe.app'
+    namespace 'com.kreativ.sharesafe'
     compileSdk 36
 
     compileOptions {
@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId 'com.sharesafe.app'
+        applicationId 'com.kreativ.sharesafe'
         minSdk 26
         targetSdk 36
         versionCode 1
