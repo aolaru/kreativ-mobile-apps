@@ -130,6 +130,7 @@ public class MainActivity extends Activity {
         root.addView(statusText, matchWrap());
 
         shareButton = button("Share cleaned photos", false);
+        shareButton.setEnabled(false);
         shareButton.setVisibility(View.GONE);
         shareButton.setOnClickListener(v -> shareLatestZip());
         root.addView(shareButton, matchWrap());
@@ -164,6 +165,7 @@ public class MainActivity extends Activity {
         selectedPhotos.clear();
         selectedPhotos.addAll(unique);
         latestZip = null;
+        shareButton.setEnabled(false);
         shareButton.setVisibility(View.GONE);
         cleanButton.setEnabled(!selectedPhotos.isEmpty());
         selectionText.setText(selectedPhotos.isEmpty() ? "No photos selected" : selectedPhotos.size() + " photo" + (selectedPhotos.size() == 1 ? "" : "s") + " selected");
@@ -174,6 +176,7 @@ public class MainActivity extends Activity {
         if (selectedPhotos.isEmpty()) return;
         final int quality = chosenQuality();
         cleanButton.setEnabled(false);
+        shareButton.setEnabled(false);
         shareButton.setVisibility(View.GONE);
         progressBar.setProgress(0);
         progressBar.setVisibility(View.VISIBLE);
@@ -186,6 +189,7 @@ public class MainActivity extends Activity {
                     latestZip = zip;
                     progressBar.setVisibility(View.GONE);
                     statusText.setText(selectedPhotos.size() + " clean photo" + (selectedPhotos.size() == 1 ? " is" : "s are") + " ready in a ZIP.");
+                    shareButton.setEnabled(true);
                     shareButton.setVisibility(View.VISIBLE);
                     cleanButton.setEnabled(true);
                 });
