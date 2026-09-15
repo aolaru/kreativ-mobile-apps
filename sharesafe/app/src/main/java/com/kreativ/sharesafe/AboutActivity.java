@@ -15,7 +15,7 @@ import android.widget.TextView;
 /** Plain-language privacy and support information for ShareSafe. */
 public class AboutActivity extends Activity {
     private static final String PRIVACY_POLICY_URL = "https://kreativfont.com/blog/terms-of-use-privacy-policy";
-    private static final String SUPPORT_EMAIL = "contact@kreativfont.com";
+    private static final String SUPPORT_EMAIL = "info@madebykreativ.com";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
