@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="night">#0B1320</color>
+    <color name="night_lighter">#162238</color>
+    <color name="moon">#EEF3F7</color>
+    <color name="mist">#AEBBCB</color>
+    <color name="gold">#F0B65B</color>
+    <color name="line">#2D3C53</color>
+    <color name="red_light">#6A101A</color>
+</resources>

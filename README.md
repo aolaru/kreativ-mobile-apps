@@ -5,5 +5,6 @@ Android utility apps built by Kreativ.
 ## Apps
 
 - [ShareSafe](sharesafe/) — creates share-ready photo copies with embedded metadata removed, entirely on-device.
+- [Northlight](northlight/) — an offline compass, lantern, red-light, and SOS utility.
 
 Each app is self-contained in its own directory so it can be opened and built independently in Android Studio.
