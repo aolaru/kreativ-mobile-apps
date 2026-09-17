@@ -2,9 +2,14 @@ plugins {
     id 'com.android.application'
 }
 
+def releaseKeystorePath = System.getenv('KREATIV_SHARESAFE_KEYSTORE')
+def releaseKeystorePassword = System.getenv('KREATIV_SHARESAFE_KEYSTORE_PASSWORD')
+
 android {
     namespace 'com.kreativ.sharesafe'
     compileSdk 36
+
+    flavorDimensions += "store"
 
     buildFeatures {
         buildConfig true
@@ -21,6 +26,37 @@ android {
         targetSdk 36
         versionCode 1
         versionName '1.0.0'
+    }
+
+    signingConfigs {
+        release {
+            if (releaseKeystorePath != null && releaseKeystorePassword != null) {
+                storeFile file(releaseKeystorePath)
+                storePassword releaseKeystorePassword
+                keyAlias 'sharesafe-release'
+                keyPassword releaseKeystorePassword
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    // Store-specific builds keep future billing integrations isolated. All variants
+    // intentionally retain the same application ID and release signing identity.
+    productFlavors {
+        play {
+            dimension "store"
+        }
+        samsung {
+            dimension "store"
+        }
+        amazon {
+            dimension "store"
+        }
     }
 }
 

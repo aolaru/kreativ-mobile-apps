@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:installLocation="preferExternal">
+
+    <!-- ShareSafe requires touch interaction and is intentionally not a Fire TV app. -->
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="true" />
+</manifest>
