@@ -2,6 +2,10 @@ plugins {
     id 'com.android.application'
 }
 
+def releaseKeystorePath = System.getenv('KREATIV_NORTHLIGHT_KEYSTORE')
+def releaseKeystorePassword = System.getenv('KREATIV_NORTHLIGHT_KEYSTORE_PASSWORD')
+def isReleaseTask = gradle.startParameter.taskNames.any { it.toLowerCase().contains('release') }
+
 android {
     namespace 'com.kreativ.northlight'
     compileSdk 36
@@ -22,6 +26,27 @@ android {
         versionCode 1
         versionName '1.0.0'
     }
+
+    signingConfigs {
+        release {
+            if (releaseKeystorePath != null && releaseKeystorePassword != null) {
+                storeFile file(releaseKeystorePath)
+                storePassword releaseKeystorePassword
+                keyAlias 'northlight-upload'
+                keyPassword releaseKeystorePassword
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+if (isReleaseTask && (releaseKeystorePath == null || releaseKeystorePassword == null)) {
+    throw new GradleException('Release signing requires KREATIV_NORTHLIGHT_KEYSTORE and KREATIV_NORTHLIGHT_KEYSTORE_PASSWORD.')
 }
 
 dependencies {

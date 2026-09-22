@@ -19,12 +19,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Gravity;
+import android.view.Surface;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,8 @@ public class MainActivity extends Activity implements SensorEventListener {
     private TextView bearingText;
     private TextView directionText;
     private TextView sensorStatus;
+    private TextView torchStatus;
+    private TextView brightnessLabel;
     private Button lanternButton;
     private Button redButton;
     private Button sosButton;
@@ -53,11 +56,25 @@ public class MainActivity extends Activity implements SensorEventListener {
     private CameraManager cameraManager;
     private String torchCameraId;
     private boolean torchOn;
-    private boolean redLightOn;
     private boolean sosOn;
+    private int torchMaxStrength = 1;
     private Runnable pendingCameraAction;
     private int sosIndex;
     private final int[] sosPattern = {220, 220, 220, 220, 220, 220, 700, 220, 700, 220, 700, 220, 220, 220, 220, 220, 220, 1100};
+    private final CameraManager.TorchCallback torchCallback = new CameraManager.TorchCallback() {
+        @Override public void onTorchModeChanged(String cameraId, boolean enabled) {
+            if (!cameraId.equals(torchCameraId)) return;
+            torchOn = enabled;
+            if (!sosOn && lanternButton != null) lanternButton.setText(enabled ? "Turn off lantern" : "Turn on lantern");
+            if (torchStatus != null) torchStatus.setText(enabled ? "Lantern on" : "Lantern ready");
+        }
+
+        @Override public void onTorchModeUnavailable(String cameraId) {
+            if (!cameraId.equals(torchCameraId) || torchStatus == null) return;
+            torchOn = false;
+            torchStatus.setText("Lantern is in use by another camera app");
+        }
+    };
 
     private final Runnable sosPulse = new Runnable() {
         @Override public void run() {
@@ -80,6 +97,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         magnetometer = sensors.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
         findTorch();
         setContentView(buildScreen());
+        cameraManager.registerTorchCallback(torchCallback, handler);
         updateHardwareCopy();
     }
 
@@ -124,6 +142,12 @@ public class MainActivity extends Activity implements SensorEventListener {
         sensorStatus.setGravity(Gravity.CENTER);
         sensorStatus.setBackgroundResource(R.drawable.pill);
         root.addView(sensorStatus, centerWrap());
+        Button calibrate = smallButton("Calibrate compass");
+        calibrate.setTextSize(14);
+        calibrate.setOnClickListener(v -> Toast.makeText(this, "Move your phone in a slow figure-eight, away from metal or magnets.", Toast.LENGTH_LONG).show());
+        LinearLayout.LayoutParams calibrateParams = centerWrap();
+        calibrateParams.topMargin = dp(8);
+        root.addView(calibrate, calibrateParams);
 
         addSpacer(24);
         TextView lightLabel = text("LIGHT", 12, gold());
@@ -137,9 +161,14 @@ public class MainActivity extends Activity implements SensorEventListener {
         lanternButton = actionButton("Turn on lantern", true);
         lanternButton.setOnClickListener(v -> runWithCameraPermission(() -> toggleLantern()));
         root.addView(lanternButton, matchWrap());
+        torchStatus = text("Lantern ready", 13, mist());
+        torchStatus.setGravity(Gravity.CENTER);
+        torchStatus.setPadding(0, dp(7), 0, 0);
+        root.addView(torchStatus, matchWrap());
+        if (torchMaxStrength > 1) addBrightnessControl();
         addSpacer(9);
         redButton = actionButton("Red screen light", false);
-        redButton.setOnClickListener(v -> toggleRedLight());
+        redButton.setOnClickListener(v -> startActivity(new Intent(this, RedLightActivity.class)));
         root.addView(redButton, matchWrap());
         addSpacer(9);
         sosButton = actionButton("SOS signal", false);
@@ -169,14 +198,17 @@ public class MainActivity extends Activity implements SensorEventListener {
         if (torchOn) setTorch(false);
     }
 
+    @Override protected void onDestroy() {
+        cameraManager.unregisterTorchCallback(torchCallback);
+        super.onDestroy();
+    }
+
     @Override public void onSensorChanged(SensorEvent event) {
         float heading = Float.NaN;
         if (event.sensor.getType() == Sensor.TYPE_ROTATION_VECTOR) {
             float[] rotation = new float[9];
             SensorManager.getRotationMatrixFromVector(rotation, event.values);
-            float[] orientation = new float[3];
-            SensorManager.getOrientation(rotation, orientation);
-            heading = (float) Math.toDegrees(orientation[0]);
+            heading = headingFromRotation(rotation);
         } else {
             if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
                 System.arraycopy(event.values, 0, gravity, 0, gravity.length);
@@ -188,16 +220,42 @@ public class MainActivity extends Activity implements SensorEventListener {
             if (hasGravity && hasGeomagnetic) {
                 float[] rotation = new float[9];
                 if (SensorManager.getRotationMatrix(rotation, null, gravity, geomagnetic)) {
-                    float[] orientation = new float[3];
-                    SensorManager.getOrientation(rotation, orientation);
-                    heading = (float) Math.toDegrees(orientation[0]);
+                    heading = headingFromRotation(rotation);
                 }
             }
         }
         if (!Float.isNaN(heading)) updateHeading((heading + 360f) % 360f);
     }
 
-    @Override public void onAccuracyChanged(Sensor sensor, int accuracy) { }
+    @Override public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        if (sensorStatus == null || (sensor != rotationSensor && sensor != magnetometer)) return;
+        if (accuracy == SensorManager.SENSOR_STATUS_UNRELIABLE) sensorStatus.setText("Compass needs calibration · move in a figure-eight");
+        else if (accuracy == SensorManager.SENSOR_STATUS_ACCURACY_LOW) sensorStatus.setText("Compass accuracy is low · calibrate before relying on it");
+        else sensorStatus.setText("Magnetic north · compass calibrated");
+    }
+
+    /** Align the sensor coordinate system with the physical screen in portrait or landscape. */
+    private float headingFromRotation(float[] rotation) {
+        @SuppressWarnings("deprecation")
+        int displayRotation = getWindowManager().getDefaultDisplay().getRotation();
+        int axisX = SensorManager.AXIS_X;
+        int axisY = SensorManager.AXIS_Y;
+        if (displayRotation == Surface.ROTATION_90) {
+            axisX = SensorManager.AXIS_Y;
+            axisY = SensorManager.AXIS_MINUS_X;
+        } else if (displayRotation == Surface.ROTATION_180) {
+            axisX = SensorManager.AXIS_MINUS_X;
+            axisY = SensorManager.AXIS_MINUS_Y;
+        } else if (displayRotation == Surface.ROTATION_270) {
+            axisX = SensorManager.AXIS_MINUS_Y;
+            axisY = SensorManager.AXIS_X;
+        }
+        float[] adjusted = new float[9];
+        SensorManager.remapCoordinateSystem(rotation, axisX, axisY, adjusted);
+        float[] orientation = new float[3];
+        SensorManager.getOrientation(adjusted, orientation);
+        return (float) Math.toDegrees(orientation[0]);
+    }
 
     private void updateHeading(float heading) {
         if (compass == null) return;
@@ -217,7 +275,14 @@ public class MainActivity extends Activity implements SensorEventListener {
             for (String id : cameraManager.getCameraIdList()) {
                 CameraCharacteristics characteristics = cameraManager.getCameraCharacteristics(id);
                 Boolean flash = characteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
-                if (Boolean.TRUE.equals(flash)) { torchCameraId = id; return; }
+                if (Boolean.TRUE.equals(flash)) {
+                    torchCameraId = id;
+                    if (android.os.Build.VERSION.SDK_INT >= 33) {
+                        Integer max = characteristics.get(CameraCharacteristics.FLASH_INFO_STRENGTH_MAXIMUM_LEVEL);
+                        if (max != null) torchMaxStrength = max;
+                    }
+                    return;
+                }
             }
         } catch (Exception ignored) { }
     }
@@ -267,22 +332,42 @@ public class MainActivity extends Activity implements SensorEventListener {
             cameraManager.setTorchMode(torchCameraId, on);
             torchOn = on;
             if (!sosOn) lanternButton.setText(on ? "Turn off lantern" : "Turn on lantern");
+            if (torchStatus != null) torchStatus.setText(on ? "Lantern on" : "Lantern ready");
         } catch (Exception e) {
             torchOn = false;
+            if (torchStatus != null) torchStatus.setText("Lantern unavailable right now");
             Toast.makeText(this, "The lantern is unavailable right now.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void toggleRedLight() {
-        redLightOn = !redLightOn;
-        root.setBackgroundColor(redLightOn ? Color.rgb(106, 16, 26) : Color.rgb(11, 19, 32));
-        Window window = getWindow();
-        window.setStatusBarColor(redLightOn ? Color.rgb(106, 16, 26) : Color.rgb(11, 19, 32));
-        window.setNavigationBarColor(redLightOn ? Color.rgb(106, 16, 26) : Color.rgb(11, 19, 32));
-        WindowManager.LayoutParams attrs = window.getAttributes();
-        attrs.screenBrightness = redLightOn ? 1f : WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE;
-        window.setAttributes(attrs);
-        redButton.setText(redLightOn ? "Turn off red screen light" : "Red screen light");
+    private void addBrightnessControl() {
+        brightnessLabel = text("Lantern brightness", 13, mist());
+        brightnessLabel.setPadding(0, dp(8), 0, 0);
+        root.addView(brightnessLabel, matchWrap());
+        SeekBar brightness = new SeekBar(this);
+        brightness.setMax(torchMaxStrength - 1);
+        brightness.setProgress(torchMaxStrength - 1);
+        brightness.setContentDescription("Lantern brightness");
+        brightness.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override public void onProgressChanged(SeekBar bar, int progress, boolean fromUser) {
+                int level = progress + 1;
+                brightnessLabel.setText("Lantern brightness · " + level + " of " + torchMaxStrength);
+                if (fromUser) runWithCameraPermission(() -> setTorchStrength(level));
+            }
+            @Override public void onStartTrackingTouch(SeekBar bar) { }
+            @Override public void onStopTrackingTouch(SeekBar bar) { }
+        });
+        root.addView(brightness, matchWrap());
+    }
+
+    private void setTorchStrength(int level) {
+        if (android.os.Build.VERSION.SDK_INT < 33 || torchCameraId == null) return;
+        try {
+            cameraManager.turnOnTorchWithStrengthLevel(torchCameraId, Math.max(1, Math.min(level, torchMaxStrength)));
+            torchOn = true;
+        } catch (Exception e) {
+            Toast.makeText(this, "This phone could not change lantern brightness.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void toggleSos() {

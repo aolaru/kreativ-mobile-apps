@@ -7,4 +7,12 @@
         <item name="android:statusBarColor">@color/night</item>
         <item name="android:windowLightStatusBar">false</item>
     </style>
+    <style name="Theme.Northlight.RedLight" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:colorAccent">@color/moon</item>
+        <item name="android:navigationBarColor">@color/red_light</item>
+        <item name="android:statusBarColor">@color/red_light</item>
+    </style>
 </resources>

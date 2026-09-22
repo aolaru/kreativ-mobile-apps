@@ -1,7 +1,9 @@
 package com.kreativ.northlight;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 /** Plain-language explanation of the app's intentionally minimal data practices. */
 public class AboutActivity extends Activity {
+    private static final String PRIVACY_POLICY_URL = "https://madebykreativ.com/privacy/northlight/";
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(buildScreen());
@@ -35,6 +38,10 @@ public class AboutActivity extends Activity {
         section(root, "Private by design", "Northlight works entirely on your phone. It has no account, no analytics, no advertising SDK, and no internet permission.");
         section(root, "Camera permission", "Northlight asks for camera access only when you choose the LED lantern or SOS signal. Android requires that permission to control the camera flash. It never takes photos or records video.");
         section(root, "Compass accuracy", "The compass uses your phone's orientation sensors and shows magnetic north. Accuracy can be affected by magnets, metal objects, and some phone cases. Move your phone in a figure-eight if it needs calibration.");
+        Button privacy = new Button(this);
+        privacy.setText("Read Privacy Policy"); privacy.setTextSize(16); privacy.setAllCaps(false); privacy.setTextColor(moon());
+        privacy.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY_URL))));
+        root.addView(privacy, new LinearLayout.LayoutParams(-1, -2));
         TextView version = text("Version " + BuildConfig.VERSION_NAME, 14, mist());
         version.setGravity(Gravity.CENTER);
         version.setPadding(0, dp(16), 0, dp(14));
