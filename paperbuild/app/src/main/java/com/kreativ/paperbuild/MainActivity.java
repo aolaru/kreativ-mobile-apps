@@ -109,7 +109,7 @@ public class MainActivity extends Activity {
 
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(dp(24), dp(30), dp(24), dp(30));
+        root.setPadding(dp(24), dp(30), dp(24), dp(96));
         scroll.addView(root, new ScrollView.LayoutParams(-1, -1));
 
         TextView badge = label("PRIVATE DOCUMENT UTILITY", 12, Color.rgb(49, 94, 170));
@@ -150,11 +150,13 @@ public class MainActivity extends Activity {
         addSpacer(root, 18);
         LinearLayout choiceRow = new LinearLayout(this);
         choiceRow.setOrientation(LinearLayout.HORIZONTAL);
-        Button scanButton = button("Scan a page", false);
+        Button scanButton = button("Scan a page", true);
         scanButton.setOnClickListener(v -> capturePage());
         choiceRow.addView(scanButton, weightWrap(1));
         addHorizontalSpacer(choiceRow, 10);
         Button addButton = button("Add images", false);
+        addButton.setTextColor(Color.rgb(49, 94, 170));
+        addButton.setBackgroundResource(R.drawable.button_import);
         addButton.setOnClickListener(v -> chooseImages());
         choiceRow.addView(addButton, weightWrap(1));
         root.addView(choiceRow, matchWrap());
@@ -240,11 +242,11 @@ public class MainActivity extends Activity {
         root.addView(openButton, matchWrap());
 
         addSpacer(root, 28);
-        root.addView(proCard());
-        addSpacer(root, 12);
         Button aboutButton = button("Privacy & About", false);
         aboutButton.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
         root.addView(aboutButton, matchWrap());
+        addSpacer(root, 18);
+        root.addView(proCard());
         return scroll;
     }
 
