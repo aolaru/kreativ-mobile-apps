@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -354,16 +355,9 @@ public class MainActivity extends Activity {
             top.addView(preview, previewParams);
             TextView name = label("Page " + (i + 1) + "  •  " + page.name, 15, Color.rgb(30, 41, 53));
             name.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
-            name.setSingleLine(true);
+            name.setMaxLines(2);
+            name.setEllipsize(TextUtils.TruncateAt.END);
             top.addView(name, weightWrap(1));
-            Button remove = tinyButton("Remove");
-            remove.setOnClickListener(v -> {
-                pages.remove(position);
-                latestPdf = null;
-                hideResult();
-                refreshPages();
-            });
-            top.addView(remove, new LinearLayout.LayoutParams(-2, dp(38)));
             row.addView(top, matchWrap());
 
             LinearLayout controls = new LinearLayout(this);
@@ -387,6 +381,15 @@ public class MainActivity extends Activity {
                 refreshPages();
             });
             controls.addView(rotate, new LinearLayout.LayoutParams(-2, dp(38)));
+            addHorizontalSpacer(controls, 6);
+            Button remove = tinyButton("Remove");
+            remove.setOnClickListener(v -> {
+                pages.remove(position);
+                latestPdf = null;
+                hideResult();
+                refreshPages();
+            });
+            controls.addView(remove, new LinearLayout.LayoutParams(-2, dp(38)));
             row.addView(controls, matchWrap());
         }
     }
