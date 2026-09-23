@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 /** Plain-language privacy and support information for PaperBuild. */
 public class AboutActivity extends Activity {
-    private static final String PRIVACY_POLICY_URL = "https://madebykreativ.com/privacy/paperbuild/";
+    private static final String PRIVACY_POLICY_URL = "https://github.com/aolaru/kreativ-mobile-apps/blob/main/paperbuild/PRIVACY_POLICY.md";
     private static final String SUPPORT_EMAIL = "info@madebykreativ.com";
 
     @Override

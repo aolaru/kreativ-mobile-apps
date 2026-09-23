@@ -1,0 +1,6 @@
+# Keep the real release-signing.properties file out of Git.
+# Use an absolute path or a path relative to this folder for storeFile.
+storeFile=/secure/path/PaperBuild-release.jks
+storePassword=replace-with-keystore-password
+keyAlias=paperbuild
+keyPassword=replace-with-key-password

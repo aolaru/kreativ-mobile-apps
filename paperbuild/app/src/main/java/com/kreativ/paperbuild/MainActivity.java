@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -342,6 +343,15 @@ public class MainActivity extends Activity {
 
             LinearLayout top = new LinearLayout(this);
             top.setGravity(Gravity.CENTER_VERTICAL);
+            ImageView preview = new ImageView(this);
+            preview.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            preview.setBackgroundColor(Color.rgb(234, 239, 247));
+            preview.setContentDescription("Preview of page " + (i + 1));
+            Bitmap thumbnail = loadThumbnail(page);
+            if (thumbnail != null) preview.setImageBitmap(thumbnail);
+            LinearLayout.LayoutParams previewParams = new LinearLayout.LayoutParams(dp(58), dp(76));
+            previewParams.rightMargin = dp(12);
+            top.addView(preview, previewParams);
             TextView name = label("Page " + (i + 1) + "  •  " + page.name, 15, Color.rgb(30, 41, 53));
             name.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
             name.setSingleLine(true);
@@ -502,6 +512,39 @@ public class MainActivity extends Activity {
             bitmap = rotated;
         }
         return applyEnhancement(bitmap, enhancement);
+    }
+
+    private Bitmap loadThumbnail(PageItem item) {
+        try {
+            BitmapFactory.Options bounds = new BitmapFactory.Options();
+            bounds.inJustDecodeBounds = true;
+            try (InputStream input = getContentResolver().openInputStream(item.uri)) {
+                if (input == null) return null;
+                BitmapFactory.decodeStream(input, null, bounds);
+            }
+            if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null;
+            int sample = 1;
+            int maximumSide = Math.max(bounds.outWidth, bounds.outHeight);
+            while (maximumSide / sample > 240) sample *= 2;
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = sample;
+            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+            Bitmap bitmap;
+            try (InputStream input = getContentResolver().openInputStream(item.uri)) {
+                if (input == null) return null;
+                bitmap = BitmapFactory.decodeStream(input, null, options);
+            }
+            if (bitmap == null) return null;
+            int rotation = (exifRotation(item.uri) + item.rotation) % 360;
+            if (rotation == 0) return bitmap;
+            Matrix matrix = new Matrix();
+            matrix.postRotate(rotation);
+            Bitmap rotated = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            if (rotated != bitmap) bitmap.recycle();
+            return rotated;
+        } catch (Exception ignored) {
+            return null;
+        }
     }
 
     private Bitmap applyEnhancement(Bitmap bitmap, int enhancement) {

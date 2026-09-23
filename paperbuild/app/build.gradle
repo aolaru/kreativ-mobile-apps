@@ -2,6 +2,14 @@ plugins {
     id 'com.android.application'
 }
 
+import java.util.Properties
+
+def releaseSigningFile = rootProject.file('release-signing.properties')
+def releaseSigning = new Properties()
+if (releaseSigningFile.exists()) {
+    releaseSigningFile.withInputStream { releaseSigning.load(it) }
+}
+
 android {
     namespace 'com.kreativ.paperbuild'
     compileSdk 36
@@ -21,6 +29,26 @@ android {
         targetSdk 36
         versionCode 1
         versionName '1.0.0'
+    }
+
+    signingConfigs {
+        release {
+            if (releaseSigningFile.exists()) {
+                storeFile file(releaseSigning['storeFile'])
+                storePassword releaseSigning['storePassword']
+                keyAlias releaseSigning['keyAlias']
+                keyPassword releaseSigning['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            if (releaseSigningFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+        }
     }
 }
 
