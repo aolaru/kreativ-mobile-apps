@@ -116,7 +116,7 @@ public class MainActivity extends Activity {
         badge.setLetterSpacing(.12f);
         root.addView(badge);
 
-        TextView title = label("Build clean documents\nfrom the pages in your pocket.", 30, Color.rgb(30, 41, 53));
+        TextView title = label("Build clean documents\nfrom the pages in your pocket.", 28, Color.rgb(30, 41, 53));
         title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
         title.setPadding(0, dp(12), 0, dp(10));
         root.addView(title);
@@ -125,7 +125,18 @@ public class MainActivity extends Activity {
         intro.setLineSpacing(dp(3), 1f);
         root.addView(intro);
 
-        addSpacer(root, 26);
+        ImageView documentIllustration = new ImageView(this);
+        documentIllustration.setImageResource(R.drawable.ic_document_build);
+        documentIllustration.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        documentIllustration.setBackgroundResource(R.drawable.hero_panel);
+        documentIllustration.setContentDescription("Illustration of a document being prepared");
+        documentIllustration.setPadding(dp(16), dp(8), dp(16), dp(8));
+        LinearLayout.LayoutParams illustrationParams = matchWrap();
+        illustrationParams.topMargin = dp(18);
+        illustrationParams.height = dp(92);
+        root.addView(documentIllustration, illustrationParams);
+
+        addSpacer(root, 22);
         TextView nameLabel = sectionTitle("Document name");
         root.addView(nameLabel);
         documentName = new EditText(this);
