@@ -109,19 +109,19 @@ public class MainActivity extends Activity {
 
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(dp(24), dp(30), dp(24), dp(96));
+        root.setPadding(dp(24), dp(30), dp(24), dp(132));
         scroll.addView(root, new ScrollView.LayoutParams(-1, -1));
 
-        TextView badge = label("PRIVATE DOCUMENT UTILITY", 12, Color.rgb(49, 94, 170));
+        TextView badge = label("PRIVATE PDF MAKER", 12, Color.rgb(49, 94, 170));
         badge.setLetterSpacing(.12f);
         root.addView(badge);
 
-        TextView title = label("Build clean documents\nfrom the pages in your pocket.", 28, Color.rgb(30, 41, 53));
+        TextView title = label("Turn pages into\na clean PDF.", 28, Color.rgb(30, 41, 53));
         title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
         title.setPadding(0, dp(12), 0, dp(10));
         root.addView(title);
 
-        TextView intro = label("Scan with your camera or add images, arrange the pages, clean them up, then create a share-ready PDF. Everything stays on your device.", 16, Color.rgb(91, 104, 120));
+        TextView intro = label("Scan or add images, arrange them, then export. Everything stays on your device.", 16, Color.rgb(91, 104, 120));
         intro.setLineSpacing(dp(3), 1f);
         root.addView(intro);
 
@@ -137,7 +137,7 @@ public class MainActivity extends Activity {
         root.addView(documentIllustration, illustrationParams);
 
         addSpacer(root, 22);
-        TextView nameLabel = sectionTitle("Document name");
+        TextView nameLabel = sectionTitle("PDF name");
         root.addView(nameLabel);
         documentName = new EditText(this);
         documentName.setText("My document");
@@ -169,14 +169,14 @@ public class MainActivity extends Activity {
         pageList.setOrientation(LinearLayout.VERTICAL);
         root.addView(pageList, matchWrap());
 
-        TextView orderHint = label("Use the arrows to put pages in order. Rotate fixes sideways photos.", 13, Color.rgb(91, 104, 120));
+        TextView orderHint = label("Reorder or rotate pages.", 13, Color.rgb(91, 104, 120));
         orderHint.setLineSpacing(dp(2), 1f);
         orderHint.setPadding(0, dp(8), 0, 0);
         root.addView(orderHint);
 
         addSpacer(root, 22);
         root.addView(sectionTitle("Page size"));
-        TextView sizeHint = label("Choose the paper your document is intended for.", 14, Color.rgb(91, 104, 120));
+        TextView sizeHint = label("Choose your paper size.", 14, Color.rgb(91, 104, 120));
         sizeHint.setPadding(0, dp(4), 0, dp(5));
         root.addView(sizeHint);
         paperSizeGroup = new RadioGroup(this);
@@ -187,7 +187,7 @@ public class MainActivity extends Activity {
 
         addSpacer(root, 14);
         root.addView(sectionTitle("Document treatment"));
-        TextView treatmentHint = label("Applied locally to every page when you create the PDF.", 14, Color.rgb(91, 104, 120));
+        TextView treatmentHint = label("Applied to every page.", 14, Color.rgb(91, 104, 120));
         treatmentHint.setPadding(0, dp(4), 0, dp(5));
         root.addView(treatmentHint);
         enhancementGroup = new RadioGroup(this);
@@ -242,11 +242,11 @@ public class MainActivity extends Activity {
         root.addView(openButton, matchWrap());
 
         addSpacer(root, 28);
+        root.addView(proCard());
+        addSpacer(root, 14);
         Button aboutButton = button("Privacy & About", false);
         aboutButton.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
         root.addView(aboutButton, matchWrap());
-        addSpacer(root, 18);
-        root.addView(proCard());
         return scroll;
     }
 
@@ -257,7 +257,7 @@ public class MainActivity extends Activity {
         card.setBackgroundResource(R.drawable.card);
         TextView title = sectionTitle("PaperBuild Pro");
         card.addView(title);
-        TextView copy = label("A future one-time upgrade for merge & split, compression, signing, permanent redaction, encryption, and on-device text search. No subscription planned.", 14, Color.rgb(91, 104, 120));
+        TextView copy = label("A future one-time upgrade for advanced PDF tools. No subscription planned.", 14, Color.rgb(91, 104, 120));
         copy.setLineSpacing(dp(2), 1f);
         copy.setPadding(0, dp(5), 0, dp(10));
         card.addView(copy);
@@ -359,7 +359,7 @@ public class MainActivity extends Activity {
             top.setGravity(Gravity.CENTER_VERTICAL);
             ImageView preview = new ImageView(this);
             preview.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            preview.setBackgroundColor(Color.rgb(234, 239, 247));
+            preview.setBackgroundResource(R.drawable.page_preview);
             preview.setContentDescription("Preview of page " + (i + 1));
             Bitmap thumbnail = loadThumbnail(page);
             if (thumbnail != null) preview.setImageBitmap(thumbnail);
@@ -386,7 +386,7 @@ public class MainActivity extends Activity {
             down.setOnClickListener(v -> movePage(position, position + 1));
             controls.addView(down, new LinearLayout.LayoutParams(dp(46), dp(38)));
             addHorizontalSpacer(controls, 6);
-            Button rotate = tinyButton("Rotate");
+            Button rotate = tinyButton("↻ Rotate");
             rotate.setOnClickListener(v -> {
                 pages.get(position).rotation = (pages.get(position).rotation + 90) % 360;
                 latestPdf = null;
@@ -396,6 +396,8 @@ public class MainActivity extends Activity {
             controls.addView(rotate, new LinearLayout.LayoutParams(-2, dp(38)));
             addHorizontalSpacer(controls, 6);
             Button remove = tinyButton("Remove");
+            remove.setTextColor(Color.rgb(181, 61, 61));
+            remove.setBackgroundResource(R.drawable.button_compact_danger);
             remove.setOnClickListener(v -> {
                 pages.remove(position);
                 latestPdf = null;
@@ -794,7 +796,7 @@ public class MainActivity extends Activity {
         button.setAllCaps(false);
         button.setTextColor(Color.rgb(49, 94, 170));
         button.setPadding(dp(7), 0, dp(7), 0);
-        button.setBackgroundResource(R.drawable.button_secondary);
+        button.setBackgroundResource(R.drawable.button_compact);
         return button;
     }
 

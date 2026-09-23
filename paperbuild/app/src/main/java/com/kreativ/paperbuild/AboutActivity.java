@@ -29,7 +29,7 @@ public class AboutActivity extends Activity {
         scroll.setBackgroundColor(Color.rgb(247, 248, 252));
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(dp(24), dp(30), dp(24), dp(30));
+        root.setPadding(dp(24), dp(30), dp(24), dp(132));
         scroll.addView(root, new ScrollView.LayoutParams(-1, -1));
 
         TextView badge = label("PAPERBUILD", 12, Color.rgb(49, 94, 170));
@@ -41,9 +41,9 @@ public class AboutActivity extends Activity {
         title.setPadding(0, dp(12), 0, dp(20));
         root.addView(title);
 
-        addSection(root, "Your pages stay on your device.", "PaperBuild processes the images you choose locally on your phone to create a PDF. It does not upload your pages, document names, or finished PDFs to Kreativ or another server.");
-        addSection(root, "You choose what it can access.", "The app uses Android's system file picker to let you select individual images. Scanning opens your chosen camera app. PaperBuild does not request broad access to your photo library or direct camera permission.");
-        addSection(root, "You control exports.", "Finished PDFs are kept in the app's temporary workspace until you share, open, or save one. Save to Downloads places a copy in Downloads/PaperBuild. Your original images are not changed.");
+        addSection(root, "Your pages stay private.", "PaperBuild creates PDFs on your phone. It does not upload your pages or PDFs.");
+        addSection(root, "You choose access.", "You select images with Android's picker. Scanning uses your camera app. No broad photo or camera access is requested.");
+        addSection(root, "You control exports.", "PDFs stay temporary until you share, open, or save them. Originals are never changed.");
 
         Button privacyButton = button("Read Privacy Policy", false);
         privacyButton.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY_URL))));
