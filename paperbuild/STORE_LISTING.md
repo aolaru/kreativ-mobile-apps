@@ -32,12 +32,20 @@ Everything happens on your phone. PaperBuild has no account, no ads, no analytic
 - No broad photo-library or direct camera permission
 - No account, ads, tracking, analytics, or upload
 
-PaperBuild Pro is planned as a one-time purchase. It will add merge and split, compression, signatures, permanent redaction, password protection, folders, and on-device OCR. The free PDF-maker remains fully usable without Pro.
+### PaperBuild Pro - €2.99 one-time purchase
+
+- Smaller PDF exports for easier sharing
+- Unlimited pages (free documents support up to 10 pages)
+- Merge PDFs and extract a page or page range
+
+Pro is a permanent unlock, not a subscription. The free PDF maker remains fully usable without Pro.
 
 ## Store setup
 
 - Category: Productivity
-- App type: Free app with planned in-app product
+- App type: Free app with one-time in-app product
+- One-time product ID: `paperbuild_pro_lifetime`
+- One-time product price: €2.99
 - Contact email: info@madebykreativ.com
 - Privacy policy: https://github.com/aolaru/kreativ-mobile-apps/blob/main/paperbuild/PRIVACY_POLICY.md
 - Data safety: no data collected or shared

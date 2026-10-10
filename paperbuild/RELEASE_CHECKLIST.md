@@ -21,6 +21,8 @@
 - [x] Build and verify a signed App Bundle with `./gradlew bundleRelease`.
 - [ ] Capture the four real-device screenshots described in `STORE_LISTING.md`.
 - [ ] Complete Google Play content, target audience, data safety, and app access forms.
+- [ ] Create the non-consumable one-time product `paperbuild_pro_lifetime` at €2.99 in Play Console.
+- [ ] Add license testers and test purchase, restore, pending purchase, merge, split, and compact export on an internal track.
 - [ ] Upload to an internal testing track and invite testers.
 - [ ] Resolve tester feedback before creating a production release.
 
@@ -28,4 +30,4 @@
 
 - [x] No account, analytics, ads, or internet permission.
 - [x] No misleading auto-crop, OCR, signing, redaction, or merge claims.
-- [x] Pro features remain labelled as planned until they are implemented and tested.
+- [x] Pro features are implemented and accurately described; Play purchase testing remains required before release.

@@ -1,6 +1,6 @@
 # PaperBuild Privacy Policy
 
-Last updated: September 23, 2026
+Last updated: October 10, 2026
 
 PaperBuild is an offline Android document-maker from Kreativ. This policy explains how the app handles information when you use it.
 
@@ -21,6 +21,8 @@ While you work, PaperBuild creates a temporary PDF in its private app storage. W
 ## Data collection and sharing
 
 PaperBuild does not collect, sell, rent, or share personal information. It does not use your documents to train AI systems.
+
+If you choose to buy PaperBuild Pro, Google Play processes the purchase under its own terms. PaperBuild does not receive or store payment-card information.
 
 ## Permissions
 

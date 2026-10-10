@@ -17,14 +17,17 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.pdf.PdfDocument;
+import android.graphics.pdf.PdfRenderer;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.text.TextUtils;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +52,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Locale;
@@ -64,6 +68,8 @@ public class MainActivity extends Activity {
     private static final int PICK_IMAGES = 101;
     private static final int CAPTURE_PAGE = 102;
     private static final int WRITE_DOCUMENT = 103;
+    private static final int PICK_PDFS_TO_MERGE = 104;
+    private static final int PICK_PDF_TO_SPLIT = 105;
     private static final int A4_WIDTH = 595;
     private static final int A4_HEIGHT = 842;
     private static final int LETTER_WIDTH = 612;
@@ -71,6 +77,9 @@ public class MainActivity extends Activity {
     private static final int ENHANCE_COLOR = 0;
     private static final int ENHANCE_GRAYSCALE = 1;
     private static final int ENHANCE_CONTRAST = 2;
+    private static final int COMPRESSION_STANDARD = 0;
+    private static final int COMPRESSION_SMALL = 1;
+    private static final int FREE_PAGE_LIMIT = 10;
 
     private final ArrayList<PageItem> pages = new ArrayList<>();
     private final ExecutorService worker = Executors.newSingleThreadExecutor();
@@ -87,6 +96,7 @@ public class MainActivity extends Activity {
     private ProgressBar progressBar;
     private RadioGroup paperSizeGroup;
     private RadioGroup enhancementGroup;
+    private RadioGroup compressionGroup;
     private File pendingCapture;
     private File latestPdf;
 
@@ -100,6 +110,12 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         worker.shutdown();
         super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ProBilling.refresh(this, () -> { });
     }
 
     private View buildScreen() {
@@ -197,6 +213,24 @@ public class MainActivity extends Activity {
         enhancementGroup.addView(radio("High contrast - best for clear text", ENHANCE_CONTRAST, false));
         root.addView(enhancementGroup, matchWrap());
 
+        addSpacer(root, 14);
+        root.addView(sectionTitle("PDF size"));
+        TextView compressionHint = label("Compact export is included with Pro.", 14, Color.rgb(91, 104, 120));
+        compressionHint.setPadding(0, dp(4), 0, dp(5));
+        root.addView(compressionHint);
+        compressionGroup = new RadioGroup(this);
+        compressionGroup.setOrientation(LinearLayout.VERTICAL);
+        compressionGroup.addView(radio("Standard quality", COMPRESSION_STANDARD, true));
+        RadioButton smallPdf = radio("Smaller PDF - Pro", COMPRESSION_SMALL, false);
+        smallPdf.setOnClickListener(v -> {
+            if (!isPro()) {
+                compressionGroup.check(((RadioButton) compressionGroup.getChildAt(0)).getId());
+                showPro();
+            }
+        });
+        compressionGroup.addView(smallPdf);
+        root.addView(compressionGroup, matchWrap());
+
         addSpacer(root, 20);
         makePdfButton = button("Build PDF", true);
         makePdfButton.setEnabled(false);
@@ -241,6 +275,23 @@ public class MainActivity extends Activity {
         openButton.setOnClickListener(v -> openPdf());
         root.addView(openButton, matchWrap());
 
+        addSpacer(root, 26);
+        root.addView(sectionTitle("PDF tools"));
+        TextView toolsHint = label("Merge and split are included with Pro.", 14, Color.rgb(91, 104, 120));
+        toolsHint.setPadding(0, dp(4), 0, dp(10));
+        root.addView(toolsHint);
+        Button mergeButton = button("Merge PDFs - Pro", false);
+        mergeButton.setOnClickListener(v -> {
+            if (requirePro()) choosePdfsForMerge();
+        });
+        root.addView(mergeButton, matchWrap());
+        addSpacer(root, 10);
+        Button splitButton = button("Split a PDF - Pro", false);
+        splitButton.setOnClickListener(v -> {
+            if (requirePro()) choosePdfForSplit();
+        });
+        root.addView(splitButton, matchWrap());
+
         addSpacer(root, 28);
         root.addView(proCard());
         addSpacer(root, 14);
@@ -257,22 +308,28 @@ public class MainActivity extends Activity {
         card.setBackgroundResource(R.drawable.card);
         TextView title = sectionTitle("PaperBuild Pro");
         card.addView(title);
-        TextView copy = label("A future one-time upgrade for advanced PDF tools. No subscription planned.", 14, Color.rgb(91, 104, 120));
+        TextView copy = label("Smaller PDFs, unlimited pages, merge and split. One-time €2.99 unlock.", 14, Color.rgb(91, 104, 120));
         copy.setLineSpacing(dp(2), 1f);
         copy.setPadding(0, dp(5), 0, dp(10));
         card.addView(copy);
-        Button details = button("See what Pro will include", false);
-        details.setOnClickListener(v -> showProDetails());
+        Button details = button(isPro() ? "Manage Pro" : "Unlock Pro - €2.99", false);
+        details.setOnClickListener(v -> showPro());
         card.addView(details, matchWrap());
         return card;
     }
 
-    private void showProDetails() {
-        new AlertDialog.Builder(this)
-                .setTitle("PaperBuild Pro")
-                .setMessage("Pro is planned as a single lifetime unlock, not a subscription. It will add advanced editing and privacy tools while the free scanner and PDF export stay useful on their own.\n\nPlanned: merge and split documents, file-size compression, reusable signatures, permanent redaction, password protection, folders, and on-device OCR.")
-                .setPositiveButton("Got it", null)
-                .show();
+    private boolean isPro() {
+        return ProBilling.isPro(this);
+    }
+
+    private boolean requirePro() {
+        if (isPro()) return true;
+        showPro();
+        return false;
+    }
+
+    private void showPro() {
+        startActivity(new Intent(this, ProActivity.class));
     }
 
     private void chooseImages() {
@@ -282,6 +339,128 @@ public class MainActivity extends Activity {
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         startActivityForResult(Intent.createChooser(intent, "Add pages"), PICK_IMAGES);
+    }
+
+    private void choosePdfsForMerge() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("application/pdf");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        startActivityForResult(Intent.createChooser(intent, "Choose PDFs to merge"), PICK_PDFS_TO_MERGE);
+    }
+
+    private void choosePdfForSplit() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("application/pdf");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        startActivityForResult(Intent.createChooser(intent, "Choose a PDF to split"), PICK_PDF_TO_SPLIT);
+    }
+
+    private ArrayList<Uri> collectSelectedUris(Intent data) {
+        Set<Uri> selected = new LinkedHashSet<>();
+        if (data.getData() != null) selected.add(data.getData());
+        ClipData clips = data.getClipData();
+        if (clips != null) {
+            for (int i = 0; i < clips.getItemCount(); i++) selected.add(clips.getItemAt(i).getUri());
+        }
+        for (Uri uri : selected) {
+            try {
+                getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            } catch (SecurityException ignored) {
+                // Temporary access from some document providers is still enough for this action.
+            }
+        }
+        return new ArrayList<>(selected);
+    }
+
+    private void askSplitRange(Uri uri) {
+        EditText range = new EditText(this);
+        range.setHint("1-3");
+        range.setInputType(InputType.TYPE_CLASS_TEXT);
+        new AlertDialog.Builder(this)
+                .setTitle("Split PDF")
+                .setMessage("Enter the page range to keep, for example 1-3.")
+                .setView(range)
+                .setNegativeButton("Cancel", null)
+                .setPositiveButton("Create PDF", (dialog, which) -> splitPdf(uri, range.getText().toString()))
+                .show();
+    }
+
+    private void mergePdfs(ArrayList<Uri> sources) {
+        startPdfTool("Merging PDFs…");
+        worker.execute(() -> {
+            try {
+                File output = writeRenderedPdf(sources, 1, Integer.MAX_VALUE, "Merged PDF", COMPRESSION_STANDARD);
+                runOnUiThread(() -> showPdfToolResult(output, "Merged PDF"));
+            } catch (Exception e) {
+                runOnUiThread(() -> showPdfToolError(e));
+            }
+        });
+    }
+
+    private void splitPdf(Uri source, String rawRange) {
+        int[] range = parseRange(rawRange);
+        if (range == null) {
+            Toast.makeText(this, "Use a page number or range such as 1-3.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        startPdfTool("Creating selected pages…");
+        worker.execute(() -> {
+            try {
+                File output = writeRenderedPdf(new ArrayList<>(Collections.singletonList(source)), range[0], range[1], "Extracted pages", COMPRESSION_STANDARD);
+                runOnUiThread(() -> showPdfToolResult(output, "Extracted pages"));
+            } catch (Exception e) {
+                runOnUiThread(() -> showPdfToolError(e));
+            }
+        });
+    }
+
+    private int[] parseRange(String raw) {
+        if (raw == null) return null;
+        String normalized = raw.trim();
+        if (!normalized.matches("\\d+(?:\\s*-\\s*\\d+)?")) return null;
+        String[] parts = normalized.split("-");
+        try {
+            int first = Integer.parseInt(parts[0].trim());
+            int last = parts.length == 1 ? first : Integer.parseInt(parts[1].trim());
+            return first > 0 && last >= first ? new int[]{first, last} : null;
+        } catch (NumberFormatException ignored) {
+            return null;
+        }
+    }
+
+    private void startPdfTool(String message) {
+        makePdfButton.setEnabled(false);
+        progressBar.setIndeterminate(true);
+        progressBar.setVisibility(View.VISIBLE);
+        hideResult();
+        statusText.setText(message);
+    }
+
+    private void showPdfToolResult(File pdf, String action) {
+        latestPdf = pdf;
+        progressBar.setIndeterminate(false);
+        progressBar.setVisibility(View.GONE);
+        makePdfButton.setEnabled(!pages.isEmpty());
+        statusText.setText(action + " is ready.");
+        resultSummary.setText(pdf.getName() + "\n" + readableSize(pdf.length()) + "\nCreated locally on this device");
+        resultSummary.setVisibility(View.VISIBLE);
+        shareButton.setEnabled(true);
+        shareButton.setVisibility(View.VISIBLE);
+        saveButton.setEnabled(true);
+        saveButton.setVisibility(View.VISIBLE);
+        openButton.setEnabled(true);
+        openButton.setVisibility(View.VISIBLE);
+    }
+
+    private void showPdfToolError(Exception error) {
+        progressBar.setIndeterminate(false);
+        progressBar.setVisibility(View.GONE);
+        makePdfButton.setEnabled(!pages.isEmpty());
+        statusText.setText("Couldn’t create that PDF.");
+        Toast.makeText(this, error.getMessage() == null ? "PDF tool failed" : error.getMessage(), Toast.LENGTH_LONG).show();
     }
 
     private void capturePage() {
@@ -314,29 +493,38 @@ public class MainActivity extends Activity {
             pendingCapture = null;
             return;
         }
+        if (requestCode == PICK_PDFS_TO_MERGE && resultCode == RESULT_OK && data != null) {
+            ArrayList<Uri> selected = collectSelectedUris(data);
+            if (selected.size() < 2) {
+                Toast.makeText(this, "Choose at least two PDFs to merge.", Toast.LENGTH_LONG).show();
+            } else {
+                mergePdfs(selected);
+            }
+            return;
+        }
+        if (requestCode == PICK_PDF_TO_SPLIT && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            askSplitRange(data.getData());
+            return;
+        }
         if (requestCode != PICK_IMAGES || resultCode != RESULT_OK || data == null) return;
 
-        Set<Uri> selected = new LinkedHashSet<>();
-        if (data.getData() != null) selected.add(data.getData());
-        ClipData clips = data.getClipData();
-        if (clips != null) {
-            for (int i = 0; i < clips.getItemCount(); i++) selected.add(clips.getItemAt(i).getUri());
-        }
+        Set<Uri> selected = new LinkedHashSet<>(collectSelectedUris(data));
         for (Uri uri : selected) {
-            try {
-                getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            } catch (SecurityException ignored) {
-                // Some document providers grant temporary access only; it remains usable this session.
-            }
-            addPage(uri, displayName(uri));
+            if (!addPage(uri, displayName(uri))) break;
         }
     }
 
-    private void addPage(Uri uri, String name) {
+    private boolean addPage(Uri uri, String name) {
+        if (!isPro() && pages.size() >= FREE_PAGE_LIMIT) {
+            Toast.makeText(this, "Free documents can contain up to " + FREE_PAGE_LIMIT + " pages.", Toast.LENGTH_LONG).show();
+            showPro();
+            return false;
+        }
         pages.add(new PageItem(uri, name));
         latestPdf = null;
         hideResult();
         refreshPages();
+        return true;
     }
 
     private void refreshPages() {
@@ -425,6 +613,7 @@ public class MainActivity extends Activity {
         int outputWidth = selectedPaperWidth();
         int outputHeight = selectedPaperHeight();
         int enhancement = selectedEnhancement();
+        int compression = selectedCompression();
         makePdfButton.setEnabled(false);
         progressBar.setProgress(0);
         progressBar.setVisibility(View.VISIBLE);
@@ -432,13 +621,13 @@ public class MainActivity extends Activity {
         hideResult();
         worker.execute(() -> {
             try {
-                File pdf = writePdf(exportPages, title, outputWidth, outputHeight, enhancement);
+                File pdf = writePdf(exportPages, title, outputWidth, outputHeight, enhancement, compression);
                 runOnUiThread(() -> {
                     latestPdf = pdf;
                     progressBar.setVisibility(View.GONE);
                     makePdfButton.setEnabled(true);
                     statusText.setText("Your PDF is ready.");
-                    resultSummary.setText(pdf.getName() + "\n" + exportPages.size() + (exportPages.size() == 1 ? " page" : " pages") + "  •  " + readableSize(pdf.length()) + "\n" + paperSizeName() + "  •  " + enhancementName(enhancement) + "\nCreated locally on this device");
+                    resultSummary.setText(pdf.getName() + "\n" + exportPages.size() + (exportPages.size() == 1 ? " page" : " pages") + "  •  " + readableSize(pdf.length()) + "\n" + paperSizeName() + "  •  " + enhancementName(enhancement) + "  •  " + compressionName(compression) + "\nCreated locally on this device");
                     resultSummary.setVisibility(View.VISIBLE);
                     shareButton.setEnabled(true);
                     shareButton.setVisibility(View.VISIBLE);
@@ -458,7 +647,7 @@ public class MainActivity extends Activity {
         });
     }
 
-    private File writePdf(ArrayList<PageItem> exportPages, String documentTitle, int outputWidth, int outputHeight, int enhancement) throws IOException {
+    private File writePdf(ArrayList<PageItem> exportPages, String documentTitle, int outputWidth, int outputHeight, int enhancement, int compression) throws IOException {
         File folder = new File(getCacheDir(), "paperbuild");
         if (!folder.exists() && !folder.mkdirs()) throw new IOException("Could not prepare the PDF folder");
         File output = new File(folder, documentTitle + "-" + new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(new Date()) + ".pdf");
@@ -467,7 +656,7 @@ public class MainActivity extends Activity {
         try {
             for (int i = 0; i < exportPages.size(); i++) {
                 PageItem item = exportPages.get(i);
-                Bitmap bitmap = loadBitmap(item, enhancement);
+                Bitmap bitmap = loadBitmap(item, enhancement, compressionMaxSide(compression));
                 if (bitmap == null) throw new IOException("One selected page could not be read");
                 PdfDocument.Page page = pdf.startPage(new PdfDocument.PageInfo.Builder(outputWidth, outputHeight, i + 1).create());
                 drawBitmapOnPage(page.getCanvas(), bitmap, outputWidth, outputHeight);
@@ -487,6 +676,60 @@ public class MainActivity extends Activity {
         }
     }
 
+    private File writeRenderedPdf(ArrayList<Uri> sources, int firstPage, int lastPage, String documentTitle, int compression) throws IOException {
+        File folder = new File(getCacheDir(), "paperbuild");
+        if (!folder.exists() && !folder.mkdirs()) throw new IOException("Could not prepare the PDF folder");
+        File output = new File(folder, documentTitle + "-" + new SimpleDateFormat("yyyyMMdd-HHmmss", Locale.US).format(new Date()) + ".pdf");
+        PdfDocument pdf = new PdfDocument();
+        int pageNumber = 1;
+        boolean complete = false;
+        try {
+            for (Uri source : sources) {
+                ParcelFileDescriptor descriptor = getContentResolver().openFileDescriptor(source, "r");
+                if (descriptor == null) throw new IOException("Could not open a selected PDF");
+                PdfRenderer renderer = new PdfRenderer(descriptor);
+                try {
+                    int start = Math.max(1, firstPage);
+                    int end = Math.min(lastPage, renderer.getPageCount());
+                    if (start > end) throw new IOException("That page range is not in this PDF");
+                    for (int index = start - 1; index < end; index++) {
+                        Bitmap bitmap = renderPdfPage(renderer, index, compressionMaxSide(compression));
+                        PdfDocument.Page page = pdf.startPage(new PdfDocument.PageInfo.Builder(selectedPaperWidth(), selectedPaperHeight(), pageNumber++).create());
+                        drawBitmapOnPage(page.getCanvas(), bitmap, selectedPaperWidth(), selectedPaperHeight());
+                        pdf.finishPage(page);
+                        bitmap.recycle();
+                    }
+                } finally {
+                    renderer.close();
+                    descriptor.close();
+                }
+            }
+            if (pageNumber == 1) throw new IOException("No pages were available in the selected PDF");
+            try (FileOutputStream stream = new FileOutputStream(output)) {
+                pdf.writeTo(stream);
+            }
+            complete = true;
+            return output;
+        } finally {
+            pdf.close();
+            if (!complete && output.exists()) output.delete();
+        }
+    }
+
+    private Bitmap renderPdfPage(PdfRenderer renderer, int index, int maximumSide) {
+        PdfRenderer.Page source = renderer.openPage(index);
+        try {
+            float scale = Math.min(1f, maximumSide / (float) Math.max(source.getWidth(), source.getHeight()));
+            int width = Math.max(1, Math.round(source.getWidth() * scale));
+            int height = Math.max(1, Math.round(source.getHeight() * scale));
+            Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+            source.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
+            return bitmap;
+        } finally {
+            source.close();
+        }
+    }
+
     private void drawBitmapOnPage(Canvas canvas, Bitmap bitmap, int pageWidth, int pageHeight) {
         canvas.drawColor(Color.WHITE);
         float margin = 30f;
@@ -501,7 +744,7 @@ public class MainActivity extends Activity {
         canvas.drawBitmap(bitmap, null, new RectF(left, top, left + width, top + height), paint);
     }
 
-    private Bitmap loadBitmap(PageItem item, int enhancement) throws IOException {
+    private Bitmap loadBitmap(PageItem item, int enhancement, int maximumExportSide) throws IOException {
         BitmapFactory.Options bounds = new BitmapFactory.Options();
         bounds.inJustDecodeBounds = true;
         try (InputStream input = getContentResolver().openInputStream(item.uri)) {
@@ -511,7 +754,7 @@ public class MainActivity extends Activity {
         if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null;
         int sample = 1;
         int maximumSide = Math.max(bounds.outWidth, bounds.outHeight);
-        while (maximumSide / sample > 2560) sample *= 2;
+        while (maximumSide / sample > maximumExportSide) sample *= 2;
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = sample;
         options.inPreferredConfig = Bitmap.Config.ARGB_8888;
@@ -756,6 +999,21 @@ public class MainActivity extends Activity {
         int id = enhancementGroup.getCheckedRadioButtonId();
         View selected = enhancementGroup.findViewById(id);
         return selected == null ? ENHANCE_COLOR : (Integer) selected.getTag();
+    }
+
+    private int selectedCompression() {
+        int id = compressionGroup.getCheckedRadioButtonId();
+        View selected = compressionGroup.findViewById(id);
+        int value = selected == null ? COMPRESSION_STANDARD : (Integer) selected.getTag();
+        return value == COMPRESSION_SMALL && !isPro() ? COMPRESSION_STANDARD : value;
+    }
+
+    private int compressionMaxSide(int compression) {
+        return compression == COMPRESSION_SMALL ? 1440 : 2560;
+    }
+
+    private String compressionName(int compression) {
+        return compression == COMPRESSION_SMALL ? "Smaller PDF" : "Standard";
     }
 
     private String enhancementName(int enhancement) {

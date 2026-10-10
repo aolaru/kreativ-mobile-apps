@@ -10,6 +10,7 @@
         android:theme="@style/Theme.PaperBuild"
         android:supportsRtl="true">
         <activity android:name=".AboutActivity" android:exported="false" />
+        <activity android:name=".ProActivity" android:exported="false" />
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

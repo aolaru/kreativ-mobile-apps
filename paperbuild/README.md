@@ -11,9 +11,9 @@ An offline Android document-maker from Kreativ.
 - Creates PDFs locally, then lets the user open, share, or save them to `Downloads/PaperBuild`.
 - Works without an account, ads, analytics, tracking, or internet permission.
 
-## Planned Pro edition
+## PaperBuild Pro
 
-PaperBuild Pro is planned as a one-time unlock, not a subscription. Planned features: merge and split PDFs, compression, signatures, permanent redaction, password protection, folders, and on-device OCR.
+PaperBuild Pro is a permanent €2.99 unlock, not a subscription. It adds smaller PDF exports, unlimited pages, and PDF merge and page-range extraction. Free documents support up to 10 pages.
 
 ## Build
 
