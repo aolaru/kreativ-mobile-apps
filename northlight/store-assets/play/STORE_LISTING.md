@@ -27,9 +27,11 @@ Built for the quiet moments:
 - Red-light screen mode for low-light use
 - SOS flashing signal
 - Quick Settings tile for fast torch access
-- No account, ads, analytics or internet permission
+- No account, ads, analytics or tracking
 
-Northlight uses camera access only when you choose a flash-based lantern or SOS feature. It never takes photos or records video.
+Northlight uses camera access only when you choose a flash-based lantern or SOS feature. It never takes photos or records video. An optional one-time Pro purchase is handled securely by Google Play.
+
+Northlight Pro adds named device-only bearings with rename, delete and turn guidance, amber and green night-light modes, and an adjustable flash strobe. Saved bearings are directions, not GPS locations. Screen lights offer adjustable brightness and stay awake while open. Core compass, lantern, red light, and SOS tools remain free.
 
 ## Screenshot plan
 

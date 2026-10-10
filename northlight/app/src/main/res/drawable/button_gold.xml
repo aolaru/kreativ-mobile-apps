@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="#600B1320">
+<item><selector>
+    <item android:state_enabled="false"><shape><solid android:color="#8A704B" /><corners android:radius="16dp" /><padding android:left="16dp" android:top="13dp" android:right="16dp" android:bottom="13dp" /></shape></item>
+    <item android:state_focused="true"><shape><solid android:color="@color/gold" /><stroke android:width="2dp" android:color="@color/moon" /><corners android:radius="16dp" /><padding android:left="16dp" android:top="13dp" android:right="16dp" android:bottom="13dp" /></shape></item>
+    <item><shape>
     <solid android:color="@color/gold" />
     <corners android:radius="16dp" />
     <padding android:left="16dp" android:top="13dp" android:right="16dp" android:bottom="13dp" />
-</shape>
+</shape></item>
+</selector></item>
+</ripple>

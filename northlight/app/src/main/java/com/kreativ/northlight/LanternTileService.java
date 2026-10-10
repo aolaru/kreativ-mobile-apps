@@ -9,12 +9,28 @@ import android.hardware.camera2.CameraManager;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 
 /** Quick Settings entry point for a lantern that has already been permission-approved in Northlight. */
 public class LanternTileService extends TileService {
     private CameraManager cameraManager;
     private String cameraId;
     private boolean torchOn;
+    private boolean available;
+    private boolean known;
+    private boolean registered;
+    private final Handler handler = new Handler(Looper.getMainLooper());
+    private final CameraManager.TorchCallback callback = new CameraManager.TorchCallback() {
+        @Override public void onTorchModeChanged(String id, boolean enabled) {
+            if (!id.equals(cameraId)) return;
+            torchOn = enabled; available = true; known = true; updateTile();
+        }
+        @Override public void onTorchModeUnavailable(String id) {
+            if (!id.equals(cameraId)) return;
+            available = false; known = true; torchOn = false; updateTile();
+        }
+    };
 
     @Override public void onCreate() {
         super.onCreate();
@@ -29,7 +45,14 @@ public class LanternTileService extends TileService {
         } catch (Exception ignored) { }
     }
 
-    @Override public void onStartListening() { updateTile(); }
+    @Override public void onStartListening() {
+        if (!registered) { known = false; cameraManager.registerTorchCallback(callback, handler); registered = true; }
+        updateTile();
+    }
+    @Override public void onStopListening() {
+        if (registered) { cameraManager.unregisterTorchCallback(callback); registered = false; }
+    }
+    @Override public void onDestroy() { onStopListening(); super.onDestroy(); }
 
     @Override public void onClick() {
         if (cameraId == null || checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -42,11 +65,11 @@ public class LanternTileService extends TileService {
             }
             return;
         }
+        if (!known || !available) return;
         try {
-            torchOn = !torchOn;
-            cameraManager.setTorchMode(cameraId, torchOn);
+            cameraManager.setTorchMode(cameraId, !torchOn);
         } catch (Exception ignored) {
-            torchOn = false;
+            available = false;
         }
         updateTile();
     }
@@ -54,8 +77,9 @@ public class LanternTileService extends TileService {
     private void updateTile() {
         Tile tile = getQsTile();
         if (tile == null) return;
-        tile.setState(torchOn ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
-        tile.setLabel(torchOn ? "Northlight on" : "Northlight lantern");
+        boolean permission = checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED;
+        tile.setState(cameraId != null && permission && (!known || !available) ? Tile.STATE_UNAVAILABLE : torchOn ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+        tile.setLabel(getString(torchOn ? R.string.tile_on : R.string.tile_lantern));
         tile.updateTile();
     }
 }

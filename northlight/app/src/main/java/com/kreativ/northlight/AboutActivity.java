@@ -27,30 +27,31 @@ public class AboutActivity extends Activity {
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
         root.setPadding(dp(24), dp(30), dp(24), dp(30));
-        scroll.addView(root, new ScrollView.LayoutParams(-1, -1));
-        TextView badge = text("NORTHLIGHT", 12, gold());
+        scroll.addView(root, new ScrollView.LayoutParams(-1, -2));
+
+        TextView badge = text(getString(R.string.main_northlight), 12, gold());
         badge.setLetterSpacing(.16f);
         root.addView(badge);
-        TextView title = text("Built for the\nquiet moments.", 31, moon());
+        TextView title = text(getString(R.string.about_built_for_the_quiet_moments), 31, moon());
         title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
         title.setPadding(0, dp(14), 0, dp(22));
         root.addView(title);
-        section(root, "Private by design", "Northlight works entirely on your phone. It has no account, no analytics, no advertising SDK, and no internet permission.");
-        section(root, "Camera permission", "Northlight asks for camera access only when you choose the LED lantern or SOS signal. Android requires that permission to control the camera flash. It never takes photos or records video.");
-        section(root, "Compass accuracy", "The compass uses your phone's orientation sensors and shows magnetic north. Accuracy can be affected by magnets, metal objects, and some phone cases. Move your phone in a figure-eight if it needs calibration.");
+        section(root, getString(R.string.about_private_by_design), getString(R.string.about_northlight_s_compass_and_light_tools_work_on_your_phone));
+        section(root, getString(R.string.about_camera_permission), getString(R.string.about_northlight_asks_for_camera_access_only_when_you_choose));
+        section(root, getString(R.string.about_compass_accuracy), getString(R.string.about_the_compass_uses_your_phone_s_orientation_sensors_and_s));
         Button privacy = new Button(this);
-        privacy.setText("Read Privacy Policy"); privacy.setTextSize(16); privacy.setAllCaps(false); privacy.setTextColor(moon());
+        privacy.setText(getString(R.string.about_read_privacy_policy)); privacy.setTextSize(16); privacy.setAllCaps(false); privacy.setTextColor(moon());
         privacy.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY_URL))));
         root.addView(privacy, new LinearLayout.LayoutParams(-1, -2));
-        TextView version = text("Version " + BuildConfig.VERSION_NAME, 14, mist());
+        TextView version = text(getString(R.string.app_version, BuildConfig.VERSION_NAME), 14, mist());
         version.setGravity(Gravity.CENTER);
         version.setPadding(0, dp(16), 0, dp(14));
         root.addView(version, new LinearLayout.LayoutParams(-1, -2));
         Button close = new Button(this);
-        close.setText("Close"); close.setTextSize(16); close.setAllCaps(false); close.setTextColor(Color.rgb(11, 19, 32));
+        close.setText(getString(R.string.close)); close.setTextSize(16); close.setAllCaps(false); close.setTextColor(Color.rgb(11, 19, 32));
         close.setBackgroundResource(R.drawable.button_gold); close.setMinHeight(dp(54)); close.setOnClickListener(v -> finish());
         root.addView(close, new LinearLayout.LayoutParams(-1, -2));
-        return scroll;
+        return Ui.screen(this, scroll);
     }
 
     private void section(LinearLayout root, String heading, String body) {

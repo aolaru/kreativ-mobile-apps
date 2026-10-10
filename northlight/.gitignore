@@ -1,0 +1,5 @@
+# Android signing material must never be committed.
+*.jks
+*.keystore
+*.p12
+*.pem
