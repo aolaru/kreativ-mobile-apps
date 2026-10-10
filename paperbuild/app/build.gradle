@@ -9,6 +9,11 @@ def releaseSigning = new Properties()
 if (releaseSigningFile.exists()) {
     releaseSigningFile.withInputStream { releaseSigning.load(it) }
 }
+def releaseStoreFile = releaseSigning['storeFile'] ?: System.getenv('PAPERBUILD_STORE_FILE')
+def releaseStorePassword = releaseSigning['storePassword'] ?: System.getenv('PAPERBUILD_STORE_PASSWORD')
+def releaseKeyAlias = releaseSigning['keyAlias'] ?: System.getenv('PAPERBUILD_KEY_ALIAS')
+def releaseKeyPassword = releaseSigning['keyPassword'] ?: System.getenv('PAPERBUILD_KEY_PASSWORD')
+def hasReleaseSigning = releaseStoreFile && releaseStorePassword && releaseKeyAlias && releaseKeyPassword
 
 android {
     namespace 'com.kreativ.paperbuild'
@@ -33,11 +38,11 @@ android {
 
     signingConfigs {
         release {
-            if (releaseSigningFile.exists()) {
-                storeFile file(releaseSigning['storeFile'])
-                storePassword releaseSigning['storePassword']
-                keyAlias releaseSigning['keyAlias']
-                keyPassword releaseSigning['keyPassword']
+            if (hasReleaseSigning) {
+                storeFile file(releaseStoreFile)
+                storePassword releaseStorePassword
+                keyAlias releaseKeyAlias
+                keyPassword releaseKeyPassword
             }
         }
     }
@@ -45,7 +50,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            if (releaseSigningFile.exists()) {
+            if (hasReleaseSigning) {
                 signingConfig signingConfigs.release
             }
         }

@@ -17,8 +17,8 @@
 - [x] Final application ID: `com.kreativ.paperbuild`
 - [x] Public privacy-policy URL prepared
 - [x] Store listing copy prepared
-- [ ] Create a real release keystore and local `release-signing.properties` from the included example.
-- [ ] Build a signed App Bundle with `./gradlew bundleRelease`.
+- [x] Create a real release keystore and store its password in the local macOS Keychain. Back up both before publishing.
+- [x] Build and verify a signed App Bundle with `./gradlew bundleRelease`.
 - [ ] Capture the four real-device screenshots described in `STORE_LISTING.md`.
 - [ ] Complete Google Play content, target audience, data safety, and app access forms.
 - [ ] Upload to an internal testing track and invite testers.
