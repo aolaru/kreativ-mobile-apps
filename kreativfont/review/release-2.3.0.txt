@@ -1,0 +1,63 @@
+KREATIV FONT 2.3.0 / CODE 205 — LOCAL BUILD, NOT SUBMITTED
+12 October 2026
+
+Changes
+- Latest 10 commercial and latest 10 free font articles on separate horizontal shelves.
+- Load 10 more at the end of each shelf, independent paging, preserved scroll,
+  deduplication, explicit catalogue end, loading and retry states.
+- Search the full public font catalogue using WordPress search (font categories
+  3 and 23584), relevance ordering, 10 results per page and Load 10 more.
+- Search results keep category badges, artwork, descriptions and local favorites.
+- Search is debounced; replaced queries and destroyed activities ignore late replies.
+- Favorites search remains local. No accounts, ads or analytics SDKs were added.
+
+Verification
+- Final signed APK/AAB and release test APK build successfully. Lint reports no
+  errors and five version-availability warnings (two build/runtime, three test-only).
+- All 19 tests pass, including two opt-in live API tests: 20 real preview URLs,
+  both second pages, Cookie search outside the loaded home cards and 20 distinct
+  paged serif search results.
+- Original signing certificate verified for release and release test APKs.
+- 2.3.0/code 205 installed in place on Samsung SM-A556B (RZCXA128W0Y), without
+  clearing data. No emulator was started.
+- Initial real-phone workflow verified 10+10, both end-of-shelf controls loading
+  20+20, correct cached page numbers and whole-catalogue/paged search. The final
+  activity-recreation check could not finish because the device locked/went to
+  sleep; the complete instrumentation test is NOT yet confirmed passing.
+- The test now keeps only its activity screen awake, without changing system
+  timeout settings. Unlock the real phone before rerunning CatalogueWorkflowTest.
+- Website privacy, Google Play Data safety and store listing were NOT changed
+  or submitted for this release.
+
+Before Google Play submission
+- Publish an updated Android privacy appendix. Preserve the website terms and
+  hosting-log disclosures, but change the version/date and local-search wording.
+- Reassess Play Data safety for search phrases transmitted to the website and
+  included in query-string request URLs. Do not claim that all search stays local.
+- Update all existing listing languages: ten per section, paged browsing and
+  catalogue-wide online search. Keep the no-phone-font-installation warning.
+- Update release notes and capture any replacement screenshots on the real phone.
+- Keep the original signing key and APK update path; no Play App Signing change.
+
+Suggested replacement for the privacy appendix's "Data stored on your device"
+paragraph (DRAFT; NOT PUBLISHED):
+
+Favorites, cached article information and preview images are stored in the app's
+private storage on your device. Searching your saved favorites filters them locally.
+The native app does not upload favorites or persist search phrases. You can remove
+favorites individually. Clearing app storage or uninstalling removes local data.
+Android cloud backup and device transfer are disabled for the app.
+
+Suggested new paragraph under "Catalogue requests and hosting logs"
+(DRAFT; NOT PUBLISHED):
+
+Searching the website catalogue from the app sends your search phrase to
+kreativfont.com in an HTTPS request so that the website can return matching font
+articles. Search phrases are part of the requested URL and may therefore appear
+in the hosting logs described below. An internet connection is required. Avoid
+entering personal or sensitive information in font searches. This is separate
+from the local search of saved favorites.
+
+Also revise the final contact paragraph to distinguish inaccessible local favorites
+from server-side search request metadata. Do not promise that search phrases cannot
+be retrieved from hosting logs.

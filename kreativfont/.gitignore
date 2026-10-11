@@ -1,0 +1,15 @@
+# Local signing material — never commit credentials or private keys.
+keystore.properties
+local.properties
+*.jks
+*.keystore
+*.p12
+*.pfx
+
+# Android/Gradle output
+.gradle/
+build/
+.idea/
+.DS_Store
+*.apk
+*.aab

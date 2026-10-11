@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ink">#121622</color>
+    <color name="muted">#66708F</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="paper">#FFFFFF</color>
+    <color name="primary">#4F46E5</color>
+    <color name="preview_background">#F6F8FF</color>
+    <color name="line">#E7E6FC</color>
+    <color name="selected_tab">#EEEDFF</color>
+</resources>
