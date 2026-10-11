@@ -22,6 +22,23 @@ The Play implementation verifies signed receipts and package/product identity, r
 
 Samsung and Amazon are free-only until their own billing integrations are implemented. They neither ship Google's billing SDK nor show Pro purchase controls. Cross-store purchase portability is not promised.
 
+### Google Play reviewer access
+
+The Play edition provides complimentary access under **Privacy & About → Reviewer
+access**. The reusable, non-expiring code is supplied privately in Play Console's
+Sign-in details, not in this repository. Only its SHA-256 digest is compiled into
+the app. Review access works offline, survives app restarts, and unlocks the same
+editor/export features without creating or modifying a Google Play purchase.
+Disable it from the same screen; reinstalling requires re-entering the code.
+Other store editions cannot enable this access.
+
+The private code on this Mac is stored outside Git at
+`~/Library/Application Support/Kreativ/ShareSafe/reviewer-access-code` (mode 600).
+Pass it as `KREATIV_SHARESAFE_REVIEWER_CODE` for the positive unit test, or as the
+instrumentation argument `reviewerCode` for `ReviewerAccessWorkflowTest`. Those
+positive tests are skipped when the private code is not supplied. Never place the
+raw code in source, release notes, public listings or screenshots.
+
 ## Build and install
 
 Open this folder in Android Studio and run the `playDebug` configuration on an Android 8.0+ device, or build a debug APK:

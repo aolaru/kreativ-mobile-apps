@@ -194,7 +194,7 @@ public class MainActivity extends Activity {
 
     private void redactSelectedPhoto() {
         if (session.busy || session.selected.size() != 1 || !BuildConfig.PRO_AVAILABLE) return;
-        if (!billing.isProEnabled()) { showProUpgrade(); return; }
+        if (!billing.isProEnabled() && !ReviewerAccess.enabled(this)) { showProUpgrade(); return; }
         startActivityForResult(new Intent(this, RedactActivity.class).setData(session.selected.get(0)), REDACT_PHOTO);
     }
 

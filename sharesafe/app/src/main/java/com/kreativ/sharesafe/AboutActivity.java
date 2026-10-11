@@ -1,6 +1,7 @@
 package com.kreativ.sharesafe;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -75,10 +77,41 @@ public class AboutActivity extends Activity {
         version.setPadding(0, dp(24), 0, dp(12));
         root.addView(version, matchWrap());
 
+        if (BuildConfig.PRO_AVAILABLE) {
+            Button reviewer = button(ReviewerAccess.enabled(this) ? "Disable reviewer access" : "Reviewer access", false);
+            reviewer.setOnClickListener(v -> {
+                if (ReviewerAccess.enabled(this)) {
+                    ReviewerAccess.disable(this); reviewer.setText("Reviewer access");
+                    android.widget.Toast.makeText(this, "Reviewer access disabled. Paid purchases are unchanged.", android.widget.Toast.LENGTH_LONG).show();
+                } else showReviewerAccess(reviewer);
+            });
+            root.addView(reviewer, matchWrap());
+            addSpacer(root, 10);
+        }
+
         Button closeButton = button("Close", true);
         closeButton.setOnClickListener(v -> finish());
         root.addView(closeButton, matchWrap());
         return scroll;
+    }
+
+    private void showReviewerAccess(Button reviewer) {
+        EditText code = new EditText(this);
+        code.setSingleLine(true);
+        code.setHint("Reviewer code");
+        code.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        code.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO);
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle("Reviewer access")
+                .setMessage("For authorised app reviewers only. Enter the code supplied in Play Console to use all Pro editing tools without payment. This does not create a Google Play purchase.")
+                .setView(code).setNegativeButton("Cancel", null).setPositiveButton("Enable access", null).create();
+        dialog.setOnShowListener(ignored -> dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+            if (!ReviewerAccess.activate(this, code.getText().toString())) {
+                code.setError("Invalid reviewer code or access could not be saved."); return;
+            }
+            reviewer.setText("Disable reviewer access"); dialog.dismiss();
+            android.widget.Toast.makeText(this, "Reviewer access enabled. All Pro editing tools are available.", android.widget.Toast.LENGTH_LONG).show();
+        }));
+        dialog.show();
     }
 
     private void openPrivacyPolicy() {
