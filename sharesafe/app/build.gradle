@@ -24,8 +24,9 @@ android {
         applicationId 'com.kreativ.sharesafe'
         minSdk 26
         targetSdk 36
-        versionCode 1
-        versionName '1.0.0'
+        versionCode 2
+        versionName '1.1.0'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     signingConfigs {
@@ -40,6 +41,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+        }
         release {
             signingConfig signingConfigs.release
         }
@@ -50,16 +54,37 @@ android {
     productFlavors {
         play {
             dimension "store"
+            buildConfigField 'boolean', 'PRO_AVAILABLE', 'true'
         }
         samsung {
             dimension "store"
+            buildConfigField 'boolean', 'PRO_AVAILABLE', 'false'
         }
         amazon {
             dimension "store"
+            buildConfigField 'boolean', 'PRO_AVAILABLE', 'false'
         }
+    }
+}
+
+// Kotlin 1.8 bundles the JDK 7/8 extensions into kotlin-stdlib. Some legacy
+// AndroidX transitive dependencies still request the separate 1.6 artifacts.
+configurations.configureEach {
+    // Do not alter Gradle's host-side UTP tool classpath: its JDK8 artifact supplies
+    // a newer stdlib needed by the APK installer (EnumEntriesKt).
+    if (!name.startsWith('_internal-unified-test-platform')) {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
     }
 }
 
 dependencies {
     implementation 'androidx.core:core:1.15.0'
+    implementation 'androidx.exifinterface:exifinterface:1.4.2'
+    playImplementation 'com.android.billingclient:billing:9.1.0'
+    playImplementation 'androidx.work:work-runtime:2.10.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.6.2'
+    androidTestImplementation 'androidx.test:core:1.6.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
 }

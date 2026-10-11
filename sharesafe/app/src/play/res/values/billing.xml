@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Public verification key from ShareSafe's Play Console; not a private signing key. -->
+    <string name="play_billing_public_key" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt6nASY8RM+vR/dbWg1CaVvlplC0AkMLJmb8rWcoTs5pDynd6fXLk1kAnynS0QuMoHVzn8rwohBRMRkNS2kaZNlIHiWg8WBp0xupQdeZeR06RyJyPmhwAZvkkD3D2YJJ4kE25aeqp2CIhkYOw+1LIaLZbZVHbbEDdYranQCZCK4Kgn7+nSaRO0dOKR3usEIYdt/qgNTCxmx3Qd+rIE39JTrwKNn8sA8eImQlQi3qp/CGy93owWGEHaqgmJ3CqhIn1yAUQxDVKk6llmTho7s6h8E2Az8ua2mf7OnEcg7S0JugjgKM27d05+8M2A+eo9JREpH28aYwboIUnDLLt3YSdjwIDAQAB</string>
+</resources>

@@ -32,6 +32,7 @@ public class AboutActivity extends Activity {
         root.setOrientation(LinearLayout.VERTICAL);
         root.setPadding(dp(24), dp(30), dp(24), dp(30));
         scroll.addView(root, new ScrollView.LayoutParams(-1, -1));
+        Ui.applyInsets(scroll);
 
         TextView badge = label("SHARESAFE", 12, Color.rgb(52, 116, 99));
         badge.setLetterSpacing(.12f);
@@ -42,11 +43,12 @@ public class AboutActivity extends Activity {
         title.setPadding(0, dp(12), 0, dp(20));
         root.addView(title);
 
-        TextView privacyTitle = label("Photos never leave your device.", 20, Color.rgb(25, 44, 41));
+        TextView privacyTitle = label("Photos are processed on your device.", 20, Color.rgb(25, 44, 41));
         privacyTitle.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
         root.addView(privacyTitle);
 
-        TextView privacyCopy = label("ShareSafe processes selected photos locally on your phone. It does not upload your photos, photo metadata, or location information to Kreativ or any other server.", 16, Color.rgb(96, 113, 109));
+        TextView privacyCopy = label("ShareSafe never uploads your photos or metadata. If you choose Share, the receiving app handles those copies under its own privacy policy. "
+                + (BuildConfig.PRO_AVAILABLE ? "Google Play handles Pro payments and purchase restoration using its network services. ShareSafe stores a verified purchase receipt privately on your phone; it does not receive your card details." : "This store edition has no in-app purchases."), 16, Color.rgb(96, 113, 109));
         privacyCopy.setLineSpacing(dp(3), 1f);
         privacyCopy.setPadding(0, dp(8), 0, dp(22));
         root.addView(privacyCopy);
@@ -54,7 +56,7 @@ public class AboutActivity extends Activity {
         TextView storageTitle = label("Your control", 18, Color.rgb(25, 44, 41));
         storageTitle.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
         root.addView(storageTitle);
-        TextView storageCopy = label("Original photos are never changed. Clean copies are only saved to your gallery when you choose Save to gallery, and are placed in Pictures/ShareSafe.", 15, Color.rgb(96, 113, 109));
+        TextView storageCopy = label("Original photos are never changed. Gallery copies are saved to Pictures/ShareSafe only when you choose Save to gallery. Temporary copies are private; copies older than 24 hours are removed when a new session starts, or may be cleared earlier by Android. Exports are JPEGs with neutral filenames. Large images may be resized, transparency becomes white, and animated images export one frame. Cover is recommended for sensitive visible details; blur and pixelation are not guaranteed anonymisation.", 15, Color.rgb(96, 113, 109));
         storageCopy.setLineSpacing(dp(3), 1f);
         storageCopy.setPadding(0, dp(8), 0, dp(22));
         root.addView(storageCopy);
@@ -80,13 +82,19 @@ public class AboutActivity extends Activity {
     }
 
     private void openPrivacyPolicy() {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY_URL)));
+        try { startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY_URL))); }
+        catch (android.content.ActivityNotFoundException e) {
+            android.widget.Toast.makeText(this, "No browser is installed. Privacy policy: " + PRIVACY_POLICY_URL, android.widget.Toast.LENGTH_LONG).show();
+        }
     }
 
     private void contactSupport() {
         Intent email = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + SUPPORT_EMAIL));
         email.putExtra(Intent.EXTRA_SUBJECT, "ShareSafe support");
-        startActivity(Intent.createChooser(email, "Contact ShareSafe support"));
+        try { startActivity(Intent.createChooser(email, "Contact ShareSafe support")); }
+        catch (android.content.ActivityNotFoundException e) {
+            android.widget.Toast.makeText(this, "Please email " + SUPPORT_EMAIL, android.widget.Toast.LENGTH_LONG).show();
+        }
     }
 
     private TextView label(String text, float size, int color) {
