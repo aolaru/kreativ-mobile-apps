@@ -1,0 +1,185 @@
+<!-- Northlight UI/logo concepts only. HTML fragment for the Codex visualization runtime; not Android app code. -->
+<div id="northlight-directions">
+  <style>
+    #northlight-directions .nl-stage{min-height:900px;display:flex;flex-direction:column;align-items:center;gap:24px;padding:28px 12px 18px;box-sizing:border-box}
+    #northlight-directions .nl-brand,#northlight-directions .nl-phone{--nl-bg:#0b1320;--nl-surface:#172333;--nl-raised:#202f42;--nl-fg:#eef3f7;--nl-muted:#aebdcd;--nl-line:#2b3a4d;--nl-gold:#efb65e;font-family:system-ui,-apple-system,sans-serif;color:var(--nl-fg);font-weight:400}
+    #northlight-directions .nl-brand{display:flex;align-items:center;gap:16px;width:min(360px,100%);color:#eef3f7;background:#0b1320;padding:16px 20px;border-radius:20px;box-sizing:border-box}
+    #northlight-directions .nl-brand strong{font-size:20px;font-weight:500;letter-spacing:.05em}
+    #northlight-directions .nl-brand small{display:block;margin-top:5px;font-size:12px;color:#aebdcd;letter-spacing:.1em;text-transform:uppercase}
+    #northlight-directions .nl-mark{position:relative;width:54px;height:54px;flex:none;background:#0b1320;border-radius:15px;overflow:hidden}
+    #northlight-directions .nl-mark.instrument:before{content:"";position:absolute;inset:8px 15px;background:var(--nl-gold);clip-path:polygon(50% 0,100% 88%,50% 66%,0 88%)}
+    #northlight-directions .nl-mark.instrument:after{content:"";position:absolute;left:26px;top:10px;width:2px;height:28px;background:#eef3f7;transform:rotate(-.3deg)}
+    #northlight-directions .nl-mark.beacon:before{content:"";position:absolute;inset:7px;border:1px solid #475465;border-radius:50%}
+    #northlight-directions .nl-mark.beacon:after{content:"";position:absolute;inset:10px 14px;background:var(--nl-gold);clip-path:polygon(50% 0,100% 100%,50% 80%,0 100%)}
+    #northlight-directions .nl-phone{width:min(360px,100%);background:var(--nl-bg);border:1px solid var(--nl-line);border-radius:32px;box-shadow:0 16px 40px #0002;overflow:hidden;box-sizing:border-box;position:relative;min-height:720px}
+    #northlight-directions .nl-status{padding:15px 24px 8px;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:500}
+    #northlight-directions .nl-status-icons{display:flex;gap:5px;align-items:center}
+    #northlight-directions .nl-status-icons svg{width:14px;height:14px}
+    #northlight-directions .nl-app{padding:14px 22px 26px}
+    #northlight-directions .nl-header{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+    #northlight-directions .nl-header .nl-mark{width:32px;height:36px;border-radius:0}
+    #northlight-directions .nl-header .nl-mark.instrument:before{inset:4px 7px}
+    #northlight-directions .nl-header .nl-mark.instrument:after{left:15px;top:5px;height:21px}
+    #northlight-directions .nl-header .nl-mark.beacon:before{inset:4px 0}
+    #northlight-directions .nl-header .nl-mark.beacon:after{inset:6px 7px}
+    #northlight-directions .nl-name{font-size:18px;letter-spacing:.02em;font-weight:500;flex:1}
+    #northlight-directions button{font-family:inherit;font-weight:500;touch-action:manipulation}
+    #northlight-directions .nl-icon-button{background:transparent;color:var(--nl-muted);border:0;width:44px;height:44px;display:grid;place-items:center;border-radius:12px}
+    #northlight-directions .nl-icon-button svg{width:20px;height:20px}
+    #northlight-directions .nl-eyebrow{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--nl-muted)}
+    #northlight-directions .nl-number{font-size:44px;letter-spacing:-.04em;line-height:1.1;font-weight:500;font-variant-numeric:tabular-nums}
+    #northlight-directions .nl-center{text-align:center}
+    #northlight-directions .nl-north{font-size:14px;color:var(--nl-gold);margin-top:5px}
+    #northlight-directions .nl-dial{width:240px;height:240px;margin:16px auto 12px;position:relative;border-radius:50%;background:var(--nl-bg)}
+    #northlight-directions .nl-dial:before{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from -11deg,var(--nl-line) 0deg 1deg,transparent 1deg 6deg);mask:radial-gradient(circle,transparent 67%,#000 68%)}
+    #northlight-directions .nl-dial:after{content:"";position:absolute;inset:27px;border:1px solid var(--nl-line);border-radius:50%}
+    #northlight-directions .nl-cardinal{position:absolute;font-size:13px;font-weight:500;color:var(--nl-muted);z-index:1}
+    #northlight-directions .nl-cardinal.n{top:33px;left:113px;color:var(--nl-gold)}
+    #northlight-directions .nl-cardinal.s{bottom:34px;left:114px}
+    #northlight-directions .nl-cardinal.w{top:111px;left:34px}
+    #northlight-directions .nl-cardinal.e{top:111px;right:36px}
+    #northlight-directions .nl-needle{position:absolute;inset:65px 103px;background:linear-gradient(to bottom,var(--nl-gold) 0 50%,var(--nl-raised) 50% 100%);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);transform:rotate(11deg);z-index:2}
+    #northlight-directions .nl-hub{position:absolute;top:115px;left:115px;width:10px;height:10px;background:var(--nl-fg);border-radius:50%;z-index:3}
+    #northlight-directions .nl-accuracy{display:flex;justify-content:center;gap:6px;align-items:center;font-size:12px;color:var(--nl-muted);margin:12px 0 24px}
+    #northlight-directions .nl-dot{width:5px;height:5px;border-radius:50%;background:var(--nl-gold)}
+    #northlight-directions .nl-section{display:flex;justify-content:space-between;align-items:center;margin:20px 0 10px}
+    #northlight-directions .nl-label{font-size:14px;font-weight:500}
+    #northlight-directions .nl-tag{font-size:11px;letter-spacing:.06em;color:var(--nl-gold)}
+    #northlight-directions .nl-tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    #northlight-directions .nl-tool{background:var(--nl-surface);color:var(--nl-fg);border:1px solid var(--nl-line);border-radius:var(--nl-radius,18px);padding:17px 3px 14px;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:12px;min-height:86px;box-sizing:border-box}
+    #northlight-directions .nl-tool svg{width:22px;height:22px;color:var(--nl-gold)}
+    #northlight-directions .nl-tool[aria-pressed="true"]{background:var(--nl-gold);color:var(--nl-bg);border-color:var(--nl-gold)}
+    #northlight-directions .nl-tool[aria-pressed="true"] svg{color:var(--nl-bg)}
+    #northlight-directions .nl-bearing{display:flex;gap:12px;align-items:center;width:100%;background:var(--nl-surface);color:var(--nl-fg);border:1px solid var(--nl-line);border-radius:var(--nl-radius,18px);padding:14px;text-align:left;font-size:14px}
+    #northlight-directions .nl-bearing svg{width:20px;height:20px;color:var(--nl-gold)}
+    #northlight-directions .nl-bearing-text{flex:1}
+    #northlight-directions .nl-bearing-text small{display:block;color:var(--nl-muted);font-size:12px;margin-top:4px;font-weight:400}
+    #northlight-directions .nl-homebar{width:94px;height:4px;background:var(--nl-muted);border-radius:4px;margin:8px auto 10px;opacity:.6}
+    #northlight-directions .nl-hero{border:1px solid var(--nl-line);background:var(--nl-surface);border-radius:var(--nl-radius,24px);padding:20px;margin-top:4px}
+    #northlight-directions .nl-hero-top{display:flex;align-items:center;justify-content:space-between}
+    #northlight-directions .nl-hero-top svg{width:24px;height:24px;color:var(--nl-gold)}
+    #northlight-directions .nl-hero h2{font-size:26px;font-weight:500;line-height:1.2;margin:28px 0 6px}
+    #northlight-directions .nl-hero p{font-size:13px;color:var(--nl-muted);margin:0 0 20px}
+    #northlight-directions .nl-power{width:100%;display:flex;justify-content:center;align-items:center;gap:8px;background:var(--nl-gold);color:var(--nl-bg);border:0;border-radius:14px;padding:15px;font-size:14px}
+    #northlight-directions .nl-power svg{width:18px;height:18px}
+    #northlight-directions .nl-mini-compass{display:flex;align-items:center;gap:16px;border-bottom:1px solid var(--nl-line);padding:22px 0}
+    #northlight-directions .nl-mini-dial{position:relative;width:66px;height:66px;border-radius:50%;border:1px solid var(--nl-line);flex:none}
+    #northlight-directions .nl-mini-dial:before{content:"N";position:absolute;top:5px;left:29px;font-size:11px;color:var(--nl-gold)}
+    #northlight-directions .nl-mini-dial:after{content:"";position:absolute;inset:20px 27px 12px;background:var(--nl-gold);clip-path:polygon(50% 0,100% 100%,50% 73%,0 100%);transform:rotate(11deg)}
+    #northlight-directions .nl-mini-heading{font-size:26px;font-weight:500;font-variant-numeric:tabular-nums}
+    #northlight-directions .nl-mini-heading span{font-size:14px;color:var(--nl-muted);margin-left:5px}
+    #northlight-directions .nl-mini-copy{font-size:12px;color:var(--nl-muted);margin-top:4px}
+    #northlight-directions .nl-secondary-tools{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:18px}
+    #northlight-directions .nl-beacon .nl-tool{flex-direction:row;justify-content:center;gap:8px;min-height:60px;padding:15px 4px}
+    #northlight-directions .nl-beacon .nl-section{margin-top:24px}
+    #northlight-directions .nl-panel[hidden]{display:none}
+    #northlight-directions .nl-panel{position:absolute;inset:48px 0 0;background:var(--nl-bg);z-index:5;padding:22px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;border-radius:24px 24px 0 0}
+    #northlight-directions .nl-panel-head{display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:500}
+    #northlight-directions .nl-panel p{font-size:14px;color:var(--nl-muted);line-height:1.5;margin:0}
+    #northlight-directions .nl-swatches{display:flex;gap:10px}
+    #northlight-directions .nl-swatch{flex:1;background:var(--nl-surface);color:var(--nl-fg);padding:13px 4px;border:1px solid var(--nl-line);border-radius:14px;font-size:13px}
+    #northlight-directions .nl-swatch[aria-pressed="true"]{border-color:var(--nl-gold);color:var(--nl-gold)}
+    #northlight-directions .nl-light-preview{height:200px;border-radius:20px;background:#efb65e;opacity:.65;display:flex;align-items:center;justify-content:center;color:#0b1320;font-size:14px;font-weight:500}
+    #northlight-directions .nl-brightness-label{display:flex;justify-content:space-between;font-size:13px;color:var(--nl-muted)}
+    #northlight-directions input[type="range"]{width:100%;accent-color:var(--nl-gold)}
+    #northlight-directions .nl-follow-visual{display:grid;place-items:center;height:200px}
+    #northlight-directions .nl-follow-visual svg{width:110px;height:110px;color:var(--nl-gold)}
+    #northlight-directions .nl-message{font-size:12px;color:var(--nl-muted);min-height:18px;margin-top:10px;text-align:center}
+    @media(max-width:380px){#northlight-directions .nl-stage{padding:20px 4px;min-height:910px}#northlight-directions .nl-app{padding-left:16px;padding-right:16px}#northlight-directions .nl-phone{border-radius:26px}}
+  </style>
+  <div class="viz-carousel viz-dotted-background" aria-label="Northlight logo and home screen concepts">
+    <section data-variant="Field" aria-label="Field concept">
+      <div class="nl-stage">
+        <div class="nl-brand" aria-label="Field brand direction"><span class="nl-mark instrument" role="img" aria-label="Split north needle logo"></span><div><strong>NORTHLIGHT</strong><small>Field · Compass first</small></div></div>
+        <div class="nl-phone nl-field" aria-label="Field home screen · Pro unlocked">
+          <div class="nl-status"><span>9:41</span><span class="nl-status-icons"><i data-lucide="wifi" aria-hidden="true"></i><i data-lucide="battery-full" aria-hidden="true"></i></span></div>
+          <div class="nl-app">
+            <header class="nl-header"><span class="nl-mark instrument" aria-hidden="true"></span><span class="nl-name">Northlight</span><button type="button" class="nl-icon-button cursor-interaction" data-action="about" aria-label="About Northlight"><i data-lucide="info" aria-hidden="true"></i></button></header>
+            <div class="nl-center"><div class="nl-eyebrow">Magnetic heading</div><div class="nl-number">349°</div><div class="nl-north">North</div></div>
+            <div class="nl-dial" role="img" aria-label="Compass pointing north at 349 degrees"><span class="nl-cardinal n">N</span><span class="nl-cardinal e">E</span><span class="nl-cardinal s">S</span><span class="nl-cardinal w">W</span><span class="nl-needle"></span><span class="nl-hub"></span></div>
+            <div class="nl-accuracy"><span class="nl-dot"></span>Sensor accuracy OK</div>
+            <div class="nl-tools"><button type="button" class="nl-tool cursor-interaction" data-action="lantern" aria-pressed="false"><i data-lucide="flashlight" aria-hidden="true"></i><span>Lantern</span></button><button type="button" class="nl-tool cursor-interaction" data-action="night"><i data-lucide="moon" aria-hidden="true"></i><span>Night light</span></button><button type="button" class="nl-tool cursor-interaction" data-action="sos" aria-pressed="false"><i data-lucide="radio" aria-hidden="true"></i><span>SOS</span></button></div>
+            <div class="nl-message" aria-live="polite">Lights off</div>
+            <div class="nl-section"><span class="nl-label">Saved bearings</span><span class="nl-tag">PRO UNLOCKED</span></div>
+            <button type="button" class="nl-bearing cursor-interaction" data-action="bearing"><i data-lucide="navigation" aria-hidden="true"></i><span class="nl-bearing-text">Trailhead direction<small>032° · saved on this phone</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+          </div><div class="nl-homebar"></div>
+        </div>
+      </div>
+    </section>
+    <section data-variant="Beacon" aria-label="Beacon concept" hidden>
+      <div class="nl-stage">
+        <div class="nl-brand" aria-label="Beacon brand direction"><span class="nl-mark beacon" role="img" aria-label="North beam inside a circular horizon logo"></span><div><strong>NORTHLIGHT</strong><small>Beacon · Light first</small></div></div>
+        <div class="nl-phone nl-beacon" aria-label="Beacon home screen · Pro unlocked">
+          <div class="nl-status"><span>9:41</span><span class="nl-status-icons"><i data-lucide="wifi" aria-hidden="true"></i><i data-lucide="battery-full" aria-hidden="true"></i></span></div>
+          <div class="nl-app">
+            <header class="nl-header"><span class="nl-mark beacon" aria-hidden="true"></span><span class="nl-name">Northlight</span><button type="button" class="nl-icon-button cursor-interaction" data-action="about" aria-label="About Northlight"><i data-lucide="info" aria-hidden="true"></i></button></header>
+            <section class="nl-hero"><div class="nl-hero-top"><span class="nl-eyebrow">LED lantern</span><i data-lucide="flashlight" aria-hidden="true"></i></div><h2>Light your way.</h2><p data-lantern-caption>Ready when you need it.</p><button type="button" class="nl-power cursor-interaction" data-action="lantern" aria-pressed="false"><i data-lucide="power" aria-hidden="true"></i><span>Turn on lantern</span></button></section>
+            <div class="nl-mini-compass"><div class="nl-mini-dial" role="img" aria-label="North-pointing compass needle"></div><div><div class="nl-mini-heading">349° <span>North</span></div><div class="nl-mini-copy">Magnetic north · accuracy OK</div></div></div>
+            <div class="nl-tools nl-secondary-tools"><button type="button" class="nl-tool cursor-interaction" data-action="night"><i data-lucide="moon" aria-hidden="true"></i><span>Night light</span></button><button type="button" class="nl-tool cursor-interaction" data-action="sos" aria-pressed="false"><i data-lucide="radio" aria-hidden="true"></i><span>SOS signal</span></button></div>
+            <div class="nl-message" aria-live="polite">Lights off</div>
+            <div class="nl-section"><span class="nl-label">Your directions</span><span class="nl-tag">PRO UNLOCKED</span></div>
+            <button type="button" class="nl-bearing cursor-interaction" data-action="bearing"><i data-lucide="navigation" aria-hidden="true"></i><span class="nl-bearing-text">Trailhead direction<small>032° · follow bearing</small></span><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+          </div><div class="nl-homebar"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    (() => {
+      const root = document.getElementById('northlight-directions');
+      const phones = Array.from(root.querySelectorAll('.nl-phone'));
+      const controllers = [];
+      const saved = window.openai?.widgetState?.privateContent || {};
+      phones.forEach((phone, index) => {
+        let mode = ['off','lantern','sos'].includes(saved[index]?.mode) ? saved[index].mode : 'off';
+        const panel = document.createElement('section');
+        panel.className = 'nl-panel'; panel.hidden = true; panel.setAttribute('aria-label','Tool preview'); phone.appendChild(panel);
+        const persist = () => {
+          if (window.openai?.setWidgetState) window.openai.setWidgetState({modelContent:{preview:true},privateContent:Object.fromEntries(phones.map((p,i)=>[i,{mode:p.dataset.mode || 'off'}]))}).catch(()=>{});
+        };
+        function renderMode(){
+          phone.dataset.mode=mode;
+          phone.querySelectorAll('[data-action="lantern"],[data-action="sos"]').forEach(b=>b.setAttribute('aria-pressed',String(mode===b.dataset.action)));
+          const power = phone.querySelector('.nl-power span'); if(power) power.textContent=mode==='lantern'?'Turn off lantern':'Turn on lantern';
+          const caption=phone.querySelector('[data-lantern-caption]'); if(caption)caption.textContent=mode==='lantern'?'Lantern on · brightness remembered':'Ready when you need it.';
+          phone.querySelector('.nl-message').textContent=mode==='off'?'Lights off':mode==='sos'?'SOS active · tap again to stop':'Lantern on · tap again to turn off';
+        }
+        function showPanel(kind){
+          const content=kind==='night'
+            ? '<div class="nl-panel-head">Night light<button type="button" class="nl-icon-button cursor-interaction" data-close aria-label="Close night light"><i data-lucide="x" aria-hidden="true"></i></button></div><div class="nl-swatches"><button type="button" class="nl-swatch cursor-interaction" data-colour="Red" aria-pressed="false">Red</button><button type="button" class="nl-swatch cursor-interaction" data-colour="Amber" aria-pressed="true">Amber · Pro</button><button type="button" class="nl-swatch cursor-interaction" data-colour="Green" aria-pressed="false">Green · Pro</button></div><div class="nl-light-preview">Amber light</div><label class="nl-brightness-label">Screen brightness <span data-level>65%</span></label><input type="range" min="10" max="100" value="65" aria-label="Night-light brightness"><p>Screen stays awake while this light is open.</p>'
+            : kind==='bearing'
+            ? '<div class="nl-panel-head">Trailhead direction<button type="button" class="nl-icon-button cursor-interaction" data-close aria-label="Close direction guidance"><i data-lucide="x" aria-hidden="true"></i></button></div><div class="nl-center"><div class="nl-eyebrow">Saved bearing</div><div class="nl-number">032°</div></div><div class="nl-follow-visual"><i data-lucide="navigation" aria-hidden="true"></i></div><div class="nl-center nl-north">Turn right 43°</div><p>Follow a direction, not a GPS location. Your saved bearings stay on this phone.</p><button type="button" class="nl-power cursor-interaction" data-close>Stop direction guidance</button>'
+            : '<div class="nl-panel-head">Northlight<button type="button" class="nl-icon-button cursor-interaction" data-close aria-label="Close about"><i data-lucide="x" aria-hidden="true"></i></button></div><p>Compass and light tools. Offline, with no account, ads or tracking.</p><p>Magnetic north can be affected by metal, magnets and phone cases. Calibrate before relying on a bearing.</p><p>This is a design preview. It does not activate your camera flash or sensors.</p>';
+          panel.innerHTML=content; panel.hidden=false;
+          if(typeof lucide!=='undefined')lucide.createIcons({attrs:{width:20,height:20}});
+          panel.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>{panel.hidden=true;phone.querySelector('[data-action="'+kind+'"]').focus();}));
+          panel.querySelectorAll('[data-colour]').forEach(b=>b.addEventListener('click',()=>{
+            panel.querySelectorAll('[data-colour]').forEach(s=>s.setAttribute('aria-pressed',String(s===b)));
+            const preview=panel.querySelector('.nl-light-preview'); preview.style.background={Red:'#cf3d37',Amber:'#efb65e',Green:'#7eac82'}[b.dataset.colour];preview.textContent=b.dataset.colour+' light';
+          }));
+          const range=panel.querySelector('input');if(range)range.addEventListener('input',()=>{panel.querySelector('[data-level]').textContent=range.value+'%';panel.querySelector('.nl-light-preview').style.opacity=Number(range.value)/100;});
+          panel.querySelector('button').focus();
+        }
+        phone.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{
+          const action=b.dataset.action;
+          if(action==='lantern'||action==='sos'){mode=mode===action?'off':action;renderMode();persist();}else showPanel(action);
+        }));
+        phone.addEventListener('keydown',event=>{if(event.key==='Escape')panel.hidden=true;});
+        renderMode();
+        controllers.push(value => {if(['off','lantern','sos'].includes(value)){mode=value;renderMode();}});
+        const design={radius:index===0?18:24,accent:'#efb65e'};
+        function renderDesign(){phone.style.setProperty('--nl-radius',design.radius+'px');phone.style.setProperty('--nl-gold',design.accent);root.querySelectorAll('.nl-brand')[index].style.setProperty('--nl-gold',design.accent);}
+        renderDesign();
+        if(typeof Tweak!=='undefined'){
+          const tweak=new Tweak({container:phone,onChange:renderDesign});
+          tweak.addSlider(design,'radius',{label:'Tool corners',min:8,max:28,unit:'px'});
+          tweak.addColorPicker(design,'accent',{label:'Warm accent',reference:'--nl-gold'});
+        }
+      });
+      window.addEventListener('openai:set_globals',event=>{
+        const incoming=event.detail?.globals?.widgetState?.privateContent;if(!incoming)return;
+        controllers.forEach((apply,i)=>apply(incoming[i]?.mode));
+      });
+    })();
+  </script>
+</div>
