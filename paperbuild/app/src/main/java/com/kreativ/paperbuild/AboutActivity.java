@@ -24,76 +24,34 @@ public class AboutActivity extends Activity {
     }
 
     private View buildScreen() {
-        ScrollView scroll = new ScrollView(this);
-        scroll.setFillViewport(true);
-        scroll.setBackgroundColor(Color.rgb(247, 248, 252));
-        LinearLayout root = new LinearLayout(this);
-        root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(dp(24), dp(30), dp(24), dp(132));
-        scroll.addView(root, new ScrollView.LayoutParams(-1, -1));
-
-        TextView badge = label("PAPERBUILD", 12, Color.rgb(49, 94, 170));
-        badge.setLetterSpacing(.12f);
-        root.addView(badge);
-
-        TextView title = label("Privacy & About", 30, Color.rgb(30, 41, 53));
-        title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
-        title.setPadding(0, dp(12), 0, dp(20));
-        root.addView(title);
-
-        addSection(root, "Your pages stay private.", "PaperBuild creates PDFs on your phone. It does not upload your pages or PDFs.");
-        addSection(root, "You choose access.", "You select images with Android's picker. Scanning uses your camera app. No broad photo or camera access is requested.");
-        addSection(root, "You control exports.", "PDFs stay temporary until you share, open, or save them. Originals are never changed.");
-
-        Button privacyButton = button("Read Privacy Policy", false);
-        privacyButton.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY_URL))));
-        root.addView(privacyButton, matchWrap());
-        addSpacer(root, 10);
-        Button supportButton = button("Contact support", false);
-        supportButton.setOnClickListener(v -> {
+        ScrollView scroll = new ScrollView(this); scroll.setFillViewport(true); scroll.setBackgroundColor(Ui.SURFACE);
+        LinearLayout root = Ui.column(this); Ui.applyInsets(scroll, root); scroll.addView(root, new ScrollView.LayoutParams(-1, -1));
+        root.addView(Ui.brand(this)); Ui.gap(root, 22);
+        root.addView(Ui.hero(this, "PRIVACY & ABOUT", "Your pages.\nYour business.", "Built to keep documents local.")); Ui.gap(root, 20);
+        root.addView(Ui.feature(this, R.drawable.ic_shield, "Private by design", "Your pages and PDFs are processed on your phone. They aren’t uploaded.")); Ui.gap(root, 10);
+        root.addView(Ui.feature(this, R.drawable.ic_images, "You choose access", "Use Android’s picker or your camera app. No broad photo access.")); Ui.gap(root, 10);
+        root.addView(Ui.feature(this, R.drawable.ic_stack, "Your draft stays ready", "Private page copies keep your draft safe. New document clears them.")); Ui.gap(root, 10);
+        root.addView(Ui.feature(this, R.drawable.ic_extract, "You control sharing", "Open, share or save when you choose. Your originals stay untouched.")); Ui.gap(root, 20);
+        LinearLayout links = Ui.card(this, R.drawable.card);
+        links.addView(Ui.text(this, "A little peace of mind.", 20, Ui.INK, true)); Ui.gap(links, 8);
+        links.addView(Ui.text(this, "No account. No ads. Google Play handles optional Pro purchases.", 14, Ui.MUTED, false)); Ui.gap(links, 16);
+        Button privacy = Ui.button(this, "Read Privacy Policy", false);
+        privacy.setOnClickListener(v -> openExternal(new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY_URL)))); links.addView(privacy, matchWrap());
+        Ui.gap(links, 10); Button support = Ui.button(this, "Contact support", false);
+        support.setOnClickListener(v -> {
             Intent email = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + SUPPORT_EMAIL));
-            email.putExtra(Intent.EXTRA_SUBJECT, "PaperBuild support");
-            startActivity(Intent.createChooser(email, "Contact PaperBuild support"));
-        });
-        root.addView(supportButton, matchWrap());
-
-        TextView version = label("Version " + BuildConfig.VERSION_NAME, 14, Color.rgb(91, 104, 120));
-        version.setGravity(Gravity.CENTER);
-        version.setPadding(0, dp(24), 0, dp(12));
-        root.addView(version, matchWrap());
-        Button close = button("Close", true);
-        close.setOnClickListener(v -> finish());
-        root.addView(close, matchWrap());
-        return scroll;
+            email.putExtra(Intent.EXTRA_SUBJECT, "PaperBuild support"); openExternal(Intent.createChooser(email, "Contact PaperBuild support"));
+        }); links.addView(support, matchWrap()); root.addView(links); Ui.gap(root, 18);
+        Button close = Ui.button(this, "Back to PaperBuild", true); close.setOnClickListener(v -> finish()); root.addView(close, matchWrap());
+        TextView version = Ui.text(this, "PaperBuild " + BuildConfig.VERSION_NAME + " · Made by Kreativ", 11, Ui.MUTED, false);
+        version.setGravity(Gravity.CENTER); version.setPadding(0, dp(20), 0, 0); root.addView(version); return scroll;
     }
 
-    private void addSection(LinearLayout root, String heading, String copy) {
-        TextView title = label(heading, 19, Color.rgb(30, 41, 53));
-        title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
-        root.addView(title);
-        TextView body = label(copy, 16, Color.rgb(91, 104, 120));
-        body.setLineSpacing(dp(3), 1f);
-        body.setPadding(0, dp(8), 0, dp(22));
-        root.addView(body);
-    }
-
-    private TextView label(String text, float size, int color) {
-        TextView view = new TextView(this);
-        view.setText(text);
-        view.setTextSize(size);
-        view.setTextColor(color);
-        return view;
-    }
-
-    private Button button(String text, boolean primary) {
-        Button button = new Button(this);
-        button.setText(text);
-        button.setTextSize(16);
-        button.setAllCaps(false);
-        button.setMinHeight(dp(54));
-        button.setTextColor(primary ? Color.WHITE : Color.rgb(30, 41, 53));
-        button.setBackgroundResource(primary ? R.drawable.button_primary : R.drawable.button_secondary);
-        return button;
+    private void openExternal(Intent intent) {
+        try { startActivity(intent); }
+        catch (android.content.ActivityNotFoundException error) {
+            android.widget.Toast.makeText(this, "No app is available to open this link.", android.widget.Toast.LENGTH_LONG).show();
+        }
     }
 
     private LinearLayout.LayoutParams matchWrap() {

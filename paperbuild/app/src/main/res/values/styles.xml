@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.PaperBuild" parent="android:style/Theme.Material.Light.NoActionBar">
+    <style name="Theme.PaperBuild.Base" parent="android:style/Theme.Material.Light.NoActionBar">
         <item name="android:fontFamily">sans</item>
         <item name="android:colorAccent">@color/accent</item>
         <item name="android:navigationBarColor">@color/surface</item>
         <item name="android:statusBarColor">@color/surface</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
+    <style name="Theme.PaperBuild" parent="Theme.PaperBuild.Base" />
 </resources>

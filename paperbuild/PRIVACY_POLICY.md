@@ -1,12 +1,12 @@
 # PaperBuild Privacy Policy
 
-Last updated: October 10, 2026
+Last updated: October 11, 2026
 
 PaperBuild is an offline Android document-maker from Kreativ. This policy explains how the app handles information when you use it.
 
 ## Our approach
 
-PaperBuild is designed to process your document pages locally on your device. It does not require an account and does not contain advertising, analytics, tracking SDKs, or an internet permission.
+PaperBuild processes your document pages locally on your device. It does not require a PaperBuild account and does not include advertising or document analytics. The app has no internet permission. Optional purchases and restore checks use the Google Play service, which uses its own connectivity and privacy terms.
 
 ## Documents and images
 
@@ -16,13 +16,17 @@ PaperBuild does not upload your images, PDFs, document names, or page-order info
 
 ## Files created by the app
 
-While you work, PaperBuild creates a temporary PDF in its private app storage. When you choose **Share**, **Open**, or **Save to Downloads**, you control where a copy goes. Saved files are placed in `Downloads/PaperBuild`; original images are never changed.
+PaperBuild copies selected images and camera captures to private app storage so your draft survives closing or rotating the app. It stores page order, rotation, document name, and export settings on your device. **New document** removes the current draft and its private page copies. Removed pages are also deleted from private storage; your originals are never changed.
+
+Exported PDFs are temporary private files. Unreferenced exports older than seven days are removed on startup; the most recent export is retained while available. Temporary working copies used for PDF tools are removed after the operation or on the next startup after an interruption.
+
+When you choose **Share**, **Open**, or **Save to Downloads**, you control where a copy goes. Saved files are placed in `Downloads/PaperBuild` and are not removed by the app. Other apps you choose to open or share files with handle them under their own privacy terms.
 
 ## Data collection and sharing
 
 PaperBuild does not collect, sell, rent, or share personal information. It does not use your documents to train AI systems.
 
-If you choose to buy PaperBuild Pro, Google Play processes the purchase under its own terms. PaperBuild does not receive or store payment-card information.
+If you choose to buy PaperBuild Pro, Google Play processes the purchase under its own terms. PaperBuild stores the Pro unlock status locally and uses purchase information returned by Google Play to acknowledge and restore it. PaperBuild does not receive or store payment-card information and does not send purchase information to Kreativ.
 
 ## Permissions
 

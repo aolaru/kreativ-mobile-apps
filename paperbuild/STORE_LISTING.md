@@ -12,9 +12,9 @@ Build clean PDFs from photos and scans. Private, offline, no account or ads.
 
 Turn the pages in your pocket into a clean, share-ready PDF.
 
-PaperBuild lets you capture a page with your phone's camera app or select images from your device, then arrange them into one document. Choose A4 or US Letter, keep original colour, switch to grayscale, or use high contrast for clear text. Build the PDF locally, then open, share, print, or save it when you are ready.
+PaperBuild lets you capture a page with your phone's camera app or select images from your device, then arrange them into one document. Your draft is saved privately on your phone. Choose A4 or US Letter, keep original colour, switch to grayscale, or use high contrast for clear text. Build the PDF locally, then open, share, or save it when you are ready.
 
-Everything happens on your phone. PaperBuild has no account, no ads, no analytics, no tracking, and no internet permission.
+Document processing happens on your phone. PaperBuild has no account, no ads, and no internet permission. Google Play handles optional Pro purchases and restores.
 
 ### Free features
 
@@ -23,7 +23,8 @@ Everything happens on your phone. PaperBuild has no account, no ads, no analytic
 - Preview, reorder, rotate, and remove pages
 - Export A4 or US Letter PDFs
 - Choose colour, grayscale, or high-contrast document treatment
-- Open, share, print, or save PDFs to Downloads
+- Open, share, or save PDFs to Downloads
+- Resume your saved draft after closing the app
 
 ### Privacy by design
 
@@ -32,20 +33,22 @@ Everything happens on your phone. PaperBuild has no account, no ads, no analytic
 - No broad photo-library or direct camera permission
 - No account, ads, tracking, analytics, or upload
 
-### PaperBuild Pro - €2.99 one-time purchase
+### PaperBuild Pro - one-time purchase
 
 - Smaller PDF exports for easier sharing
 - Unlimited pages (free documents support up to 10 pages)
 - Merge PDFs and extract a page or page range
 
-Pro is a permanent unlock, not a subscription. The free PDF maker remains fully usable without Pro.
+Pro is a permanent unlock, not a subscription. The app shows your local Google Play price. The free PDF maker remains fully usable without Pro.
+
+PDF tools preserve page content and original sizes. Password-protected PDFs are not supported. Editing a signed PDF invalidates its digital signatures.
 
 ## Store setup
 
 - Category: Productivity
 - App type: Free app with one-time in-app product
 - One-time product ID: `paperbuild_pro_lifetime`
-- One-time product price: €2.99
+- One-time product base price: €2.99 EUR, with automatic country pricing
 - Contact email: info@madebykreativ.com
 - Privacy policy: https://github.com/aolaru/kreativ-mobile-apps/blob/main/paperbuild/PRIVACY_POLICY.md
 - Data safety: no data collected or shared
@@ -54,10 +57,13 @@ Pro is a permanent unlock, not a subscription. The free PDF maker remains fully 
 
 Capture these from a physical device after the smoke test. Do not use mockups or images that show unshipped features.
 
-1. Empty start screen: “Build clean documents from the pages in your pocket.”
-2. Multi-page review: page thumbnails, ordering, rotation, and page removal.
-3. Export controls: A4/Letter and colour/grayscale/high-contrast options.
-4. Finished document screen: file details with Share, Save to Downloads, and Open PDF.
+1. Home: branded “From paper to polished” hero and the real Scan/Add images controls. Caption: “Your private PDF studio.”
+2. Document review: real page thumbnails and ordering/rotation controls. Caption: “Your pages, in order.”
+3. Export: expanded A4/Letter, page style, and file-size controls. Caption: “Make it yours.”
+4. Finished document: the “Ready to share” card with Share, Save PDF, and Open PDF. Caption: “Ready when you are.”
+5. Pro: the three shipped features and the real localized Play price when available. Caption: “One purchase. More possibilities.” Do not insert a placeholder price.
+
+Use the real app screens, including their visible Free/Pro boundaries. Keep captions short; avoid claims about OCR, automatic cropping, signatures, or password-protected PDF support.
 
 ## Included feature graphic
 
