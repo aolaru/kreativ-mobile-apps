@@ -28,6 +28,8 @@ PaperBuild does not collect, sell, rent, or share personal information. It does 
 
 If you choose to buy PaperBuild Pro, Google Play processes the purchase under its own terms. PaperBuild stores the Pro unlock status locally and uses purchase information returned by Google Play to acknowledge and restore it. PaperBuild does not receive or store payment-card information and does not send purchase information to Kreativ.
 
+Authorised reviewers can enter a signed review-access code instead of making a purchase. The code is verified and stored locally on the device; it is not uploaded. Leaving review access removes the saved code without affecting a Google Play purchase.
+
 ## Permissions
 
 On Android 8 and Android 9 only, PaperBuild may request storage permission when you choose to save a PDF to Downloads. This is required by those Android versions. On Android 10 and newer, saving uses Android's scoped storage and does not require that permission.
@@ -36,7 +38,7 @@ PaperBuild does not request broad photo-library access or direct camera permissi
 
 ## Children
 
-PaperBuild is not directed at children and does not knowingly collect personal information from children.
+PaperBuild is intended for teenagers aged 13 and older and adults. It is not directed at children under 13 and does not knowingly collect personal information from children.
 
 ## Changes to this policy
 

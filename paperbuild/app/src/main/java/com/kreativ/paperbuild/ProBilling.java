@@ -67,7 +67,8 @@ final class ProBilling {
                 });
     }
     static boolean isPro(Context context) {
-        return context.getSharedPreferences("paperbuild_pro", Context.MODE_PRIVATE).getBoolean("owned", false);
+        return context.getSharedPreferences("paperbuild_pro", Context.MODE_PRIVATE).getBoolean("owned", false)
+                || ReviewAccess.active(context);
     }
     private void setOwned(boolean owned) {
         context.getSharedPreferences("paperbuild_pro", Context.MODE_PRIVATE).edit().putBoolean("owned", owned).apply();

@@ -46,6 +46,7 @@ PDF tools preserve page content and original sizes. Password-protected PDFs are 
 ## Store setup
 
 - Category: Productivity
+- Intended target audience: 13–15, 16–17, and 18+ (teenagers and adults)
 - App type: Free app with one-time in-app product
 - One-time product ID: `paperbuild_pro_lifetime`
 - One-time product base price: €2.99 EUR, with automatic country pricing
@@ -68,3 +69,5 @@ Use the real app screens, including their visible Free/Pro boundaries. Keep capt
 ## Included feature graphic
 
 `store-assets/play/paperbuild-feature-graphic.png` is a 1024 x 500 Google Play feature graphic. It deliberately contains no product claims or simulated app screens.
+
+`store-assets/play/paperbuild-icon.png` is a 512 x 512 opaque store icon rendered from `paperbuild-icon.svg`, using the existing Android icon artwork on a full-bleed square background.
