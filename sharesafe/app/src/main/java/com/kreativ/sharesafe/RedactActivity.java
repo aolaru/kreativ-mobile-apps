@@ -64,12 +64,15 @@ public class RedactActivity extends Activity {
     }
 
     private View buildScreen() {
-        ScrollView scroll = new ScrollView(this); scroll.setFillViewport(true); Ui.applyInsets(scroll);
-        LinearLayout root = new LinearLayout(this); root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(dp(18), dp(16), dp(18), dp(18)); root.setBackgroundColor(Color.rgb(247, 248, 243)); scroll.addView(root);
-        root.addView(label("SHARESAFE PRO", 12)); root.addView(label("Advanced edit", 26));
-        root.addView(label("Cover replaces sensitive details with solid black. Blur and pixelation may still reveal information. Use Cover for text, IDs and faces.", 14));
-        root.addView(label("Drag to mark an area. Pinch to zoom; use Move to pan. Large exports may be resized; transparency becomes white and animation exports one frame.", 13));
+        ScrollView scroll = new ScrollView(this);
+        LinearLayout root = Ui.pageContent(this); Ui.addPage(scroll, root);
+        root.addView(Ui.badge(this, "SHARESAFE PRO"), new LinearLayout.LayoutParams(-2, -2));
+        spacer(root, 12); root.addView(Ui.heading(this, "Advanced edit", 28));
+        root.addView(label("A safer copy. Your original stays untouched.", 14)); spacer(root, 12);
+        LinearLayout warning = Ui.card(this, Color.rgb(255, 243, 217)); warning.setPadding(dp(16), dp(10), dp(16), dp(10));
+        warning.addView(label("Use Cover for sensitive text, IDs and faces. Blur and pixelation may still reveal information.", 13));
+        root.addView(warning, new LinearLayout.LayoutParams(-1, -2)); spacer(root, 18);
+        LinearLayout canvasCard = Ui.card(this, Color.WHITE); canvasCard.setPadding(dp(12), dp(12), dp(12), dp(12));
         LinearLayout toolRow = new LinearLayout(this);
         for (int i = 0; i < tools.length; i++) {
             final int tool = i; tools[i] = button(toolName(i));
@@ -79,10 +82,12 @@ public class RedactActivity extends Activity {
             });
             toolRow.addView(tools[i], weighted());
         }
-        root.addView(toolRow);
+        canvasCard.addView(toolRow); spacer(canvasCard, 8);
         editor = new PhotoEditor();
         // A scrollable screen keeps tools reachable in landscape and with large fonts.
-        root.addView(editor, new LinearLayout.LayoutParams(-1, dp(360)));
+        canvasCard.addView(editor, new LinearLayout.LayoutParams(-1, dp(360)));
+        canvasCard.addView(label("Drag to mark · Pinch to zoom · Move to pan", 12)); root.addView(canvasCard, new LinearLayout.LayoutParams(-1, -2));
+        spacer(root, 12);
         status = label("Opening photo…", 14); status.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE); root.addView(status);
         progress = new ProgressBar(this); root.addView(progress, new LinearLayout.LayoutParams(-2, -2));
         LinearLayout nav = new LinearLayout(this);
@@ -94,9 +99,10 @@ public class RedactActivity extends Activity {
             new AlertDialog.Builder(this).setTitle("Remove all redactions?").setNegativeButton("Keep edits", null)
                     .setPositiveButton("Reset", (dialog, which) -> session.reset()).show();
         }); edits.addView(reset, weighted()); root.addView(edits);
-        save = button("Create redacted copy"); save.setBackgroundResource(R.drawable.button_primary); save.setTextColor(Color.WHITE);
+        spacer(root, 12); save = Ui.button(this, "Create redacted copy", true);
         save.setOnClickListener(v -> session.export()); root.addView(save, new LinearLayout.LayoutParams(-1, -2));
-        cancel = button("Cancel"); cancel.setOnClickListener(v -> requestClose()); root.addView(cancel, new LinearLayout.LayoutParams(-1, -2));
+        spacer(root, 8); cancel = Ui.textButton(this, "Cancel"); cancel.setOnClickListener(v -> requestClose()); root.addView(cancel, new LinearLayout.LayoutParams(-1, -2));
+        root.addView(label("JPEG copies may be resized. Transparency becomes white; animations export one frame.", 12));
         return scroll;
     }
 
@@ -108,8 +114,7 @@ public class RedactActivity extends Activity {
         boolean editable = session.ready && !session.busy;
         for (int i = 0; i < tools.length; i++) {
             tools[i].setEnabled(editable); tools[i].setSelected(session.tool == i);
-            tools[i].setBackgroundResource(session.tool == i ? R.drawable.button_primary : R.drawable.button_secondary);
-            tools[i].setTextColor(session.tool == i ? Color.WHITE : Color.rgb(25, 44, 41));
+            Ui.styleButton(tools[i], session.tool == i);
             ViewCompat.setStateDescription(tools[i], session.tool == i ? "Selected" : "Not selected");
         }
         move.setEnabled(editable); move.setText(session.moveMode ? "Draw areas" : "Move photo");
@@ -160,7 +165,7 @@ public class RedactActivity extends Activity {
         private boolean drawing, multitouch;
 
         PhotoEditor() {
-            super(RedactActivity.this); setBackgroundColor(Color.rgb(223, 229, 225));
+            super(RedactActivity.this); setBackground(Ui.rounded(RedactActivity.this, Ui.SURFACE, 16, 0)); setClipToOutline(true);
             outline.setStyle(Paint.Style.STROKE); outline.setColor(Color.rgb(25, 44, 41)); outline.setStrokeWidth(dp(2));
             scaler = new ScaleGestureDetector(RedactActivity.this, new ScaleGestureDetector.SimpleOnScaleGestureListener() {
                 @Override public boolean onScale(ScaleGestureDetector detector) {
@@ -230,15 +235,16 @@ public class RedactActivity extends Activity {
     }
     private static String toolName(int tool) { return tool == RedactionRenderer.COVER ? "Cover" : tool == RedactionRenderer.BLUR ? "Blur" : "Pixelate"; }
     private TextView label(String text, int size) {
-        TextView view = new TextView(this); view.setText(text); view.setTextSize(size); view.setTextColor(Color.rgb(25, 44, 41));
+        TextView view = Ui.text(this, text, size, Ui.MUTED);
         view.setPadding(0, dp(6), 0, dp(6)); return view;
     }
     private Button button(String text) {
-        Button button = new Button(this); button.setText(text); button.setTextSize(14); button.setAllCaps(false);
-        button.setMinHeight(dp(48)); button.setTextColor(Color.rgb(25, 44, 41)); button.setBackgroundResource(R.drawable.button_secondary); return button;
+        Button button = Ui.button(this, text, false); button.setTextSize(14);
+        button.setPadding(dp(10), dp(12), dp(10), dp(12)); button.setMinHeight(dp(48)); return button;
     }
     private LinearLayout.LayoutParams weighted() {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, -2, 1); params.setMargins(dp(3), dp(5), dp(3), dp(5)); return params;
     }
     private int dp(int value) { return Math.round(value * getResources().getDisplayMetrics().density); }
+    private void spacer(LinearLayout root, int height) { root.addView(new View(this), new LinearLayout.LayoutParams(1, dp(height))); }
 }

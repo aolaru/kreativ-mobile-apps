@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Keep the entire shield inside the adaptive icon's central safe zone. -->
+    <group android:scaleX="1.94" android:scaleY="1.94"
+        android:translateX="7.44" android:translateY="7.44">
+        <path
+            android:fillColor="#FFFFFF"
+            android:fillType="evenOdd"
+            android:pathData="M23.38 9.72 Q24 9.46 24.62 9.72 L35.1 14.06 Q36.5 14.64 36.5 16.16 L36.5 23.6 C36.5 30.9 31.66 36.68 24.65 39.08 Q24 39.3 23.35 39.08 C16.34 36.68 11.5 30.9 11.5 23.6 L11.5 16.16 Q11.5 14.64 12.9 14.06 Z M24 13.5 L15.1 17.19 L15.1 23.6 C15.1 29.05 18.54 33.64 24 35.51 C29.46 33.64 32.9 29.05 32.9 23.6 L32.9 17.19 Z" />
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M22.85 18.4 H25.15 Q25.8 18.4 25.8 19.05 V22.4 H29.15 Q29.8 22.4 29.8 23.05 V25.35 Q29.8 26 29.15 26 H25.8 V29.35 Q25.8 30 25.15 30 H22.85 Q22.2 30 22.2 29.35 V26 H18.85 Q18.2 26 18.2 25.35 V23.05 Q18.2 22.4 18.85 22.4 H22.2 V19.05 Q22.2 18.4 22.85 18.4 Z" />
+    </group>
+</vector>

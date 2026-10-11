@@ -9,9 +9,9 @@
         android:fullBackupContent="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:enableOnBackInvokedCallback="true"
-        android:icon="@drawable/ic_sharesafe"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_sharesafe"
+        android:roundIcon="@mipmap/ic_launcher"
         android:theme="@style/Theme.ShareSafe"
         android:supportsRtl="true">
         <activity

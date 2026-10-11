@@ -48,6 +48,26 @@ public class MainWorkflowTest {
         }
         fail("No completed export");
     }
+    @Test public void exportOptionsExpandAndKeepChoicesAcrossRecreation() {
+        try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
+            scenario.onActivity(activity -> {
+                control(activity, "Export options · Change\nBalanced · Individual photos").performClick();
+                assertTrue(control(activity, "High — sharper photos").isShown());
+                ((RadioButton) control(activity, "High — sharper photos")).setChecked(true);
+                ((RadioButton) control(activity, "One ZIP file")).setChecked(true);
+                assertNotNull(control(activity, "Export options · Hide\nHigh · One ZIP file"));
+            });
+            scenario.recreate();
+            scenario.onActivity(activity -> {
+                assertTrue(((RadioButton) control(activity, "High — sharper photos")).isChecked());
+                assertTrue(((RadioButton) control(activity, "One ZIP file")).isChecked());
+                control(activity, "Export options · Hide\nHigh · One ZIP file").performClick();
+                assertNotNull(control(activity, "Export options · Change\nHigh · One ZIP file"));
+                assertFalse(control(activity, "High — sharper photos").isShown());
+                assertFalse(control(activity, "Clean photos").isEnabled());
+            });
+        }
+    }
     @Test public void selectedPhotosAndResultSurviveRotationAndAreFrozenDuringCleaning() throws Exception {
         File file = ImageAndExportTest.fixture(context, "main-workflow.jpg", 800, 400);
         AtomicReference<ExportSession> state = new AtomicReference<>();

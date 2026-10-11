@@ -60,6 +60,21 @@ adb install app/build/outputs/apk/play/debug/app-play-debug.apk
 
 Use the existing release key to generate a signed Android App Bundle, prepare the store listing and privacy information, then complete Google Play's required testing/review steps. Do not publish the debug APK.
 
+### Logo assets
+
+The refreshed logo retains the original `#347463` green, white shield and plus.
+`store-assets/sharesafe-icon.svg` is the circular vector source; its two white paths
+also appear in the Android in-app and adaptive foreground vectors. The launcher
+uses a full-bleed adaptive background, with a monochrome layer for Android 13+
+themed icons. `LauncherIconTest` checks the actual Android resource, shield cutout
+and safe-zone placement.
+
+Run `node scripts/render-icon.cjs` with the `sharp` Node package available to
+regenerate the opaque Play `store-assets/play/icon-512.png`, transparent circular
+Amazon icons, and `store-assets/play/icon-launcher-preview.png`. The script checks
+the shared vector paths, foreground transform, safe zone and Play opacity.
+Do not apply corner rounding to the Play upload asset; Google Play supplies it.
+
 ### Release signing on this Mac
 
 Build a signed Google Play bundle with:
