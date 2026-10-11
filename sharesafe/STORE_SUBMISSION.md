@@ -6,13 +6,14 @@ ShareSafe is already live on Google Play. This update adds the optional permanen
 `sharesafe_pro` unlock; free metadata cleaning remains available.
 
 - [x] Recover the existing upload key and verify its certificate against Play Console.
-- [ ] Re-run all 13 device tests on the unlocked Galaxy A55 after the final EXIF-library/backup change. The prior full run passed; the latest run passed 11 tests but two ActivityScenario checks could not resume while the phone was locked. All 6 purchase-verification unit tests pass.
+- [x] Re-run all 13 device tests on the unlocked Galaxy A55 after the final EXIF-library/backup change: zero failures, errors or skipped tests (October 11, 2026). All 6 purchase-verification unit tests also pass.
 - [x] Build a fresh signed Play AAB and run release lint with no errors.
 - [x] Update the public privacy policy source for on-device editing and Play purchases.
 - [x] Verify the updated policy is deployed at https://madebykreativ.com/privacy/sharesafe/ (October 11, 2026).
 - [x] Activate `sharesafe_pro` / `lifetime` as a permanent one-time purchase. EUR checkout prices are 2.99, including tax; other currencies use Google's regional calculation (Romania RON 18.99, US USD 3.39).
 - [x] Upload the signed AAB to internal testing, not directly to production. Release `1.1.0 – Pro internal test` is available to the existing `andrei.olaru@gmail.com` tester list.
 - [ ] Install the Play-delivered release on a license tester's phone.
+- [x] Verify `andrei.olaru@gmail.com` is in both the selected internal tester list and the selected licence-testing list. Do not use a real payment method for billing tests.
 - [ ] Verify localized price, test purchase (no real charge), acknowledgement, cancel, pending payment, restore after reinstall, offline access, and revocation after a test refund.
 - [ ] Review the Data safety and App content declarations against the Play build and privacy policy.
 - [ ] Update listing copy to distinguish free cleaning from paid Advanced Edit.
