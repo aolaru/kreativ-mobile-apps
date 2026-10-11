@@ -1,5 +1,11 @@
 # PaperBuild 1.0 Release Checklist
 
+## Production submission — 12 October 2026
+
+- [x] Owner approved publishing the production launch. Confirmed **Send 11 changes for review** in Play Console; Publishing overview now shows **Changes in review**, including **1.0.0 — PaperBuild launch / Start full rollout**, listing, availability, and app-information changes.
+- Google is still running its automated quick checks; the submission will proceed to review when those checks complete successfully. **Not yet approved or publicly live.** Managed publishing remains off. Evidence: `release-evidence/2026-10-12/production-submitted.png`.
+- The preparation entries below retain their original dates and saved-for-review status. They were included in this submission. Payment testing remains explicitly waived and unverified; unfinished hands-on checks remain unfinished.
+
 ## Device smoke test
 
 - [x] Run the six automated document regressions on Samsung SM-A556B / Android 16 (11 October 2026): merge/extract text and original content, page geometry/rotation/links, compact exports, mirrored EXIF/grayscale, private draft recovery, malformed-input cleanup, and permissions.
@@ -35,6 +41,7 @@
   - [x] Finish store listing (12 October 2026). The dashboard's initial setup gate is cleared and production tasks are unlocked. App access, content rating, target audience, Data Safety, listing text, icon, banner, and the two screenshots are saved for review. Icon and banner are declared AI-assisted; unmodified physical-device screenshots are not AI-labelled.
     - Listing text, 512 × 512 app icon, and 1024 × 500 feature graphic saved as a draft on 12 October 2026. Google still requires at least two real phone/tablet screenshots before completion; the five-screen marketing brief remains recommended.
     - Accepted the IARC Terms after explicit owner confirmation and saved the questionnaire on 12 October 2026. Ratings include Everyone (North America), PEGI 3 (Europe), and 14+ (Brazil), with in-app purchases disclosed. Saved for review only; production has not been submitted.
+  - [x] Complete the Advertising ID declaration as **No** (12 October 2026). Verified no `AD_ID` permission, Advertising ID API use, or ads identifier dependency in source and the merged release manifests. Play Console confirms the declaration was saved and includes it among the review information.
 - [x] Create the non-consumable one-time product `paperbuild_pro_lifetime` with €2.99 EUR base and automatic country pricing (active).
 - [x] Enable the existing `Licence testers (auto-generated)` list (one account) for the internal track. Other tester lists remain unselected.
 - [ ] Complete hands-on merge, extraction, compact export, and unlimited-page checks. **Payment testing was explicitly waived by the owner on 12 October 2026; purchase, restore, pending-payment, and acknowledgement-network tests remain unverified, not passed.** No paid purchase is authorised or required for this release workflow.
@@ -50,7 +57,7 @@
 - [ ] Resolve tester feedback before creating a production release.
 - [x] Save production availability for all 178 countries/regions offered by Play Console, including Rest of world (12 October 2026). This is pending review, not yet public availability.
 - [x] Create and confirm production release **1.0.0 — PaperBuild launch** using the existing version code 3 bundle from Play's library (12 October 2026). Bundle SHA-256 rechecked and unchanged. No blocking validation errors; the sole deobfuscation warning is expected because `minifyEnabled false`. Saved for review, not yet submitted.
-- [ ] Send the production release and app-information changes to Google for review.
+- [x] Send the production release and app-information changes to Google for review (12 October 2026). All 11 changes were accepted into **Changes in review**, pending automated quick checks and Google's review; no public launch is claimed yet.
 
 ## Boundaries for version 1.0
 
