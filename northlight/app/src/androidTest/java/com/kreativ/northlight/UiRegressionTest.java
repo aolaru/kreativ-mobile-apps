@@ -54,6 +54,17 @@ public class UiRegressionTest {
             onView(withText(R.string.close)).perform(scrollTo()).check(matches(isDisplayed()));
         }
     }
+    @Test public void spokenCompassStartsOffAndSettingsDoNotStartSpeech() {
+        try (ActivityScenario<MainActivity> screen = ActivityScenario.launch(MainActivity.class)) {
+            onView(withId(R.id.speech_speak)).perform(scrollTo()).check(matches(isEnabled()));
+            onView(withId(R.id.speech_auto)).perform(scrollTo()).check(matches(isNotChecked()));
+            onView(withId(R.id.speech_settings)).perform(scrollTo(), click());
+            onView(withText(R.string.speech_limits)).perform(click());
+            onView(withText(R.string.speech_limits_body)).check(matches(isDisplayed()));
+            onView(withText(R.string.close)).perform(click());
+            onView(withId(R.id.speech_auto)).perform(scrollTo()).check(matches(isNotChecked()));
+        }
+    }
     @Test public void nightLightStaysAwakeAndBrightnessIsAdjustable() {
         try (ActivityScenario<RedLightActivity> screen = ActivityScenario.launch(RedLightActivity.class)) {
             screen.onActivity(a -> {
@@ -62,6 +73,28 @@ public class UiRegressionTest {
                 assertTrue(hasScroll(a.findViewById(android.R.id.content)));
             });
             onView(withContentDescription(R.string.screen_brightness)).perform(scrollTo()).check(matches(isDisplayed()));
+        }
+    }
+    @Test public void homeBearingShortcutOpensSelectedGuidance() {
+        context.getSharedPreferences(BillingManager.PREFS, Context.MODE_PRIVATE).edit()
+                .putString("saved_bearings", "[{\"name\":\"Trail\",\"degrees\":45}]").commit();
+        try (ActivityScenario<MainActivity> screen = ActivityScenario.launch(MainActivity.class)) {
+            onView(withId(R.id.field_pro_tools)).perform(scrollTo()).check(matches(withText(R.string.field_all_pro_tools)));
+            onView(withText(context.getString(R.string.bearing_row, 45, "Trail"))).perform(scrollTo(), click());
+            onView(withText(R.string.field_pro_owner_title)).check(matches(isDisplayed()));
+            onView(withText(R.string.clear_target)).perform(scrollTo()).check(matches(isDisplayed()));
+        }
+    }
+    @Test public void freeHomeDoesNotShowSavedBearings() {
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            try {
+                java.lang.reflect.Field entitled = BillingManager.class.getDeclaredField("entitled");
+                entitled.setAccessible(true); entitled.setBoolean(BillingManager.get(context), false);
+            } catch (ReflectiveOperationException error) { throw new AssertionError(error); }
+        });
+        try (ActivityScenario<MainActivity> screen = ActivityScenario.launch(MainActivity.class)) {
+            screen.onActivity(a -> assertEquals(View.GONE, a.findViewById(R.id.field_saved_bearings).getVisibility()));
+            onView(withId(R.id.field_pro_tools)).perform(scrollTo()).check(matches(withText(R.string.main_explore_northlight_pro)));
         }
     }
     @Test public void savedHeadingIsFrozenWhileNaming() throws Exception {

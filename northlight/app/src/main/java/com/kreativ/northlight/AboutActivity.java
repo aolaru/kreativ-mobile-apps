@@ -39,6 +39,8 @@ public class AboutActivity extends Activity {
         section(root, getString(R.string.about_private_by_design), getString(R.string.about_northlight_s_compass_and_light_tools_work_on_your_phone));
         section(root, getString(R.string.about_camera_permission), getString(R.string.about_northlight_asks_for_camera_access_only_when_you_choose));
         section(root, getString(R.string.about_compass_accuracy), getString(R.string.about_the_compass_uses_your_phone_s_orientation_sensors_and_s));
+        section(root, getString(R.string.altimeter_about_title), getString(R.string.altimeter_help_body));
+        section(root, getString(R.string.speech_speak_direction), getString(R.string.speech_limits_body));
         Button privacy = new Button(this);
         privacy.setText(getString(R.string.about_read_privacy_policy)); privacy.setTextSize(16); privacy.setAllCaps(false); privacy.setTextColor(moon());
         privacy.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PRIVACY_POLICY_URL))));

@@ -14,6 +14,21 @@ android {
         buildConfig true
     }
 
+    testOptions {
+        unitTests.includeAndroidResources = true
+        unitTests.all {
+            jvmArgs '--add-opens=java.base/java.lang=ALL-UNNAMED',
+                    '--add-opens=java.base/java.util=ALL-UNNAMED',
+                    '--add-opens=java.base/java.io=ALL-UNNAMED',
+                    '--add-opens=java.base/java.net=ALL-UNNAMED',
+                    '--add-opens=java.base/java.security=ALL-UNNAMED',
+                    '--add-opens=java.base/java.text=ALL-UNNAMED',
+                    '--add-opens=java.base/jdk.internal.access=ALL-UNNAMED',
+                    '--add-opens=java.desktop/java.awt.font=ALL-UNNAMED',
+                    '--add-opens=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED'
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -55,12 +70,18 @@ if (isReleaseTask && (releaseKeystorePath == null || releaseKeystorePassword == 
 }
 
 dependencies {
+    constraints {
+        implementation('androidx.fragment:fragment:1.9.1') {
+            because 'Replace the outdated Fragment 1.1.0 pulled in through Play Billing/Play services.'
+        }
+    }
     implementation 'androidx.core:core:1.15.0'
     implementation 'com.android.billingclient:billing:8.0.0'
     implementation 'androidx.work:work-runtime:2.10.1'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22'
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.17'
     testImplementation 'org.json:json:20240303'
     androidTestImplementation 'androidx.test:runner:1.6.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
