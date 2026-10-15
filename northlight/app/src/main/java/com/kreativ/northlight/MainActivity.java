@@ -2,34 +2,52 @@ package com.kreativ.northlight;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.net.Uri;
+import android.provider.Settings;
+import android.speech.tts.TextToSpeech;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Switch;
 import android.widget.Toast;
+import org.json.JSONException;
+import java.text.NumberFormat;
 
 /** A deliberately small, offline orientation and emergency-light utility. */
-public class MainActivity extends Activity implements CompassSource.Listener {
+public class MainActivity extends Activity implements CompassSource.Listener, BillingManager.Listener, CompassSpeech.Listener, AltimeterSource.Listener {
     private static final int CAMERA_PERMISSION = 9;
+    private static final int ALTITUDE_PERMISSION = 10;
     private final Handler handler = new Handler(Looper.getMainLooper());
     private CompassSource compassSource;
-    private CompassView compass;
+    private FieldCompassView compass;
+    private BillingManager billing;
+    private CompassSpeech speech;
+    private TextView speechStatus, speechResult;
+    private Switch autoSpeech;
+    private Button pauseSpeech;
+    private boolean renderingSpeech;
+    private AltimeterSource altimeter;
+    private TextView altitudeValue, altitudeSource, altitudeAccuracy, altitudeStatus;
+    private Button altitudeStart, altitudeUnits;
     private TextView bearingText;
     private TextView directionText;
     private TextView sensorStatus;
@@ -39,6 +57,9 @@ public class MainActivity extends Activity implements CompassSource.Listener {
     private Button redButton;
     private Button sosButton;
     private LinearLayout root;
+    private LinearLayout savedBearings;
+    private TextView proLabel, proHint;
+    private Button proButton;
     private CameraManager cameraManager;
     private String torchCameraId;
     private boolean torchOn;
@@ -53,7 +74,7 @@ public class MainActivity extends Activity implements CompassSource.Listener {
         @Override public void onTorchModeChanged(String cameraId, boolean enabled) {
             if (!cameraId.equals(torchCameraId)) return;
             torchOn = enabled;
-            if (!sosOn && lanternButton != null) lanternButton.setText(enabled ? getString(R.string.main_turn_off_lantern) : getString(R.string.lantern_turn_on));
+            if (lanternButton != null) updateLightButtons();
             if (torchStatus != null) torchStatus.setText(sosOn ? getString(R.string.sos_active) : getString(enabled ? R.string.lantern_on : R.string.lantern_ready));
         }
 
@@ -71,6 +92,7 @@ public class MainActivity extends Activity implements CompassSource.Listener {
             abortSos();
             torchStatus.setText(R.string.lantern_busy);
             lanternButton.setText(R.string.lantern_turn_on);
+            updateLightButtons();
         }
     };
 
@@ -86,6 +108,9 @@ public class MainActivity extends Activity implements CompassSource.Listener {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         compassSource = new CompassSource(this, this);
+        speech = new CompassSpeech(this, this);
+        altimeter = new AltimeterSource(this, this);
+        billing = BillingManager.get(this);
         cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         findTorch();
         setContentView(buildScreen());
@@ -99,84 +124,86 @@ public class MainActivity extends Activity implements CompassSource.Listener {
         scroll.setBackgroundColor(Color.rgb(11, 19, 32));
         root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(dp(24), dp(26), dp(24), dp(28));
+        root.setPadding(dp(20), dp(12), dp(20), dp(24));
         scroll.addView(root, new ScrollView.LayoutParams(-1, -2));
 
         LinearLayout top = new LinearLayout(this);
         top.setGravity(Gravity.CENTER_VERTICAL);
-        TextView brand = text(getString(R.string.main_northlight), 12, gold());
-        brand.setLetterSpacing(.16f);
+        ImageView logo = new ImageView(this);
+        logo.setImageResource(R.drawable.ic_northlight);
+        logo.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+        LinearLayout.LayoutParams logoParams = new LinearLayout.LayoutParams(dp(36), dp(36));
+        logoParams.setMarginEnd(dp(10));
+        top.addView(logo, logoParams);
+        TextView brand = text(getString(R.string.app_name), 19, moon());
+        brand.setTypeface(android.graphics.Typeface.create("sans-serif-medium", android.graphics.Typeface.NORMAL));
         top.addView(brand, new LinearLayout.LayoutParams(0, -2, 1));
         Button about = smallButton(getString(R.string.main_about));
+        about.setMinHeight(dp(48));
         about.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class)));
         top.addView(about);
         root.addView(top, matchWrap());
 
-        TextView title = text(getString(R.string.main_find_north_make_light), 32, moon());
-        title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
-        title.setPadding(0, dp(15), 0, dp(5));
-        root.addView(title);
-        TextView subtitle = text(getString(R.string.main_a_private_offline_compass_and_lantern), 16, mist());
-        root.addView(subtitle);
+        addSpacer(8);
+        compass = new FieldCompassView(this);
+        root.addView(compass, new LinearLayout.LayoutParams(-1, -2));
+        bearingText = compass.headingText();
+        directionText = compass.directionText();
+        Button accuracy = smallButton(getString(R.string.compass_waiting_accuracy));
+        accuracy.setId(R.id.field_accuracy);
+        accuracy.setTextSize(12);
+        accuracy.setMinHeight(dp(48));
+        accuracy.setOnClickListener(v -> new AlertDialog.Builder(this)
+                .setTitle(R.string.main_calibrate_compass)
+                .setMessage(R.string.main_move_your_phone_in_a_slow_figure_eight_away_from_metal)
+                .setPositiveButton(R.string.close, null).show());
+        sensorStatus = accuracy;
+        root.addView(accuracy, matchWrap());
+        addSpacer(16);
 
-        addSpacer(18);
-        compass = new CompassView(this);
-        compass.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-        root.addView(compass, new LinearLayout.LayoutParams(-1, dp(282)));
-        bearingText = text(getString(R.string.main), 44, moon());
-        bearingText.setGravity(Gravity.CENTER);
-        bearingText.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
-        root.addView(bearingText, matchWrap());
-        directionText = text(getString(R.string.main_waiting_for_compass), 16, gold());
-        directionText.setGravity(Gravity.CENTER);
-        directionText.setPadding(0, 0, 0, dp(8));
-        root.addView(directionText, matchWrap());
-        sensorStatus = text(getString(R.string.main_magnetic_north_works_offline), 13, mist());
-        sensorStatus.setGravity(Gravity.CENTER);
-        sensorStatus.setBackgroundResource(R.drawable.pill);
-        root.addView(sensorStatus, centerWrap());
-        Button calibrate = smallButton(getString(R.string.main_calibrate_compass));
-        calibrate.setTextSize(14);
-        calibrate.setOnClickListener(v -> Toast.makeText(this, getString(R.string.main_move_your_phone_in_a_slow_figure_eight_away_from_metal), Toast.LENGTH_LONG).show());
-        LinearLayout.LayoutParams calibrateParams = centerWrap();
-        calibrateParams.topMargin = dp(8);
-        root.addView(calibrate, calibrateParams);
-
-        addSpacer(24);
-        TextView lightLabel = text(getString(R.string.main_light), 12, gold());
-        lightLabel.setLetterSpacing(.13f);
-        root.addView(lightLabel);
-        TextView lightHint = text(getString(R.string.main_use_your_camera_flash_an_adjustable_red_screen_light_or), 15, mist());
-        lightHint.setLineSpacing(dp(2), 1f);
-        lightHint.setPadding(0, dp(6), 0, dp(12));
-        root.addView(lightHint);
-
-        lanternButton = actionButton(getString(R.string.lantern_turn_on), true);
+        LinearLayout lightTools = new LinearLayout(this);
+        boolean stacked = getResources().getConfiguration().fontScale >= 1.3f
+                || getResources().getConfiguration().screenWidthDp < 340;
+        lightTools.setOrientation(stacked ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+        lanternButton = toolButton(R.string.field_lantern, R.drawable.ic_lantern);
+        lanternButton.setId(R.id.field_lantern);
         lanternButton.setOnClickListener(v -> runWithCameraPermission(() -> toggleLantern()));
-        root.addView(lanternButton, matchWrap());
+        redButton = toolButton(R.string.field_night_light, R.drawable.ic_night_light);
+        redButton.setId(R.id.field_night_light);
+        redButton.setOnClickListener(v -> openNightLight());
+        sosButton = toolButton(R.string.field_sos, R.drawable.ic_signal);
+        sosButton.setId(R.id.field_sos);
+        sosButton.setOnClickListener(v -> runWithCameraPermission(() -> toggleSos()));
+        Button[] tools = {lanternButton, redButton, sosButton};
+        for (int i = 0; i < tools.length; i++) {
+            LinearLayout.LayoutParams params = stacked ? matchWrap() : new LinearLayout.LayoutParams(0, -2, 1);
+            if (i > 0) { if (stacked) params.topMargin = dp(8); else params.setMarginStart(dp(8)); }
+            lightTools.addView(tools[i], params);
+        }
+        root.addView(lightTools, matchWrap());
         torchStatus = text(getString(R.string.lantern_ready), 13, mist());
         torchStatus.setGravity(Gravity.CENTER);
         torchStatus.setPadding(0, dp(7), 0, 0);
         root.addView(torchStatus, matchWrap());
         if (torchMaxStrength > 1) addBrightnessControl();
-        addSpacer(9);
-        redButton = actionButton(getString(R.string.main_red_screen_light), false);
-        redButton.setOnClickListener(v -> startActivity(new Intent(this, RedLightActivity.class)));
-        root.addView(redButton, matchWrap());
-        addSpacer(9);
-        sosButton = actionButton(getString(R.string.sos_signal), false);
-        sosButton.setOnClickListener(v -> runWithCameraPermission(() -> toggleSos()));
-        root.addView(sosButton, matchWrap());
+        updateLightButtons();
 
+        addAltimeterPanel();
+        addSpeechControls();
         addSpacer(24);
-        TextView proLabel = text(getString(R.string.pro_brand), 12, gold());
+        proLabel = text(getString(R.string.pro_brand), 12, gold());
         proLabel.setLetterSpacing(.13f);
         root.addView(proLabel);
-        TextView proHint = text(getString(R.string.main_saved_bearings_an_offline_night_light_palette_and_a_str), 15, mist());
+        savedBearings = new LinearLayout(this);
+        savedBearings.setId(R.id.field_saved_bearings);
+        savedBearings.setOrientation(LinearLayout.VERTICAL);
+        root.addView(savedBearings, matchWrap());
+        proHint = text(getString(R.string.main_saved_bearings_an_offline_night_light_palette_and_a_str), 14, mist());
         proHint.setLineSpacing(dp(2), 1f);
         proHint.setPadding(0, dp(6), 0, dp(12));
         root.addView(proHint);
-        Button proButton = actionButton(getString(R.string.main_explore_northlight_pro), false);
+        proButton = actionButton(getString(R.string.main_explore_northlight_pro), false);
+        proButton.setId(R.id.field_pro_tools);
         proButton.setOnClickListener(v -> startActivity(new Intent(this, ProActivity.class)));
         root.addView(proButton, matchWrap());
 
@@ -184,28 +211,308 @@ public class MainActivity extends Activity implements CompassSource.Listener {
         TextView footer = text(getString(R.string.main_no_account_no_ads_no_tracking), 13, mist());
         footer.setGravity(Gravity.CENTER);
         root.addView(footer, matchWrap());
+        TextView credit = text(getString(R.string.field_version_credit, BuildConfig.VERSION_NAME), 12, mist());
+        credit.setId(R.id.field_version_credit);
+        credit.setGravity(Gravity.CENTER);
+        credit.setPadding(0, dp(6), 0, 0);
+        root.addView(credit, matchWrap());
+        onBillingChanged();
         return Ui.screen(this, scroll);
     }
 
     @Override protected void onResume() {
         super.onResume();
+        compass.reset();
+        speech.resume();
+        altimeter.resume();
         compassSource.start();
+        billing.addListener(this);
     }
 
     @Override protected void onPause() {
         super.onPause();
+        altimeter.pause();
+        speech.pause();
         compassSource.stop();
+        billing.removeListener(this);
         if (sosOn) stopSos();
         if (ownsTorch) setTorch(false);
     }
 
     @Override protected void onDestroy() {
         cameraManager.unregisterTorchCallback(torchCallback);
+        speech.close();
+        altimeter.close();
         super.onDestroy();
     }
 
-    @Override public void onHeading(float heading) { updateHeading(heading); }
-    @Override public void onCompassStatus(int message) { sensorStatus.setText(message); }
+    @Override public void onHeading(float heading) { updateHeading(heading); speech.heading(heading); }
+    @Override public void onCompassStatus(int message) {
+        speech.accuracy(message);
+        sensorStatus.setText(message);
+        sensorStatus.setContentDescription(getString(R.string.field_accuracy_action, getString(message)));
+        if (message == R.string.compass_unavailable) {
+            compass.reset(); directionText.setText(R.string.field_no_sensor);
+        }
+    }
+
+    private void addAltimeterPanel() {
+        addSpacer(20);
+        LinearLayout panel = new LinearLayout(this);
+        panel.setId(R.id.altimeter_panel);
+        panel.setOrientation(LinearLayout.VERTICAL);
+        panel.setPadding(dp(16), dp(16), dp(16), dp(16));
+        GradientDrawable background = new GradientDrawable();
+        background.setColor(Color.rgb(17, 28, 44)); background.setCornerRadius(dp(20));
+        background.setStroke(dp(1), Color.rgb(45, 62, 83));
+        panel.setBackground(background);
+        TextView title = text(getString(R.string.altimeter_title), 12, gold());
+        title.setLetterSpacing(.1f);
+        androidx.core.view.ViewCompat.setAccessibilityHeading(title, true);
+        panel.addView(title, matchWrap());
+        altitudeValue = text("", 36, moon());
+        altitudeValue.setId(R.id.altimeter_value);
+        altitudeValue.setTypeface(android.graphics.Typeface.create("sans-serif-medium", android.graphics.Typeface.NORMAL));
+        altitudeValue.setPadding(0, dp(10), 0, dp(4));
+        panel.addView(altitudeValue, matchWrap());
+        altitudeSource = text("", 13, mist()); altitudeSource.setId(R.id.altimeter_source);
+        panel.addView(altitudeSource, matchWrap());
+        altitudeAccuracy = text("", 13, mist()); altitudeAccuracy.setId(R.id.altimeter_accuracy);
+        altitudeAccuracy.setPadding(0, dp(5), 0, 0);
+        panel.addView(altitudeAccuracy, matchWrap());
+        altitudeStatus = text("", 14, mist()); altitudeStatus.setId(R.id.altimeter_status);
+        altitudeStatus.setPadding(0, dp(8), 0, dp(12));
+        panel.addView(altitudeStatus, matchWrap());
+        altitudeStart = actionButton(getString(R.string.altimeter_start), false);
+        altitudeStart.setId(R.id.altimeter_start);
+        altitudeStart.setOnClickListener(v -> altitudeAction());
+        panel.addView(altitudeStart, matchWrap());
+        LinearLayout actions = new LinearLayout(this);
+        boolean stacked = getResources().getConfiguration().fontScale >= 1.3f
+                || getResources().getConfiguration().screenWidthDp < 340;
+        actions.setOrientation(stacked ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+        altitudeUnits = smallButton(""); altitudeUnits.setId(R.id.altimeter_units);
+        altitudeUnits.setOnClickListener(v -> {
+            String[] choices = getResources().getStringArray(R.array.altimeter_units);
+            new AlertDialog.Builder(this).setTitle(R.string.altimeter_units_title)
+                    .setSingleChoiceItems(choices, altitudeFeet() ? 1 : 0, (dialog, which) -> {
+                        getSharedPreferences("altimeter", MODE_PRIVATE).edit().putBoolean("feet", which == 1).apply();
+                        onAltitudeChanged(); dialog.dismiss();
+                    }).setNegativeButton(R.string.close, null).show();
+        });
+        LinearLayout.LayoutParams unitParams = stacked ? matchWrap() : new LinearLayout.LayoutParams(0, -2, 1);
+        unitParams.topMargin = dp(8); actions.addView(altitudeUnits, unitParams);
+        Button help = smallButton(getString(R.string.altimeter_help)); help.setId(R.id.altimeter_help);
+        help.setOnClickListener(v -> new AlertDialog.Builder(this).setTitle(R.string.altimeter_help)
+                .setMessage(R.string.altimeter_help_body).setPositiveButton(R.string.close, null).show());
+        LinearLayout.LayoutParams helpParams = stacked ? matchWrap() : new LinearLayout.LayoutParams(0, -2, 1);
+        helpParams.topMargin = dp(8); if (!stacked) helpParams.setMarginStart(dp(8));
+        actions.addView(help, helpParams); panel.addView(actions, matchWrap());
+        root.addView(panel, matchWrap());
+        onAltitudeChanged();
+    }
+
+    private boolean altitudeFeet() { return getSharedPreferences("altimeter", MODE_PRIVATE).getBoolean("feet", false); }
+
+    @Override public void onAltitudeChanged() {
+        if (altitudeValue == null || altitudeUnits == null) return;
+        boolean feet = altitudeFeet(), hasReading = altimeter.hasReading();
+        double factor = feet ? 3.280839895013123 : 1;
+        String unit = getString(feet ? R.string.altimeter_unit_ft : R.string.altimeter_unit_m);
+        String unitName = getResources().getStringArray(R.array.altimeter_units)[feet ? 1 : 0];
+        NumberFormat format = NumberFormat.getIntegerInstance(getResources().getConfiguration().getLocales().get(0));
+        String value = hasReading ? format.format(Math.round(altimeter.meters() * factor)) : getString(R.string.altimeter_empty);
+        setCopy(altitudeValue, getString(R.string.altimeter_reading, value, unit));
+        altitudeValue.setContentDescription(hasReading ? getString(R.string.altimeter_accessible, value, unitName) : getString(R.string.altimeter_no_reading));
+        setCopy(altitudeSource, getString(!hasReading ? R.string.altimeter_source_pending
+                : altimeter.seaLevel() ? R.string.altimeter_source_msl : R.string.altimeter_source_wgs84));
+        altitudeAccuracy.setVisibility(hasReading ? View.VISIBLE : View.GONE);
+        setCopy(altitudeAccuracy, hasReading && Double.isFinite(altimeter.accuracy())
+                ? getString(R.string.altimeter_accuracy, format.format(Math.max(1L, (long)Math.ceil(altimeter.accuracy() * factor))), unit)
+                : getString(R.string.altimeter_accuracy_unknown));
+        int status;
+        switch (altimeter.state()) {
+            case ALLOWED: status = R.string.altimeter_allowed; break;
+            case WAITING: status = R.string.altimeter_waiting; break;
+            case SLOW_FIX: status = R.string.altimeter_slow_fix; break;
+            case READY: status = !Double.isFinite(altimeter.accuracy()) ? R.string.altimeter_ready_unknown
+                    : altimeter.accuracy() > 30 ? R.string.altimeter_low_accuracy : R.string.altimeter_ready; break;
+            case NO_ALTITUDE: status = R.string.altimeter_no_altitude; break;
+            case STALE: status = R.string.altimeter_stale; break;
+            case APPROXIMATE: status = R.string.altimeter_approximate; break;
+            case DENIED: status = R.string.altimeter_denied; break;
+            case GPS_OFF: status = R.string.altimeter_gps_off; break;
+            case NO_GPS: status = R.string.altimeter_no_gps; break;
+            case ERROR: status = R.string.altimeter_error; break;
+            case PAUSED: status = R.string.altimeter_paused; break;
+            case SIMULATED: status = R.string.altimeter_simulated; break;
+            default: status = R.string.altimeter_intro;
+        }
+        setCopy(altitudeStatus, getString(status));
+        setCopy(altitudeStart, getString(altimeter.active() ? R.string.altimeter_stop
+                : altimeter.state() == AltimeterSource.State.GPS_OFF ? R.string.altimeter_location_settings : R.string.altimeter_start));
+        setCopy(altitudeUnits, getString(R.string.altimeter_units_button, unit));
+    }
+
+    private void setCopy(TextView view, String value) { if (!value.contentEquals(view.getText())) view.setText(value); }
+
+    private void altitudeAction() {
+        if (altimeter.active()) { altimeter.stop(); return; }
+        if (altimeter.state() == AltimeterSource.State.GPS_OFF) {
+            openAltitudeSettings(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)); return;
+        }
+        if (!altimeter.hasGps() || checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            altimeter.start(); return;
+        }
+        boolean settingsRequired = getSharedPreferences("altimeter", MODE_PRIVATE).getBoolean("asked_location", false)
+                && !shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION);
+        new AlertDialog.Builder(this).setTitle(R.string.altimeter_enable_title).setMessage(R.string.altimeter_permission_body)
+                .setPositiveButton(settingsRequired ? R.string.altimeter_app_settings : R.string.altimeter_allow_location, (dialog, which) -> {
+                    if (settingsRequired) openAltitudeSettings(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", getPackageName(), null)));
+                    else {
+                        getSharedPreferences("altimeter", MODE_PRIVATE).edit().putBoolean("asked_location", true).apply();
+                        requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, ALTITUDE_PERMISSION);
+                    }
+                }).setNegativeButton(R.string.cancel, null).show();
+    }
+
+    private void openAltitudeSettings(Intent intent) {
+        try { startActivity(intent); }
+        catch (ActivityNotFoundException | SecurityException unavailable) { Toast.makeText(this, R.string.altimeter_settings_unavailable, Toast.LENGTH_LONG).show(); }
+    }
+
+    private void addSpeechControls() {
+        addSpacer(24);
+        TextView title = text(getString(R.string.speech_title), 12, gold());
+        title.setLetterSpacing(.1f);
+        androidx.core.view.ViewCompat.setAccessibilityHeading(title, true);
+        root.addView(title, matchWrap());
+        speechStatus = text(getString(R.string.speech_intro), 14, mist());
+        speechStatus.setId(R.id.speech_status);
+        speechStatus.setPadding(0, dp(8), 0, dp(12));
+        root.addView(speechStatus, matchWrap());
+        Button speak = actionButton(getString(R.string.speech_speak_direction), false);
+        speak.setId(R.id.speech_speak);
+        speak.setOnClickListener(v -> speech.speakOnce());
+        root.addView(speak, matchWrap());
+        autoSpeech = new Switch(this);
+        autoSpeech.setId(R.id.speech_auto);
+        autoSpeech.setText(R.string.speech_auto);
+        autoSpeech.setTextColor(moon()); autoSpeech.setTextSize(16);
+        autoSpeech.setMinHeight(dp(56)); autoSpeech.setSwitchPadding(dp(12));
+        autoSpeech.setOnCheckedChangeListener((button, checked) -> { if (!renderingSpeech) speech.automatic(checked); });
+        root.addView(autoSpeech, matchWrap());
+        LinearLayout actions = new LinearLayout(this);
+        boolean stacked = getResources().getConfiguration().fontScale >= 1.3f
+                || getResources().getConfiguration().screenWidthDp < 340;
+        actions.setOrientation(stacked ? LinearLayout.VERTICAL : LinearLayout.HORIZONTAL);
+        pauseSpeech = smallButton(getString(R.string.speech_pause));
+        pauseSpeech.setId(R.id.speech_pause);
+        pauseSpeech.setOnClickListener(v -> speech.pauseSpeech());
+        actions.addView(pauseSpeech, stacked ? matchWrap() : new LinearLayout.LayoutParams(0, -2, 1));
+        Button settings = smallButton(getString(R.string.speech_settings));
+        settings.setId(R.id.speech_settings);
+        settings.setOnClickListener(v -> showSpeechSettings());
+        LinearLayout.LayoutParams params = stacked ? matchWrap() : new LinearLayout.LayoutParams(0, -2, 1);
+        if (stacked) params.topMargin = dp(8); else params.setMarginStart(dp(8));
+        actions.addView(settings, params);
+        root.addView(actions, matchWrap());
+        speechResult = text("", 15, moon());
+        speechResult.setId(R.id.speech_result);
+        speechResult.setPadding(0, dp(8), 0, 0);
+        root.addView(speechResult, matchWrap());
+        TextView scope = text(getString(R.string.speech_scope), 12, mist());
+        scope.setPadding(0, dp(6), 0, 0);
+        root.addView(scope, matchWrap());
+        onSpeechChanged();
+    }
+
+    @Override public void onSpeechChanged() {
+        if (speechStatus == null || autoSpeech == null || pauseSpeech == null) return;
+        speechStatus.setText(speech.status());
+        renderingSpeech = true;
+        autoSpeech.setChecked(speech.automatic());
+        autoSpeech.setEnabled(!speech.screenReader());
+        renderingSpeech = false;
+        pauseSpeech.setEnabled(speech.canPause());
+        pauseSpeech.setAlpha(speech.canPause() ? 1f : .45f);
+    }
+
+    @Override public void onSpeechReading(String value, boolean throughScreenReader) {
+        // Only explicit TalkBack requests update a polite live region. Sensor ticks never announce.
+        speechResult.setAccessibilityLiveRegion(throughScreenReader ? View.ACCESSIBILITY_LIVE_REGION_POLITE : View.ACCESSIBILITY_LIVE_REGION_NONE);
+        speechResult.setText("");
+        speechResult.setText(value);
+    }
+
+    private void showSpeechSettings() {
+        speech.pauseSpeech();
+        String[] frequency = getResources().getStringArray(R.array.speech_frequencies);
+        String[] rates = getResources().getStringArray(R.array.speech_rates);
+        String[] choices = {
+                getString(R.string.speech_frequency, frequency[speech.intervalIndex()]),
+                getString(R.string.speech_speed, rates[speech.rateIndex()]),
+                getString(R.string.speech_voice_data), getString(R.string.speech_retry), getString(R.string.speech_limits)};
+        new AlertDialog.Builder(this).setTitle(R.string.speech_settings).setItems(choices, (dialog, which) -> {
+            if (which == 0) new AlertDialog.Builder(this).setTitle(R.string.speech_frequency_title)
+                    .setSingleChoiceItems(frequency, speech.intervalIndex(), (picker, index) -> { speech.intervalIndex(index); picker.dismiss(); })
+                    .setNegativeButton(R.string.close, null).show();
+            else if (which == 1) new AlertDialog.Builder(this).setTitle(R.string.speech_speed_title)
+                    .setSingleChoiceItems(rates, speech.rateIndex(), (picker, index) -> { speech.rateIndex(index); picker.dismiss(); })
+                    .setNegativeButton(R.string.close, null).show();
+            else if (which == 2) openVoiceData();
+            else if (which == 3) speech.retryVoice();
+            else new AlertDialog.Builder(this).setTitle(R.string.speech_limits).setMessage(R.string.speech_limits_body)
+                    .setPositiveButton(R.string.close, null).show();
+        }).setNegativeButton(R.string.close, null).show();
+    }
+
+    private void openVoiceData() {
+        // No downloads in Northlight. The user chooses voice installation in their engine's settings.
+        try { startActivity(new Intent(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA)); }
+        catch (ActivityNotFoundException | SecurityException unavailable) {
+            try { startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)); }
+            catch (ActivityNotFoundException | SecurityException missing) { Toast.makeText(this, R.string.speech_setup_unavailable, Toast.LENGTH_LONG).show(); }
+        }
+    }
+
+    @Override public void onBillingChanged() {
+        if (savedBearings == null) return;
+        boolean owned = billing.entitled();
+        proLabel.setText(owned ? R.string.saved_bearings : R.string.pro_brand);
+        proHint.setVisibility(owned ? View.GONE : View.VISIBLE);
+        proButton.setText(owned ? R.string.field_all_pro_tools : R.string.main_explore_northlight_pro);
+        updateLightButtons();
+        savedBearings.removeAllViews();
+        savedBearings.setVisibility(owned ? View.VISIBLE : View.GONE);
+        if (!owned) return;
+        try {
+            BearingData data = new BearingData(getSharedPreferences(BillingManager.PREFS, MODE_PRIVATE).getString("saved_bearings", "[]"));
+            if (data.size() == 0) {
+                TextView empty = text(getString(R.string.field_bearings_empty), 14, mist());
+                empty.setPadding(0, dp(10), 0, dp(12)); savedBearings.addView(empty, matchWrap());
+            }
+            for (int i = data.size() - 1; i >= 0; i--) {
+                final int index = i;
+                Button bearing = actionButton(getString(R.string.bearing_row, data.degrees(i), data.name(i)), false);
+                bearing.setContentDescription(getString(R.string.field_follow_bearing, data.name(i), data.degrees(i)));
+                bearing.setOnClickListener(v -> startActivity(new Intent(this, ProActivity.class).putExtra(ProActivity.EXTRA_BEARING_INDEX, index)));
+                LinearLayout.LayoutParams params = matchWrap(); params.topMargin = dp(8); params.bottomMargin = dp(8);
+                savedBearings.addView(bearing, params);
+            }
+        } catch (JSONException error) {
+            savedBearings.addView(text(getString(R.string.bearings_read_error), 14, mist()), matchWrap());
+        }
+    }
+
+    private void openNightLight() {
+        if (!billing.entitled()) { startActivity(new Intent(this, RedLightActivity.class)); return; }
+        new AlertDialog.Builder(this).setTitle(R.string.field_night_light)
+                .setItems(new String[]{getString(R.string.red), getString(R.string.amber), getString(R.string.green)}, (dialog, which) -> {
+                    String mode = new String[]{"red", "amber", "green"}[which];
+                    startActivity(new Intent(this, RedLightActivity.class).putExtra(RedLightActivity.EXTRA_MODE, mode));
+                }).setNegativeButton(R.string.cancel, null).show();
+    }
 
     private void updateHeading(float heading) {
         if (compass == null) return;
@@ -244,14 +551,16 @@ public class MainActivity extends Activity implements CompassSource.Listener {
         if (!compassSource.available()) {
             sensorStatus.setText(getString(R.string.compass_unavailable));
             bearingText.setText(getString(R.string.main));
-            directionText.setText(getString(R.string.main_compass_unavailable));
+            directionText.setText(R.string.field_no_sensor);
         }
         if (torchCameraId == null) {
+            torchStatus.setText(R.string.main_no_camera_flash_available);
             lanternButton.setEnabled(false);
             lanternButton.setText(getString(R.string.main_no_camera_flash_available));
             sosButton.setEnabled(false);
             sosButton.setText(getString(R.string.main_sos_unavailable_without_flash));
         }
+        updateLightButtons();
     }
 
     private void runWithCameraPermission(Runnable action) {
@@ -271,12 +580,14 @@ public class MainActivity extends Activity implements CompassSource.Listener {
             else Toast.makeText(this, getString(R.string.main_camera_access_is_needed_only_to_power_the_led_lantern), Toast.LENGTH_LONG).show();
             pendingCameraAction = null;
         }
+        if (requestCode == ALTITUDE_PERMISSION) altimeter.permissionResult();
     }
 
     private void toggleLantern() {
         if (sosOn) stopSos();
         setTorch(!torchOn);
         lanternButton.setText(torchOn ? getString(R.string.main_turn_off_lantern) : getString(R.string.lantern_turn_on));
+        updateLightButtons();
     }
 
     private boolean setTorch(boolean on) {
@@ -288,6 +599,7 @@ public class MainActivity extends Activity implements CompassSource.Listener {
             torchOn = on;
             if (!sosOn) lanternButton.setText(on ? getString(R.string.main_turn_off_lantern) : getString(R.string.lantern_turn_on));
             if (torchStatus != null) torchStatus.setText(sosOn ? getString(R.string.sos_active) : getString(on ? R.string.lantern_on : R.string.lantern_ready));
+            updateLightButtons();
             return true;
         } catch (Exception e) {
             torchOn = false;
@@ -296,6 +608,7 @@ public class MainActivity extends Activity implements CompassSource.Listener {
             lanternButton.setText(R.string.lantern_turn_on);
             if (torchStatus != null) torchStatus.setText(R.string.lantern_unavailable);
             Toast.makeText(this, R.string.lantern_error, Toast.LENGTH_SHORT).show();
+            updateLightButtons();
             return false;
         }
     }
@@ -347,6 +660,7 @@ public class MainActivity extends Activity implements CompassSource.Listener {
         signal.start();
         if (brightness != null) brightness.setEnabled(false);
         sosButton.setText(getString(R.string.main_stop_sos_signal));
+        updateLightButtons();
         handler.post(sosPulse);
     }
 
@@ -361,6 +675,7 @@ public class MainActivity extends Activity implements CompassSource.Listener {
         handler.removeCallbacks(sosPulse);
         if (sosButton != null) sosButton.setText(R.string.sos_signal);
         if (brightness != null) brightness.setEnabled(true);
+        updateLightButtons();
     }
 
     private void updateBrightnessLabel() {
@@ -373,6 +688,39 @@ public class MainActivity extends Activity implements CompassSource.Listener {
         view.setTextSize(size);
         view.setTextColor(color);
         return view;
+    }
+
+    private Button toolButton(int label, int icon) {
+        Button button = actionButton(getString(label), false);
+        button.setTextSize(13); button.setMinWidth(0); button.setMinimumWidth(0);
+        button.setMinHeight(dp(96));
+        button.setPadding(dp(6), dp(14), dp(6), dp(14));
+        Drawable drawable = getDrawable(icon).mutate(); drawable.setBounds(0, 0, dp(22), dp(22));
+        button.setCompoundDrawables(null, drawable, null, null); button.setCompoundDrawablePadding(dp(8));
+        return button;
+    }
+
+    private void updateLightButtons() {
+        if (lanternButton == null || sosButton == null) return;
+        styleTool(lanternButton, torchOn && !sosOn);
+        styleTool(sosButton, sosOn);
+        lanternButton.setText(torchOn && !sosOn ? R.string.field_lantern_on : R.string.field_lantern);
+        sosButton.setText(sosOn ? R.string.field_stop_sos : R.string.field_sos);
+        lanternButton.setContentDescription(getString(torchCameraId == null ? R.string.main_no_camera_flash_available
+                : torchOn && !sosOn ? R.string.main_turn_off_lantern : R.string.lantern_turn_on));
+        sosButton.setContentDescription(getString(torchCameraId == null ? R.string.main_sos_unavailable_without_flash
+                : sosOn ? R.string.main_stop_sos_signal : R.string.sos_signal));
+        redButton.setContentDescription(getString(billing.entitled() ? R.string.field_night_light : R.string.main_red_screen_light));
+    }
+
+    private void styleTool(Button button, boolean active) {
+        if (button.isActivated() == active) return;
+        button.setActivated(active);
+        button.setBackgroundResource(active ? R.drawable.button_gold : R.drawable.button_dark);
+        button.setPadding(dp(6), dp(14), dp(6), dp(14));
+        button.setTextColor(active ? getColor(R.color.night) : moon());
+        Drawable icon = button.getCompoundDrawables()[1];
+        if (icon != null) icon.setTint(active ? getColor(R.color.night) : gold());
     }
 
     private Button actionButton(String label, boolean gold) {
@@ -389,7 +737,7 @@ public class MainActivity extends Activity implements CompassSource.Listener {
     private Button smallButton(String label) {
         Button button = actionButton(label, false);
         button.setTextSize(13);
-        button.setMinHeight(dp(38));
+        button.setMinHeight(dp(48));
         return button;
     }
 
@@ -405,63 +753,4 @@ public class MainActivity extends Activity implements CompassSource.Listener {
     private int mist() { return getColor(R.color.mist); }
     private int gold() { return Color.rgb(240, 182, 91); }
 
-    private static class CompassView extends View {
-        private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        private final Path needle = new Path();
-        private final String[] marks = {"N", "E", "S", "W"};
-        private float heading;
-        CompassView(Context context) { super(context); paint.setTypeface(android.graphics.Typeface.create("sans", android.graphics.Typeface.BOLD)); }
-        void setHeading(float value) { heading = value; invalidate(); }
-
-        @Override protected void onDraw(Canvas canvas) {
-            super.onDraw(canvas);
-            float cx = getWidth() / 2f;
-            float cy = getHeight() / 2f;
-            float radius = Math.min(getWidth(), getHeight()) / 2f - dp(16);
-            paint.setStyle(Paint.Style.FILL);
-            paint.setColor(Color.rgb(22, 34, 56));
-            canvas.drawCircle(cx, cy, radius, paint);
-            paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(dp(1));
-            paint.setColor(Color.rgb(45, 60, 83));
-            canvas.drawCircle(cx, cy, radius, paint);
-            canvas.save();
-            canvas.rotate(-heading, cx, cy);
-            for (int i = 0; i < 72; i++) {
-                float angle = i * 5f;
-                double radians = Math.toRadians(angle - 90);
-                boolean cardinal = i % 18 == 0;
-                boolean major = i % 9 == 0;
-                float outerX = cx + (float) Math.cos(radians) * (radius - dp(9));
-                float outerY = cy + (float) Math.sin(radians) * (radius - dp(9));
-                float tick = cardinal ? dp(17) : (major ? dp(11) : dp(6));
-                float innerX = cx + (float) Math.cos(radians) * (radius - dp(9) - tick);
-                float innerY = cy + (float) Math.sin(radians) * (radius - dp(9) - tick);
-                paint.setStrokeWidth(cardinal ? dp(2) : dp(1));
-                paint.setColor(cardinal ? Color.rgb(238, 243, 247) : Color.rgb(104, 122, 147));
-                canvas.drawLine(innerX, innerY, outerX, outerY, paint);
-            }
-            for (int i = 0; i < 4; i++) {
-                double radians = Math.toRadians(i * 90 - 90);
-                float x = cx + (float) Math.cos(radians) * (radius - dp(39));
-                float y = cy + (float) Math.sin(radians) * (radius - dp(39)) + dp(6);
-                paint.setTextSize(dp(17));
-                paint.setTextAlign(Paint.Align.CENTER);
-                paint.setColor(i == 0 ? Color.rgb(240, 182, 91) : Color.rgb(238, 243, 247));
-                canvas.drawText(marks[i], x, y, paint);
-            }
-            canvas.restore();
-            needle.reset();
-            needle.moveTo(cx, cy - radius + dp(50));
-            needle.lineTo(cx - dp(10), cy + dp(13));
-            needle.lineTo(cx + dp(10), cy + dp(13));
-            needle.close();
-            paint.setStyle(Paint.Style.FILL);
-            paint.setColor(Color.rgb(240, 182, 91));
-            canvas.drawPath(needle, paint);
-            paint.setColor(Color.rgb(238, 243, 247));
-            canvas.drawCircle(cx, cy, dp(6), paint);
-        }
-        private int dp(int value) { return Math.round(value * getResources().getDisplayMetrics().density); }
-    }
 }
