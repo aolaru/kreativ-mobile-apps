@@ -2,6 +2,8 @@
 
 Version 1.1 English (United Kingdom) text and six refreshed real-device screenshots saved as a Play Console draft on 15 October 2026 — not submitted or published. Existing icon and feature graphic retained. The old 1.0 phone gallery is replaced in the draft, not the live listing.
 
+On 16 October, final listing review was saved and Play confirmed **Changes ready to send for review**. The release and listing are prepared for owner-approved submission, not yet sent to Google or published.
+
 The new gallery, in order, is `store-assets/play/screenshots/1.1/01-home.png`, `02-crop.png`, `03-export.png`, `04-ready.png`, `05-recent.png`, and `06-pro.png`. These are unmodified 1080 × 2340 captures from the separately installed 1.1 QA app on Samsung SM-A556B / Android 16, using fictional sample pages. They contain no fabricated prices, reviewer credentials, or simulated UI. The first four were captured through Android Studio; Recent PDFs and the expanded Pro feature list were captured directly from the connected phone after the owner requested that fallback. The Pro capture shows the feature list, not QA's unavailable billing price.
 
 ## App name
