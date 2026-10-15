@@ -31,6 +31,7 @@ public class AboutActivity extends Activity {
         root.addView(Ui.feature(this, R.drawable.ic_shield, "Private by design", "Your pages and PDFs are processed on your phone. They aren’t uploaded.")); Ui.gap(root, 10);
         root.addView(Ui.feature(this, R.drawable.ic_images, "You choose access", "Use Android’s picker or your camera app. No broad photo access.")); Ui.gap(root, 10);
         root.addView(Ui.feature(this, R.drawable.ic_stack, "Your draft stays ready", "Private page copies keep your draft safe. New document clears them.")); Ui.gap(root, 10);
+        root.addView(Ui.feature(this, R.drawable.ic_document_build, "Your library stays local", "Recent PDFs stay until you remove them or uninstall. Export copies to keep them elsewhere. Passwords are never saved in presets.")); Ui.gap(root, 10);
         root.addView(Ui.feature(this, R.drawable.ic_extract, "You control sharing", "Open, share or save when you choose. Your originals stay untouched.")); Ui.gap(root, 20);
         LinearLayout links = Ui.card(this, R.drawable.card);
         links.addView(Ui.text(this, "A little peace of mind.", 20, Ui.INK, true)); Ui.gap(links, 8);

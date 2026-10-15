@@ -1,5 +1,22 @@
 # PaperBuild 1.0 Release Checklist
 
+## Version 1.1.0 development — 15 October 2026
+
+- [x] Version code 4 / version name 1.1.0, developed locally; the published 1.0 release is unchanged.
+- [x] Free: Recent PDFs with private durable storage, previews for unencrypted PDFs, rename/open/share/Downloads save, reversible removal and confirmed permanent deletion.
+- [x] Free: non-destructive manual cropping, full-page restore, precise percentage controls, rotation-aware bounds and draft recovery.
+- [x] Pro: AES-256 password-protected exports, Unicode text watermarks, rotation-aware page numbers, and saved export presets. Existing lifetime ownership is used unchanged.
+- [x] Pro options apply to image, merge and extraction outputs. Passwords are memory-only, excluded from drafts/presets, cleared for each export, and required again when loading a protected preset. Protected library copies retain the encrypted bytes and do not generate previews.
+- [x] Include dynamic version/Made by Kreativ footer and Fragment 1.9.1 dependency constraint.
+- [x] QA and release APK builds pass; debug/release lint passes with warnings and no errors. Twelve JVM tests pass in each build type.
+- [x] Sixteen device tests pass on Samsung SM-A556B / Android 16, zero failures/errors/skips: original document regressions, footer, crop recovery/rotation, encrypted export and wrong-password rejection, library lifecycle, presets, Free gating and Pro settings UI.
+- [x] Inspect rendered PDFs with Poppler at 0/90/180/270-degree rotations: watermark and page numbers are upright, unclipped, and leave original page content intact. Android PDFBox's test renderer renders the image watermark darker than Poppler; independent rendering confirms the PDF opacity is correct.
+- [x] Update local README, privacy policy, About page and draft listing for 1.1. No new internet, advertising-ID, broad photo or camera permission.
+- [ ] Complete final owner review on the separately installed **PaperBuild QA** app (`com.kreativ.paperbuild.qa`). The QA app does not replace Google Play's production package.
+- [ ] Commit/push the scoped 1.1 changes and publish the updated public privacy policy before releasing 1.1.
+- [ ] Build/verify the signed 1.1 App Bundle, update store screenshots/release notes, and submit a Google Play update with owner approval.
+- Purchase/restore testing was not rerun. The owner's original payment-test waiver remains recorded below; it must not be described as passed.
+
 ## Production submission — 12 October 2026
 
 - [x] Owner approved publishing the production launch. Confirmed **Send 11 changes for review** in Play Console; Publishing overview now shows **Changes in review**, including **1.0.0 — PaperBuild launch / Start full rollout**, listing, availability, and app-information changes.

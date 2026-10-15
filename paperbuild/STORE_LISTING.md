@@ -1,5 +1,7 @@
 # PaperBuild Google Play Store Listing
 
+Version 1.1 draft — not yet uploaded or published.
+
 ## App name
 
 PaperBuild - Private PDF Maker
@@ -20,11 +22,12 @@ Document processing happens on your phone. PaperBuild has no account, no ads, an
 
 - Capture a page with your camera app
 - Add one or more images with Android's system picker
-- Preview, reorder, rotate, and remove pages
+- Preview, crop, reorder, rotate, and remove pages
 - Export A4 or US Letter PDFs
 - Choose colour, grayscale, or high-contrast document treatment
 - Open, share, or save PDFs to Downloads
 - Resume your saved draft after closing the app
+- Recent PDFs: private on-device storage, previews, rename, share, and reversible removal
 
 ### Privacy by design
 
@@ -38,10 +41,13 @@ Document processing happens on your phone. PaperBuild has no account, no ads, an
 - Smaller PDF exports for easier sharing
 - Unlimited pages (free documents support up to 10 pages)
 - Merge PDFs and extract a page or page range
+- Password-protect exported PDFs
+- Add custom text watermarks and page numbers
+- Save and reuse named export presets (passwords are never saved)
 
 Pro is a permanent unlock, not a subscription. The app shows your local Google Play price. The free PDF maker remains fully usable without Pro.
 
-PDF tools preserve page content and original sizes. Password-protected PDFs are not supported. Editing a signed PDF invalidates its digital signatures.
+PDF tools preserve page content and original sizes. Password-protected input PDFs are not supported; use an unlocked copy. Pro can password-protect the output. Editing a signed PDF invalidates its digital signatures. Watermarks are not redaction.
 
 ## Store setup
 
@@ -62,9 +68,9 @@ Capture these from a physical device after the smoke test. Do not use mockups or
 2. Document review: real page thumbnails and ordering/rotation controls. Caption: “Your pages, in order.”
 3. Export: expanded A4/Letter, page style, and file-size controls. Caption: “Make it yours.”
 4. Finished document: the “Ready to share” card with Share, Save PDF, and Open PDF. Caption: “Ready when you are.”
-5. Pro: the three shipped features and the real localized Play price when available. Caption: “One purchase. More possibilities.” Do not insert a placeholder price.
+5. Pro: the updated features and the real localized Play price when available. Caption: “One purchase. More possibilities.” Do not insert a placeholder price.
 
-Use the real app screens, including their visible Free/Pro boundaries. Keep captions short; avoid claims about OCR, automatic cropping, signatures, or password-protected PDF support.
+Use the real app screens, including their visible Free/Pro boundaries. Keep captions short; avoid claims about OCR, automatic cropping, signatures, or support for encrypted input files.
 
 ## Included feature graphic
 

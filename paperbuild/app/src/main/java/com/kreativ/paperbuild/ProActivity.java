@@ -48,7 +48,10 @@ public class ProActivity extends Activity {
         root.addView(Ui.text(this, "Everything in Free, plus", 17, Ui.INK, true)); Ui.gap(root, 14);
         root.addView(Ui.feature(this, R.drawable.ic_compact, "Smaller PDFs", "Less file size. Easier to send.")); Ui.gap(root, 10);
         root.addView(Ui.feature(this, R.drawable.ic_stack, "Unlimited pages", "Go beyond the free 10-page limit.")); Ui.gap(root, 10);
-        root.addView(Ui.feature(this, R.drawable.ic_merge, "Merge & extract", "Combine PDFs or keep selected pages.")); Ui.gap(root, 20);
+        root.addView(Ui.feature(this, R.drawable.ic_merge, "Merge & extract", "Combine PDFs or keep selected pages.")); Ui.gap(root, 10);
+        root.addView(Ui.feature(this, R.drawable.ic_shield, "Password protection", "Choose who can open your exported PDFs.")); Ui.gap(root, 10);
+        root.addView(Ui.feature(this, R.drawable.ic_document_build, "Make it yours", "Custom watermarks and page numbers.")); Ui.gap(root, 10);
+        root.addView(Ui.feature(this, R.drawable.ic_stack, "Saved presets", "Your favourite export settings, one tap away.")); Ui.gap(root, 20);
 
         LinearLayout purchase = Ui.card(this, R.drawable.pro_panel);
         purchase.addView(Ui.text(this, "ONE-TIME UNLOCK", 11, Ui.ACCENT, true)); Ui.gap(purchase, 10);

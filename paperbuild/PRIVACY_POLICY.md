@@ -1,6 +1,6 @@
 # PaperBuild Privacy Policy
 
-Last updated: October 11, 2026
+Last updated: October 15, 2026
 
 PaperBuild is an offline Android document-maker from Kreativ. This policy explains how the app handles information when you use it.
 
@@ -16,9 +16,11 @@ PaperBuild does not upload your images, PDFs, document names, or page-order info
 
 ## Files created by the app
 
-PaperBuild copies selected images and camera captures to private app storage so your draft survives closing or rotating the app. It stores page order, rotation, document name, and export settings on your device. **New document** removes the current draft and its private page copies. Removed pages are also deleted from private storage; your originals are never changed.
+PaperBuild copies selected images and camera captures to private app storage so your draft survives closing or rotating the app. It stores page order, rotation, crop bounds, document name, and export settings on your device. Cropping does not overwrite the original. **New document** removes the current draft and its private page copies, not completed PDFs. Removed draft pages are deleted from private storage; your originals are never changed.
 
-Exported PDFs are temporary private files. Unreferenced exports older than seven days are removed on startup; the most recent export is retained while available. Temporary working copies used for PDF tools are removed after the operation or on the next startup after an interruption.
+Starting with version 1.1, completed PDFs are saved in a private **Recent PDFs** library on your device, with names and creation dates. They remain until you remove them or uninstall the app. **Removed PDFs** supports restore; permanent deletion requires confirmation and does not remove copies you exported elsewhere. Export copies before uninstalling if you want to keep them. Older temporary exports not in the library are cleaned after seven days, except the latest available export. Temporary working copies used for PDF tools are removed after the operation or on the next startup after an interruption.
+
+Pro export presets are stored locally and include page size, style, compression, watermark text, page-number settings, and whether a password is required. Passwords are kept only in memory for the current export, not saved in drafts or presets, logged, or sent to Kreativ. Protected library PDFs retain their encryption; the library does not generate previews for them. Forgotten export passwords cannot be recovered. Draft images and temporary processing data are not protected by the exported PDF's password; they remain in Android's private app storage.
 
 When you choose **Share**, **Open**, or **Save to Downloads**, you control where a copy goes. Saved files are placed in `Downloads/PaperBuild` and are not removed by the app. Other apps you choose to open or share files with handle them under their own privacy terms.
 

@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.net.Uri;
 import androidx.exifinterface.media.ExifInterface;
 import com.tom_roush.pdfbox.android.PDFBoxResourceLoader;
@@ -16,12 +18,19 @@ import com.tom_roush.pdfbox.pdmodel.PDPage;
 import com.tom_roush.pdfbox.pdmodel.PDPageContentStream;
 import com.tom_roush.pdfbox.pdmodel.common.PDRectangle;
 import com.tom_roush.pdfbox.pdmodel.graphics.image.JPEGFactory;
+import com.tom_roush.pdfbox.pdmodel.graphics.image.LosslessFactory;
+import com.tom_roush.pdfbox.pdmodel.graphics.image.PDImageXObject;
+import com.tom_roush.pdfbox.pdmodel.graphics.state.PDExtendedGraphicsState;
+import com.tom_roush.pdfbox.pdmodel.encryption.AccessPermission;
+import com.tom_roush.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
+import com.tom_roush.pdfbox.pdmodel.font.PDType1Font;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /** All document work runs on a worker with application context and disk-backed PDF storage. */
 final class DocumentProcessor {
@@ -71,6 +80,12 @@ final class DocumentProcessor {
 
     File exportImages(List<PageItem> pages, String title, int width, int height,
                       int enhancement, boolean compact, Progress progress) throws IOException {
+        return exportImages(pages, title, width, height, enhancement, compact, ExportOptions.NONE, progress);
+    }
+    File exportImages(List<PageItem> pages, String title, int width, int height,
+                      int enhancement, boolean compact, ExportOptions options, Progress progress) throws IOException {
+        options.validate();
+        if (pages.isEmpty()) throw new IOException("Add a page before exporting.");
         File output = output(title);
         boolean complete = false;
         try (PDDocument pdf = new PDDocument(memory())) {
@@ -90,13 +105,18 @@ final class DocumentProcessor {
                 } finally { bitmap.recycle(); }
                 progress.update((i + 1) * 100 / pages.size());
             }
-            pdf.save(output);
+            finish(pdf, options); pdf.save(output);
             complete = true;
             return output;
         } finally { if (!complete) output.delete(); }
     }
 
     File merge(List<Uri> sources, Progress progress) throws IOException {
+        return merge(sources, ExportOptions.NONE, progress);
+    }
+    File merge(List<Uri> sources, ExportOptions options, Progress progress) throws IOException {
+        options.validate();
+        if (sources.size() < 2) throw new IOException("Choose at least two PDFs.");
         File output = output("Merged PDF");
         boolean complete = false;
         try (PDDocument destination = new PDDocument(memory())) {
@@ -109,13 +129,17 @@ final class DocumentProcessor {
                 } finally { input.delete(); }
                 progress.update((i + 1) * 100 / sources.size());
             }
-            destination.save(output);
+            finish(destination, options); destination.save(output);
             complete = true;
             return output;
         } finally { if (!complete) output.delete(); }
     }
 
     File split(Uri uri, int first, int last) throws IOException {
+        return split(uri, first, last, ExportOptions.NONE);
+    }
+    File split(Uri uri, int first, int last, ExportOptions options) throws IOException {
+        options.validate();
         File input = temporaryPdf(uri);
         File output = output("Extracted pages");
         boolean complete = false;
@@ -131,12 +155,69 @@ final class DocumentProcessor {
             // Bookmarks/page labels can point to pages outside the extracted range.
             source.getDocumentCatalog().setDocumentOutline(null);
             source.getDocumentCatalog().setPageLabels(null);
-            source.save(output);
+            finish(source, options); source.save(output);
             complete = true;
             return output;
         } finally {
             input.delete();
             if (!complete) output.delete();
+        }
+    }
+
+    private void finish(PDDocument pdf, ExportOptions options) throws IOException {
+        PDImageXObject watermark = null;
+        if (!options.watermark.isEmpty()) {
+            // Native text rendering supports Unicode without bundling or downloading fonts.
+            Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG); paint.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+            paint.setTextSize(100); paint.setColor(Color.rgb(75, 84, 105));
+            float measured = Math.max(1, paint.measureText(options.watermark));
+            float scale = Math.min(1, 2000f / measured); paint.setTextSize(100 * scale);
+            int width = Math.max(1, (int) Math.ceil(paint.measureText(options.watermark)) + 16);
+            Paint.FontMetrics metrics = paint.getFontMetrics();
+            int height = (int) Math.ceil(metrics.bottom - metrics.top) + 16;
+            Bitmap mark = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+            try {
+                new Canvas(mark).drawText(options.watermark, 8, 8 - metrics.top, paint);
+                watermark = LosslessFactory.createFromImage(pdf, mark);
+            } finally { mark.recycle(); }
+        }
+        int total = pdf.getNumberOfPages(), number = 0;
+        for (PDPage page : pdf.getPages()) {
+            number++;
+            if (watermark == null && !options.pageNumbers) continue;
+            PDRectangle box = page.getCropBox(); float w = box.getWidth(), h = box.getHeight();
+            int rotation = ((page.getRotation() % 360) + 360) % 360;
+            boolean sideways = rotation == 90 || rotation == 270;
+            float visibleW = sideways ? h : w, visibleH = sideways ? w : h;
+            try (PDPageContentStream stream = new PDPageContentStream(pdf, page, PDPageContentStream.AppendMode.APPEND, true, true)) {
+                stream.saveGraphicsState();
+                stream.transform(com.tom_roush.pdfbox.util.Matrix.getTranslateInstance(box.getLowerLeftX(), box.getLowerLeftY()));
+                if (rotation == 90) stream.transform(new com.tom_roush.pdfbox.util.Matrix(0, 1, -1, 0, w, 0));
+                else if (rotation == 180) stream.transform(new com.tom_roush.pdfbox.util.Matrix(-1, 0, 0, -1, w, h));
+                else if (rotation == 270) stream.transform(new com.tom_roush.pdfbox.util.Matrix(0, -1, 1, 0, 0, h));
+                if (watermark != null) {
+                    stream.saveGraphicsState(); PDExtendedGraphicsState opacity = new PDExtendedGraphicsState();
+                    opacity.setNonStrokingAlphaConstant(.20f); stream.setGraphicsStateParameters(opacity);
+                    float markW = visibleW * .70f;
+                    float markH = markW * watermark.getHeight() / watermark.getWidth();
+                    if (markH > visibleH * .20f) { markW *= visibleH * .20f / markH; markH = visibleH * .20f; }
+                    stream.drawImage(watermark, (visibleW - markW) / 2, (visibleH - markH) / 2, markW, markH);
+                    stream.restoreGraphicsState();
+                }
+                if (options.pageNumbers) {
+                    String text = number + " / " + total;
+                    float size = Math.min(11, Math.min(visibleW, visibleH) / 20);
+                    float textW = PDType1Font.HELVETICA.getStringWidth(text) * size / 1000;
+                    stream.setNonStrokingColor(70, 80, 100); stream.beginText(); stream.setFont(PDType1Font.HELVETICA, size);
+                    stream.newLineAtOffset((visibleW - textW) / 2, Math.min(18, visibleH * .04f));
+                    stream.showText(text); stream.endText();
+                }
+                stream.restoreGraphicsState();
+            }
+        }
+        if (options.protect) {
+            StandardProtectionPolicy policy = new StandardProtectionPolicy(UUID.randomUUID().toString(), options.password, new AccessPermission());
+            policy.setEncryptionKeyLength(256); policy.setPreferAES(true); pdf.protect(policy);
         }
     }
 
@@ -194,6 +275,14 @@ final class DocumentProcessor {
                 Bitmap oriented = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
                 if (oriented != bitmap) bitmap.recycle();
                 bitmap = oriented;
+            }
+            if (!item.crop.full()) {
+                int left = Math.min(bitmap.getWidth() - 1, Math.round(item.crop.left * bitmap.getWidth()));
+                int top = Math.min(bitmap.getHeight() - 1, Math.round(item.crop.top * bitmap.getHeight()));
+                int right = Math.max(left + 1, Math.min(bitmap.getWidth(), Math.round(item.crop.right * bitmap.getWidth())));
+                int bottom = Math.max(top + 1, Math.min(bitmap.getHeight(), Math.round(item.crop.bottom * bitmap.getHeight())));
+                Bitmap cropped = Bitmap.createBitmap(bitmap, left, top, right - left, bottom - top);
+                if (cropped != bitmap) bitmap.recycle(); bitmap = cropped;
             }
             // Flatten transparency onto white; process one scanline rather than a full-size pixel array.
             Bitmap adjusted = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
