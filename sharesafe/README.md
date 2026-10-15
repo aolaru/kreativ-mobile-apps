@@ -1,6 +1,37 @@
 # ShareSafe
 
-An Android photo-privacy utility. Select photos, choose a JPEG quality level, and export fresh JPEG copies individually or in a ZIP. Photo processing stays on-device; optional Google Play Pro purchases use Google's network services.
+An Android photo-privacy utility. Select photos, inspect readable EXIF fields with free Privacy Check, and export fresh JPEG copies individually or in a ZIP. Photo processing stays on-device; optional Play purchases use Google's network services, and Pro Face Assist's ML Kit SDK sends diagnostic/usage metrics (not photos or detection results).
+
+## Version 1.2.0: Privacy Check and Pro Face Assist
+
+- Free Privacy Check reports selected EXIF location, date/time and camera/device
+  field presence. It retains only presence counts, never the field values. Missing,
+  unsupported or unreadable metadata is unknown, not a clean bill of health.
+- Exported JPEGs are checked again. A copy with unexpected checked tags or an
+  unreadable check is skipped, not offered for sharing. Checks do not establish
+  anonymity or cover every metadata format; providers may redact source metadata.
+- Existing Play Pro unlock includes bundled, on-device Face Assist. It scans the
+  upright, memory-bounded editor image; suggestions are padded, numbered, reviewed
+  and applied as solid Cover masks. Unapplied suggestions must be applied or
+  dismissed before export. It is face detection, not identity recognition.
+- Individual areas can be selected, moved, corner-resized, edited numerically,
+  or deleted. Choose area provides a non-gesture selection alternative. Undo/redo
+  supports 20 operations, including grouped face covers and undoable reset.
+  History, selection, and pending face choices are saved across recreation.
+- The face model is a `playImplementation` dependency only; Amazon and Samsung
+  remain free-only and do not ship the detector/Google ML Kit.
+- The Play runtime constrains transitive AndroidX Fragment to 1.9.1, replacing
+  Google's older dependency requests. Play Console flagged Fragment 1.1.0 in
+  live build 3; that release is unchanged until a replacement is published.
+  The constraint does not add Fragment to Amazon or Samsung builds.
+- Release status (October 15, 2026): version 1.2.0 / code 4 is submitted to Google
+  Play with updated listing copy, icon, Data safety and reviewer guidance. The
+  public privacy policy is live, and all 32 device tests pass. Managed publishing
+  is off; the update will publish after approval. Static alignment checks pass,
+  but 16 KB runtime
+  testing remains incomplete; the user requested publication with that limitation.
+  The existing billing test waiver is unchanged. See `STORE_SUBMISSION.md` for
+  the authoritative submission status and verification details.
 
 ## What the first version does
 

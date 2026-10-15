@@ -24,8 +24,8 @@ android {
         applicationId 'com.kreativ.sharesafe'
         minSdk 26
         targetSdk 36
-        versionCode 3
-        versionName '1.1.0'
+        versionCode 4
+        versionName '1.2.0'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
@@ -83,6 +83,13 @@ dependencies {
     implementation 'androidx.exifinterface:exifinterface:1.4.2'
     playImplementation 'com.android.billingclient:billing:9.1.0'
     playImplementation 'androidx.work:work-runtime:2.10.1'
+    // Bundled model: Face Assist must work without a model download.
+    playImplementation 'com.google.mlkit:face-detection:16.1.7'
+    constraints {
+        playImplementation('androidx.fragment:fragment:1.9.1') {
+            because 'Google SDKs request obsolete Fragment versions flagged by Play Console'
+        }
+    }
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.6.2'
     androidTestImplementation 'androidx.test:core:1.6.1'

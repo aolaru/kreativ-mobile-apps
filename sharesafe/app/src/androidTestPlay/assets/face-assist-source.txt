@@ -1,0 +1,9 @@
+face-assist-nasa.jpg is the example group photo distributed with Google's ML Kit
+face-detection guide. This is a public test fixture, not a user's private photo.
+The filename in Google's documentation credits NASA. No identity recognition is
+performed. Only detection bounding boxes are tested, with no stored identity data.
+
+Guide: https://developers.google.com/ml-kit/vision/face-detection
+Image: https://developers.google.com/static/ml-kit/vision/face-detection/images/1024px-Physicist_Stephen_Hawking_in_Zero_Gravity_NASA.jpg
+
+Packaged in the instrumentation-test APK only, never in the distributed app.

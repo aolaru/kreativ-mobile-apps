@@ -35,7 +35,7 @@ public class AboutActivity extends Activity {
 
         LinearLayout privateCard = Ui.card(this, Ui.MINT);
         privateCard.addView(Ui.heading(this, "Private by design", 21)); addSpacer(privateCard, 10);
-        privateCard.addView(label("Photos are processed on your device. ShareSafe never uploads your photos or metadata. When you choose Share, the receiving app handles those copies under its own privacy policy.", 15, Ui.INK));
+        privateCard.addView(label("Photos and face detection results stay on your device; they are not uploaded by ShareSafe. Privacy Check reads EXIF fields locally. When you choose Share, the receiving app handles those copies under its own privacy policy.", 15, Ui.INK));
         root.addView(privateCard, matchWrap()); addSpacer(root, 16);
 
         LinearLayout originalsCard = Ui.card(this, Color.WHITE);
@@ -47,6 +47,17 @@ public class AboutActivity extends Activity {
         exportCard.addView(Ui.heading(this, "Know what you're exporting", 19)); addSpacer(exportCard, 10);
         exportCard.addView(label("Exports are fresh JPEGs with neutral filenames. Large images may be resized, transparency becomes white and animated images export one frame. Metadata removal does not hide visible details. Cover is recommended for sensitive text, IDs and faces; blur and pixelation are not guaranteed anonymisation.", 15, Ui.MUTED));
         root.addView(exportCard, matchWrap()); addSpacer(root, 16);
+
+        LinearLayout checkCard = Ui.card(this, Color.WHITE);
+        checkCard.addView(Ui.heading(this, "Privacy Check is free", 19)); addSpacer(checkCard, 10);
+        checkCard.addView(label("Checks show the presence of selected EXIF location, date/time and camera/device fields, without displaying or retaining their values. Unreadable or unsupported images are marked unknown. " + PrivacyCheck.LIMITS, 15, Ui.MUTED));
+        root.addView(checkCard, matchWrap()); addSpacer(root, 16);
+        if (BuildConfig.PRO_AVAILABLE) {
+            LinearLayout faceCard = Ui.card(this, Color.WHITE);
+            faceCard.addView(Ui.heading(this, "Face Assist stays on-device", 19)); addSpacer(faceCard, 10);
+            faceCard.addView(label("The face detection model is bundled in the Play edition for Pro. Google ML Kit processes photos on-device and does not send images or detection results to Google. Its SDK collects device/app information, per-installation identifiers, performance/error and usage/configuration metrics (such as image format and resolution), and may contact Google for maintenance information. Face suggestions can miss people; review them and apply solid covers yourself. Detection identifies possible faces, not who a person is.", 15, Ui.MUTED));
+            root.addView(faceCard, matchWrap()); addSpacer(root, 16);
+        }
 
         LinearLayout purchaseCard = Ui.card(this, Color.WHITE);
         purchaseCard.addView(Ui.heading(this, BuildConfig.PRO_AVAILABLE ? "Optional Pro, no subscription" : "No in-app purchases", 19)); addSpacer(purchaseCard, 10);

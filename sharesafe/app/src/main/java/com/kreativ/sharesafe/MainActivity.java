@@ -27,14 +27,20 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-/** Photos are processed locally. Only Google Play billing uses the network. */
+/** Photos are processed locally. Play Billing and Face Assist's SDK may use network services. */
 public class MainActivity extends Activity {
+    private static final String KREATIV_APPS_URL = "https://madebykreativ.com/apps/";
     private static final int PICK_PHOTOS = 44, WRITE_GALLERY_PERMISSION = 45, REDACT_PHOTO = 46;
     private ExportSession session;
     private BillingManager billing;
     private TextView selectionText, statusText, resultSummary, proHint;
     private Button pickButton, cleanButton, redactButton, shareButton, saveButton, optionsToggle;
     private LinearLayout optionsBody, resultCard;
+    private LinearLayout privacyCard;
+    private TextView privacySummary;
+    private Button privacyToggle;
+    private LinearLayout privacyDetails;
+    private boolean privacyExpanded;
     private boolean optionsExpanded;
     private ProgressBar progress;
     private RadioGroup qualityGroup, formatGroup;
@@ -46,6 +52,7 @@ public class MainActivity extends Activity {
         session = (ExportSession) getLastNonConfigurationInstance();
         if (session == null) session = new ExportSession(this, saved);
         optionsExpanded = saved != null && saved.getBoolean("export_options_expanded", false);
+        privacyExpanded = saved != null && saved.getBoolean("privacy_expanded", false);
         setContentView(buildScreen());
         session.listener = sessionListener;
         billing = BillingManager.create(this, new BillingManager.Listener() {
@@ -73,6 +80,7 @@ public class MainActivity extends Activity {
     @Override protected void onSaveInstanceState(Bundle out) {
         session.quality = chosenQuality(); session.zip = isZipSelected(); session.save(out);
         out.putBoolean("export_options_expanded", optionsExpanded);
+        out.putBoolean("privacy_expanded", privacyExpanded);
         super.onSaveInstanceState(out);
     }
     @Override protected void onDestroy() {
@@ -110,6 +118,13 @@ public class MainActivity extends Activity {
         addSpacer(selection, 12); TextView originals = label("Your originals stay untouched.", 13, Ui.MUTED);
         originals.setGravity(Gravity.CENTER); selection.addView(originals); root.addView(selection, matchWrap());
         addSpacer(root, 14);
+        privacyCard = Ui.card(this, Color.WHITE);
+        privacyToggle = Ui.textButton(this, "Privacy Check · Free"); privacyToggle.setGravity(Gravity.START | Gravity.CENTER_VERTICAL);
+        privacyToggle.setOnClickListener(v -> { privacyExpanded = !privacyExpanded; renderState(); }); privacyCard.addView(privacyToggle, matchWrap());
+        privacyDetails = new LinearLayout(this); privacyDetails.setOrientation(LinearLayout.VERTICAL);
+        privacySummary = label("", 14, Ui.INK); privacySummary.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
+        privacyDetails.addView(privacySummary); addSpacer(privacyDetails, 10);
+        privacyDetails.addView(label(PrivacyCheck.LIMITS, 12, Ui.MUTED)); privacyCard.addView(privacyDetails, matchWrap());
         cleanButton = button("Clean photos", true);
         cleanButton.setOnClickListener(v -> session.clean(chosenQuality(), isZipSelected())); root.addView(cleanButton, matchWrap());
         progress = new ProgressBar(this, null, android.R.attr.progressBarStyleHorizontal);
@@ -119,6 +134,8 @@ public class MainActivity extends Activity {
         statusText.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
         statusText.setPadding(0, dp(12), 0, dp(8)); root.addView(statusText);
         addSpacer(root, 14);
+
+        LinearLayout.LayoutParams privacyParams = matchWrap(); privacyParams.bottomMargin = dp(16); root.addView(privacyCard, privacyParams);
 
         resultCard = Ui.card(this, Color.WHITE);
         resultCard.addView(Ui.heading(this, "Ready to share", 21)); addSpacer(resultCard, 12);
@@ -157,7 +174,7 @@ public class MainActivity extends Activity {
         proCard.setVisibility(BuildConfig.PRO_AVAILABLE ? View.VISIBLE : View.GONE);
         proCard.addView(Ui.badge(this, "SHARESAFE PRO"), new LinearLayout.LayoutParams(-2, -2)); addSpacer(proCard, 10);
         proCard.addView(Ui.heading(this, "Keep private details private.", 20));
-        proHint = label("Select one photo to cover sensitive text, faces or IDs.", 14, Ui.MUTED);
+        proHint = label("Select one photo for Face Assist and precise redaction tools.", 14, Ui.MUTED);
         proHint.setPadding(0, dp(8), 0, dp(16)); proCard.addView(proHint);
         redactButton = button("Advanced edit • Pro", false);
         redactButton.setOnClickListener(v -> redactSelectedPhoto()); proCard.addView(redactButton, matchWrap()); root.addView(proCard, proParams);
@@ -175,6 +192,28 @@ public class MainActivity extends Activity {
         }
         addSpacer(root, 20);
         root.addView(label("Metadata cleaning is always free. It does not hide details visible in a photo. Review your copies before sharing.", 13, Ui.MUTED));
+        LinearLayout footer = new LinearLayout(this);
+        footer.setId(R.id.main_footer);
+        footer.setOrientation(LinearLayout.VERTICAL);
+        footer.setGravity(Gravity.CENTER_HORIZONTAL);
+        TextView credit = label(getString(R.string.main_version_credit, BuildConfig.VERSION_NAME), 12, Ui.MUTED);
+        credit.setId(R.id.main_version_credit);
+        credit.setGravity(Gravity.CENTER);
+        credit.setPadding(0, dp(6), 0, 0);
+        footer.addView(credit, matchWrap());
+        Button creatorLink = Ui.textButton(this, getString(R.string.main_creator_credit));
+        creatorLink.setId(R.id.main_creator_link);
+        creatorLink.setTextSize(12);
+        creatorLink.setTextColor(Ui.ACCENT);
+        creatorLink.setContentDescription(getString(R.string.main_creator_link_description));
+        creatorLink.setOnClickListener(v -> {
+            try { startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(KREATIV_APPS_URL)).addCategory(Intent.CATEGORY_BROWSABLE)); }
+            catch (android.content.ActivityNotFoundException e) {
+                Toast.makeText(this, getString(R.string.main_no_browser, KREATIV_APPS_URL), Toast.LENGTH_LONG).show();
+            }
+        });
+        footer.addView(creatorLink, new LinearLayout.LayoutParams(-2, -2));
+        root.addView(footer, matchWrap());
         return scroll;
     }
 
@@ -198,7 +237,19 @@ public class MainActivity extends Activity {
         selectionText.setText(session.selected.isEmpty() ? "No photos selected" : session.selected.size() + " photo(s) selected");
         statusText.setText(session.status);
         statusText.setVisibility(session.status.isEmpty() ? View.GONE : View.VISIBLE);
-        proHint.setText(session.selected.size() == 1 ? "Cover visible details before creating a share-ready copy." : "Select one photo to cover sensitive text, faces or IDs.");
+        proHint.setText(session.selected.size() == 1 ? "Find faces, adjust individual areas and cover visible details." : "Select one photo for Face Assist and precise redaction tools.");
+        privacyCard.setVisibility(session.selected.isEmpty() ? View.GONE : View.VISIBLE);
+        privacyToggle.setText("Privacy Check · Free\n" + (session.checkingPrivacy ? "Checking readable metadata…"
+                : privacyExpanded ? "Hide report" : session.result == null ? "View original metadata report" : "View before / after report"));
+        androidx.core.view.ViewCompat.setStateDescription(privacyToggle, privacyExpanded ? "Expanded" : "Collapsed");
+        privacyDetails.setVisibility(privacyExpanded ? View.VISIBLE : View.GONE);
+        String check = session.checkingPrivacy ? "Checking readable metadata on your device…"
+                : session.privacyBefore == null ? "Original check unavailable. Select the photos again to retry."
+                : session.privacyBefore.summary(false);
+        if (session.result != null) check += "\n\n" + (session.result.privacyAfter == null
+                ? "Exported copies: not checked in this session. Clean again to verify."
+                : session.result.privacyAfter.summary(true));
+        privacySummary.setText(check);
         progress.setVisibility(session.busy ? View.VISIBLE : View.GONE); progress.setProgress(session.progress);
         boolean ready = session.result != null;
         resultCard.setVisibility(ready ? View.VISIBLE : View.GONE);
@@ -256,7 +307,7 @@ public class MainActivity extends Activity {
 
     private String upgradeMessage() {
         String price = billing.price();
-        return "Manual privacy tools for one photo at a time:\n\n• Solid Cover for sensitive text, IDs and faces\n• Optional blur and pixelation effects\n• Zoom, pan, undo and flattened JPEG copies\n\nBlur and pixelation may still reveal information. Use Cover for stronger privacy.\n\n"
+        return "Privacy tools for one photo at a time:\n\n• Face Assist: find faces on-device, review suggestions and apply covers\n• Move, resize or delete individual redactions\n• Undo, redo, zoom and flattened JPEG copies\n• Solid Cover plus optional blur and pixelation\n\nDetection can miss faces. Review every photo. Blur and pixelation may still reveal information; use Cover for stronger privacy.\n\n"
                 + (price == null ? billing.purchaseStatus()
                     : "One-time purchase: " + price + ". No subscription.");
     }

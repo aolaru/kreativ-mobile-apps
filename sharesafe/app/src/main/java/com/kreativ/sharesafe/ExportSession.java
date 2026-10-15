@@ -34,8 +34,11 @@ final class ExportSession {
     final ExecutorService worker = Executors.newSingleThreadExecutor();
     Listener listener;
     Result result;
+    PrivacyCheck.Report privacyBefore;
+    boolean checkingPrivacy;
+    private volatile int privacyRevision;
     boolean busy;
-    boolean closed;
+    volatile boolean closed;
     int progress;
     int quality = 76;
     boolean zip;
@@ -56,12 +59,15 @@ final class ExportSession {
                 String zipPath = saved.getString("zip_path");
                 File zipFile = zipPath == null ? null : new File(zipPath);
                 if (!files.isEmpty() && (zipFile == null || zipFile.isFile())) {
-                    result = new Result(files, zipFile, saved.getInt("skipped"), saved.getInt("resized"));
+                    result = new Result(files, zipFile, saved.getInt("skipped"), saved.getInt("resized"),
+                            PrivacyCheck.Report.restore(saved, "privacy_after"));
                 }
             }
             if (saved.getBoolean("busy")) status = "Previous operation was interrupted. Please try again.";
+            privacyBefore = PrivacyCheck.Report.restore(saved, "privacy_before");
         }
         worker.execute(() -> PrivateCache.cleanExpired(this.context));
+        if (!selected.isEmpty() && privacyBefore == null) checkPrivacy();
     }
 
     void save(Bundle out) {
@@ -72,6 +78,7 @@ final class ExportSession {
         out.putBoolean("zip", zip);
         out.putBoolean("busy", busy);
         out.putString("status", status);
+        if (privacyBefore != null) privacyBefore.save(out, "privacy_before");
         if (result != null) {
             ArrayList<String> paths = new ArrayList<>();
             for (File file : result.photos) paths.add(file.getAbsolutePath());
@@ -79,6 +86,7 @@ final class ExportSession {
             if (result.zipFile != null) out.putString("zip_path", result.zipFile.getAbsolutePath());
             out.putInt("skipped", result.skipped);
             out.putInt("resized", result.resized);
+            if (result.privacyAfter != null) result.privacyAfter.save(out, "privacy_after");
         }
     }
 
@@ -90,7 +98,26 @@ final class ExportSession {
         selected.addAll(photos);
         result = null;
         status = selected.isEmpty() ? "" : "Ready to create clean copies.";
+        checkPrivacy();
         changed();
+    }
+
+    private void checkPrivacy() {
+        int revision = ++privacyRevision;
+        privacyBefore = null; checkingPrivacy = !selected.isEmpty();
+        List<Uri> photos = new ArrayList<>(selected);
+        if (photos.isEmpty()) return;
+        worker.execute(() -> {
+            PrivacyCheck.Report report = new PrivacyCheck.Report();
+            for (Uri photo : photos) {
+                if (closed || privacyRevision != revision || Thread.currentThread().isInterrupted()) return;
+                report.add(PrivacyCheck.inspect(context, photo));
+            }
+            main.post(() -> {
+                if (closed || privacyRevision != revision) return;
+                privacyBefore = report; checkingPrivacy = false; changed();
+            });
+        });
     }
 
     void clean(int quality, boolean zip) {
@@ -128,6 +155,7 @@ final class ExportSession {
         File folder = PrivateCache.newFolder(context, "exports");
         ArrayList<File> output = new ArrayList<>();
         int skipped = 0, resized = 0;
+        PrivacyCheck.Report after = new PrivacyCheck.Report();
         boolean complete = false;
         try {
             for (int i = 0; i < photos.size(); i++) {
@@ -140,7 +168,10 @@ final class ExportSession {
                     try (FileOutputStream stream = new FileOutputStream(file)) {
                         if (!bitmap.compress(Bitmap.CompressFormat.JPEG, quality, stream)) throw new IOException("JPEG export failed");
                     }
-                    output.add(file);
+                    int[] check = PrivacyCheck.inspect(context, Uri.fromFile(file));
+                    // Never offer an unchecked or unexpectedly tagged output as a clean copy.
+                    if (!PrivacyCheck.verified(check)) throw new IOException("Export metadata check failed");
+                    after.add(check); output.add(file);
                     if (decoded.resized) resized++;
                 } catch (IOException | SecurityException | IllegalArgumentException e) {
                     file.delete();
@@ -154,7 +185,7 @@ final class ExportSession {
             if (output.isEmpty()) throw new IOException("No compatible images could be exported");
             File zipFile = zip ? zip(folder, output) : null;
             complete = true;
-            return new Result(output, zipFile, skipped, resized);
+            return new Result(output, zipFile, skipped, resized, after);
         } finally {
             if (!complete) PrivateCache.delete(folder);
         }
@@ -254,11 +285,15 @@ final class ExportSession {
         final ArrayList<File> photos;
         final File zipFile;
         final int skipped, resized;
+        final PrivacyCheck.Report privacyAfter;
         Result(ArrayList<File> photos, File zipFile, int skipped, int resized) {
-            this.photos = photos; this.zipFile = zipFile; this.skipped = skipped; this.resized = resized;
+            this(photos, zipFile, skipped, resized, null);
+        }
+        Result(ArrayList<File> photos, File zipFile, int skipped, int resized, PrivacyCheck.Report privacyAfter) {
+            this.photos = photos; this.zipFile = zipFile; this.skipped = skipped; this.resized = resized; this.privacyAfter = privacyAfter;
         }
         String summary() {
-            return "Cleaned " + photos.size() + " photo(s)\nEmbedded metadata removed; original filenames replaced"
+            return "Cleaned " + photos.size() + " photo(s)\nFresh JPEG copies; original filenames replaced"
                     + "\nExport: " + (zipFile == null ? "individual JPEG photos" : "one ZIP file")
                     + "\nResized for safe memory use: " + resized + "\nSkipped / failed images: " + skipped
                     + "\nReview visible details before sharing.";
