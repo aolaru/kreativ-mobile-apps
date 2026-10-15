@@ -1,6 +1,8 @@
 # PaperBuild Google Play Store Listing
 
-Version 1.1 English (United Kingdom) text saved as a Play Console draft on 15 October 2026 — not submitted or published. Existing 1.0 icon, feature graphic and two real-device screenshots retained; refreshed 1.1 screenshots remain a marketing follow-up.
+Version 1.1 English (United Kingdom) text and six refreshed real-device screenshots saved as a Play Console draft on 15 October 2026 — not submitted or published. Existing icon and feature graphic retained. The old 1.0 phone gallery is replaced in the draft, not the live listing.
+
+The new gallery, in order, is `store-assets/play/screenshots/1.1/01-home.png`, `02-crop.png`, `03-export.png`, `04-ready.png`, `05-recent.png`, and `06-pro.png`. These are unmodified 1080 × 2340 captures from the separately installed 1.1 QA app on Samsung SM-A556B / Android 16, using fictional sample pages. They contain no fabricated prices, reviewer credentials, or simulated UI. The first four were captured through Android Studio; Recent PDFs and the expanded Pro feature list were captured directly from the connected phone after the owner requested that fallback. The Pro capture shows the feature list, not QA's unavailable billing price.
 
 ## App name
 
@@ -65,10 +67,11 @@ PDF tools preserve page content and original sizes. Password-protected input PDF
 Capture these from a physical device after the smoke test. Do not use mockups or images that show unshipped features.
 
 1. Home: branded “From paper to polished” hero and the real Scan/Add images controls. Caption: “Your private PDF studio.”
-2. Document review: real page thumbnails and ordering/rotation controls. Caption: “Your pages, in order.”
+2. Free cropping: real crop bounds and Apply/Restore controls. Caption: “Keep what matters.”
 3. Export: expanded A4/Letter, page style, and file-size controls. Caption: “Make it yours.”
 4. Finished document: the “Ready to share” card with Share, Save PDF, and Open PDF. Caption: “Ready when you are.”
-5. Pro: the updated features and the real localized Play price when available. Caption: “One purchase. More possibilities.” Do not insert a placeholder price.
+5. Recent PDFs: private saved documents and real page previews. Caption: “Ready to find again.”
+6. Pro: the updated feature list; include a real localized Play price only when available. Caption: “One purchase. More possibilities.” Do not insert a placeholder price.
 
 Use the real app screens, including their visible Free/Pro boundaries. Keep captions short; avoid claims about OCR, automatic cropping, signatures, or support for encrypted input files.
 

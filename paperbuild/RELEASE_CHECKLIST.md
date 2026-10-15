@@ -21,11 +21,25 @@
   - Release manifest: `com.kreativ.paperbuild`, min SDK 26, target SDK 36, not debuggable; no new internet/advertising/photo/camera permissions. Bundle dependency metadata includes Fragment 1.9.1. Built source matches the pushed source commit.
 - [x] Upload v4 to Google Play production and save **1.1.0 — Recent PDFs and Pro export tools** as a draft, with en-GB release notes from `release-notes/1.1.0-en-GB.txt`. Play recognises **4 (1.1.0)**. No review submission or rollout is authorised by this preparation step.
 - [x] Run Play's Preview and confirm validation: no blocking errors, one expected missing-deobfuscation-file warning, and zero devices lost relative to v3. Return to the saved draft without pressing the final **Save** that queues a rollout in Publishing overview. Validation evidence: `release-evidence/2026-10-15/release-1.1-validation.jpg`.
-- [x] Save the updated en-GB listing text as a draft. Existing icon, banner and two real 1.0 screenshots are retained; no price/product ID changes.
-- [ ] Refresh the marketing screenshots to show Recent PDFs, cropping and the expanded Pro tools; the current gallery still meets the two-screenshot minimum.
+- [x] Save the updated en-GB listing text as a draft. Existing icon and banner retained; phone screenshots subsequently refreshed below. No price/product ID changes.
+- [x] Replace the draft phone gallery with six unmodified 1.1 real-device captures: Home, Free cropping, export settings, Ready to share, Recent PDFs and expanded Pro features. Files: `store-assets/play/screenshots/1.1/01-home.png` through `06-pro.png`, each 1080 × 2340. Order verified in Play (6/8); **Your changes have been saved** shown. Icon/banner unchanged. Evidence: `release-evidence/2026-10-15/gallery-1.1-saved.jpg`.
+- [x] Complete Recent PDFs and expanded Pro captures directly from the connected phone, at the owner's request after Android Studio stopped responding. Pro screenshot shows real feature cards without fabricating a QA price or displaying unavailable billing.
 - [ ] After final owner review, confirm the release and listing changes and send the update to Google for review. Managed publishing was previously off; approval may publish automatically, so do not submit until launch is authorised.
 - Follow-up: the current live v3 dashboard flags DEX code optimisation (obfuscation 1%) with a February 2027 deadline. Version 1.1 retains `minifyEnabled false`; R8 optimisation and PDFBox/billing regression checks remain separate work, not a claimed fix in this build.
 - Purchase/restore testing was not rerun. The owner's original payment-test waiver remains recorded below; it must not be described as passed.
+
+### Final review progress — 15 October 2026
+
+- [x] Revalidate `testDebugUnitTest testReleaseUnitTest lintDebug lintRelease`: successful, existing 12-test JVM reports per build type current/up-to-date, 0 lint errors / 28 warnings per build type.
+- [x] Rerun all 16 selected QA device regressions on Samsung SM-A556B / Android 16: 16 tests, 0 failures, errors or skips. Includes Pro settings/presets UI, encrypted exports, crop/draft recovery, library lifecycle, original document regressions and footer. Play purchase and signed reviewer-code device testing are not included in this run.
+- [x] Hands-on Free flow: import two fictional sample PNGs through Android's system file picker, drag and apply a crop, name and export an A4 colour PDF, save to Downloads/PaperBuild, and open in Samsung's independent PDF reader. Recent PDFs shows the correct title, two-page count, file size and preview.
+- [x] Independently inspect both pages of the exported PDF with Poppler: valid 2-page A4 PDF, 127,706 bytes, clean rendering with readable content and no accidental clipping. Intermediate review files remain under `tmp/pdfs/`, outside Git.
+- [x] Inspect main-screen Pro/Free labels and bottom layout: Privacy & About is below Pro, version credit reads **Version 1.1.0 · Made by Kreativ**, and both have space above Samsung's navigation bar.
+- [x] Recheck the retained signed v4 AAB hash: unchanged at `1f013f8820a82588076d5cfc788700e8d72ffbfa7681192f2e8ddefe6c549781`. Physical Play package remains v3 / 1.0.0 installed by Google Play; production app data was not replaced. QA was reinstalled after the automated test runner removed its isolated test package.
+- [x] Direct-phone checks: exported a fresh two-page fictional document, verified Android's share sheet receives `Weekend plans.pdf` and cancelled without sending, moved the QA library copy to Removed PDFs and restored it successfully. No permanent deletion or production data changes.
+- [x] Read About/privacy page and visually inspect its bottom layout: Privacy Policy, Contact support, Back and version/Made by Kreativ credit are readable and clear of navigation. Inspect all six Pro feature cards, including password protection, watermarks/page numbers and presets. Automated Pro settings/preset coverage passed; no purchase was attempted.
+- [ ] Remaining manual coverage: real camera capture/return, sending to an actual share target, Android 8/9 storage-permission denial, and full hands-on Pro export workflows. These are not claimed as passed; automated Pro/document/library coverage is listed above. Purchase/restore remains explicitly waived and unverified.
+- [ ] Owner's final launch approval and Google review submission. No release or listing changes have been submitted or published by this review.
 
 ## Production submission — 12 October 2026
 
