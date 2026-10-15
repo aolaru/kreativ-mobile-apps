@@ -1,6 +1,6 @@
-# PaperBuild 1.0 Release Checklist
+# PaperBuild Release Checklist
 
-## Version 1.1.0 development — 15 October 2026
+## Version 1.1.0 preparation — 15 October 2026
 
 - [x] Version code 4 / version name 1.1.0, developed locally; the published 1.0 release is unchanged.
 - [x] Free: Recent PDFs with private durable storage, previews for unencrypted PDFs, rename/open/share/Downloads save, reversible removal and confirmed permanent deletion.
@@ -13,8 +13,18 @@
 - [x] Inspect rendered PDFs with Poppler at 0/90/180/270-degree rotations: watermark and page numbers are upright, unclipped, and leave original page content intact. Android PDFBox's test renderer renders the image watermark darker than Poppler; independent rendering confirms the PDF opacity is correct.
 - [x] Update local README, privacy policy, About page and draft listing for 1.1. No new internet, advertising-ID, broad photo or camera permission.
 - [ ] Complete final owner review on the separately installed **PaperBuild QA** app (`com.kreativ.paperbuild.qa`). The QA app does not replace Google Play's production package.
-- [ ] Commit/push the scoped 1.1 changes and publish the updated public privacy policy before releasing 1.1.
-- [ ] Build/verify the signed 1.1 App Bundle, update store screenshots/release notes, and submit a Google Play update with owner approval.
+- [x] Commit and push only PaperBuild changes: source commit `9b7c4ad5adb504608007d557b36f32654f31182e`, on `codex/paperbuild-1-1` and remote `main`. The updated public GitHub privacy policy is included. Shared checkout/index and unrelated app work are preserved.
+- [x] Build the signed version code 4 / 1.1.0 App Bundle with the existing upload key. `bundleRelease testReleaseUnitTest lintRelease` succeeds; release lint reports 0 errors / 28 warnings. `jarsigner` verifies the signature; the self-signed certificate/no timestamp warnings are expected for this Android upload key.
+  - Upload: `app/build/outputs/bundle/release/app-release.aab`; retained local copy: `app/build/outputs/releases/1.1.0/paperbuild-1.1.0-v4.aab` (build outputs are not committed).
+  - Size: 11,551,179 bytes. SHA-256: `1f013f8820a82588076d5cfc788700e8d72ffbfa7681192f2e8ddefe6c549781`.
+  - Upload certificate SHA-256 matches the existing keystore: `9B:D5:B7:6E:E4:94:B9:BB:80:A1:F7:51:3C:B7:00:76:28:11:82:72:FC:F5:2A:E7:57:CF:8A:6B:E9:82:B2:66`.
+  - Release manifest: `com.kreativ.paperbuild`, min SDK 26, target SDK 36, not debuggable; no new internet/advertising/photo/camera permissions. Bundle dependency metadata includes Fragment 1.9.1. Built source matches the pushed source commit.
+- [x] Upload v4 to Google Play production and save **1.1.0 — Recent PDFs and Pro export tools** as a draft, with en-GB release notes from `release-notes/1.1.0-en-GB.txt`. Play recognises **4 (1.1.0)**. No review submission or rollout is authorised by this preparation step.
+- [x] Run Play's Preview and confirm validation: no blocking errors, one expected missing-deobfuscation-file warning, and zero devices lost relative to v3. Return to the saved draft without pressing the final **Save** that queues a rollout in Publishing overview. Validation evidence: `release-evidence/2026-10-15/release-1.1-validation.jpg`.
+- [x] Save the updated en-GB listing text as a draft. Existing icon, banner and two real 1.0 screenshots are retained; no price/product ID changes.
+- [ ] Refresh the marketing screenshots to show Recent PDFs, cropping and the expanded Pro tools; the current gallery still meets the two-screenshot minimum.
+- [ ] After final owner review, confirm the release and listing changes and send the update to Google for review. Managed publishing was previously off; approval may publish automatically, so do not submit until launch is authorised.
+- Follow-up: the current live v3 dashboard flags DEX code optimisation (obfuscation 1%) with a February 2027 deadline. Version 1.1 retains `minifyEnabled false`; R8 optimisation and PDFBox/billing regression checks remain separate work, not a claimed fix in this build.
 - Purchase/restore testing was not rerun. The owner's original payment-test waiver remains recorded below; it must not be described as passed.
 
 ## Production submission — 12 October 2026

@@ -2,7 +2,7 @@
 
 An offline Android document-maker from Kreativ.
 
-## What the first version does
+## What the app does
 
 - Uses the system document picker to add one or more images without requesting broad gallery access.
 - Opens the user's camera app to capture a page without declaring direct camera permission.
@@ -18,7 +18,7 @@ An offline Android document-maker from Kreativ.
 
 PaperBuild Pro is a permanent one-time unlock, not a subscription. Its base price is €2.99, with automatic Google Play country pricing; the app shows the local Play price. It adds smaller PDF exports, unlimited pages, PDF merge and page-range extraction, password-protected exports, custom text watermarks, page numbers, and named export presets. Existing Pro ownership unlocks the new features without another purchase. Merge/extraction preserves page content and sizes rather than converting pages into images. Free documents support up to 10 pages; cropping and Recent PDFs are free.
 
-Version 1.1.0 (version code 4) is in local development; this does not update the published Google Play release. Pro options apply to image exports, merging, and extraction. Export passwords are 8–64 characters and are never written to drafts or presets; protected presets require a fresh password before exporting. Encrypted library entries do not generate previews. Forgotten export passwords cannot be recovered.
+Version 1.1.0 (version code 4) has been committed and its signed App Bundle uploaded for release preparation; it has not been submitted for review or published. See `RELEASE_CHECKLIST.md` for the remaining owner review and store preparation. Pro options apply to image exports, merging, and extraction. Export passwords are 8–64 characters and are never written to drafts or presets; protected presets require a fresh password before exporting. Encrypted library entries do not generate previews. Forgotten export passwords cannot be recovered.
 
 Documents are processed offline. Google Play handles purchase connectivity. The merged app manifest explicitly removes internet/network-state permissions added by billing dependencies.
 

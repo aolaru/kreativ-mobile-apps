@@ -1,6 +1,6 @@
 # PaperBuild Google Play Store Listing
 
-Version 1.1 draft — not yet uploaded or published.
+Version 1.1 English (United Kingdom) text saved as a Play Console draft on 15 October 2026 — not submitted or published. Existing 1.0 icon, feature graphic and two real-device screenshots retained; refreshed 1.1 screenshots remain a marketing follow-up.
 
 ## App name
 
