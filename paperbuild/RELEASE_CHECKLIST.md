@@ -1,5 +1,12 @@
 # PaperBuild Release Checklist
 
+## Version 1.1.0 submission — 16 October 2026
+
+- [x] Owner explicitly approved submitting the prepared three changes, with managed publishing off and automatic publication after approval disclosed.
+- [x] Confirmed **Submit 3 changes for review** → **Send changes for review**. Publishing overview now shows **Changes in review**, covering production **1.1.0 — Recent PDFs and Pro export tools / Start full rollout**, en-GB full description and phone screenshots.
+- Google's automated quick checks are still running; the changes proceed to review when those checks complete successfully. **Not yet approved or publicly live.** Managed publishing remains off. Evidence: `release-evidence/2026-10-16/submitted-for-review.jpg`.
+- Android 8/9 testing remains explicitly skipped; payment/restore testing remains waived and unverified. Dated preparation entries below preserve the state at the time they were recorded; submission supersedes their pending-approval status.
+
 ## Version 1.1.0 preparation — 15 October 2026
 
 - [x] Version code 4 / version name 1.1.0, developed locally; the published 1.0 release is unchanged.
@@ -25,7 +32,7 @@
 - [x] Replace the draft phone gallery with six unmodified 1.1 real-device captures: Home, Free cropping, export settings, Ready to share, Recent PDFs and expanded Pro features. Files: `store-assets/play/screenshots/1.1/01-home.png` through `06-pro.png`, each 1080 × 2340. Order verified in Play (6/8); **Your changes have been saved** shown. Icon/banner unchanged. Evidence: `release-evidence/2026-10-15/gallery-1.1-saved.jpg`.
 - [x] Complete Recent PDFs and expanded Pro captures directly from the connected phone, at the owner's request after Android Studio stopped responding. Pro screenshot shows real feature cards without fabricating a QA price or displaying unavailable billing.
 - [x] Complete delegated device review and save the release and listing changes ready for review on 16 October; see the final checks below.
-- [ ] Obtain final owner launch/submission approval and send the update to Google for review. Managed publishing is off; approval may publish automatically, so do not submit until launch is authorised.
+- [x] Obtain final owner launch/submission approval and send the update to Google for review (16 October). Managed publishing is off; approval may publish automatically. See submission status above.
 - Follow-up: the current live v3 dashboard flags DEX code optimisation (obfuscation 1%) with a February 2027 deadline. Version 1.1 retains `minifyEnabled false`; R8 optimisation and PDFBox/billing regression checks remain separate work, not a claimed fix in this build.
 - Purchase/restore testing was not rerun. The owner's original payment-test waiver remains recorded below; it must not be described as passed.
 
@@ -40,7 +47,7 @@
 - [x] Direct-phone checks: exported a fresh two-page fictional document, verified Android's share sheet receives `Weekend plans.pdf` and cancelled without sending, moved the QA library copy to Removed PDFs and restored it successfully. No permanent deletion or production data changes.
 - [x] Read About/privacy page and visually inspect its bottom layout: Privacy Policy, Contact support, Back and version/Made by Kreativ credit are readable and clear of navigation. Inspect all six Pro feature cards, including password protection, watermarks/page numbers and presets. Automated Pro settings/preset coverage passed; no purchase was attempted.
 - [x] Finish the remaining camera, external share hand-off and hands-on Pro workflows on 16 October; details below. Android 8/9 permission testing was explicitly skipped by the owner. Purchase/restore remains explicitly waived and unverified.
-- [ ] Owner's final launch approval and Google review submission. No release or listing changes have been submitted or published by this review.
+- [x] Owner's final launch approval and Google review submission completed on 16 October. The update is submitted, not yet approved or published.
 
 ### Final release-readiness checks — 16 October 2026
 
@@ -58,7 +65,7 @@
 - [x] Save the validated production release to Publishing overview as **Changes not yet submitted for review**. No **Submit changes for review** action was taken. Managed publishing remains off: approval may publish automatically after the owner authorises submission.
 - [x] Finalise the en-GB listing review with all six real screenshots. Play confirms **Changes ready to send for review** and **Change saved. Send for review in Publishing overview.** Existing icon/banner and their declarations are unchanged.
 - [x] Publishing overview confirms **Submit 3 changes for review**: production v1.1.0 full rollout, en-GB full description and phone screenshots, all under **Changes not yet submitted for review**. Google's quick checks are running; no completion is claimed yet. Evidence: `release-evidence/2026-10-16/ready-for-review.jpg`.
-- [ ] Obtain owner's launch/submission approval, then submit the prepared release and listing together. No review submission or publication has occurred.
+- [x] Obtain owner's launch/submission approval and submit the prepared release and listing together (16 October). Publishing overview confirms **Changes in review**; publication is not yet confirmed.
 - Owner-approved exclusions: Android 8/9 storage-permission denial testing skipped on 16 October (no older emulator downloaded); Play purchase/restore/pending-payment/acknowledgement-network checks remain waived and unverified. Historical 1.0 checklist entries below retain their original status and are not retroactively claimed as passed.
 
 ## Production submission — 12 October 2026
