@@ -38,8 +38,8 @@ android {
         applicationId 'com.kreativ.northlight'
         minSdk 26
         targetSdk 36
-        versionCode 4
-        versionName '1.1.1'
+        versionCode 5
+        versionName '1.2.0'
         testInstrumentationRunner 'com.kreativ.northlight.UiTestRunner'
     }
 
@@ -61,6 +61,13 @@ android {
         }
         release {
             signingConfig signingConfigs.release
+        }
+        // Real-device store captures without replacing the installed Play app.
+        storePreview {
+            initWith release
+            applicationIdSuffix '.preview'
+            signingConfig signingConfigs.debug
+            matchingFallbacks = ['release']
         }
     }
 }

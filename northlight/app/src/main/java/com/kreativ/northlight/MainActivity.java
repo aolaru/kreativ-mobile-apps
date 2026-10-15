@@ -36,6 +36,7 @@ import java.text.NumberFormat;
 public class MainActivity extends Activity implements CompassSource.Listener, BillingManager.Listener, CompassSpeech.Listener, AltimeterSource.Listener {
     private static final int CAMERA_PERMISSION = 9;
     private static final int ALTITUDE_PERMISSION = 10;
+    private static final String KREATIV_APPS_URL = "https://madebykreativ.com/apps/";
     private final Handler handler = new Handler(Looper.getMainLooper());
     private CompassSource compassSource;
     private FieldCompassView compass;
@@ -211,11 +212,29 @@ public class MainActivity extends Activity implements CompassSource.Listener, Bi
         TextView footer = text(getString(R.string.main_no_account_no_ads_no_tracking), 13, mist());
         footer.setGravity(Gravity.CENTER);
         root.addView(footer, matchWrap());
-        TextView credit = text(getString(R.string.field_version_credit, BuildConfig.VERSION_NAME), 12, mist());
-        credit.setId(R.id.field_version_credit);
-        credit.setGravity(Gravity.CENTER);
-        credit.setPadding(0, dp(6), 0, 0);
-        root.addView(credit, matchWrap());
+        TextView version = text(getString(R.string.app_version, BuildConfig.VERSION_NAME), 12, mist());
+        version.setId(R.id.field_version_credit);
+        version.setGravity(Gravity.CENTER);
+        version.setPadding(0, dp(6), 0, 0);
+        root.addView(version, matchWrap());
+        Button credit = smallButton(getString(R.string.field_maker_credit));
+        credit.setId(R.id.field_maker_credit);
+        credit.setTextSize(12);
+        credit.setTextColor(gold());
+        credit.setPaintFlags(credit.getPaintFlags() | android.graphics.Paint.UNDERLINE_TEXT_FLAG);
+        android.util.TypedValue linkBackground = new android.util.TypedValue();
+        if (getTheme().resolveAttribute(android.R.attr.selectableItemBackground, linkBackground, true)) {
+            credit.setBackgroundResource(linkBackground.resourceId);
+        }
+        credit.setContentDescription(getString(R.string.field_maker_link_description));
+        credit.setOnClickListener(v -> {
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(KREATIV_APPS_URL)));
+            } catch (ActivityNotFoundException | SecurityException unavailable) {
+                Toast.makeText(this, R.string.field_browser_unavailable, Toast.LENGTH_SHORT).show();
+            }
+        });
+        root.addView(credit, centerWrap());
         onBillingChanged();
         return Ui.screen(this, scroll);
     }

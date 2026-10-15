@@ -72,7 +72,7 @@ public class FieldUiTest {
         access(true, "[{\"name\":\"Trail\",\"degrees\":32}]");
         Intent intent = new Intent(RuntimeEnvironment.getApplication(), ProActivity.class).putExtra(ProActivity.EXTRA_BEARING_INDEX, 0);
         try (ActivityController<ProActivity> controller = Robolectric.buildActivity(ProActivity.class, intent).setup()) {
-            ProActivity a = controller.get(); a.onHeading(349);
+            ProActivity a = controller.get(); a.onCompassStatus(R.string.compass_accuracy_ok); a.onHeading(349);
             assertTrue(hasText(a.findViewById(android.R.id.content), a.getString(R.string.field_pro_owner_title)));
             assertTrue(hasText(a.findViewById(android.R.id.content), a.getString(R.string.guidance_target, "Trail", 32, a.getString(R.string.guidance_right, 43))));
         }
@@ -178,11 +178,22 @@ public class FieldUiTest {
         try (ActivityController<MainActivity> controller = Robolectric.buildActivity(MainActivity.class).setup()) {
             MainActivity a = controller.get();
             TextView credit = a.findViewById(R.id.field_version_credit);
-            assertEquals(a.getString(R.string.field_version_credit, BuildConfig.VERSION_NAME), credit.getText());
+            assertEquals(a.getString(R.string.app_version, BuildConfig.VERSION_NAME), credit.getText());
+            assertFalse(credit.isClickable());
             LinearLayout parent = (LinearLayout)credit.getParent();
             int index = parent.indexOfChild(credit);
             assertTrue(index > 0);
             assertEquals(a.getString(R.string.main_no_account_no_ads_no_tracking), ((TextView)parent.getChildAt(index - 1)).getText());
+            Button maker = a.findViewById(R.id.field_maker_credit);
+            assertSame(maker, parent.getChildAt(index + 1));
+            assertEquals(a.getString(R.string.field_maker_credit), maker.getText());
+            assertEquals(a.getString(R.string.field_maker_link_description), maker.getContentDescription());
+            assertTrue(maker.getMinHeight() >= Math.round(48 * a.getResources().getDisplayMetrics().density));
+            assertNull(shadowOf(a).getNextStartedActivity());
+            maker.performClick();
+            Intent browser = shadowOf(a).getNextStartedActivity();
+            assertEquals(Intent.ACTION_VIEW, browser.getAction());
+            assertEquals("https://madebykreativ.com/apps/", browser.getDataString());
         }
     }
     @Test public void unavailableCompassNeverKeepsAnOldNumericHeading() {
