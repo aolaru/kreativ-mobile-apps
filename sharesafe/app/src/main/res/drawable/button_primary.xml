@@ -2,15 +2,22 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="false">
         <shape>
-            <solid android:color="#C8D6D1" />
-            <corners android:radius="14dp" />
+            <solid android:color="#E2EAE5" />
+            <corners android:radius="18dp" />
+            <padding android:left="18dp" android:top="14dp" android:right="18dp" android:bottom="14dp" />
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/accent_dark" />
+            <corners android:radius="18dp" />
             <padding android:left="18dp" android:top="14dp" android:right="18dp" android:bottom="14dp" />
         </shape>
     </item>
     <item>
         <shape>
             <solid android:color="@color/accent" />
-            <corners android:radius="14dp" />
+            <corners android:radius="18dp" />
             <padding android:left="18dp" android:top="14dp" android:right="18dp" android:bottom="14dp" />
         </shape>
     </item>

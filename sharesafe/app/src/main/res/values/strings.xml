@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ShareSafe</string>
+    <string name="main_version_credit">Version %1$s</string>
+    <string name="main_creator_credit">Made by Kreativ</string>
+    <string name="main_creator_link_description">Made by Kreativ, opens apps website in your browser</string>
+    <string name="main_no_browser">No browser is installed. Visit %1$s</string>
 </resources>
 

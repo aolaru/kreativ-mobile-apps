@@ -48,6 +48,135 @@ public class MainWorkflowTest {
         }
         fail("No completed export");
     }
+    @Test public void footerShowsBuildVersionAndCreditAfterRecreationAndWrapsWithoutClipping() throws Exception {
+        try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
+            scenario.recreate();
+            AtomicBoolean laidOut = new AtomicBoolean();
+            long deadline = System.currentTimeMillis() + 5_000;
+            while (!laidOut.get() && System.currentTimeMillis() < deadline) {
+                scenario.onActivity(activity -> {
+                    View credit = activity.findViewById(R.id.main_version_credit);
+                    laidOut.set(credit != null && credit.isLaidOut() && !credit.isLayoutRequested()
+                            && credit.getWidth() > 0 && credit.getHeight() > 0);
+                });
+                if (!laidOut.get()) Thread.sleep(20);
+            }
+            assertTrue("Recreated footer must finish layout before scrolling", laidOut.get());
+            scenario.onActivity(activity -> {
+                android.widget.TextView credit = activity.findViewById(R.id.main_version_credit);
+                assertNotNull(credit);
+                assertEquals("Version " + BuildConfig.VERSION_NAME, credit.getText().toString());
+                assertFalse("The version must stay plain text", credit.isClickable());
+                assertEquals(android.view.Gravity.CENTER, credit.getGravity());
+                assertEquals(Ui.MUTED, credit.getCurrentTextColor());
+                ViewGroup parent = (ViewGroup) credit.getParent();
+                assertEquals(R.id.main_footer, parent.getId());
+                assertSame(credit, parent.getChildAt(0));
+                ViewGroup root = (ViewGroup) parent.getParent();
+                assertSame(parent, root.getChildAt(root.getChildCount() - 1));
+                assertEquals(ViewGroup.LayoutParams.MATCH_PARENT, credit.getLayoutParams().width);
+                assertEquals(ViewGroup.LayoutParams.WRAP_CONTENT, credit.getLayoutParams().height);
+                android.widget.ScrollView scroll = (android.widget.ScrollView) root.getParent().getParent();
+                scroll.setSmoothScrollingEnabled(false);
+                scroll.fullScroll(View.FOCUS_DOWN);
+            });
+            InstrumentationRegistry.getInstrumentation().waitForIdleSync();
+            scenario.onActivity(activity -> {
+                android.widget.TextView credit = activity.findViewById(R.id.main_version_credit);
+                android.graphics.Rect visible = new android.graphics.Rect();
+                assertTrue("Footer must be reachable by scrolling", credit.getGlobalVisibleRect(visible));
+                assertEquals(credit.getHeight(), visible.height());
+                Button link = activity.findViewById(R.id.main_creator_link);
+                assertTrue("Creator link must be fully reachable", link.getGlobalVisibleRect(visible));
+                assertEquals(link.getHeight(), visible.height());
+                assertTrue("Creator link needs a 48dp touch target", link.getHeight() >= Ui.dp(activity, 48));
+                // Exercise wrapping without changing the phone's font-size setting.
+                credit.setTextSize(36);
+                int width = Ui.dp(activity, 120);
+                credit.measure(View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                assertTrue("Large text must wrap", credit.getLineCount() > 1);
+                assertTrue(credit.getMeasuredHeight() >= credit.getLayout().getHeight() + credit.getPaddingTop() + credit.getPaddingBottom());
+                link.setTextSize(36);
+                link.measure(View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
+                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                assertTrue("Large link text must wrap", link.getLineCount() > 1);
+                assertTrue(link.getMeasuredHeight() >= link.getLayout().getHeight() + link.getPaddingTop() + link.getPaddingBottom());
+            });
+        }
+    }
+    @Test public void creatorCreditOpensOnlyTheAppsWebsiteWithoutSharingPhotoData() {
+        AtomicReference<Intent> captured = new AtomicReference<>();
+        Instrumentation instrumentation = InstrumentationRegistry.getInstrumentation();
+        Instrumentation.ActivityMonitor monitor = new Instrumentation.ActivityMonitor() {
+            @Override public Instrumentation.ActivityResult onStartActivity(Intent intent) {
+                if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+                    captured.set(new Intent(intent));
+                    return new Instrumentation.ActivityResult(Activity.RESULT_CANCELED, null);
+                }
+                return null;
+            }
+        };
+        instrumentation.addMonitor(monitor);
+        try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
+            scenario.onActivity(activity -> {
+                Button link = activity.findViewById(R.id.main_creator_link);
+                assertEquals("Made by Kreativ", link.getText().toString());
+                assertEquals(Ui.ACCENT, link.getCurrentTextColor());
+                assertTrue(link.isFocusable());
+                assertEquals(activity.getString(R.string.main_creator_link_description), link.getContentDescription().toString());
+                assertTrue(link.performClick());
+            });
+            Intent intent = captured.get();
+            assertNotNull("Credit must launch an external website", intent);
+            assertEquals(Uri.parse("https://madebykreativ.com/apps/"), intent.getData());
+            assertTrue(intent.hasCategory(Intent.CATEGORY_BROWSABLE));
+            assertNull(intent.getExtras());
+            assertNull(intent.getClipData());
+            assertEquals(0, intent.getFlags() & (Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION));
+        } finally { instrumentation.removeMonitor(monitor); }
+    }
+    @Test public void exportOptionsExpandAndKeepChoicesAcrossRecreation() {
+        try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
+            scenario.onActivity(activity -> {
+                control(activity, "Export options · Change\nBalanced · Individual photos").performClick();
+                assertTrue(control(activity, "High — sharper photos").isShown());
+                ((RadioButton) control(activity, "High — sharper photos")).setChecked(true);
+                ((RadioButton) control(activity, "One ZIP file")).setChecked(true);
+                assertNotNull(control(activity, "Export options · Hide\nHigh · One ZIP file"));
+            });
+            scenario.recreate();
+            scenario.onActivity(activity -> {
+                assertTrue(((RadioButton) control(activity, "High — sharper photos")).isChecked());
+                assertTrue(((RadioButton) control(activity, "One ZIP file")).isChecked());
+                control(activity, "Export options · Hide\nHigh · One ZIP file").performClick();
+                assertNotNull(control(activity, "Export options · Change\nHigh · One ZIP file"));
+                assertFalse(control(activity, "High — sharper photos").isShown());
+                assertFalse(control(activity, "Clean photos").isEnabled());
+            });
+        }
+    }
+    @Test public void freePrivacyCheckShowsBeforeAfterAndSurvivesRotation() throws Exception {
+        File file = ImageAndExportTest.fixture(context, "privacy-workflow.jpg", 160, 80);
+        AtomicReference<ExportSession> state = new AtomicReference<>();
+        try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
+            scenario.onActivity(activity -> {
+                activity.onActivityResult(44, Activity.RESULT_OK, new Intent().setData(Uri.fromFile(file)));
+                state.set(session(activity)); control(activity, "Clean photos").performClick();
+            });
+            waitExport(scenario);
+            scenario.onActivity(activity -> {
+                assertNotNull(session(activity).privacyBefore); assertNotNull(session(activity).result.privacyAfter);
+                control(activity, "Privacy Check · Free\nView before / after report").performClick();
+            });
+            scenario.recreate();
+            scenario.onActivity(activity -> {
+                assertNotNull(control(activity, "Privacy Check · Free\nHide report"));
+                String expected = session(activity).privacyBefore.summary(false) + "\n\n" + session(activity).result.privacyAfter.summary(true);
+                assertTrue(control(activity, expected).isShown()); assertTrue(control(activity, "Share cleaned photos").isEnabled());
+            });
+        } finally { file.delete(); if (state.get() != null && state.get().result != null) PrivateCache.delete(state.get().result.photos.get(0).getParentFile()); }
+    }
     @Test public void selectedPhotosAndResultSurviveRotationAndAreFrozenDuringCleaning() throws Exception {
         File file = ImageAndExportTest.fixture(context, "main-workflow.jpg", 800, 400);
         AtomicReference<ExportSession> state = new AtomicReference<>();

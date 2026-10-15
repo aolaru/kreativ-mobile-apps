@@ -27,41 +27,44 @@ public class AboutActivity extends Activity {
 
     private View buildScreen() {
         ScrollView scroll = new ScrollView(this);
-        scroll.setFillViewport(true);
-        scroll.setBackgroundColor(Color.rgb(247, 248, 243));
+        LinearLayout root = Ui.pageContent(this); Ui.addPage(scroll, root);
+        root.addView(Ui.badge(this, "SHARESAFE"), new LinearLayout.LayoutParams(-2, -2));
+        addSpacer(root, 14); root.addView(Ui.heading(this, "Privacy & About", 28));
+        addSpacer(root, 8); root.addView(label("Small tools. More control over what you share.", 15, Ui.MUTED));
+        addSpacer(root, 24);
 
-        LinearLayout root = new LinearLayout(this);
-        root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(dp(24), dp(30), dp(24), dp(30));
-        scroll.addView(root, new ScrollView.LayoutParams(-1, -1));
-        Ui.applyInsets(scroll);
+        LinearLayout privateCard = Ui.card(this, Ui.MINT);
+        privateCard.addView(Ui.heading(this, "Private by design", 21)); addSpacer(privateCard, 10);
+        privateCard.addView(label("Photos and face detection results stay on your device; they are not uploaded by ShareSafe. Privacy Check reads EXIF fields locally. When you choose Share, the receiving app handles those copies under its own privacy policy.", 15, Ui.INK));
+        root.addView(privateCard, matchWrap()); addSpacer(root, 16);
 
-        TextView badge = label("SHARESAFE", 12, Color.rgb(52, 116, 99));
-        badge.setLetterSpacing(.12f);
-        root.addView(badge);
+        LinearLayout originalsCard = Ui.card(this, Color.WHITE);
+        originalsCard.addView(Ui.heading(this, "Your originals stay yours", 19)); addSpacer(originalsCard, 10);
+        originalsCard.addView(label("Original photos are never changed. Gallery copies are saved to Pictures/ShareSafe only when you choose Save to gallery. Temporary copies are private; copies older than 24 hours are removed when a new session starts, or may be cleared earlier by Android.", 15, Ui.MUTED));
+        root.addView(originalsCard, matchWrap()); addSpacer(root, 16);
 
-        TextView title = label("Privacy & About", 30, Color.rgb(25, 44, 41));
-        title.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
-        title.setPadding(0, dp(12), 0, dp(20));
-        root.addView(title);
+        LinearLayout exportCard = Ui.card(this, Color.WHITE);
+        exportCard.addView(Ui.heading(this, "Know what you're exporting", 19)); addSpacer(exportCard, 10);
+        exportCard.addView(label("Exports are fresh JPEGs with neutral filenames. Large images may be resized, transparency becomes white and animated images export one frame. Metadata removal does not hide visible details. Cover is recommended for sensitive text, IDs and faces; blur and pixelation are not guaranteed anonymisation.", 15, Ui.MUTED));
+        root.addView(exportCard, matchWrap()); addSpacer(root, 16);
 
-        TextView privacyTitle = label("Photos are processed on your device.", 20, Color.rgb(25, 44, 41));
-        privacyTitle.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
-        root.addView(privacyTitle);
+        LinearLayout checkCard = Ui.card(this, Color.WHITE);
+        checkCard.addView(Ui.heading(this, "Privacy Check is free", 19)); addSpacer(checkCard, 10);
+        checkCard.addView(label("Checks show the presence of selected EXIF location, date/time and camera/device fields, without displaying or retaining their values. Unreadable or unsupported images are marked unknown. " + PrivacyCheck.LIMITS, 15, Ui.MUTED));
+        root.addView(checkCard, matchWrap()); addSpacer(root, 16);
+        if (BuildConfig.PRO_AVAILABLE) {
+            LinearLayout faceCard = Ui.card(this, Color.WHITE);
+            faceCard.addView(Ui.heading(this, "Face Assist stays on-device", 19)); addSpacer(faceCard, 10);
+            faceCard.addView(label("The face detection model is bundled in the Play edition for Pro. Google ML Kit processes photos on-device and does not send images or detection results to Google. Its SDK collects device/app information, per-installation identifiers, performance/error and usage/configuration metrics (such as image format and resolution), and may contact Google for maintenance information. Face suggestions can miss people; review them and apply solid covers yourself. Detection identifies possible faces, not who a person is.", 15, Ui.MUTED));
+            root.addView(faceCard, matchWrap()); addSpacer(root, 16);
+        }
 
-        TextView privacyCopy = label("ShareSafe never uploads your photos or metadata. If you choose Share, the receiving app handles those copies under its own privacy policy. "
-                + (BuildConfig.PRO_AVAILABLE ? "Google Play handles Pro payments and purchase restoration using its network services. ShareSafe stores a verified purchase receipt privately on your phone; it does not receive your card details." : "This store edition has no in-app purchases."), 16, Color.rgb(96, 113, 109));
-        privacyCopy.setLineSpacing(dp(3), 1f);
-        privacyCopy.setPadding(0, dp(8), 0, dp(22));
-        root.addView(privacyCopy);
-
-        TextView storageTitle = label("Your control", 18, Color.rgb(25, 44, 41));
-        storageTitle.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
-        root.addView(storageTitle);
-        TextView storageCopy = label("Original photos are never changed. Gallery copies are saved to Pictures/ShareSafe only when you choose Save to gallery. Temporary copies are private; copies older than 24 hours are removed when a new session starts, or may be cleared earlier by Android. Exports are JPEGs with neutral filenames. Large images may be resized, transparency becomes white, and animated images export one frame. Cover is recommended for sensitive visible details; blur and pixelation are not guaranteed anonymisation.", 15, Color.rgb(96, 113, 109));
-        storageCopy.setLineSpacing(dp(3), 1f);
-        storageCopy.setPadding(0, dp(8), 0, dp(22));
-        root.addView(storageCopy);
+        LinearLayout purchaseCard = Ui.card(this, Color.WHITE);
+        purchaseCard.addView(Ui.heading(this, BuildConfig.PRO_AVAILABLE ? "Optional Pro, no subscription" : "No in-app purchases", 19)); addSpacer(purchaseCard, 10);
+        purchaseCard.addView(label(BuildConfig.PRO_AVAILABLE
+                ? "Metadata cleaning stays free. Google Play handles Pro payments and purchase restoration using its network services. ShareSafe stores a verified purchase receipt privately on your phone; it does not receive your card details."
+                : "This store edition has no in-app purchases.", 15, Ui.MUTED));
+        root.addView(purchaseCard, matchWrap()); addSpacer(root, 20);
 
         Button privacyButton = button("Read Privacy Policy", false);
         privacyButton.setOnClickListener(v -> openPrivacyPolicy());
@@ -72,13 +75,13 @@ public class AboutActivity extends Activity {
         supportButton.setOnClickListener(v -> contactSupport());
         root.addView(supportButton, matchWrap());
 
-        TextView version = label("Version " + BuildConfig.VERSION_NAME, 14, Color.rgb(96, 113, 109));
+        TextView version = label("Made by Kreativ · Version " + BuildConfig.VERSION_NAME, 13, Ui.MUTED);
         version.setGravity(Gravity.CENTER);
         version.setPadding(0, dp(24), 0, dp(12));
         root.addView(version, matchWrap());
 
         if (BuildConfig.PRO_AVAILABLE) {
-            Button reviewer = button(ReviewerAccess.enabled(this) ? "Disable reviewer access" : "Reviewer access", false);
+            Button reviewer = Ui.textButton(this, ReviewerAccess.enabled(this) ? "Disable reviewer access" : "Reviewer access");
             reviewer.setOnClickListener(v -> {
                 if (ReviewerAccess.enabled(this)) {
                     ReviewerAccess.disable(this); reviewer.setText("Reviewer access");
@@ -111,7 +114,7 @@ public class AboutActivity extends Activity {
             reviewer.setText("Disable reviewer access"); dialog.dismiss();
             android.widget.Toast.makeText(this, "Reviewer access enabled. All Pro editing tools are available.", android.widget.Toast.LENGTH_LONG).show();
         }));
-        dialog.show();
+        dialog.show(); Ui.styleDialog(dialog);
     }
 
     private void openPrivacyPolicy() {
@@ -131,22 +134,11 @@ public class AboutActivity extends Activity {
     }
 
     private TextView label(String text, float size, int color) {
-        TextView view = new TextView(this);
-        view.setText(text);
-        view.setTextSize(size);
-        view.setTextColor(color);
-        return view;
+        return Ui.text(this, text, size, color);
     }
 
     private Button button(String text, boolean primary) {
-        Button button = new Button(this);
-        button.setText(text);
-        button.setTextSize(16);
-        button.setAllCaps(false);
-        button.setMinHeight(dp(54));
-        button.setTextColor(primary ? Color.WHITE : Color.rgb(25, 44, 41));
-        button.setBackgroundResource(primary ? R.drawable.button_primary : R.drawable.button_secondary);
-        return button;
+        return Ui.button(this, text, primary);
     }
 
     private LinearLayout.LayoutParams matchWrap() {

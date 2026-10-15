@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ink">#192C29</color>
-    <color name="surface">#F7F8F3</color>
-    <color name="accent">#347463</color>
-    <color name="accent_dark">#205246</color>
-    <color name="muted">#60716D</color>
-    <color name="line">#D8E0DA</color>
+    <color name="ink">#18302B</color>
+    <color name="surface">#F4F7F5</color>
+    <color name="accent">#186950</color>
+    <color name="accent_dark">#124F3D</color>
+    <color name="muted">#5C6E67</color>
+    <color name="line">#DEE8E1</color>
     <color name="white">#FFFFFF</color>
+    <color name="sharesafe_icon_background">#347463</color>
 </resources>
-
