@@ -9,6 +9,7 @@
     <item name="field_saved_bearings" type="id" />
     <item name="field_pro_tools" type="id" />
     <item name="field_version_credit" type="id" />
+    <item name="field_maker_credit" type="id" />
     <item name="speech_speak" type="id" />
     <item name="speech_auto" type="id" />
     <item name="speech_pause" type="id" />

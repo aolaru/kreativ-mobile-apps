@@ -2,6 +2,83 @@
 
 An offline Android compass and emergency-light utility from Kreativ.
 
+## 1.2.0 release preparation — 15 October 2026
+
+The next release is **1.2.0 / version code 5** (Play's highest existing upload was
+4 when checked). It is not published. This section supersedes the compile-only
+verification and unpublished-policy notes recorded during implementation below.
+
+- All 70 JVM tests and all nine existing physical-device regression tests passed
+  on the connected Samsung Galaxy A55, Android 16/API 36. Accuracy-sensitive
+  fixtures now provide a reliable-sensor event before expecting turn guidance.
+- Debug and release lint pass with no errors. Debug reports the pre-existing
+  Gradle-version advisory; release additionally flags the base launcher XML's
+  missing monochrome tag, while the API 33+ launcher resource supplies the themed
+  icon. Literal percentages in altitude help are not format
+  placeholders (`formatted="false"` in English and Romanian).
+- A signed `:app:bundleRelease` was built with the registered original upload key;
+  `jarsigner -verify` verified the signature. The bundle contains Fragment 1.9.1.
+  The signing certificate is self-signed, as expected for an Android upload key.
+- The public policy at `https://madebykreativ.com/privacy/northlight/` now has an
+  effective date of 15 October 2026 and covers GPS altitude, offline speech,
+  saved-bearing guidance/haptics and browser links. Its website change was pushed
+  separately to `aolaru/madebykreativ.com`; the local HTML copy matches its scope.
+- Play's existing no-collection/sharing answer was reviewed, not changed:
+  location stays on-device, and no new account, microphone, background-location,
+  analytics or advertising access was added. See Google's [on-device processing
+  guidance](https://support.google.com/googleplay/android-developer/answer/10787469)
+  and [core Play services disclosure](https://developers.google.com/android/guides/play-data-disclosure).
+- `store-assets/play/screenshots/1.2.0/` contains seven direct, opaque PNG phone
+  captures at 1080×1920, visually reviewed. The phone display was temporarily
+  overridden to that size, then restored to its physical 1080×2340 size. No
+  screenshots were cropped, composited or retouched; readings are real.
+- Live GPS produced mean-sea-level altitude with reported vertical uncertainty
+  and a low-accuracy warning. The opt-in capture test also confirmed that GPS
+  pauses on leaving home and does not restart on return. An installed offline
+  voice initialized and produced the visible spoken-heading result. Audible
+  playback is for the person holding the phone to confirm, not something the
+  capture test can hear.
+
+The capture-only `storePreview` build uses `com.kreativ.northlight.preview` and
+debug signing, with release UI/resources/version and no debug label. It neither
+replaces the Play-installed app nor fabricates Pro ownership. Its unavailable
+Play purchase status is expected for this separate package. **Never upload a
+preview APK/AAB to Play**; use only `app/build/outputs/bundle/release/app-release.aab`.
+
+To reproduce the opt-in captures, install `assembleStorePreview`, `assembleDebug`
+and `assembleDebugAndroidTest`, allow optional location on the preview when you
+want a live GPS capture, temporarily use `adb shell wm size 1080x1920`, and run:
+
+```sh
+adb -s PHONE_SERIAL shell am instrument -w \
+  -e class com.kreativ.northlight.StoreCaptureTest -e northlightCapture true \
+  com.kreativ.northlight.debug.test/com.kreativ.northlight.UiTestRunner
+```
+
+Pull the PNGs from the debug app's external-files `northlight-store-1.2.0` folder
+before uninstalling that app, then restore the phone with `adb shell wm size reset`.
+Normal regression runs skip this capture-only test. It does not activate camera
+flash/SOS/strobe or perform a purchase.
+
+Google Play accepted bundle 5 (1.2.0) and saved the production-track release
+`1.2.0 – Field compass, speech and GPS altitude` as a draft, with English release
+notes. Preview validation reports no blocking errors and one deobfuscation-file
+advisory (this build does not enable R8/ProGuard). It reports no devices lost
+relative to version 4. The refreshed default English listing, icon, Field banner
+and seven phone screenshots were also saved using **Save as draft**. No final
+review-page Save, Send for review, rollout or publication action was taken.
+
+Uploaded bundle SHA-256:
+`cfeb0f8767fd3d2eb3f7a8408379b6f093f35f7f3832c843e8e35d31f7f02212`.
+
+Remaining manual release risks: actual English/Romanian audible playback and
+offline voice availability, real TalkBack usability, physical alignment haptics,
+and a signed Play-installed purchase/restore/refund flow. Payment testing was
+explicitly waived by the owner; no transaction was made. A full outdoor GPS
+accuracy survey, sensorless-device coverage and flash/camera-busy checks were
+not part of this pass. Play upload/listing drafts must remain unsubmitted until
+the owner authorizes submission.
+
 ## What it does
 
 - Shows a live magnetic compass using the device's orientation sensors.
@@ -30,11 +107,18 @@ its direction guidance, while All Pro tools opens bearing management and the
 remaining paid tools. The home night-light button offers red, amber and green
 for owners; red remains free. Existing purchases and saved data are unchanged.
 
+Below the privacy footer, the installed version stays non-interactive on its own
+line. The separate, underlined Made by Kreativ credit opens
+`https://madebykreativ.com/apps/` only when tapped, with an accessible browser label
+and a 48dp minimum touch target. No browser or network request starts on launch;
+if no browser can handle the link, the app shows an explanatory message.
+
 The compass-ring/amber-beam logo has adaptive and monochrome launcher variants.
 The editable Play icon is `store-assets/play/northlight-icon.svg`; regenerate
 the 512px PNG with `node scripts/render-icon.cjs` when Sharp is installed in the
-Node module path. Existing store screenshots and feature graphic still need
-fresh production assets before publishing this redesign.
+Node module path. The refreshed feature graphic has an editable
+`northlight-feature-graphic.svg` and `scripts/render-feature-graphic.cjs` renderer.
+Fresh real-phone screenshots for this redesign are in the versioned 1.2.0 folder.
 
 JVM UI tests use Robolectric, without an emulator, automatic Play connection or
 real flashing lights. Native-rendered layout previews are generated under

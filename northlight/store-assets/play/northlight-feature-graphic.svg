@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500">
+  <defs>
+    <radialGradient id="glow" cx="0.2" cy="0.5" r="0.85">
+      <stop stop-color="#18283b"/><stop offset="1" stop-color="#0b1320"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="500" fill="url(#glow)"/>
+  <g fill="none" stroke="#25364b" stroke-width="1">
+    <circle cx="220" cy="250" r="185"/><circle cx="220" cy="250" r="235"/>
+    <path d="M0 250H1024M220 0V500"/>
+  </g>
+  <g transform="translate(76 106) scale(6)">
+    <path fill="none" stroke="#aebbcb" stroke-width="1.5" d="M24 8A16 16 0 1 1 24 40A16 16 0 1 1 24 8M8 24h4M36 24h4M24 36v4"/>
+    <path fill="#f0b65b" d="M24 7 32 33 24 28 16 33Z"/>
+    <path fill="#eef3f7" d="M24 10 24 27 20 29Z"/>
+  </g>
+  <rect x="412" y="115" width="224" height="34" rx="17" fill="#253247"/>
+  <text x="432" y="138" fill="#f0b65b" font-family="sans-serif" font-size="15" font-weight="600" letter-spacing="2">OFFLINE · NO ADS</text>
+  <text x="408" y="239" fill="#eef3f7" font-family="sans-serif" font-size="76" font-weight="700" letter-spacing="-2">Northlight</text>
+  <text x="412" y="300" fill="#aebbcb" font-family="sans-serif" font-size="31">Compass. Light. Clarity.</text>
+  <text x="414" y="365" fill="#f0b65b" font-family="sans-serif" font-size="16" letter-spacing="1">MADE BY KREATIV</text>
+</svg>

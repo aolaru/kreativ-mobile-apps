@@ -99,7 +99,7 @@ public class UiRegressionTest {
     }
     @Test public void savedHeadingIsFrozenWhileNaming() throws Exception {
         try (ActivityScenario<ProActivity> screen = ActivityScenario.launch(ProActivity.class)) {
-            screen.onActivity(a -> { stopLiveSensors(a); a.onHeading(45f); });
+            screen.onActivity(a -> { stopLiveSensors(a); a.onCompassStatus(R.string.compass_accuracy_ok); a.onHeading(45f); });
             onView(withText(R.string.save_bearing)).perform(scrollTo(), click());
             onView(isAssignableFrom(EditText.class)).perform(replaceText("Trail"), closeSoftKeyboard());
             screen.onActivity(a -> a.onHeading(175f));
@@ -111,7 +111,7 @@ public class UiRegressionTest {
         context.getSharedPreferences(BillingManager.PREFS, Context.MODE_PRIVATE).edit()
                 .putString("saved_bearings", "[{\"name\":\"Trail\",\"degrees\":45}]").commit();
         try (ActivityScenario<ProActivity> screen = ActivityScenario.launch(ProActivity.class)) {
-            screen.onActivity(a -> { stopLiveSensors(a); a.onHeading(35f); });
+            screen.onActivity(a -> { stopLiveSensors(a); a.onCompassStatus(R.string.compass_accuracy_ok); a.onHeading(35f); });
             onView(withText(context.getString(R.string.bearing_row, 45, "Trail"))).perform(scrollTo(), click());
             onView(withText(context.getResources().getStringArray(R.array.bearing_actions)[0])).perform(click());
             onView(withText(context.getString(R.string.guidance_target, "Trail", 45, context.getString(R.string.guidance_right, 10))))
