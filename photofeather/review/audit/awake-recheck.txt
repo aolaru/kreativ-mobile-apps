@@ -1,0 +1,59 @@
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.WorkflowTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+com.kreativ.photofeather.WorkflowTest:
+INSTRUMENTATION_STATUS: test=platformShareSheetOpensWithoutSending
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.WorkflowTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=platformShareSheetOpensWithoutSending
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.ReviewProbeTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stream=
+com.kreativ.photofeather.ReviewProbeTest:
+INSTRUMENTATION_STATUS: test=reviewTruncatedJpeg
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.ReviewProbeTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=2
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Truncated JPEG silently offered for export
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at com.kreativ.photofeather.ReviewProbeTest.reviewTruncatedJpeg(ReviewProbeTest.java:34)
+
+INSTRUMENTATION_STATUS: stream=
+Error in reviewTruncatedJpeg(com.kreativ.photofeather.ReviewProbeTest):
+java.lang.AssertionError: Truncated JPEG silently offered for export
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at com.kreativ.photofeather.ReviewProbeTest.reviewTruncatedJpeg(ReviewProbeTest.java:34)
+
+INSTRUMENTATION_STATUS: test=reviewTruncatedJpeg
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 8.88
+There was 1 failure:
+1) reviewTruncatedJpeg(com.kreativ.photofeather.ReviewProbeTest)
+java.lang.AssertionError: Truncated JPEG silently offered for export
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at com.kreativ.photofeather.ReviewProbeTest.reviewTruncatedJpeg(ReviewProbeTest.java:34)
+
+FAILURES!!!
+Tests run: 2,  Failures: 1
+
+
+INSTRUMENTATION_CODE: -1

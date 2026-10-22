@@ -1,0 +1,5 @@
+--------- beginning of main
+10-22 13:48:42.337  7134  7148 I PhotoFeatherReview: RETRY: priorFileStillExists=true currentOutput='' status=Cancelled exportable=false
+10-22 13:48:44.613  7134  7148 I PhotoFeatherReview: SCROLL: before=1000 after=0
+10-22 13:48:44.957  7134  7148 I PhotoFeatherReview: TRUNCATED: sourceBytes=253303 originalBytes=506607 status=Ready outputBytes=49290 outputExists=true bottomPixel=ff000000
+10-22 13:48:48.817  7134  7148 I PhotoFeatherReview: JOURNAL: commitWasInjected=true publishedBeforeRestart=true survivesRestart=false reportedSavedUri=true

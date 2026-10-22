@@ -1,0 +1,3 @@
+Existing selected-photo IDs preserved across update: True
+Photos before: 2
+Photos after: 2

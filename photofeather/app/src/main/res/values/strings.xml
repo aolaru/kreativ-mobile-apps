@@ -1,0 +1,1 @@
+<resources><string name="app_name">PhotoFeather</string><color name="launcher_background">#226B5A</color><string name="resize_only">Resize only · no file size target</string><string name="allow_larger">Allow exporting this JPEG anyway</string><string name="preview_unavailable">Not enough memory or preview unavailable. Return and try a smaller photo.</string></resources>
