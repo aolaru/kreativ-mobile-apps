@@ -1,0 +1,5 @@
+Updated existing .debug app from build 3 to build 4 using install -r; no data clear.
+Selected photos before: 0
+Selected photos after: 0
+Existing session item IDs preserved: true
+The pre-upgrade session was empty. Original-file preservation is verified separately by generated-fixture tests.

@@ -119,6 +119,18 @@ public class TalkBackAuditTest {
     idle();
     Uri saved = null;
     try {
+      click("Medium, resize longest edge to 1920 pixels");
+      assertEquals(1920, session.edge);
+      click("Custom resize, longest edge from 64 to 8192 pixels");
+      android.os.Bundle resize = new android.os.Bundle();
+      resize.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, "800");
+      assertTrue(
+          node("Custom longest edge in pixels, 64 to 8192")
+              .performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, resize));
+      idle();
+      assertEquals(800, session.edge);
+      assertTrue(session.customResize);
+      screen("00-resize-control-focused");
       click("Preview copies");
       assertTrue(session.items.get(0).exportable());
       click("Show details");

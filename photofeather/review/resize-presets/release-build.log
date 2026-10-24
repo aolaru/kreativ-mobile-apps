@@ -1,0 +1,170 @@
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:generateReleaseBuildConfig
+> Task :image-engine:preBuild UP-TO-DATE
+> Task :image-engine:preReleaseBuild UP-TO-DATE
+> Task :app:javaPreCompileRelease
+> Task :image-engine:writeReleaseAarMetadata
+> Task :app:generateReleaseResValues
+> Task :image-engine:generateReleaseResValues
+> Task :app:checkReleaseAarMetadata
+> Task :image-engine:generateReleaseResources
+> Task :image-engine:packageReleaseResources
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:generateReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :app:parseReleaseLocalResources
+> Task :image-engine:extractDeepLinksRelease
+> Task :image-engine:processReleaseManifest
+> Task :image-engine:compileReleaseLibraryResources
+> Task :app:mergeReleaseResources
+> Task :app:processReleaseMainManifest
+> Task :app:processReleaseManifest
+> Task :app:processReleaseManifestForPackage
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :image-engine:parseReleaseLocalResources
+> Task :image-engine:javaPreCompileRelease
+> Task :image-engine:processReleaseJavaRes NO-SOURCE
+> Task :image-engine:extractProguardFiles UP-TO-DATE
+> Task :image-engine:prepareLintJarForPublish UP-TO-DATE
+> Task :image-engine:generateReleaseRFile
+> Task :image-engine:mergeReleaseJniLibFolders
+
+> Task :image-engine:compileReleaseJavaWithJavac
+warning: unknown enum constant Scope.LIBRARY
+  reason: class file for androidx.annotation.RestrictTo$Scope not found
+warning: unknown enum constant Scope.LIBRARY
+warning: unknown enum constant Scope.LIBRARY
+warning: unknown enum constant Scope.LIBRARY
+warning: unknown enum constant Scope.LIBRARY
+5 warnings
+
+> Task :image-engine:bundleLibCompileToJarRelease
+> Task :image-engine:bundleLibRuntimeToJarRelease
+> Task :image-engine:generateReleaseLintModel
+> Task :image-engine:createFullJarRelease
+> Task :image-engine:mergeReleaseNativeLibs NO-SOURCE
+> Task :image-engine:stripReleaseDebugSymbols NO-SOURCE
+> Task :image-engine:copyReleaseJniLibsProjectAndLocalJars
+> Task :image-engine:extractDeepLinksForAarRelease
+> Task :image-engine:extractReleaseAnnotations
+> Task :image-engine:mergeReleaseGeneratedProguardFiles
+> Task :image-engine:mergeReleaseConsumerProguardFiles
+> Task :image-engine:mergeReleaseShaders
+> Task :image-engine:compileReleaseShaders NO-SOURCE
+> Task :image-engine:generateReleaseAssets UP-TO-DATE
+> Task :image-engine:packageReleaseAssets
+> Task :image-engine:prepareReleaseArtProfile
+> Task :image-engine:mergeReleaseJavaResource
+> Task :image-engine:syncReleaseLibJars
+> Task :image-engine:bundleReleaseLocalLintAar
+> Task :image-engine:writeReleaseLintModelMetadata
+> Task :image-engine:generateReleaseLintVitalModel
+> Task :app:mergeReleaseJniLibFolders
+> Task :image-engine:copyReleaseJniLibsProjectOnly
+> Task :app:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:stripReleaseDebugSymbols NO-SOURCE
+> Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :image-engine:bundleLibRuntimeToDirRelease
+> Task :app:desugarReleaseFileDependencies
+> Task :app:mergeReleaseStartupProfile
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:mergeReleaseArtProfile
+> Task :app:mergeReleaseShaders
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets
+> Task :app:compressReleaseAssets
+> Task :app:extractReleaseVersionControlInfo
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :app:collectReleaseDependencies
+> Task :app:processReleaseResources
+> Task :app:mergeReleaseJavaResource
+> Task :app:sdkReleaseDependencyData
+
+> Task :app:compileReleaseJavaWithJavac
+Note: /Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility apps/photofeather/app/src/main/java/com/kreativ/photofeather/MainActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:mergeExtDexRelease
+> Task :app:dexBuilderRelease
+> Task :app:mergeReleaseGlobalSynthetics
+> Task :app:validateSigningRelease
+> Task :app:writeReleaseAppMetadata
+> Task :app:writeReleaseSigningConfigVersions
+> Task :app:preReleaseAndroidTestBuild SKIPPED
+> Task :app:bundleReleaseClassesToCompileJar
+> Task :app:processReleaseAndroidTestManifest
+> Task :app:generateReleaseAndroidTestBuildConfig
+> Task :app:javaPreCompileReleaseAndroidTest
+> Task :app:checkReleaseAndroidTestAarMetadata
+> Task :app:generateReleaseAndroidTestResValues
+> Task :app:mapReleaseAndroidTestSourceSetPaths
+> Task :app:generateReleaseAndroidTestResources
+> Task :app:mergeReleaseAndroidTestShaders
+> Task :app:mergeReleaseAndroidTestResources
+> Task :app:compileReleaseAndroidTestShaders NO-SOURCE
+> Task :app:generateReleaseAndroidTestAssets UP-TO-DATE
+> Task :app:mergeReleaseAndroidTestAssets
+> Task :app:compressReleaseAndroidTestAssets
+> Task :app:desugarReleaseAndroidTestFileDependencies
+> Task :app:checkReleaseAndroidTestDuplicateClasses
+> Task :app:processReleaseAndroidTestJavaRes NO-SOURCE
+> Task :app:mergeReleaseAndroidTestJniLibFolders
+> Task :app:mergeReleaseAndroidTestNativeLibs NO-SOURCE
+> Task :app:stripReleaseAndroidTestDebugSymbols NO-SOURCE
+> Task :app:validateSigningReleaseAndroidTest
+> Task :app:writeReleaseAndroidTestSigningConfigVersions
+> Task :app:generateReleaseAndroidTestLintModel
+> Task :app:generateReleaseLintReportModel
+> Task :app:preReleaseUnitTestBuild UP-TO-DATE
+> Task :app:processReleaseAndroidTestResources
+> Task :app:mergeReleaseAndroidTestJavaResource
+> Task :app:generateReleaseUnitTestLintModel
+> Task :app:mergeExtDexReleaseAndroidTest
+> Task :image-engine:lintVitalAnalyzeRelease
+
+> Task :app:compileReleaseAndroidTestJavaWithJavac
+Note: /Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility apps/photofeather/app/src/releaseTest/java/com/kreativ/photofeather/ReleaseSmokeTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:dexBuilderReleaseAndroidTest
+> Task :app:mergeReleaseAndroidTestGlobalSynthetics
+> Task :image-engine:preReleaseUnitTestBuild UP-TO-DATE
+> Task :image-engine:generateReleaseUnitTestLintModel
+> Task :image-engine:generateReleaseLintReportModel
+> Task :app:optimizeReleaseResources
+> Task :app:mergeDexReleaseAndroidTest
+> Task :app:packageReleaseAndroidTest
+> Task :app:createReleaseAndroidTestApkListingFileRedirect
+> Task :app:assembleReleaseAndroidTest
+> Task :app:mergeDexRelease
+> Task :app:compileReleaseArtProfile
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect
+> Task :app:lintAnalyzeReleaseAndroidTest
+> Task :app:lintAnalyzeReleaseUnitTest
+> Task :image-engine:lintAnalyzeReleaseUnitTest
+> Task :image-engine:lintAnalyzeRelease
+
+> Task :image-engine:lintReportRelease
+Wrote HTML report to file:///Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility%20apps/photofeather/image-engine/build/reports/lint-results-release.html
+
+> Task :image-engine:lintRelease
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease SKIPPED
+> Task :app:lintVitalRelease SKIPPED
+> Task :app:assembleRelease
+> Task :app:lintAnalyzeRelease
+
+> Task :app:lintReportRelease
+Wrote HTML report to file:///Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility%20apps/photofeather/app/build/reports/lint-results-release.html
+
+> Task :app:lintRelease
+
+BUILD SUCCESSFUL in 14s
+116 actionable tasks: 113 executed, 3 up-to-date

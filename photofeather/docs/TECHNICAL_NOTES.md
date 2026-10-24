@@ -1,6 +1,6 @@
 # PhotoFeather — technical notes
 
-**Lighter photos. Ready to share.** A separate, native Android app by Made by Kreativ. Working Play title: **PhotoFeather: Photo Compressor** (30 characters). Version 1.0.0; the name and package are provisional. Nothing has been published.
+**Lighter photos. Ready to share.** A separate, native Android app by Made by Kreativ. Working Play title: **PhotoFeather: Photo Compressor** (30 characters). Version 1.0.0 / build 4; the name and package are provisional. Nothing has been published.
 
 ## Build and run
 
@@ -12,7 +12,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 adb shell am start -n com.kreativ.photofeather.debug/com.kreativ.photofeather.MainActivity
 ```
 
-The packaged 1.0.0 debug APK is also in `../review/release-1.0.0/PhotoFeather-1.0.0-debug.apk`. It uses the distinct `.debug` application ID; it cannot replace another Made by Kreativ app. No release key, backend, network permission, billing, advertising or analytics SDK is included. AndroidX adds a private signature permission for receiver protection; it grants no network or photo-library access.
+The packaged 1.0.0 debug APK is also in `../review/resize-presets/PhotoFeather-1.0.0-resize-debug.apk`. It uses the distinct `.debug` application ID; it cannot replace another Made by Kreativ app. No release key, backend, network permission, billing, advertising or analytics SDK is included. AndroidX adds a private signature permission for receiver protection; it grants no network or photo-library access.
 
 ## What works
 
@@ -69,3 +69,11 @@ Initial exact-name web and indexed Google Play searches for PhotoFeather did not
 ## 1.0.0 release validation
 
 See [the 1.0.0 report](../review/release-1.0.0/REPORT.md) for the actual Android 9/16 matrix, signed QA release checks, screenshots and remaining signing/name/manual-listening gates. The QA release package is `.releasecheck`; its debug signing certificate is for local verification only. Production signing uses external PHOTOFEATHER_* variables documented in the README.
+
+## Resize presets — build 4
+
+All resizing remains free. Small/Medium/Large select longest-edge limits of 1280/1920/2560 pixels; Custom accepts whole numbers from 64 to 8192. Editing the pixel field selects Custom and updates every imported photo’s dimension preview immediately. Invalid text suppresses the planned dimensions and disables Preview copies; it does not replace the last valid persisted edge. The Custom selection (including a value equal to a preset) persists in the atomic session journal and migrates older non-preset edges to Custom.
+
+`ResizePolicy.previewSize` shares the engine’s safe-decode sampling policy, handles oriented dimensions and bounds both floor/ceiling codec-rounding possibilities before fitting the longest edge. The UI therefore calls these dimensions **up to** bounds, not encoded results. It discloses memory reductions and no-upscaling. A maximum file-size target can reduce resolution further; actual encoded dimensions and bytes remain measured in Results. No decoder/encoder algorithm, output format or metadata policy was changed.
+
+See [resize implementation and validation](../review/resize-presets/REPORT.md) for fresh test evidence and running-app screenshots.

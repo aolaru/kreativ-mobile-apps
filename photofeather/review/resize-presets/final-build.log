@@ -1,0 +1,217 @@
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugBuildConfig
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :image-engine:preBuild UP-TO-DATE
+> Task :image-engine:preDebugBuild UP-TO-DATE
+> Task :image-engine:writeDebugAarMetadata UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :image-engine:generateDebugResValues UP-TO-DATE
+> Task :image-engine:generateDebugResources UP-TO-DATE
+> Task :image-engine:packageDebugResources UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :image-engine:extractDeepLinksDebug UP-TO-DATE
+> Task :image-engine:processDebugManifest UP-TO-DATE
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :image-engine:compileDebugLibraryResources UP-TO-DATE
+> Task :image-engine:parseDebugLocalResources UP-TO-DATE
+> Task :image-engine:generateDebugRFile UP-TO-DATE
+> Task :image-engine:javaPreCompileDebug UP-TO-DATE
+> Task :image-engine:compileDebugJavaWithJavac UP-TO-DATE
+> Task :image-engine:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :image-engine:mergeDebugShaders UP-TO-DATE
+> Task :image-engine:compileDebugShaders NO-SOURCE
+> Task :image-engine:generateDebugAssets UP-TO-DATE
+> Task :image-engine:packageDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :image-engine:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :image-engine:processDebugJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :image-engine:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :image-engine:mergeDebugJniLibFolders UP-TO-DATE
+> Task :image-engine:mergeDebugNativeLibs NO-SOURCE
+> Task :image-engine:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :image-engine:stripDebugDebugSymbols NO-SOURCE
+> Task :image-engine:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :image-engine:extractDebugAnnotations UP-TO-DATE
+> Task :image-engine:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :image-engine:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :image-engine:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :image-engine:prepareDebugArtProfile UP-TO-DATE
+> Task :image-engine:prepareLintJarForPublish UP-TO-DATE
+> Task :image-engine:mergeDebugJavaResource UP-TO-DATE
+> Task :image-engine:syncDebugLibJars UP-TO-DATE
+> Task :image-engine:bundleDebugLocalLintAar UP-TO-DATE
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :image-engine:createFullJarDebug UP-TO-DATE
+> Task :image-engine:writeDebugLintModelMetadata UP-TO-DATE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :image-engine:extractProguardFiles UP-TO-DATE
+> Task :image-engine:generateDebugLintModel UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :image-engine:lintAnalyzeDebug UP-TO-DATE
+> Task :image-engine:preDebugAndroidTestBuild UP-TO-DATE
+> Task :image-engine:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :image-engine:generateDebugAndroidTestLintModel UP-TO-DATE
+> Task :image-engine:preDebugUnitTestBuild UP-TO-DATE
+> Task :image-engine:generateDebugUnitTestLintModel UP-TO-DATE
+> Task :image-engine:lintAnalyzeDebugAndroidTest UP-TO-DATE
+> Task :app:processDebugManifestForPackage
+> Task :image-engine:lintAnalyzeDebugUnitTest UP-TO-DATE
+> Task :image-engine:generateDebugLintReportModel UP-TO-DATE
+> Task :image-engine:lintReportDebug UP-TO-DATE
+> Task :image-engine:lintDebug
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:generateReleaseBuildConfig
+> Task :app:javaPreCompileRelease UP-TO-DATE
+> Task :image-engine:preReleaseBuild UP-TO-DATE
+> Task :image-engine:writeReleaseAarMetadata UP-TO-DATE
+> Task :app:checkReleaseAarMetadata UP-TO-DATE
+> Task :app:generateReleaseResValues UP-TO-DATE
+> Task :image-engine:generateReleaseResValues UP-TO-DATE
+> Task :image-engine:generateReleaseResources UP-TO-DATE
+> Task :image-engine:packageReleaseResources UP-TO-DATE
+> Task :app:mapReleaseSourceSetPaths UP-TO-DATE
+> Task :app:generateReleaseResources UP-TO-DATE
+> Task :app:mergeReleaseResources UP-TO-DATE
+> Task :app:packageReleaseResources UP-TO-DATE
+> Task :app:parseReleaseLocalResources UP-TO-DATE
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease UP-TO-DATE
+> Task :image-engine:extractDeepLinksRelease UP-TO-DATE
+> Task :image-engine:processReleaseManifest UP-TO-DATE
+> Task :app:processReleaseMainManifest
+> Task :app:processReleaseManifest
+> Task :image-engine:compileReleaseLibraryResources UP-TO-DATE
+> Task :image-engine:parseReleaseLocalResources UP-TO-DATE
+> Task :image-engine:generateReleaseRFile UP-TO-DATE
+> Task :image-engine:javaPreCompileRelease UP-TO-DATE
+> Task :image-engine:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :image-engine:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :image-engine:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :image-engine:processReleaseJavaRes NO-SOURCE
+> Task :image-engine:createFullJarRelease UP-TO-DATE
+> Task :image-engine:generateReleaseLintModel UP-TO-DATE
+> Task :image-engine:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :image-engine:mergeReleaseNativeLibs NO-SOURCE
+> Task :image-engine:stripReleaseDebugSymbols NO-SOURCE
+> Task :app:processReleaseManifestForPackage
+> Task :image-engine:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :image-engine:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :image-engine:extractReleaseAnnotations UP-TO-DATE
+> Task :image-engine:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :image-engine:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :image-engine:mergeReleaseShaders UP-TO-DATE
+> Task :image-engine:compileReleaseShaders NO-SOURCE
+> Task :image-engine:generateReleaseAssets UP-TO-DATE
+> Task :image-engine:packageReleaseAssets UP-TO-DATE
+> Task :image-engine:prepareReleaseArtProfile UP-TO-DATE
+> Task :image-engine:mergeReleaseJavaResource UP-TO-DATE
+> Task :image-engine:syncReleaseLibJars UP-TO-DATE
+> Task :image-engine:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :image-engine:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :image-engine:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :image-engine:generateReleaseLintVitalModel UP-TO-DATE
+> Task :app:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :image-engine:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:stripReleaseDebugSymbols NO-SOURCE
+> Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :image-engine:bundleLibRuntimeToDirRelease UP-TO-DATE
+> Task :app:checkReleaseDuplicateClasses UP-TO-DATE
+> Task :app:desugarReleaseFileDependencies UP-TO-DATE
+> Task :app:mergeReleaseStartupProfile UP-TO-DATE
+> Task :app:mergeExtDexRelease UP-TO-DATE
+> Task :app:mergeReleaseArtProfile UP-TO-DATE
+> Task :app:mergeReleaseShaders UP-TO-DATE
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets UP-TO-DATE
+> Task :app:compressReleaseAssets UP-TO-DATE
+> Task :app:extractReleaseVersionControlInfo UP-TO-DATE
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :app:mergeReleaseJavaResource UP-TO-DATE
+> Task :app:collectReleaseDependencies UP-TO-DATE
+> Task :app:sdkReleaseDependencyData UP-TO-DATE
+> Task :app:writeReleaseAppMetadata UP-TO-DATE
+> Task :app:writeReleaseSigningConfigVersions UP-TO-DATE
+> Task :app:processApplicationManifestReleaseForBundle
+> Task :app:configureReleaseDependencies
+> Task :app:parseReleaseIntegrityConfig
+> Task :app:processReleaseResources
+> Task :app:processDebugResources
+
+> Task :app:compileReleaseJavaWithJavac
+Note: /Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility apps/photofeather/app/src/main/java/com/kreativ/photofeather/MainActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:compileDebugJavaWithJavac
+Note: /Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility apps/photofeather/app/src/main/java/com/kreativ/photofeather/MainActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:generateDebugLintReportModel
+> Task :app:mergeProjectDexDebug
+> Task :app:generateDebugAndroidTestLintModel
+> Task :app:generateDebugUnitTestLintModel
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:dexBuilderRelease
+> Task :app:mergeReleaseGlobalSynthetics UP-TO-DATE
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+> Task :app:optimizeReleaseResources
+> Task :app:bundleReleaseResources
+> Task :app:lintAnalyzeDebugUnitTest
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease
+> Task :app:lintVitalRelease
+> Task :app:mergeDexRelease
+> Task :app:buildReleasePreBundle
+> Task :app:compileReleaseArtProfile
+> Task :app:lintAnalyzeDebugAndroidTest
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect
+> Task :app:assembleRelease
+> Task :app:packageReleaseBundle
+> Task :app:signReleaseBundle
+> Task :app:produceReleaseBundleIdeListingFile
+> Task :app:createReleaseBundleListingFileRedirect
+> Task :app:bundleRelease
+> Task :app:lintAnalyzeDebug
+
+> Task :app:lintReportDebug
+Wrote HTML report to file:///Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility%20apps/photofeather/app/build/reports/lint-results-debug.html
+
+> Task :app:lintDebug
+
+BUILD SUCCESSFUL in 8s
+168 actionable tasks: 47 executed, 121 up-to-date

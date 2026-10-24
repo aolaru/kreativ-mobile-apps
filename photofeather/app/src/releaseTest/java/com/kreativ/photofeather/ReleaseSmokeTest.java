@@ -56,6 +56,7 @@ public class ReleaseSmokeTest {
                     | PackageManager.GET_ACTIVITIES
                     | PackageManager.GET_PROVIDERS);
     assertEquals("1.0.0", info.versionName);
+    assertEquals(4, info.versionCode);
     assertEquals(0, info.applicationInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE);
     for (ActivityInfo a : info.activities)
       assertFalse(
@@ -95,6 +96,20 @@ public class ReleaseSmokeTest {
             assertTrue(a.viewingResults);
             assertNotNull(a.buildShareIntent());
           });
+      scenario.onActivity(
+          a -> {
+            a.showPage(false);
+            a.selectResizePreset(1280);
+            assertEquals(1280, session.edge);
+            a.edgeInput.setText("800");
+            assertTrue(a.resizeDimensions.getText().toString().contains("800 × 600 px"));
+            session.resizeOnly = true;
+            a.prepare();
+          });
+      idle();
+      assertEquals(800, item.w);
+      assertEquals(600, item.h);
+      assertEquals(0, item.requestTarget);
       scenario.recreate();
       scenario.onActivity(a -> assertTrue(a.viewingResults));
       if (android.os.Build.VERSION.SDK_INT >= 29) {

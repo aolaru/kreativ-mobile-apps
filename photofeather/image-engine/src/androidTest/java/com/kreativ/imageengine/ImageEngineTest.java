@@ -314,4 +314,78 @@ public class ImageEngineTest {
     assertEquals(72, result.quality);
     assertEquals(1, result.attempts);
   }
+
+  @Test
+  public void resizePresetsMatchMeasuredJpegDimensions() throws Exception {
+    File f = image(2400, 1800, false, false);
+    byte[] original = hash(f);
+    for (int edge : new int[] {1280, 1920, 2560}) {
+      int[] preview = ResizePolicy.previewSize(2400, 1800, edge);
+      ImageEngine.Result r = engine.process(f, out(), options(0, edge), () -> {});
+      assertEquals(preview[0], r.width);
+      assertEquals(preview[1], r.height);
+      assertEquals(r.bytes, r.file.length());
+      ImageEngine.verifyOutput(r.file, r.width, r.height);
+    }
+    assertArrayEquals(original, hash(f));
+  }
+
+  @Test
+  public void customResizeMatchesOrientedPortraitPreview() throws Exception {
+    File f = image(2400, 1800, false, false);
+    ExifInterface exif = new ExifInterface(f);
+    exif.setAttribute(ExifInterface.TAG_ORIENTATION, "6");
+    exif.saveAttributes();
+    InfoCheck(f, 1500, 1125, 1500);
+  }
+
+  void InfoCheck(File f, int edge, int width, int height) throws Exception {
+    ImageEngine.Info info = engine.inspect(f);
+    int[] preview = ResizePolicy.previewSize(info.width, info.height, edge);
+    ImageEngine.Result r = engine.process(f, out(), options(0, edge), () -> {});
+    assertEquals(width, r.width);
+    assertEquals(height, r.height);
+    assertEquals(preview[0], r.width);
+    assertEquals(preview[1], r.height);
+  }
+
+  @Test
+  public void memoryLimitedLargeImageMatchesTheResizePreview() throws Exception {
+    File f = image(4000, 3000, false, false);
+    InfoCheck(f, 2560, 2000, 1500);
+  }
+
+  @Test
+  public void oddPngAndWebpOutputsStayWithinPlannedBounds() throws Exception {
+    File png = image(4001, 3000, true, false);
+    for (File f : new File[] {png, webpCopy(png)}) {
+      ImageEngine.Info info = engine.inspect(f);
+      int[] bound = ResizePolicy.previewSize(info.width, info.height, 1280);
+      ImageEngine.Result r = engine.process(f, out(), options(0, 1280), () -> {});
+      assertTrue("width", r.width <= bound[0]);
+      assertTrue("height", r.height <= bound[1]);
+      assertTrue(Math.abs(r.width / (double) r.height - info.width / (double) info.height) < .005);
+      ImageEngine.verifyOutput(r.file, r.width, r.height);
+    }
+  }
+
+  File webpCopy(File png) throws Exception {
+    Bitmap b = BitmapFactory.decodeFile(png.getPath());
+    File f = new File(directory, "odd.webp");
+    try (FileOutputStream out = new FileOutputStream(f)) {
+      assertTrue(b.compress(Bitmap.CompressFormat.WEBP, 90, out));
+    }
+    b.recycle();
+    return f;
+  }
+
+  @Test
+  public void byteTargetMayReduceDimensionsBelowResizePreview() throws Exception {
+    File f = image(1600, 1200, false, true);
+    int[] preview = ResizePolicy.previewSize(1600, 1200, 1280);
+    ImageEngine.Result r = engine.process(f, out(), options(1000, 1280), () -> {});
+    assertTrue(r.width < preview[0]);
+    assertTrue(r.height < preview[1]);
+    assertEquals(r.file.length(), r.bytes);
+  }
 }

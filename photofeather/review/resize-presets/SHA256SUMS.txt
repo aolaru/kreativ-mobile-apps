@@ -1,0 +1,4 @@
+6db6cbc4e1bb514ae2e7212c0396b65dceaaee0f5853898a0faf393e30d3cad4  PhotoFeather-1.0.0-resize-debug.apk
+62b0cec67656bd3cfd703be2d3144ebef1277f7cce3b5dbcc535a3badc430f27  PhotoFeather-1.0.0-resize-release-QA.apk
+083efdc8e2ccc56f25acad0d07a16a64b26f3645173262d90e3f2089afc13ffb  PhotoFeather-1.0.0-resize-unsigned.apk
+34c57c25c3a485675e79bfa4dc6bf9e9e5581d8374e20bcd0bb5ee0065b7382b  PhotoFeather-1.0.0-resize-unsigned.aab

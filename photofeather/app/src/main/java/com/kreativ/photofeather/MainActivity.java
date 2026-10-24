@@ -6,10 +6,13 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.*;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.*;
 import android.widget.*;
 import androidx.core.content.FileProvider;
 import com.kreativ.imageengine.CompressionOptions;
+import com.kreativ.imageengine.ResizePolicy;
 import java.io.File;
 import java.util.*;
 
@@ -20,7 +23,10 @@ public class MainActivity extends Activity {
   final Set<String> expandedResults = new HashSet<>();
   ArrayList<String> folderItemIds;
   EditText edgeInput, qualityInput;
-  TextView progressText;
+  TextView progressText, resizeDimensions;
+  Button previewButton;
+  final Map<Button, Integer> resizeButtons = new LinkedHashMap<>();
+  boolean changingResizePreset;
   Button cancelButton;
   final java.util.concurrent.ExecutorService thumbnails =
       java.util.concurrent.Executors.newSingleThreadExecutor();
@@ -195,6 +201,9 @@ public class MainActivity extends Activity {
     edgeInput = null;
     qualityInput = null;
     progressText = null;
+    resizeDimensions = null;
+    previewButton = null;
+    resizeButtons.clear();
     wasBusy = session.busy;
     root = Ui.pageColumn(this);
     resultHeading = null;
@@ -306,7 +315,8 @@ public class MainActivity extends Activity {
       settings();
       dock.addView(Ui.text(this, "New JPEG copies", 12, R.color.muted, false));
       Ui.gap(dock, 6);
-      Ui.addButton(dock, "Preview copies", true, this::prepare);
+      previewButton = Ui.addButton(dock, "Preview copies", true, this::prepare);
+      updateResizePreview();
     } else {
       TextView heading = Ui.text(this, "Your preview", 26, R.color.ink, true);
       Ui.heading(heading);
@@ -406,7 +416,9 @@ public class MainActivity extends Activity {
           render();
         });
     card.addView(resize);
-    Ui.gap(card, 12);
+    Ui.gap(card, 16);
+    resizeControls(card);
+    Ui.gap(card, 20);
     card.addView(Ui.text(this, "Maximum file size", 15, R.color.ink, true));
     Ui.gap(card, 8);
     LinearLayout row = Ui.row(this);
@@ -450,19 +462,6 @@ public class MainActivity extends Activity {
             this,
             "KB measures file size. Pixels measure photo dimensions.",
             12,
-            R.color.muted,
-            false));
-    Ui.gap(card, 20);
-    card.addView(Ui.text(this, "Longest edge · pixels", 15, R.color.ink, true));
-    Ui.gap(card, 8);
-    edgeInput = Ui.number(this, "Longest edge in pixels, 64 to 8192", edgeDraft);
-    card.addView(edgeInput, new LinearLayout.LayoutParams(-1, -2));
-    Ui.gap(card, 8);
-    card.addView(
-        Ui.text(
-            this,
-            "Keeps the photo’s shape; never enlarges it. A size target may reduce dimensions.",
-            13,
             R.color.muted,
             false));
     Ui.gap(card, 12);
@@ -521,6 +520,156 @@ public class MainActivity extends Activity {
     root.addView(card);
   }
 
+  void resizeControls(LinearLayout card) {
+    TextView heading = Ui.text(this, "Resize photo", 19, R.color.ink, true);
+    Ui.heading(heading);
+    card.addView(heading);
+    Ui.gap(card, 8);
+    String[] labels = {"Small\n1280 px", "Medium\n1920 px", "Large\n2560 px", "Custom\n64–8192 px"};
+    int[] edges = {1280, 1920, 2560, 0};
+    boolean stack =
+        getResources().getConfiguration().fontScale > 1.3f
+            || getResources().getConfiguration().screenWidthDp < 360;
+    LinearLayout row = null;
+    for (int i = 0; i < edges.length; i++) {
+      final int edge = edges[i];
+      Button b = Ui.button(this, labels[i], false);
+      b.setContentDescription(
+          edge == 0
+              ? "Custom resize, longest edge from 64 to 8192 pixels"
+              : labels[i].split("\n")[0] + ", resize longest edge to " + edge + " pixels");
+      resizeButtons.put(b, edge);
+      if (stack) {
+        card.addView(b, new LinearLayout.LayoutParams(-1, -2));
+        Ui.gap(card, 8);
+      } else {
+        if (i % 2 == 0) {
+          row = Ui.row(this);
+          card.addView(row);
+        }
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, -2, 1);
+        if (i % 2 != 0) lp.setMarginStart(Ui.dp(this, 8));
+        row.addView(b, lp);
+        if (i % 2 != 0) Ui.gap(card, 8);
+      }
+      b.setOnClickListener(
+          v -> {
+            if (edge == 0) {
+              session.customResize = true;
+              session.persistLater();
+              updateResizePreview();
+              edgeInput.requestFocus();
+              edgeInput.selectAll();
+              edgeInput.requestRectangleOnScreen(
+                  new android.graphics.Rect(0, 0, edgeInput.getWidth(), edgeInput.getHeight()),
+                  true);
+            } else selectResizePreset(edge);
+          });
+    }
+    Ui.gap(card, 4);
+    card.addView(Ui.text(this, "Longest edge · pixels", 15, R.color.ink, true));
+    Ui.gap(card, 8);
+    edgeInput = Ui.number(this, "Custom longest edge in pixels, 64 to 8192", edgeDraft);
+    card.addView(edgeInput, new LinearLayout.LayoutParams(-1, -2));
+    edgeInput.addTextChangedListener(
+        new TextWatcher() {
+          public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+          public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+          public void afterTextChanged(Editable text) {
+            if (changingResizePreset) return;
+            edgeDraft = text.toString();
+            session.customResize = true;
+            try {
+              session.edge = ResizePolicy.parseLongestEdge(edgeDraft);
+            } catch (IllegalArgumentException ignored) {
+            }
+            session.persistLater();
+            updateResizePreview();
+          }
+        });
+    Ui.gap(card, 8);
+    card.addView(
+        Ui.text(this, "Preserves aspect ratio. Never enlarges a photo.", 13, R.color.muted, false));
+    Ui.gap(card, 12);
+    TextView dimensionsHeading = Ui.text(this, "Planned dimensions", 15, R.color.ink, true);
+    Ui.heading(dimensionsHeading);
+    card.addView(dimensionsHeading);
+    Ui.gap(card, 6);
+    resizeDimensions = Ui.text(this, "", 14, R.color.ink, false);
+    card.addView(resizeDimensions);
+    Ui.gap(card, 6);
+    card.addView(
+        Ui.text(
+            this,
+            "Before file-size compression. A size target may reduce these further. Results show the"
+                + " final measured dimensions.",
+            12,
+            R.color.muted,
+            false));
+    updateResizePreview();
+  }
+
+  void selectResizePreset(int edge) {
+    capture();
+    changingResizePreset = true;
+    edgeDraft = Integer.toString(edge);
+    session.edge = edge;
+    session.customResize = false;
+    if (edgeInput != null) edgeInput.setText(edgeDraft);
+    changingResizePreset = false;
+    session.persistLater();
+    updateResizePreview();
+  }
+
+  void updateResizePreview() {
+    int edge = -1;
+    try {
+      edge = ResizePolicy.parseLongestEdge(edgeDraft);
+    } catch (IllegalArgumentException ignored) {
+    }
+    boolean custom = session.customResize || (edge != 1280 && edge != 1920 && edge != 2560);
+    for (Map.Entry<Button, Integer> entry : resizeButtons.entrySet()) {
+      boolean selected = entry.getValue() == 0 ? custom : !custom && entry.getValue() == edge;
+      Button b = entry.getKey();
+      b.setSelected(selected);
+      Ui.styleButton(b, selected);
+      androidx.core.view.ViewCompat.setStateDescription(b, selected ? "Selected" : null);
+    }
+    if (previewButton != null) previewButton.setEnabled(edge > 0);
+    if (edgeInput != null)
+      edgeInput.setError(edge < 0 ? "Enter a whole number from 64 to 8192 pixels." : null);
+    if (resizeDimensions == null) return;
+    if (edge < 0) {
+      resizeDimensions.setText("Enter a valid longest edge to see the resize dimensions.");
+      return;
+    }
+    StringBuilder lines = new StringBuilder();
+    for (PhotoItem p : session.items) {
+      if (lines.length() > 0) lines.append("\n\n");
+      lines.append(p.name).append("\n");
+      if (p.source.isEmpty() || p.ow < 1 || p.oh < 1) {
+        lines.append("Unavailable · select this photo again");
+        continue;
+      }
+      int[] size = ResizePolicy.previewSize(p.ow, p.oh, edge);
+      lines
+          .append(p.ow)
+          .append(" × ")
+          .append(p.oh)
+          .append(" → up to ")
+          .append(size[0])
+          .append(" × ")
+          .append(size[1])
+          .append(" px");
+      if (size[0] == p.ow && size[1] == p.oh) lines.append(" · already within limit");
+      int[] requested = ResizePolicy.fit(p.ow, p.oh, edge, ResizePolicy.MAX_PIXELS);
+      if (size[0] < requested[0] || size[1] < requested[1]) lines.append(" · memory limit");
+    }
+    resizeDimensions.setText(lines.toString());
+  }
+
   void customTarget() {
     EditText input = Ui.number(this, "Custom file size in KB", "" + (session.target / 1000));
     LinearLayout content = Ui.column(this);
@@ -569,7 +718,7 @@ public class MainActivity extends Activity {
     capture();
     final int edge, q;
     try {
-      edge = Integer.parseInt(edgeDraft);
+      edge = ResizePolicy.parseLongestEdge(edgeDraft);
       q = session.advanced ? Integer.parseInt(qualityDraft) : 85;
       new CompressionOptions(
           session.resizeOnly ? 0 : session.target, edge, q, session.background, true);
@@ -1103,7 +1252,7 @@ public class MainActivity extends Activity {
     capture();
     try {
       long wanted = session.resizeOnly ? 0 : session.target;
-      int edge = Integer.parseInt(edgeDraft),
+      int edge = ResizePolicy.parseLongestEdge(edgeDraft),
           quality = session.advanced ? Integer.parseInt(qualityDraft) : 85;
       for (PhotoItem p : session.items)
         if (p.exportable() && p.selectedForExport) {
@@ -1113,7 +1262,7 @@ public class MainActivity extends Activity {
           if (target != wanted || limit != edge || maxQuality != quality) return false;
         }
       return true;
-    } catch (NumberFormatException e) {
+    } catch (IllegalArgumentException e) {
       return false;
     }
   }

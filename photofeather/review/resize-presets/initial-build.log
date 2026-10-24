@@ -1,0 +1,127 @@
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugBuildConfig
+> Task :image-engine:preBuild UP-TO-DATE
+> Task :image-engine:preDebugBuild UP-TO-DATE
+> Task :app:javaPreCompileDebug
+> Task :app:generateDebugResValues
+> Task :image-engine:generateDebugResValues
+> Task :image-engine:generateDebugResources
+> Task :image-engine:writeDebugAarMetadata
+> Task :image-engine:packageDebugResources
+> Task :app:checkDebugAarMetadata
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:mergeDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :image-engine:extractDeepLinksDebug
+> Task :image-engine:compileDebugLibraryResources
+> Task :image-engine:javaPreCompileDebug
+> Task :image-engine:parseDebugLocalResources
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:parseDebugLocalResources
+> Task :image-engine:mergeDebugShaders
+> Task :image-engine:compileDebugShaders NO-SOURCE
+> Task :image-engine:generateDebugAssets UP-TO-DATE
+> Task :image-engine:packageDebugAssets
+> Task :app:mergeDebugAssets
+> Task :image-engine:processDebugManifest
+> Task :image-engine:generateDebugRFile
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+
+> Task :image-engine:compileDebugJavaWithJavac
+warning: unknown enum constant Scope.LIBRARY
+  reason: class file for androidx.annotation.RestrictTo$Scope not found
+warning: unknown enum constant Scope.LIBRARY
+warning: unknown enum constant Scope.LIBRARY
+warning: unknown enum constant Scope.LIBRARY
+warning: unknown enum constant Scope.LIBRARY
+5 warnings
+
+> Task :app:compressDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :image-engine:processDebugJavaRes NO-SOURCE
+> Task :image-engine:bundleLibRuntimeToJarDebug
+> Task :image-engine:bundleLibCompileToJarDebug
+> Task :app:processDebugManifestForPackage
+> Task :image-engine:bundleLibRuntimeToDirDebug
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeDebugJniLibFolders
+> Task :image-engine:mergeDebugJniLibFolders
+> Task :image-engine:mergeDebugNativeLibs NO-SOURCE
+> Task :image-engine:copyDebugJniLibsProjectOnly
+> Task :app:validateSigningDebug
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:processDebugAndroidTestManifest
+> Task :app:generateDebugAndroidTestBuildConfig
+> Task :app:javaPreCompileDebugAndroidTest
+> Task :app:checkDebugAndroidTestAarMetadata
+> Task :app:generateDebugAndroidTestResValues
+> Task :app:mapDebugAndroidTestSourceSetPaths
+> Task :app:generateDebugAndroidTestResources
+> Task :app:mergeDebugAndroidTestShaders
+> Task :app:mergeDebugAndroidTestResources
+> Task :app:compileDebugAndroidTestShaders NO-SOURCE
+> Task :app:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :app:mergeDebugAndroidTestAssets
+> Task :app:compressDebugAndroidTestAssets
+> Task :app:desugarDebugAndroidTestFileDependencies
+> Task :app:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :app:mergeDebugJavaResource
+> Task :app:mergeDebugAndroidTestJniLibFolders
+> Task :app:checkDebugAndroidTestDuplicateClasses
+> Task :app:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :app:mergeDebugAndroidTestJavaResource
+> Task :app:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebugAndroidTest
+> Task :app:writeDebugAndroidTestSigningConfigVersions
+> Task :image-engine:preDebugUnitTestBuild UP-TO-DATE
+> Task :image-engine:javaPreCompileDebugUnitTest
+> Task :image-engine:processDebugUnitTestJavaRes NO-SOURCE
+> Task :image-engine:generateDebugUnitTestStubRFile
+> Task :app:processDebugAndroidTestResources
+> Task :app:processDebugResources
+> Task :image-engine:compileDebugUnitTestJavaWithJavac
+> Task :app:mergeExtDexDebugAndroidTest
+
+> Task :app:compileDebugJavaWithJavac
+Note: /Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility apps/photofeather/app/src/main/java/com/kreativ/photofeather/MainActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics
+> Task :app:mergeLibDexDebugAndroidTest
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:mergeLibDexDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:mergeExtDexDebug
+> Task :image-engine:testDebugUnitTest
+
+> Task :app:compileDebugAndroidTestJavaWithJavac
+Note: /Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility apps/photofeather/app/src/androidTest/java/com/kreativ/photofeather/ReleaseReadinessTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:dexBuilderDebugAndroidTest
+> Task :app:mergeDebugAndroidTestGlobalSynthetics
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+> Task :app:mergeProjectDexDebugAndroidTest
+> Task :app:packageDebugAndroidTest
+> Task :app:createDebugAndroidTestApkListingFileRedirect
+> Task :app:assembleDebugAndroidTest
+
+BUILD SUCCESSFUL in 13s
+82 actionable tasks: 82 executed

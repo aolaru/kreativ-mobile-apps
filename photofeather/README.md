@@ -1,6 +1,6 @@
 # PhotoFeather
 
-**Lighter photos. Ready to share.** A native Android app by Made by Kreativ that compresses and resizes photos on-device. The name is provisional; working Play title: **PhotoFeather: Photo Compressor**. No store submission has been made. Version **1.0.0** adds the free release improvements: clear failed-target results, separate Settings/Results views, fixed primary actions and per-photo controls. See [1.0.0 validation and release limitations](review/release-1.0.0/REPORT.md).
+**Lighter photos. Ready to share.** A native Android app by Made by Kreativ that compresses and resizes photos on-device. The name is provisional; working Play title: **PhotoFeather: Photo Compressor**. No store submission has been made. Version **1.0.0** (build 4) adds free resize presets and live dimension previews alongside the release improvements: clear failed-target results, separate Settings/Results views, fixed primary actions and per-photo controls. See [latest resize validation](review/resize-presets/REPORT.md) and [1.0.0 release limitations](review/release-1.0.0/REPORT.md).
 
 ## Run
 
@@ -12,14 +12,15 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 adb shell am start -n com.kreativ.photofeather.debug/com.kreativ.photofeather.MainActivity
 ```
 
-A ready-to-install 1.0.0 build is at [review/release-1.0.0/PhotoFeather-1.0.0-debug.apk](review/release-1.0.0/PhotoFeather-1.0.0-debug.apk). The `.debug` package is separate from other apps.
+A ready-to-install 1.0.0 build is at [review/resize-presets/PhotoFeather-1.0.0-resize-debug.apk](review/resize-presets/PhotoFeather-1.0.0-resize-debug.apk). The `.debug` package is separate from other apps.
 
 ## Workflow
 
 Select photos → choose target/pixel dimensions → preview measured results → save new copies or share.
 
 - System photo picker on Android 13+; system document-picker fallback on Android 8–12. Accepts images shared through granted content URIs. No broad photo/storage permission.
-- **200 KB / 500 KB / 1 MB / custom 1–50,000 KB**, longest edge 64–8,192 px, optional JPEG quality 10–100, and resize-only mode. KB = 1,000 bytes; MB = 1,000,000 bytes.
+- **Small (1280 px), Medium (1920 px), Large (2560 px)** and **Custom (64–8192 px)** resize choices use the longest edge, preserving aspect ratio without enlargement. A live per-photo dimension preview accounts for safe decoding and shows when a photo is already within the limit or constrained by memory.
+- **200 KB / 500 KB / 1 MB / custom 1–50,000 KB**, optional JPEG quality 10–100, and resize-only mode. KB = 1,000 bytes; MB = 1,000,000 bytes. Planned resize dimensions are upper bounds; a byte target may reduce them further. Results retain final measured dimensions and bytes.
 - Exact output bytes/dimensions, percentage saved and zoomable original/output comparison. Larger or same-sized copies require explicit opt-in; unsuccessful targets cannot be exported. Cancelled, failed or unreachable retries keep the previous usable preview. Each result records its own settings; exporting older or mixed settings requires explicit review.
 - Save new JPEGs to `Pictures/PhotoFeather` on Android 10+, or a chosen folder on Android 8–9. Save verifies destination bytes. Share through Android's share sheet.
 - Separate **Settings / Results** views, expandable technical details and fixed Preview / Save / Share actions. Large-text and short landscape layouts use a compact Export choice with the same metadata disclosure.

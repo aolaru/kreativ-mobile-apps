@@ -32,7 +32,7 @@ final class Session {
   volatile long target = 500_000, preparedTarget = -1;
   volatile int preparedEdge, preparedQuality;
   volatile int edge = 2560, quality = 85, background = 0xFFFFFFFF;
-  volatile boolean advanced, resizeOnly;
+  volatile boolean advanced, resizeOnly, customResize;
   volatile long previewGeneration;
   volatile Runnable listener;
   private boolean restoring = true;
@@ -120,6 +120,7 @@ final class Session {
               .put("background", background)
               .put("advanced", advanced)
               .put("resizeOnly", resizeOnly)
+              .put("customResize", customResize)
               .put("message", message)
               .put("pending", pending)
               .put("pendingItemId", pendingItemId)
@@ -154,6 +155,7 @@ final class Session {
       background = j.optInt("background", 0xFFFFFFFF);
       advanced = j.optBoolean("advanced");
       resizeOnly = j.optBoolean("resizeOnly");
+      customResize = j.optBoolean("customResize", edge != 1280 && edge != 1920 && edge != 2560);
       JSONArray data = j.optJSONArray("items");
       boolean expired = System.currentTimeMillis() - j.optLong("updated") >= 86_400_000;
       if (data != null)

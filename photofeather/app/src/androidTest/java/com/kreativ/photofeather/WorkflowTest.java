@@ -38,6 +38,7 @@ public class WorkflowTest {
     idle();
     session.target = 200_000;
     session.edge = 2560;
+    session.customResize = false;
     session.quality = 85;
     session.resizeOnly = false;
     session.advanced = false;
