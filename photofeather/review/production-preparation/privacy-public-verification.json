@@ -1,0 +1,40 @@
+{
+  "url": "https://madebykreativ.com/privacy/photofeather/",
+  "status": 200,
+  "finalUrl": "https://madebykreativ.com/privacy/photofeather/",
+  "checkedOn": "2026-10-24",
+  "websiteCommit": "57bf767f11732f6ec2fa5af20670164a77783088",
+  "workflow": "https://github.com/aolaru/madebykreativ.com/actions/runs/40110850365",
+  "build": "success",
+  "deploy": "success",
+  "httpChecks": {
+    "title": true,
+    "package": true,
+    "effectiveDate": true,
+    "onDevice": true,
+    "anonymisationLimit": true,
+    "continuationRenderedAsParagraph": true,
+    "onlySectionHeadings": true
+  },
+  "browserChecks": {
+    "supportEmail": "info@madebykreativ.com",
+    "supportEmailVisibleAndMailtoLinkVerified": true,
+    "continuationParagraphVerified": true
+  },
+  "h2Headings": [
+    "About this policy",
+    "Provider and contact",
+    "Photos and on-device processing",
+    "Local storage and retention",
+    "Saved and shared copies",
+    "Metadata and quality",
+    "Information you send for support",
+    "Google Play and external services",
+    "Changes",
+    "Contact Kreativ"
+  ],
+  "unchangedSignedArtifactsSha256": {
+    "PhotoFeather-1.0.0-build4-signed.aab": "f0bdfd2d1a29f7478bdad9966127931ff1ac305bc5113db037d2dd10e973ba17",
+    "PhotoFeather-1.0.0-build4-signed.apk": "27400659f43923018aa869e985e94e1e3f470c18e3528bfa1c8626116352b578"
+  }
+}

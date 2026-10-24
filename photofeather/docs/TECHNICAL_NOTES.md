@@ -1,6 +1,6 @@
 # PhotoFeather — technical notes
 
-**Lighter photos. Ready to share.** A separate, native Android app by Made by Kreativ. Play title: **PhotoFeather: Photo Compressor** (30 characters). Version 1.0.0 / build 4; the owner has chosen the name and Play's explicit availability check passed for `com.kreativ.photofeather` on 24 October 2026. The signed bundle has now been accepted into an internal release draft; nothing has been published or sent for production review. See [Play release preparation](PLAY_RELEASE.md) for signed artifacts, listing materials and the current approval boundary.
+**Lighter photos. Ready to share.** A separate, native Android app by Made by Kreativ. Play title: **PhotoFeather: Photo Compressor** (30 characters). Version 1.0.0 / build 4; the owner has chosen the name and Play's explicit availability check passed for `com.kreativ.photofeather` on 24 October 2026. The accepted signed bundle is selected for a production candidate, with the listing and declarations saved as unsubmitted changes. The app has not been published or sent for production review; internal testing remains inactive. See [Play release preparation](PLAY_RELEASE.md) for signed artifacts, listing materials and the current approval boundary.
 
 ## Build and run
 
@@ -65,6 +65,8 @@ See [the completion report](../review/REPORT.md) for actual results, screenshots
 Read the existing workspace Android projects and the [launched app directory](https://madebykreativ.com/apps/), including the [ShareSafe listing](https://play.google.com/store/apps/details?id=com.kreativ.sharesafe) and [Northlight listing](https://play.google.com/store/apps/details?id=com.kreativ.northlight). Native implementation follows Android's [photo picker](https://developer.android.com/training/data-storage/shared/photo-picker) and [shared media](https://developer.android.com/training/data-storage/shared/media) guidance.
 
 Initial exact-name web and indexed Google Play searches for PhotoFeather did not surface an exact compressor match. This is not confirmation of availability. Play Console/package validation and fuller name/trademark checks remain open. No store entry, listing submission, account, price or subscription was created.
+
+Update, 24 October 2026: the owner retained PhotoFeather; Console's package availability check passed, and Play accepted the signed package. The app record and listing now exist. This does not establish trademark clearance. The public privacy policy is deployed at https://madebykreativ.com/privacy/photofeather/ and all applicable Play declarations are complete. A production candidate is saved pending an explicitly authorised review submission; see [current preparation report](../review/production-preparation/REPORT.md). Earlier reports retain their historical signing and naming gates.
 
 ## 1.0.0 release validation
 

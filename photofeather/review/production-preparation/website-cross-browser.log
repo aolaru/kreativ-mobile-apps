@@ -1,0 +1,31 @@
+
+> madebykreativ-com@1.0.0 validate:cross-browser
+> playwright test --project=firefox --project=webkit
+
+[WebServer] (node:6103) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 2 workers
+
+(node:6106) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6105) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [firefox] › tests/cross-browser.spec.mjs:3:1 › Skip navigation lands after the shared header (2.0s)
+  ✓   1 [firefox] › tests/cross-browser.spec.mjs:22:1 › Mobile menu closes with Escape, outside clicks and focus departure (2.4s)
+  ✓   3 [firefox] › tests/cross-browser.spec.mjs:47:1 › Sharing copies the canonical URL and announces success (903ms)
+  ✓   4 [firefox] › tests/cross-browser.spec.mjs:77:1 › Share failures have visible feedback (519ms)
+  ✓   5 [firefox] › tests/cross-browser.spec.mjs:99:1 › Updates preserve filters and loading more moves focus into new entries (1.2s)
+  ✓   6 [firefox] › tests/cross-browser.spec.mjs:128:1 › App support is preselected and mobile content fits (1.1s)
+(node:6130) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:6131) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [webkit] › tests/cross-browser.spec.mjs:3:1 › Skip navigation lands after the shared header (1.2s)
+  ✓   8 [webkit] › tests/cross-browser.spec.mjs:22:1 › Mobile menu closes with Escape, outside clicks and focus departure (1.5s)
+  ✓   9 [webkit] › tests/cross-browser.spec.mjs:47:1 › Sharing copies the canonical URL and announces success (515ms)
+  ✓  10 [webkit] › tests/cross-browser.spec.mjs:77:1 › Share failures have visible feedback (489ms)
+  ✓  12 [webkit] › tests/cross-browser.spec.mjs:128:1 › App support is preselected and mobile content fits (789ms)
+  ✓  11 [webkit] › tests/cross-browser.spec.mjs:99:1 › Updates preserve filters and loading more moves focus into new entries (1.0s)
+
+  12 passed (13.9s)
