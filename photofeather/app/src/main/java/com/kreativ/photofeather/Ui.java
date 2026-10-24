@@ -116,6 +116,10 @@ final class Ui {
   }
 
   static ScrollView page(android.app.Activity a, LinearLayout content) {
+    return page(a, content, null);
+  }
+
+  static ScrollView page(android.app.Activity a, LinearLayout content, LinearLayout dock) {
     LinearLayout outer = column(a);
     outer.setBackgroundColor(color(a, R.color.surface));
     ScrollView scroll = new ScrollView(a);
@@ -125,7 +129,12 @@ final class Ui {
     content.setPadding(dp(a, 20), dp(a, 20), dp(a, 20), dp(a, 28));
     wrap.addView(content, new LinearLayout.LayoutParams(-1, -2));
     scroll.addView(wrap);
-    outer.addView(scroll, new LinearLayout.LayoutParams(-1, -1));
+    outer.addView(scroll, new LinearLayout.LayoutParams(-1, 0, 1));
+    if (dock != null) {
+      dock.setPadding(dp(a, 20), dp(a, 10), dp(a, 20), dp(a, 10));
+      dock.setBackgroundColor(color(a, R.color.card));
+      outer.addView(dock, new LinearLayout.LayoutParams(-1, -2));
+    }
     ViewCompat.setOnApplyWindowInsetsListener(
         outer,
         (v, insets) -> {

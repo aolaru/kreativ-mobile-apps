@@ -1,5 +1,7 @@
 # PhotoFeather 0.1.1 — four-bug fix validation
 
+> Historical fix report. For the latest free-version release work, see [1.0.0 validation](release-1.0.0/REPORT.md).
+
 **All four audited bugs are fixed.** Version 0.1.1 / code 2 was built, signed, installed over the existing debug app and launched on the connected Samsung Galaxy A55 / Android 16. Existing selected-photo IDs were preserved across the update: [upgrade check](fix-session-preservation.txt).
 
 ## Changes

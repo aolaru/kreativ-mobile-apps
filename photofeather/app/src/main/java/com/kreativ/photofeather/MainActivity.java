@@ -15,7 +15,10 @@ import java.util.*;
 
 public class MainActivity extends Activity {
   Session session;
-  LinearLayout root;
+  LinearLayout root, dock;
+  boolean viewingResults, pageChosen;
+  final Set<String> expandedResults = new HashSet<>();
+  ArrayList<String> folderItemIds;
   EditText edgeInput, qualityInput;
   TextView progressText;
   Button cancelButton;
@@ -43,6 +46,11 @@ public class MainActivity extends Activity {
       qualityDraft = saved.getString("quality", "85");
       draftsLoaded = true;
       showAll = saved.getBoolean("all");
+      viewingResults = saved.getBoolean("results");
+      pageChosen = saved.getBoolean("pageChosen");
+      folderItemIds = saved.getStringArrayList("folderIds");
+      ArrayList<String> details = saved.getStringArrayList("details");
+      if (details != null) expandedResults.addAll(details);
       contentScrollY = saved.getInt("scrollY");
       focusedField = saved.getString("focusedField", "");
       selectionStart = saved.getInt("selectionStart");
@@ -85,6 +93,10 @@ public class MainActivity extends Activity {
     out.putString("edge", edgeDraft);
     out.putString("quality", qualityDraft);
     out.putBoolean("all", showAll);
+    out.putBoolean("results", viewingResults);
+    out.putBoolean("pageChosen", pageChosen);
+    out.putStringArrayList("folderIds", folderItemIds);
+    out.putStringArrayList("details", new ArrayList<>(expandedResults));
     super.onSaveInstanceState(out);
   }
 
@@ -149,9 +161,29 @@ public class MainActivity extends Activity {
             });
   }
 
+  void showPage(boolean results) {
+    capture();
+    viewingResults = results;
+    pageChosen = true;
+    contentScrollY = 0;
+    focusedField = "";
+    if (scroll != null) scroll.scrollTo(0, 0);
+    render();
+  }
+
+  boolean hasResults() {
+    for (PhotoItem p : session.items) if (!p.output.isEmpty() || !p.error.isEmpty()) return true;
+    return false;
+  }
+
   void render() {
     capturePosition();
     boolean showResults = !session.busy && session.previewGeneration > seenPreviewGeneration;
+    if (!session.busy && !pageChosen) {
+      viewingResults = hasResults();
+      pageChosen = !session.items.isEmpty();
+    }
+    if (showResults) viewingResults = true;
     ++generation;
     thumbnailCount = 0;
     capture();
@@ -166,7 +198,8 @@ public class MainActivity extends Activity {
     wasBusy = session.busy;
     root = Ui.pageColumn(this);
     resultHeading = null;
-    scroll = Ui.page(this, root);
+    dock = !session.busy && !session.items.isEmpty() ? Ui.column(this) : null;
+    scroll = Ui.page(this, root, dock);
     restorePosition(scroll, generation, showResults);
     LinearLayout brand = Ui.row(this);
     ImageView logo = new ImageView(this);
@@ -214,65 +247,79 @@ public class MainActivity extends Activity {
       home();
       return;
     }
-    TextView steps =
-        Ui.text(
-            this,
-            "01  Select     /     02  Settings     /     03  Preview",
-            12,
-            R.color.muted,
-            true);
-    steps.setContentDescription(
-        "Workflow: select photos, choose output settings, preview, then save or share.");
-    root.addView(steps);
-    Ui.gap(root, 16);
-    LinearLayout selection = Ui.card(this);
-    selection.addView(
-        Ui.text(this, "Your photos  ·  " + session.items.size(), 20, R.color.ink, true));
-    Ui.gap(selection, 8);
-    int shown = 0;
-    for (PhotoItem p : session.items) {
-      if (!showAll && shown >= 3) break;
-      TextView line =
-          Ui.text(
-              this,
-              p.name
-                  + "\n"
-                  + (p.source.isEmpty()
-                      ? p.error
-                      : Ui.size(p.before) + "  ·  " + p.ow + " × " + p.oh + " px"),
-              14,
-              p.source.isEmpty() ? R.color.warning : R.color.muted,
-              false);
-      selection.addView(line);
+    LinearLayout tabs = Ui.row(this);
+    Button settingsTab = Ui.button(this, "Settings", !viewingResults);
+    Button resultsTab = Ui.button(this, "Results", viewingResults);
+    settingsTab.setSelected(!viewingResults);
+    resultsTab.setSelected(viewingResults);
+    androidx.core.view.ViewCompat.setStateDescription(
+        settingsTab, !viewingResults ? "Selected" : null);
+    androidx.core.view.ViewCompat.setStateDescription(
+        resultsTab, viewingResults ? "Selected" : null);
+    resultsTab.setEnabled(hasResults());
+    settingsTab.setOnClickListener(v -> showPage(false));
+    resultsTab.setOnClickListener(v -> showPage(true));
+    tabs.addView(settingsTab, new LinearLayout.LayoutParams(0, -2, 1));
+    LinearLayout.LayoutParams tabGap = new LinearLayout.LayoutParams(0, -2, 1);
+    tabGap.setMarginStart(Ui.dp(this, 8));
+    tabs.addView(resultsTab, tabGap);
+    root.addView(tabs);
+    Ui.gap(root, 20);
+    if (!viewingResults) {
+      LinearLayout selection = Ui.card(this);
+      selection.addView(
+          Ui.text(this, "Your photos  ·  " + session.items.size(), 20, R.color.ink, true));
       Ui.gap(selection, 8);
-      shown++;
-    }
-    if (session.items.size() > 3)
-      Ui.addButton(
-          selection,
-          showAll ? "Show fewer" : "Show all " + session.items.size() + " photos",
-          false,
-          () -> {
-            showAll = !showAll;
-            render();
-          });
-    Ui.gap(selection, 8);
-    Ui.addButton(selection, "Add photos", false, this::pick);
-    root.addView(selection);
-    Ui.gap(root, 16);
-    settings();
-    boolean any = false;
-    for (PhotoItem p : session.items) if (!p.output.isEmpty() || !p.error.isEmpty()) any = true;
-    if (any) {
-      Ui.gap(root, 24);
+      int shown = 0;
+      for (PhotoItem p : session.items) {
+        if (!showAll && shown >= 3) break;
+        TextView line =
+            Ui.text(
+                this,
+                p.name
+                    + "\n"
+                    + (p.source.isEmpty()
+                        ? p.error
+                        : Ui.size(p.before) + "  ·  " + p.ow + " × " + p.oh + " px"),
+                14,
+                p.source.isEmpty() ? R.color.warning : R.color.muted,
+                false);
+        selection.addView(line);
+        Button remove = Ui.addButton(selection, "Remove photo", false, () -> confirmRemove(p));
+        remove.setContentDescription("Remove " + p.name + " from this session");
+        Ui.gap(selection, 12);
+        shown++;
+      }
+      if (session.items.size() > 3)
+        Ui.addButton(
+            selection,
+            showAll ? "Show fewer" : "Show all " + session.items.size() + " photos",
+            false,
+            () -> {
+              showAll = !showAll;
+              render();
+            });
+      Ui.gap(selection, 8);
+      Ui.addButton(selection, "Add photos", false, this::pick);
+      root.addView(selection);
+      Ui.gap(root, 16);
+      settings();
+      dock.addView(Ui.text(this, "New JPEG copies", 12, R.color.muted, false));
+      Ui.gap(dock, 6);
+      Ui.addButton(dock, "Preview copies", true, this::prepare);
+    } else {
       TextView heading = Ui.text(this, "Your preview", 26, R.color.ink, true);
       Ui.heading(heading);
       resultHeading = heading;
       root.addView(heading);
       Ui.gap(root, 8);
       root.addView(Ui.text(this, session.message, 14, R.color.muted, false));
-      Ui.gap(root, 16);
-      for (PhotoItem p : session.items) if (!p.output.isEmpty() || !p.error.isEmpty()) result(p);
+      Ui.gap(root, 12);
+      if (!session.retryIds().isEmpty()) {
+        Ui.addButton(root, "Retry failed", false, () -> prepare(session.retryIds()));
+        Ui.gap(root, 12);
+      }
+      for (PhotoItem p : session.items) result(p);
       exportActions();
     }
     Ui.gap(root, 20);
@@ -401,7 +448,7 @@ public class MainActivity extends Activity {
     card.addView(
         Ui.text(
             this,
-            "File size is storage space. 1 KB = 1,000 bytes; 1 MB = 1,000,000 bytes.",
+            "KB measures file size. Pixels measure photo dimensions.",
             12,
             R.color.muted,
             false));
@@ -414,8 +461,7 @@ public class MainActivity extends Activity {
     card.addView(
         Ui.text(
             this,
-            "Keeps the photo’s shape. Never enlarges it. Large photos use an eight-megapixel memory"
-                + " limit. A target may need fewer pixels and lower JPEG quality.",
+            "Keeps the photo’s shape; never enlarges it. A size target may reduce dimensions.",
             13,
             R.color.muted,
             false));
@@ -446,20 +492,32 @@ public class MainActivity extends Activity {
               R.color.muted,
               false));
     }
-    Ui.gap(card, 20);
+    Ui.gap(card, 16);
     card.addView(Ui.text(this, "JPEG copies · source metadata removed", 14, R.color.ink, true));
     Ui.gap(card, 6);
     card.addView(
         Ui.text(
             this,
-            "Location, camera details and other embedded source metadata are removed and checked"
-                + " before export. This does not hide faces, text or other visible sensitive"
-                + " details.",
+            "Location and camera metadata are removed and checked. Visible faces and text remain.",
             13,
             R.color.muted,
             false));
-    Ui.gap(card, 16);
-    Ui.addButton(card, "Preview copies", true, this::prepare);
+    Ui.gap(card, 8);
+    Ui.addButton(
+        card,
+        "How compression works",
+        false,
+        () ->
+            new AlertDialog.Builder(this)
+                .setTitle("Sizes, quality and privacy")
+                .setMessage(
+                    "1 KB = 1,000 bytes; 1 MB = 1,000,000 bytes. Pixel dimensions describe"
+                        + " resolution. Large photos use an eight-megapixel memory limit. Reaching"
+                        + " a target may reduce pixels and JPEG quality. JPEG is lossy; visual"
+                        + " quality is not guaranteed. Source metadata is removed, but this does"
+                        + " not anonymise a photo.")
+                .setPositiveButton("Done", null)
+                .show());
     root.addView(card);
   }
 
@@ -504,6 +562,10 @@ public class MainActivity extends Activity {
   }
 
   void prepare() {
+    prepare(null);
+  }
+
+  void prepare(Set<String> ids) {
     capture();
     final int edge, q;
     try {
@@ -523,7 +585,7 @@ public class MainActivity extends Activity {
       return;
     }
     boolean alpha = false;
-    for (PhotoItem p : session.items) alpha |= p.alpha;
+    for (PhotoItem p : session.items) if (ids == null || ids.contains(p.id)) alpha |= p.alpha;
     if (alpha) {
       String[] choices = {"White", "Warm paper", "Black"};
       int[] colors = {Color.WHITE, 0xFFF3ECDD, Color.BLACK};
@@ -544,13 +606,15 @@ public class MainActivity extends Activity {
                           edge,
                           q,
                           colors[selected[0]],
-                          true)))
+                          true),
+                      ids))
           .setView(transparencyNote())
           .show();
     } else
       session.process(
           new CompressionOptions(
-              session.resizeOnly ? 0 : session.target, edge, q, session.background, false));
+              session.resizeOnly ? 0 : session.target, edge, q, session.background, false),
+          ids);
   }
 
   TextView transparencyNote() {
@@ -566,23 +630,74 @@ public class MainActivity extends Activity {
     return t;
   }
 
+  void confirmRemove(PhotoItem p) {
+    new AlertDialog.Builder(this)
+        .setTitle("Remove this photo?")
+        .setMessage(
+            "Removes "
+                + p.name
+                + " from this session. Your original and any saved copies stay untouched.")
+        .setNegativeButton("Keep photo", null)
+        .setPositiveButton("Remove photo", (d, w) -> session.remove(p.id))
+        .show();
+  }
+
   void result(PhotoItem p) {
     LinearLayout card = Ui.card(this);
-    card.addView(Ui.text(this, p.name, 17, R.color.ink, true));
+    TextView name = Ui.text(this, p.name, 17, R.color.ink, true);
+    Ui.heading(name);
+    card.addView(name);
     Ui.gap(card, 8);
-    card.addView(
+    boolean targetFailed = p.status.equals("Target not reached");
+    TextView status =
         Ui.text(
-            this, p.status, 13, p.status.equals("Ready") ? R.color.accent : R.color.warning, true));
+            this,
+            p.status,
+            targetFailed ? 24 : 16,
+            p.exportable() ? R.color.accent : R.color.warning,
+            true);
+    Ui.heading(status);
+    card.addView(status);
+    if (targetFailed) {
+      Ui.gap(card, 8);
+      card.addView(
+          Ui.text(
+              this,
+              "Requested: "
+                  + Ui.size(p.requestTarget >= 0 ? p.requestTarget : session.preparedTarget)
+                  + " maximum\nFinal attempt: "
+                  + Ui.size(p.after)
+                  + " · "
+                  + p.after
+                  + " bytes",
+              16,
+              R.color.ink,
+              true));
+      Ui.gap(card, 8);
+      card.addView(Ui.text(this, "Not available to save or share.", 14, R.color.warning, true));
+      Ui.gap(card, 12);
+      Ui.addButton(
+          card,
+          "Change target",
+          true,
+          () -> {
+            showPage(false);
+            customTarget();
+          });
+    }
+    if (!p.error.isEmpty()) {
+      Ui.gap(card, 10);
+      card.addView(Ui.text(this, p.error, 14, R.color.warning, false));
+    }
     if (p.hasOutput()) {
-      Ui.gap(card, 16);
+      Ui.gap(card, 12);
       if (thumbnailCount++ < 3) {
         ImageView thumbnail = new ImageView(this);
         thumbnail.setScaleType(ImageView.ScaleType.CENTER_CROP);
         thumbnail.setContentDescription("Prepared JPEG preview for " + p.name);
         thumbnail.setBackground(Ui.shape(this, Ui.color(this, R.color.mint), 12, false));
         thumbnail.setClipToOutline(true);
-        card.addView(thumbnail, new LinearLayout.LayoutParams(-1, Ui.dp(this, 160)));
-        Ui.gap(card, 16);
+        card.addView(thumbnail, new LinearLayout.LayoutParams(-1, Ui.dp(this, 140)));
         final int taskGeneration = generation;
         final String file = p.output;
         thumbnails.execute(
@@ -599,34 +714,39 @@ public class MainActivity extends Activity {
               } catch (Exception | OutOfMemoryError ignored) {
               }
             });
+        Ui.gap(card, 12);
       }
-      long saving = p.before - p.after;
-      String percent =
-          p.before > 0
-              ? String.format(Locale.US, "%.1f%%", Math.abs(saving) * 100.0 / p.before)
-              : "0%";
+      if (!targetFailed) {
+        long saving = p.before - p.after;
+        String percent =
+            p.before > 0
+                ? String.format(Locale.US, "%.1f%%", Math.abs(saving) * 100.0 / p.before)
+                : "0%";
+        card.addView(
+            Ui.text(
+                this,
+                saving == 0
+                    ? "Same file size"
+                    : saving > 0 ? percent + " smaller" : percent + " larger",
+                26,
+                R.color.ink,
+                true));
+        Ui.gap(card, 8);
+      }
       card.addView(
           Ui.text(
               this,
-              saving == 0
-                  ? "Same file size"
-                  : saving > 0 ? percent + " smaller" : percent + " larger",
-              28,
-              R.color.ink,
-              true));
-      Ui.gap(card, 12);
-      card.addView(
-          Ui.text(
-              this,
-              "Original  ·  "
+              "Original · "
                   + Ui.size(p.before)
-                  + "  ·  "
+                  + " · "
                   + p.ow
                   + " × "
                   + p.oh
-                  + " px\nOutput  ·  "
+                  + " px\n"
+                  + (targetFailed ? "Attempt" : "Output")
+                  + " · "
                   + Ui.size(p.after)
-                  + "  ·  "
+                  + " · "
                   + p.w
                   + " × "
                   + p.h
@@ -634,52 +754,63 @@ public class MainActivity extends Activity {
               15,
               R.color.ink,
               false));
-      Ui.gap(card, 8);
-      card.addView(
-          Ui.text(
-              this,
-              "Measured: " + p.before + " → " + p.after + " bytes\nJPEG quality " + p.quality,
-              12,
-              R.color.muted,
-              false));
-      if (p.requestTarget >= 0) {
-        Ui.gap(card, 6);
-        card.addView(
-            Ui.text(
-                this,
-                "Preview settings: "
-                    + (p.requestTarget == 0 ? "resize only" : "≤ " + Ui.size(p.requestTarget))
-                    + " · longest edge "
-                    + p.requestEdge
-                    + " px · max quality "
-                    + p.requestQuality,
-                12,
-                R.color.muted,
-                false));
-      }
-      if (p.w < p.ow || p.h < p.oh || p.quality < 85) {
-        Ui.gap(card, 8);
-        card.addView(
-            Ui.text(
-                this,
-                "Reduced "
-                    + ((p.w < p.ow || p.h < p.oh) ? "pixel dimensions" : "JPEG quality")
-                    + (p.quality < 85 && (p.w < p.ow || p.h < p.oh) ? " and JPEG quality" : "")
-                    + " for this result. Check fine details in the comparison.",
-                13,
-                R.color.muted,
-                false));
-      }
       Ui.gap(card, 12);
       Ui.addButton(
           card,
           "Compare before & after",
           false,
           () -> startActivity(new Intent(this, PreviewActivity.class).putExtra("id", p.id)));
-    }
-    if (!p.error.isEmpty()) {
-      Ui.gap(card, 10);
-      card.addView(Ui.text(this, p.error, 14, R.color.warning, false));
+      Ui.gap(card, 8);
+      Button details =
+          Ui.addButton(
+              card,
+              expandedResults.contains(p.id) ? "Hide details" : "Show details",
+              false,
+              () -> {});
+      LinearLayout detail = Ui.column(this);
+      Ui.gap(detail, 8);
+      detail.addView(
+          Ui.text(
+              this,
+              "Measured: "
+                  + p.before
+                  + " → "
+                  + p.after
+                  + " bytes\nJPEG quality "
+                  + p.quality
+                  + "\nPreview settings: "
+                  + (p.requestTarget == 0 ? "resize only" : "≤ " + Ui.size(p.requestTarget))
+                  + " · longest edge "
+                  + p.requestEdge
+                  + " px · max quality "
+                  + p.requestQuality,
+              12,
+              R.color.muted,
+              false));
+      if (p.w < p.ow || p.h < p.oh || p.quality < 85) {
+        Ui.gap(detail, 8);
+        detail.addView(
+            Ui.text(
+                this,
+                "Dimensions or JPEG quality were reduced. Check fine details in the comparison.",
+                13,
+                R.color.muted,
+                false));
+      }
+      detail.setVisibility(expandedResults.contains(p.id) ? View.VISIBLE : View.GONE);
+      card.addView(detail);
+      androidx.core.view.ViewCompat.setStateDescription(
+          details, detail.getVisibility() == View.VISIBLE ? "Expanded" : "Collapsed");
+      details.setOnClickListener(
+          v -> {
+            boolean expand = detail.getVisibility() != View.VISIBLE;
+            detail.setVisibility(expand ? View.VISIBLE : View.GONE);
+            if (expand) expandedResults.add(p.id);
+            else expandedResults.remove(p.id);
+            details.setText(expand ? "Hide details" : "Show details");
+            androidx.core.view.ViewCompat.setStateDescription(
+                details, expand ? "Expanded" : "Collapsed");
+          });
     }
     if (p.status.equals("Larger copy") || p.status.equals("Same size")) {
       CheckBox allow = new CheckBox(this);
@@ -696,6 +827,23 @@ public class MainActivity extends Activity {
           });
       card.addView(allow);
     }
+    if (p.exportable()) {
+      Ui.gap(card, 8);
+      CheckBox selected = new CheckBox(this);
+      selected.setText("Include in export");
+      selected.setContentDescription("Include " + p.name + " in export");
+      selected.setTextColor(Ui.color(this, R.color.ink));
+      selected.setTextSize(15);
+      selected.setMinHeight(Ui.dp(this, 48));
+      selected.setChecked(p.selectedForExport);
+      selected.setOnCheckedChangeListener(
+          (b, c) -> {
+            p.selectedForExport = c;
+            session.persistLater();
+            exportActions();
+          });
+      card.addView(selected);
+    }
     if (!p.savedUri.isEmpty()) {
       Ui.gap(card, 8);
       card.addView(Ui.text(this, "Saved and verified", 14, R.color.accent, true));
@@ -704,31 +852,120 @@ public class MainActivity extends Activity {
       Ui.gap(card, 8);
       card.addView(Ui.text(this, p.saveError, 14, R.color.warning, false));
     }
+    if (p.needsRetry()) {
+      Ui.gap(card, 8);
+      Button retry =
+          Ui.addButton(card, "Retry photo", false, () -> prepare(Collections.singleton(p.id)));
+      retry.setContentDescription("Retry " + p.name + " using the current settings");
+    } else if (p.source.isEmpty()) {
+      Ui.gap(card, 8);
+      Ui.addButton(card, "Select photo again", false, this::pick);
+    }
+    Ui.gap(card, 8);
+    Button remove = Ui.addButton(card, "Remove photo", false, () -> confirmRemove(p));
+    remove.setContentDescription("Remove " + p.name + " from this session");
     root.addView(card);
-    Ui.gap(root, 12);
+    Ui.gap(root, 16);
   }
 
   void exportActions() {
-    int count = session.eligible();
+    if (dock == null) return;
+    dock.removeAllViews();
+    int count = session.selectedIds().size();
+    boolean unsaved = false;
+    for (PhotoItem p : session.items)
+      if (p.exportable() && p.selectedForExport && p.savedUri.isEmpty()) unsaved = true;
+    TextView notice =
+        Ui.text(
+            this,
+            compactActions()
+                ? count + " selected · JPEG"
+                : count
+                    + " selected · source metadata removed\n"
+                    + "Originals untouched; visible details remain.",
+            12,
+            R.color.muted,
+            false);
+    notice.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
+    dock.addView(notice);
+    Ui.gap(dock, 6);
+    if (session.eligible() == 0) {
+      Ui.addButton(dock, "Review settings", true, () -> showPage(false));
+      return;
+    }
+    if (compactActions()) {
+      Button export = Ui.addButton(dock, "Export selected", true, this::chooseExport);
+      export.setEnabled(count > 0);
+      return;
+    }
+    LinearLayout actions = Ui.row(this);
+    Button save = Ui.button(this, "Save selected", true);
+    save.setEnabled(count > 0 && unsaved);
+    save.setOnClickListener(v -> reviewExport(this::savePreparedCopies));
+    Button share = Ui.button(this, "Share selected", false);
+    share.setEnabled(count > 0);
+    share.setOnClickListener(v -> share());
+    actions.addView(save, new LinearLayout.LayoutParams(0, -2, 1));
+    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, -2, 1);
+    lp.setMarginStart(Ui.dp(this, 8));
+    actions.addView(share, lp);
+    dock.addView(actions);
+  }
+
+  boolean compactActions() {
+    android.content.res.Configuration c = getResources().getConfiguration();
+    return c.fontScale > 1.3f || c.screenHeightDp < 420;
+  }
+
+  void chooseExport() {
+    int count = session.selectedIds().size();
     if (count == 0) return;
-    LinearLayout card = Ui.card(this);
-    card.addView(Ui.text(this, "Ready when you are", 21, R.color.ink, true));
-    Ui.gap(card, 8);
-    card.addView(
+    boolean unsaved = false;
+    for (PhotoItem p : session.items)
+      if (p.exportable() && p.selectedForExport && p.savedUri.isEmpty()) unsaved = true;
+    AlertDialog dialog =
+        new AlertDialog.Builder(this)
+            .setTitle("Export copies")
+            .setNegativeButton("Cancel", null)
+            .create();
+    LinearLayout options = Ui.column(this);
+    options.setPadding(Ui.dp(this, 20), Ui.dp(this, 12), Ui.dp(this, 20), Ui.dp(this, 12));
+    options.addView(
         Ui.text(
             this,
             count
-                + " JPEG copies · originals untouched\n"
-                + "Embedded source metadata removed and verified. Review visible details before"
-                + " sharing.",
+                + " JPEG copies. Originals stay untouched. Embedded source metadata is removed and"
+                + " verified. Visible faces, text and other details remain.",
             14,
             R.color.muted,
             false));
-    Ui.gap(card, 16);
-    Ui.addButton(card, "Save copies", true, () -> reviewExport(this::savePreparedCopies));
-    Ui.gap(card, 8);
-    Ui.addButton(card, "Share copies", false, this::share);
-    root.addView(card);
+    Ui.gap(options, 16);
+    Button save =
+        Ui.addButton(
+            options,
+            "Save",
+            true,
+            () -> {
+              dialog.dismiss();
+              reviewExport(this::savePreparedCopies);
+            });
+    save.setContentDescription("Save selected copies");
+    save.setEnabled(unsaved);
+    Ui.gap(options, 8);
+    Button share =
+        Ui.addButton(
+            options,
+            "Share",
+            false,
+            () -> {
+              dialog.dismiss();
+              share();
+            });
+    share.setContentDescription("Share selected copies");
+    ScrollView choices = new ScrollView(this);
+    choices.addView(options);
+    dialog.setView(choices);
+    dialog.show();
   }
 
   void pick() {
@@ -767,7 +1004,13 @@ public class MainActivity extends Activity {
                   Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         } catch (SecurityException ignored) {
         }
-        session.save(data.getData());
+        if (folderItemIds != null) {
+          Session owner = session;
+          Uri tree = data.getData();
+          Set<String> chosen = new HashSet<>(folderItemIds);
+          owner.whenReady(() -> owner.save(tree, chosen));
+        }
+        folderItemIds = null;
       }
       return;
     }
@@ -777,7 +1020,11 @@ public class MainActivity extends Activity {
         for (int i = 0; i < data.getClipData().getItemCount(); i++)
           uris.add(data.getClipData().getItemAt(i).getUri());
       else if (data.getData() != null) uris.add(data.getData());
-      session.add(uris);
+      viewingResults = false;
+      pageChosen = true;
+      contentScrollY = 0;
+      Session owner = session;
+      owner.whenReady(() -> owner.add(uris));
     }
   }
 
@@ -826,14 +1073,29 @@ public class MainActivity extends Activity {
   }
 
   void savePreparedCopies() {
-    if (Build.VERSION.SDK_INT >= 29) session.save(null);
+    Set<String> ids = session.selectedIds();
+    if (ids.isEmpty()) return;
+    if (Build.VERSION.SDK_INT >= 29) session.save(null, ids);
     else {
+      folderItemIds = new ArrayList<>(ids);
       Intent folder = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+      folder.putExtra(
+          android.provider.DocumentsContract.EXTRA_INITIAL_URI,
+          android.provider.DocumentsContract.buildDocumentUri(
+              "com.android.externalstorage.documents", "primary:Pictures"));
       folder.addFlags(
           Intent.FLAG_GRANT_READ_URI_PERMISSION
               | Intent.FLAG_GRANT_WRITE_URI_PERMISSION
               | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-      startActivityForResult(folder, FOLDER);
+      try {
+        startActivityForResult(folder, FOLDER);
+      } catch (ActivityNotFoundException e) {
+        folderItemIds = null;
+        new AlertDialog.Builder(this)
+            .setMessage("No folder picker is available on this device.")
+            .setPositiveButton("OK", null)
+            .show();
+      }
     }
   }
 
@@ -844,7 +1106,7 @@ public class MainActivity extends Activity {
       int edge = Integer.parseInt(edgeDraft),
           quality = session.advanced ? Integer.parseInt(qualityDraft) : 85;
       for (PhotoItem p : session.items)
-        if (p.exportable()) {
+        if (p.exportable() && p.selectedForExport) {
           long target = p.requestTarget >= 0 ? p.requestTarget : session.preparedTarget;
           int limit = p.requestTarget >= 0 ? p.requestEdge : session.preparedEdge,
               maxQuality = p.requestTarget >= 0 ? p.requestQuality : session.preparedQuality;
@@ -876,25 +1138,29 @@ public class MainActivity extends Activity {
     reviewExport(this::sharePreparedCopies);
   }
 
+  Intent buildShareIntent() {
+    ArrayList<Uri> uris = new ArrayList<>();
+    for (PhotoItem p : session.items)
+      if (p.exportable() && p.selectedForExport)
+        uris.add(
+            FileProvider.getUriForFile(
+                this, BuildConfig.APPLICATION_ID + ".files", new File(p.output)));
+    if (uris.isEmpty()) return null;
+    Intent share = new Intent(uris.size() == 1 ? Intent.ACTION_SEND : Intent.ACTION_SEND_MULTIPLE);
+    share.setType("image/jpeg");
+    if (uris.size() == 1) share.putExtra(Intent.EXTRA_STREAM, uris.get(0));
+    else share.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+    ClipData clip = ClipData.newUri(getContentResolver(), "PhotoFeather copies", uris.get(0));
+    for (int i = 1; i < uris.size(); i++) clip.addItem(new ClipData.Item(uris.get(i)));
+    share.setClipData(clip);
+    share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+    return share;
+  }
+
   void sharePreparedCopies() {
     try {
-      ArrayList<Uri> uris = new ArrayList<>();
-      for (PhotoItem p : session.items)
-        if (p.exportable())
-          uris.add(
-              FileProvider.getUriForFile(
-                  this, BuildConfig.APPLICATION_ID + ".files", new File(p.output)));
-      if (uris.isEmpty()) return;
-      Intent share =
-          new Intent(uris.size() == 1 ? Intent.ACTION_SEND : Intent.ACTION_SEND_MULTIPLE);
-      share.setType("image/jpeg");
-      if (uris.size() == 1) share.putExtra(Intent.EXTRA_STREAM, uris.get(0));
-      else share.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
-      ClipData clip = ClipData.newUri(getContentResolver(), "PhotoFeather copies", uris.get(0));
-      for (int i = 1; i < uris.size(); i++) clip.addItem(new ClipData.Item(uris.get(i)));
-      share.setClipData(clip);
-      share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-      startActivity(Intent.createChooser(share, "Share JPEG copies"));
+      Intent share = buildShareIntent();
+      if (share != null) startActivity(Intent.createChooser(share, "Share JPEG copies"));
     } catch (Exception e) {
       new AlertDialog.Builder(this)
           .setMessage("These copies could not be shared. Preview again and retry.")

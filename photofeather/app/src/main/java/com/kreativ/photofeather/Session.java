@@ -36,6 +36,7 @@ final class Session {
   volatile long previewGeneration;
   volatile Runnable listener;
   private boolean restoring = true;
+  private boolean pendingRemoved;
 
   Session(Context context) {
     this.context = context.getApplicationContext();
@@ -51,6 +52,16 @@ final class Session {
           restoring = false;
           busy = false;
           notifyUi();
+        });
+  }
+
+  void whenReady(Runnable action) {
+    main.post(
+        new Runnable() {
+          public void run() {
+            if (busy) main.postDelayed(this, 100);
+            else action.run();
+          }
         });
   }
 
@@ -213,6 +224,48 @@ final class Session {
         });
   }
 
+  void remove(String id) {
+    if (!begin("Removing this working copy…")) return;
+    worker.execute(
+        () -> {
+          if (!recoverPending()) {
+            busy = false;
+            notifyUi();
+            return;
+          }
+          PhotoItem item = null;
+          for (PhotoItem p : items) if (p.id.equals(id)) item = p;
+          if (item == null) {
+            finish("");
+            return;
+          }
+          int index = items.indexOf(item);
+          items.remove(item);
+          if (!persist()) {
+            items.add(index, item);
+            busy = false;
+            message = "Could not update this session. Free storage and retry removing the photo.";
+            notifyUi();
+            return;
+          }
+          // Only unreferenced private imports are deleted. Recent shared outputs stay available.
+          prune();
+          finish(items.isEmpty() ? "" : "Photo removed. Originals and saved copies are untouched.");
+        });
+  }
+
+  Set<String> selectedIds() {
+    Set<String> ids = new HashSet<>();
+    for (PhotoItem p : items) if (p.exportable() && p.selectedForExport) ids.add(p.id);
+    return ids;
+  }
+
+  Set<String> retryIds() {
+    Set<String> ids = new HashSet<>();
+    for (PhotoItem p : items) if (p.needsRetry()) ids.add(p.id);
+    return ids;
+  }
+
   void add(List<Uri> uris) {
     if (!begin("Importing selected photos…")) return;
     worker.execute(
@@ -296,6 +349,14 @@ final class Session {
   }
 
   void process(CompressionOptions options) {
+    process(options, null);
+  }
+
+  void process(CompressionOptions options, Set<String> ids) {
+    List<PhotoItem> jobs = new ArrayList<>();
+    for (PhotoItem p : items)
+      if (!p.source.isEmpty() && (ids == null || ids.contains(p.id))) jobs.add(p);
+    if (jobs.isEmpty()) return;
     if (!begin("Preparing your copies…")) return;
     target = options.targetBytes == 0 ? target : options.targetBytes;
     resizeOnly = options.targetBytes == 0;
@@ -310,15 +371,14 @@ final class Session {
           preparedQuality = options.maxQuality;
           // Old outputs are the committed state. Never erase them to begin a replacement job.
           persist();
-          for (PhotoItem p : items) {
-            if (p.source.isEmpty()) continue;
+          for (PhotoItem p : jobs) {
             if (cancelled) break;
             boolean previous = p.hasOutput();
             if (!previous) {
               p.status = "Processing";
               p.error = "";
             }
-            message = "Processing " + (++done) + " of " + items.size() + " · " + p.name;
+            message = "Processing " + (++done) + " of " + jobs.size() + " · " + p.name;
             persist();
             notifyUi();
             try {
@@ -369,11 +429,8 @@ final class Session {
                           : "Ready";
               if (!result.targetReached)
                 p.error =
-                    "The final measured attempt is "
-                        + p.after
-                        + " bytes. This target was not reached within the allowed quality,"
-                        + " resolution and bounded search. This copy cannot be exported; raise the"
-                        + " target or choose Resize only.";
+                    "This attempt cannot be exported. Increase the target or choose Resize only. "
+                        + "The search stopped within the allowed quality and resolution limits.";
               else if (!result.smaller)
                 p.error =
                     p.after == p.before
@@ -407,7 +464,7 @@ final class Session {
             notifyUi();
           }
           if (cancelled)
-            for (PhotoItem p : items)
+            for (PhotoItem p : jobs)
               if (!p.source.isEmpty()
                   && !p.hasOutput()
                   && (p.status.equals("Selected") || p.status.equals("Processing"))) {
@@ -446,13 +503,16 @@ final class Session {
 
   private boolean clearPending() {
     String uri = pending, id = pendingItemId, hash = pendingDigest;
+    boolean removed = pendingRemoved;
     pending = "";
     pendingItemId = "";
     pendingDigest = "";
+    pendingRemoved = false;
     if (persist()) return true;
     pending = uri;
     pendingItemId = id;
     pendingDigest = hash;
+    pendingRemoved = removed;
     return false;
   }
 
@@ -497,7 +557,9 @@ final class Session {
       }
     }
     ExportManager.Recovery recovery =
-        ExportManager.recover(context, Uri.parse(pending), pendingDigest);
+        pendingRemoved
+            ? ExportManager.Recovery.REMOVED
+            : ExportManager.recover(context, Uri.parse(pending), pendingDigest);
     if (recovery == ExportManager.Recovery.RETAINED) {
       message =
           "An earlier export could not be verified. Its destination has been kept. Check access or"
@@ -517,9 +579,9 @@ final class Session {
       message =
           recovery == ExportManager.Recovery.SAVED
               ? "A verified saved copy has been kept, but recovery state could not be updated. Free"
-                    + " storage and retry."
+                  + " storage and retry."
               : "The incomplete export was removed, but recovery state could not be updated. No new"
-                    + " copy was saved. Free storage and retry.";
+                  + " copy was saved. Free storage and retry.";
       return false;
     }
     if (recovery == ExportManager.Recovery.SAVED)
@@ -528,6 +590,11 @@ final class Session {
   }
 
   void save(Uri tree) {
+    save(tree, null);
+  }
+
+  void save(Uri tree, Set<String> ids) {
+    Set<String> chosen = ids == null ? null : new HashSet<>(ids);
     if (!begin("Saving new copies…")) return;
     worker.execute(
         () -> {
@@ -538,7 +605,9 @@ final class Session {
           }
           int saved = 0, failed = 0;
           for (PhotoItem p : items) {
-            if (!p.exportable() || !p.savedUri.isEmpty()) continue;
+            if (!p.exportable()
+                || !p.savedUri.isEmpty()
+                || (chosen != null && !chosen.contains(p.id))) continue;
             if (cancelled) break;
             message = "Saving · " + p.name;
             notifyUi();
@@ -549,11 +618,24 @@ final class Session {
                       p,
                       tree,
                       this::check,
-                      newUri -> {
-                        pending = newUri.toString();
-                        pendingItemId = p.id;
-                        pendingDigest = ExportManager.fingerprint(new File(p.output), this::check);
-                        if (!persist()) throw new IOException("Export journal failed.");
+                      new ExportManager.Journal() {
+                        public void pending(Uri newUri) throws IOException {
+                          pendingRemoved = false;
+                          pending = newUri.toString();
+                          pendingItemId = p.id;
+                          pendingDigest =
+                              ExportManager.fingerprint(new File(p.output), Session.this::check);
+                          if (!persist()) throw new IOException("Export journal failed.");
+                        }
+
+                        public void removed(Uri removed) {
+                          // Rollback confirmed deletion. Do not leave an unverifiable stale record
+                          // blocking later saves on providers that throw for deleted documents.
+                          if (pending.equals(removed.toString())) {
+                            pendingRemoved = true;
+                            clearPending();
+                          }
+                        }
                       });
               p.savedUri = uri.toString();
               p.saveError = "";

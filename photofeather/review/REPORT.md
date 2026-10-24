@@ -1,5 +1,7 @@
 # PhotoFeather MVP — October 22, 2026
 
+> **Latest work — 1.0.0:** The top four free-version improvements are implemented. See [1.0.0 validation and release limitations](release-1.0.0/REPORT.md). The 0.1.x history below is retained as historical evidence.
+
 > **Current status — 0.1.1:** All four follow-up audit bugs are fixed. **59 tests pass**, both modules pass lint, and the updated debug APK has been installed with the existing session preserved. See [fix details, screenshots and validation](FIXES.md). The initial MVP history below is retained for context.
 
 Built as the separate `photofeather/` Android Studio/Gradle project. Java 17/native Android views follow the existing workspace conventions. Existing apps and their local changes were left untouched. No store publication, listing, backend, billing or paid-service commitment was made.

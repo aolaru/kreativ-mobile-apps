@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kreativ.imageengine.PolicyTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-10-22T12:04:05" hostname="Andreis-MacBook-Air.local" time="0.007">
+  <properties/>
+  <testcase name="trailingMetadataIsRejected" classname="com.kreativ.imageengine.PolicyTest" time="0.001"/>
+  <testcase name="boundedEdgesFinishAtMinimum" classname="com.kreativ.imageengine.PolicyTest" time="0.001"/>
+  <testcase name="rejectsInvalidOptions" classname="com.kreativ.imageengine.PolicyTest" time="0.0"/>
+  <testcase name="portraitAspectRatio" classname="com.kreativ.imageengine.PolicyTest" time="0.001"/>
+  <testcase name="memoryBoundHandlesHugeDimensions" classname="com.kreativ.imageengine.PolicyTest" time="0.0"/>
+  <testcase name="neverUpscales" classname="com.kreativ.imageengine.PolicyTest" time="0.0"/>
+  <testcase name="exactDecimalUnits" classname="com.kreativ.imageengine.PolicyTest" time="0.0"/>
+  <testcase name="rejectsInvalidCustomSizes" classname="com.kreativ.imageengine.PolicyTest" time="0.0"/>
+  <testcase name="metadataSegmentsStrippedAndVerified" classname="com.kreativ.imageengine.PolicyTest" time="0.001"/>
+  <testcase name="landscapeAspectRatio" classname="com.kreativ.imageengine.PolicyTest" time="0.0"/>
+  <testcase name="narrowImagesRetainAtLeastOnePixel" classname="com.kreativ.imageengine.PolicyTest" time="0.0"/>
+  <testcase name="corruptJpegIsRejected" classname="com.kreativ.imageengine.PolicyTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

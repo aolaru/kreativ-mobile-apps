@@ -1,0 +1,4 @@
+Updated .debug from 0.1.1/code 2 to 1.0.0/code 3 without clearing data.
+Selected photo IDs preserved: true
+Private imported source bytes unchanged: true
+Selected photos: 2

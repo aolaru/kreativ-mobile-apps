@@ -1,0 +1,7 @@
+Starting: Intent { cmp=com.kreativ.photofeather.debug/com.kreativ.photofeather.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: com.kreativ.photofeather.debug/com.kreativ.photofeather.MainActivity
+TotalTime: 816
+WaitTime: 826
+Complete

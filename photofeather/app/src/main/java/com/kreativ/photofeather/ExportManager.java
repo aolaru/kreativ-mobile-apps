@@ -12,6 +12,8 @@ import java.security.*;
 final class ExportManager {
   interface Journal {
     void pending(Uri uri) throws IOException;
+
+    default void removed(Uri uri) {}
   }
 
   static Uri save(
@@ -81,7 +83,7 @@ final class ExportManager {
       }
       return destination;
     } catch (IOException | RuntimeException e) {
-      if (destination != null) rollback(context, destination);
+      if (destination != null && rollback(context, destination)) journal.removed(destination);
       throw e;
     }
   }

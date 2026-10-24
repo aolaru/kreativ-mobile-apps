@@ -46,10 +46,12 @@ public class WorkflowTest {
   @After
   public void cleanup() throws Exception {
     idle();
+    session.recoverPending();
     for (Uri uri : saved) ExportManager.rollback(context, uri);
   }
 
   void idle() throws Exception {
+    InstrumentationRegistry.getInstrumentation().waitForIdleSync();
     long end = System.currentTimeMillis() + 60000;
     while (session.busy && System.currentTimeMillis() < end) Thread.sleep(30);
     assertFalse("Worker timed out: " + session.message, session.busy);
@@ -109,6 +111,13 @@ public class WorkflowTest {
     session.add(Collections.singletonList(uri(fixture("mountain-test.jpg", 2400, 1800))));
     idle();
     assertEquals(1, session.items.size());
+  }
+
+  Uri saveTree() {
+    return android.os.Build.VERSION.SDK_INT >= 29
+        ? null
+        : android.provider.DocumentsContract.buildTreeDocumentUri(
+            context.getPackageName() + ".testdocuments", "root");
   }
 
   void process() throws Exception {
@@ -174,7 +183,7 @@ public class WorkflowTest {
     Files.write(missing.toPath(), new byte[] {1, 2, 3});
     bad.after = 3;
     session.items.add(bad);
-    session.save(null);
+    session.save(saveTree());
     idle();
     assertFalse(good.savedUri.isEmpty());
     saved.add(Uri.parse(good.savedUri));
@@ -318,7 +327,8 @@ public class WorkflowTest {
     PhotoItem p = session.items.get(0);
     final boolean[] created = {false};
     try {
-      ExportManager.save(context, p, null, () -> {}, uri -> created[0] = true, directory -> 0);
+      ExportManager.save(
+          context, p, saveTree(), () -> {}, uri -> created[0] = true, directory -> 0);
       fail();
     } catch (IOException e) {
       assertTrue(e.getMessage().contains("Low storage"));
@@ -338,7 +348,7 @@ public class WorkflowTest {
       ExportManager.save(
           context,
           p,
-          null,
+          saveTree(),
           () -> {
             if (++checks[0] >= 3) throw new java.util.concurrent.CancellationException();
           },
@@ -360,7 +370,7 @@ public class WorkflowTest {
     importOne();
     process();
     PhotoItem p = session.items.get(0);
-    Uri destination = ExportManager.save(context, p, null, () -> {}, uri -> {});
+    Uri destination = ExportManager.save(context, p, saveTree(), () -> {}, uri -> {});
     saved.add(destination);
     session.pending = destination.toString();
     session.persist();
@@ -428,6 +438,7 @@ public class WorkflowTest {
     process();
     try (ActivityScenario<LargeTextActivity> large =
         ActivityScenario.launch(LargeTextActivity.class)) {
+      large.onActivity(a -> a.showPage(false));
       Thread.sleep(250);
       screen("09-large-text");
       large.onActivity(
@@ -501,6 +512,7 @@ public class WorkflowTest {
       screen("02-selected");
       scenario.onActivity(
           a -> {
+            a.showPage(false);
             ArrayList<View> found = new ArrayList<>();
             a.getWindow()
                 .getDecorView()
@@ -515,6 +527,7 @@ public class WorkflowTest {
       screen("03-settings");
       scenario.onActivity(
           a -> {
+            a.showPage(true);
             ArrayList<View> found = new ArrayList<>();
             a.getWindow()
                 .getDecorView()

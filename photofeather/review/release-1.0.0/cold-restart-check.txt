@@ -1,0 +1,11 @@
+Real force-stop and cold launch after upgrade: passed
+Selected photo IDs retained: true
+Prepared JPEG bytes retained unchanged: true
+Prepared outputs checked: 1
+Starting: Intent { cmp=com.kreativ.photofeather.debug/com.kreativ.photofeather.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: com.kreativ.photofeather.debug/com.kreativ.photofeather.MainActivity
+TotalTime: 551
+WaitTime: 568
+Complete

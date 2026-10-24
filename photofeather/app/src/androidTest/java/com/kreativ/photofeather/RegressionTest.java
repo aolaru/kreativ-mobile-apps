@@ -96,7 +96,7 @@ public class RegressionTest {
     field.set(session, fault);
     Uri savedUri = null;
     try {
-      session.save(null);
+      session.save(helper.saveTree());
       idle();
       PhotoItem p = session.items.get(0);
       assertFalse(p.savedUri.isEmpty());
@@ -137,7 +137,7 @@ public class RegressionTest {
     field.setAccessible(true);
     field.set(session, failing);
     try {
-      session.save(null);
+      session.save(helper.saveTree());
       idle();
       assertTrue(session.items.get(0).savedUri.isEmpty());
       assertTrue(session.items.get(0).exportable());
@@ -150,6 +150,7 @@ public class RegressionTest {
   }
 
   @Test
+  @androidx.test.filters.SdkSuppress(minSdkVersion = 29)
   public void incompletePendingGalleryCopyIsRemoved() throws Exception {
     prepare();
     PhotoItem p = session.items.get(0);
@@ -245,7 +246,7 @@ public class RegressionTest {
   @Test
   public void failedRetryKeepsSavedStatusAndPreviousPreview() throws Exception {
     prepare();
-    session.save(null);
+    session.save(helper.saveTree());
     idle();
     PhotoItem p = session.items.get(0);
     helper.saved.add(Uri.parse(p.savedUri));
@@ -285,9 +286,11 @@ public class RegressionTest {
     prepare();
     final int[] positions = new int[2];
     try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
+      scenario.onActivity(a -> a.showPage(false));
+      Thread.sleep(250);
       scenario.onActivity(
           a -> {
-            scroll(a.getWindow().getDecorView()).scrollTo(0, 1000);
+            scroll(a.getWindow().getDecorView()).scrollTo(0, 250);
             positions[0] = scroll(a.getWindow().getDecorView()).getScrollY();
             helper.click(a, "Advanced JPEG quality");
           });

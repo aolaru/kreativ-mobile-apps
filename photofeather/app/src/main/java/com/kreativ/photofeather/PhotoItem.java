@@ -15,7 +15,7 @@ final class PhotoItem {
   volatile long before, after, requestTarget = -1;
   volatile int requestEdge, requestQuality;
   volatile int ow, oh, w, h, orientation = 1, quality, attempts;
-  volatile boolean alpha, allowLarger;
+  volatile boolean alpha, allowLarger, selectedForExport = true;
 
   PhotoItem(String id, String name) {
     this.id = id;
@@ -30,6 +30,15 @@ final class PhotoItem {
     return hasOutput()
         && (status.equals("Ready")
             || ((status.equals("Larger copy") || status.equals("Same size")) && allowLarger));
+  }
+
+  boolean needsRetry() {
+    return !source.isEmpty()
+        && (status.equals("Failed")
+            || status.equals("Cancelled")
+            || status.equals("Interrupted")
+            || status.equals("Target not reached")
+            || (exportable() && !error.isEmpty()));
   }
 
   JSONObject json() throws JSONException {
@@ -55,7 +64,8 @@ final class PhotoItem {
         .put("quality", quality)
         .put("attempts", attempts)
         .put("alpha", alpha)
-        .put("allowLarger", allowLarger);
+        .put("allowLarger", allowLarger)
+        .put("selectedForExport", selectedForExport);
   }
 
   static PhotoItem read(JSONObject j) {
@@ -80,6 +90,7 @@ final class PhotoItem {
     p.attempts = j.optInt("attempts");
     p.alpha = j.optBoolean("alpha");
     p.allowLarger = j.optBoolean("allowLarger");
+    p.selectedForExport = j.optBoolean("selectedForExport", true);
     return p;
   }
 }
