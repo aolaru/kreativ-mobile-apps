@@ -1,6 +1,6 @@
 # PhotoFeather
 
-**Lighter photos. Ready to share.** A native Android app by Made by Kreativ that compresses and resizes photos on-device. The name is provisional; working Play title: **PhotoFeather: Photo Compressor**. No store submission has been made. Version **1.0.0** (build 4) adds free resize presets and live dimension previews alongside the release improvements: clear failed-target results, separate Settings/Results views, fixed primary actions and per-photo controls. See [latest resize validation](review/resize-presets/REPORT.md) and [1.0.0 release limitations](review/release-1.0.0/REPORT.md).
+**Lighter photos. Ready to share.** A native Android app by Made by Kreativ that compresses and resizes photos on-device. Play title: **PhotoFeather: Photo Compressor**. The owner has chosen the name. Play accepted the signed `com.kreativ.photofeather` bundle on 24 October 2026; the store listing and internal release are drafts. No release has been activated or sent for production review. Version **1.0.0** (build 4) adds free resize presets and live dimension previews alongside the release improvements: clear failed-target results, separate Settings/Results views, fixed primary actions and per-photo controls. See [latest resize validation](review/resize-presets/REPORT.md), [signed build and listing preparation](docs/PLAY_RELEASE.md) and [1.0.0 release limitations](review/release-1.0.0/REPORT.md).
 
 ## Run
 
@@ -41,6 +41,8 @@ Decoding is bounded to eight megapixels; large inputs may be reduced. Compressio
 Originals are never written or deleted. Fresh JPEGs have all APP/comment metadata segments stripped and verified before export; this does not anonymise photos or hide visible sensitive details. Working files are private and excluded from backups. Clear session removes imports; unused exports older than 24 hours are cleaned on a later launch. Completed previews recover after process death; interrupted jobs require a retry. Codec/provider calls finish before cancellation can take effect.
 
 There is **no backend, internet permission, billing, ads or analytics SDK**. The system picker may retrieve a cloud-provider image at the user's request.
+
+The full offline privacy policy is available from **About → Privacy policy**. A matching HTML page is prepared in `store-assets/play/privacy-policy.html`; it is not deployed. Play listing copy, graphics and sourced screenshots are in `store-assets/play/`.
 
 ## Tests and handoff
 

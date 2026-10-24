@@ -1,0 +1,23 @@
+Signer #1:
+
+Certificate #1:
+Owner: CN=PhotoFeather Upload, O=Made by Kreativ
+Issuer: CN=PhotoFeather Upload, O=Made by Kreativ
+Serial number: f9b85dac6154a2c8
+Valid from: Sat Oct 24 18:07:08 EEST 2026 until: Wed Mar 11 17:07:08 EET 2054
+Certificate fingerprints:
+	 SHA1: 23:BA:BF:36:94:6B:AC:72:81:EC:F9:35:39:C0:0E:C9:06:74:DD:C1
+	 SHA256: B6:36:58:52:94:DF:AC:5C:44:3F:64:1F:BB:5F:CB:49:A0:74:5A:AA:24:C4:C5:72:74:0B:9C:85:E0:49:25:C1
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 4096-bit RSA key
+Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 2E B5 6D 26 3E 44 2E 7F   A3 A3 1D 75 07 1E 71 65  ..m&>D.....u..qe
+0010: 2B E2 5A C2                                        +.Z.
+]
+]

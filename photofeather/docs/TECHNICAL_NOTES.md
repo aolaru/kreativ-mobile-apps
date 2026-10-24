@@ -1,6 +1,6 @@
 # PhotoFeather — technical notes
 
-**Lighter photos. Ready to share.** A separate, native Android app by Made by Kreativ. Working Play title: **PhotoFeather: Photo Compressor** (30 characters). Version 1.0.0 / build 4; the name and package are provisional. Nothing has been published.
+**Lighter photos. Ready to share.** A separate, native Android app by Made by Kreativ. Play title: **PhotoFeather: Photo Compressor** (30 characters). Version 1.0.0 / build 4; the owner has chosen the name and Play's explicit availability check passed for `com.kreativ.photofeather` on 24 October 2026. The signed bundle has now been accepted into an internal release draft; nothing has been published or sent for production review. See [Play release preparation](PLAY_RELEASE.md) for signed artifacts, listing materials and the current approval boundary.
 
 ## Build and run
 

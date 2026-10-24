@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kreativ.imageengine.ResizePreviewTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-24T15:10:50" hostname="MacBookAir" time="0.003">
+  <properties/>
+  <testcase name="presetsGiveExpectedLandscapeDimensions" classname="com.kreativ.imageengine.ResizePreviewTest" time="0.001"/>
+  <testcase name="smallerPhotosAreNeverEnlarged" classname="com.kreativ.imageengine.ResizePreviewTest" time="0.0"/>
+  <testcase name="invalidCustomValuesNeverBecomeDimensions" classname="com.kreativ.imageengine.ResizePreviewTest" time="0.001"/>
+  <testcase name="pathologicalAspectRatiosStayBoundedAndNonzero" classname="com.kreativ.imageengine.ResizePreviewTest" time="0.0"/>
+  <testcase name="previewIncludesSafeDecodeLimitInsteadOfPromisingUnreachableDimensions" classname="com.kreativ.imageengine.ResizePreviewTest" time="0.001"/>
+  <testcase name="presetsGiveExpectedPortraitDimensions" classname="com.kreativ.imageengine.ResizePreviewTest" time="0.0"/>
+  <testcase name="oddSampledDimensionsBoundBothDecoderRoundingDirections" classname="com.kreativ.imageengine.ResizePreviewTest" time="0.0"/>
+  <testcase name="customBoundsAcceptWholePixels" classname="com.kreativ.imageengine.ResizePreviewTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

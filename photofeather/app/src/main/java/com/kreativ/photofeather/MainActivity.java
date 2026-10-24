@@ -1356,8 +1356,19 @@ public class MainActivity extends Activity {
                 + "Working copies are kept privately to recover your session. Clear session removes"
                 + " imported copies. Unused export files older than 24 hours are cleaned on a later"
                 + " launch.\n\n"
-                + "The name is provisional. No billing or paid features are included.")
+                + "No billing or paid features are included.")
+        .setNeutralButton("Privacy policy", (dialog, which) -> privacyPolicy())
         .setPositiveButton("Done", null)
         .show();
+  }
+
+  void privacyPolicy() {
+    try (Scanner policy = new Scanner(getResources().openRawResource(R.raw.privacy_policy), "UTF-8")) {
+      new AlertDialog.Builder(this)
+          .setTitle("Privacy policy")
+          .setMessage(policy.useDelimiter("\\A").next())
+          .setPositiveButton("Done", null)
+          .show();
+    }
   }
 }

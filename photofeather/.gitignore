@@ -7,5 +7,7 @@ local.properties
 # Signing material stays outside version control.
 *.jks
 *.keystore
+*.p12
+*.pfx
 release-signing.properties
 .DS_Store

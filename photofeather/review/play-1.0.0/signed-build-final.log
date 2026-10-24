@@ -1,0 +1,157 @@
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:generateReleaseResValues UP-TO-DATE
+> Task :image-engine:preBuild UP-TO-DATE
+> Task :image-engine:preReleaseBuild UP-TO-DATE
+> Task :image-engine:generateReleaseResValues UP-TO-DATE
+> Task :image-engine:generateReleaseResources UP-TO-DATE
+> Task :image-engine:packageReleaseResources UP-TO-DATE
+> Task :app:mapReleaseSourceSetPaths UP-TO-DATE
+> Task :app:generateReleaseResources UP-TO-DATE
+> Task :app:mergeReleaseResources UP-TO-DATE
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease UP-TO-DATE
+> Task :image-engine:extractDeepLinksRelease UP-TO-DATE
+> Task :image-engine:processReleaseManifest UP-TO-DATE
+> Task :app:processReleaseMainManifest
+> Task :app:processReleaseManifest
+> Task :app:processApplicationManifestReleaseForBundle UP-TO-DATE
+> Task :image-engine:writeReleaseAarMetadata UP-TO-DATE
+> Task :app:checkReleaseAarMetadata UP-TO-DATE
+> Task :app:packageReleaseResources UP-TO-DATE
+> Task :app:parseReleaseLocalResources UP-TO-DATE
+> Task :image-engine:compileReleaseLibraryResources UP-TO-DATE
+> Task :image-engine:parseReleaseLocalResources UP-TO-DATE
+> Task :image-engine:generateReleaseRFile UP-TO-DATE
+> Task :app:extractReleaseVersionControlInfo UP-TO-DATE
+> Task :image-engine:javaPreCompileRelease UP-TO-DATE
+> Task :image-engine:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :image-engine:bundleLibRuntimeToDirRelease UP-TO-DATE
+> Task :app:processReleaseManifestForPackage
+> Task :app:checkReleaseDuplicateClasses UP-TO-DATE
+> Task :app:generateReleaseBuildConfig
+> Task :app:javaPreCompileRelease UP-TO-DATE
+> Task :image-engine:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :app:desugarReleaseFileDependencies UP-TO-DATE
+> Task :app:mergeReleaseStartupProfile UP-TO-DATE
+> Task :app:mergeExtDexRelease UP-TO-DATE
+> Task :app:mergeReleaseShaders UP-TO-DATE
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :image-engine:mergeReleaseShaders UP-TO-DATE
+> Task :image-engine:compileReleaseShaders NO-SOURCE
+> Task :image-engine:generateReleaseAssets UP-TO-DATE
+> Task :image-engine:packageReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets UP-TO-DATE
+> Task :image-engine:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :image-engine:processReleaseJavaRes NO-SOURCE
+> Task :app:mergeReleaseJavaResource UP-TO-DATE
+> Task :app:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :image-engine:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :image-engine:mergeReleaseNativeLibs NO-SOURCE
+> Task :image-engine:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:stripReleaseDebugSymbols NO-SOURCE
+> Task :app:writeReleaseAppMetadata UP-TO-DATE
+> Task :image-engine:prepareReleaseArtProfile UP-TO-DATE
+> Task :app:mergeReleaseArtProfile UP-TO-DATE
+> Task :app:collectReleaseDependencies UP-TO-DATE
+> Task :app:configureReleaseDependencies UP-TO-DATE
+> Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+> Task :app:parseReleaseIntegrityConfig UP-TO-DATE
+> Task :app:validateSigningRelease UP-TO-DATE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :image-engine:createFullJarRelease UP-TO-DATE
+> Task :image-engine:extractProguardFiles UP-TO-DATE
+> Task :image-engine:generateReleaseLintModel UP-TO-DATE
+> Task :image-engine:prepareLintJarForPublish UP-TO-DATE
+> Task :image-engine:stripReleaseDebugSymbols NO-SOURCE
+> Task :image-engine:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :image-engine:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :image-engine:extractReleaseAnnotations UP-TO-DATE
+> Task :image-engine:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :image-engine:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :image-engine:mergeReleaseJavaResource UP-TO-DATE
+> Task :image-engine:syncReleaseLibJars UP-TO-DATE
+> Task :image-engine:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :image-engine:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :image-engine:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :image-engine:generateReleaseLintVitalModel UP-TO-DATE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :app:compressReleaseAssets UP-TO-DATE
+> Task :app:sdkReleaseDependencyData UP-TO-DATE
+> Task :app:writeReleaseSigningConfigVersions UP-TO-DATE
+> Task :app:preReleaseUnitTestBuild UP-TO-DATE
+> Task :image-engine:lintAnalyzeRelease UP-TO-DATE
+> Task :image-engine:preReleaseUnitTestBuild UP-TO-DATE
+> Task :image-engine:generateReleaseUnitTestLintModel UP-TO-DATE
+> Task :image-engine:lintAnalyzeReleaseUnitTest UP-TO-DATE
+> Task :image-engine:generateReleaseLintReportModel UP-TO-DATE
+> Task :image-engine:lintReportRelease UP-TO-DATE
+> Task :image-engine:lintRelease
+> Task :app:processReleaseResources
+> Task :app:bundleReleaseResources UP-TO-DATE
+
+> Task :app:compileReleaseJavaWithJavac
+Note: /Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility apps/photofeather/app/src/main/java/com/kreativ/photofeather/MainActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:dexBuilderRelease
+> Task :app:mergeReleaseGlobalSynthetics UP-TO-DATE
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:generateReleaseLintReportModel
+> Task :app:optimizeReleaseResources
+> Task :app:bundleReleaseClassesToCompileJar
+> Task :app:generateReleaseUnitTestLintModel
+> Task :app:lintAnalyzeReleaseUnitTest
+> Task :app:mergeDexRelease
+> Task :app:buildReleasePreBundle UP-TO-DATE
+> Task :app:compileReleaseArtProfile
+> Task :app:packageReleaseBundle UP-TO-DATE
+> Task :app:signReleaseBundle UP-TO-DATE
+> Task :app:produceReleaseBundleIdeListingFile UP-TO-DATE
+> Task :app:createReleaseBundleListingFileRedirect UP-TO-DATE
+> Task :app:bundleRelease UP-TO-DATE
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease SKIPPED
+> Task :app:lintVitalRelease SKIPPED
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect
+> Task :app:assembleRelease
+> Task :app:lintAnalyzeRelease
+
+> Task :app:lintReportRelease
+Wrote HTML report to file:///Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility%20apps/photofeather/app/build/reports/lint-results-release.html
+
+> Task :app:lintRelease
+
+BUILD SUCCESSFUL in 10s
+98 actionable tasks: 23 executed, 75 up-to-date
+
+jar verified.
+
+Warning:
+This jar contains entries whose certificate chain is invalid. Reason: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+This jar contains entries whose signer certificate is self-signed.
+This jar contains signatures that do not include a timestamp. Without a timestamp, users may not be able to validate this jar after any of the signer certificates expire (as early as 2054-03-11).
+POSIX file permission and/or symlink attributes detected. These attributes are ignored when signing and are not protected by the signature.
+
+Re-run with the -verbose and -certs options for more details.
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=PhotoFeather Upload, O=Made by Kreativ
+Signer #1 certificate SHA-256 digest: b636585294dfac5c443f641fbb5fcb49a0745aaa24c4c572740b9c85e04925c1
+Signer #1 certificate SHA-1 digest: 23babf36946bac7281ecf93539c00ec90674ddc1
+Signer #1 certificate MD5 digest: 3cdb9b85205e5fcec936081d73d13142
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 4096
+Signer #1 public key SHA-256 digest: 7ef76a2b8dfc88dcd16899820a013c8395b369f71d0f702642c626972428ad93
+Signer #1 public key SHA-1 digest: 15f98a4e3800ebd2bf7dbc77b86ab542cc0c0022
+Signer #1 public key MD5 digest: e9f8f4cbb6e1fc770789135b16f955bd

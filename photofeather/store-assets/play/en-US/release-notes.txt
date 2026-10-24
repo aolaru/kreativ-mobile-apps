@@ -1,0 +1,6 @@
+PhotoFeather 1.0.0
+• Compress photos toward 200 KB, 500 KB, 1 MB or a custom maximum.
+• Resize with Small, Medium, Large and custom longest-edge options.
+• Preview measured sizes, final dimensions and before-and-after comparisons.
+• Save new JPEG copies or share selected results.
+• Process photos on-device, with no ads, accounts or purchases.

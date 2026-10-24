@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500">
+  <rect width="1024" height="500" fill="#E3EEE7"/>
+  <circle cx="1007" cy="23" r="210" fill="#D5E6DA"/>
+  <circle cx="1020" cy="515" r="190" fill="#CCDED3"/>
+  <g font-family="Arial, sans-serif" fill="#193D38">
+    <text x="72" y="119" font-size="25" font-weight="600">PhotoFeather</text>
+    <text x="72" y="207" font-size="51" font-weight="700">Lighter photos.</text>
+    <text x="72" y="271" font-size="51" font-weight="700">Ready to share.</text>
+    <text x="74" y="340" font-size="22" fill="#526B65">Compress. Resize. On your device.</text>
+    <text x="74" y="410" font-size="17" fill="#526B65">Made by Kreativ</text>
+  </g>
+  <g transform="translate(645 100) rotate(8 118 142)">
+    <rect width="235" height="285" rx="20" fill="#B7CCBE"/>
+  </g>
+  <g transform="translate(618 85)">
+    <rect width="235" height="285" rx="20" fill="#fff"/>
+    <rect x="16" y="16" width="203" height="205" rx="10" fill="#E3EEE7"/>
+    <circle cx="169" cy="66" r="23" fill="#C9B979"/>
+    <path d="M16 171L78 97L154 186L193 142L219 174V211Q219 221 209 221H26Q16 221 16 211Z" fill="#7EA18D"/>
+    <path d="M16 199L80 158L146 210L187 178L219 201V211Q219 221 209 221H26Q16 221 16 211Z" fill="#226B5A"/>
+    <rect x="16" y="242" width="93" height="10" rx="5" fill="#D7E2DB"/>
+    <rect x="16" y="260" width="64" height="7" rx="3.5" fill="#E3EEE7"/>
+  </g>
+  <g transform="translate(803 293)">
+    <circle cx="36" cy="36" r="47" fill="#226B5A"/>
+    <g transform="translate(-1 -1) scale(.7)">
+      <path fill="#fff" d="M72 26C51 24 35 36 37 56L47 67C67 65 78 46 72 26Z"/>
+      <path fill="none" stroke="#226B5A" stroke-width="2.5" stroke-linecap="round" d="M33 76L64 36M48 56V43M55 47H67M41 64H54"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+{
+  "package": "com.kreativ.photofeather",
+  "uploadSha256": "B6:36:58:52:94:DF:AC:5C:44:3F:64:1F:BB:5F:CB:49:A0:74:5A:AA:24:C4:C5:72:74:0B:9C:85:E0:49:25:C1",
+  "uploadFingerprintSource": "Local signed AAB and APK certificate; this bundle was accepted by Play",
+  "consoleUploadFingerprintIndependentlyCompared": false,
+  "appSigningSha256": "92:4B:DC:D4:65:0B:9A:AC:92:77:28:4F:40:AB:50:69:6D:7B:5F:AC:C8:16:E6:D9:D0:93:4B:1B:D6:6D:F9:83",
+  "appSigningFingerprintSource": "Console Digital Asset Links snippet",
+  "checkedAt": "2026-10-24",
+  "consoleAppId": "4975471320992261227"
+}

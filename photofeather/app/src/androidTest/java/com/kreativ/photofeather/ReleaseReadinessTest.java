@@ -65,7 +65,13 @@ public class ReleaseReadinessTest {
     helper.idle();
     assertEquals("Target not reached", session.items.get(0).status);
     try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
-      Thread.sleep(250);
+      assertTrue(
+          "The failed-target result must become visible",
+          androidx.test.uiautomator.UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+              .wait(
+                  androidx.test.uiautomator.Until.hasObject(
+                      androidx.test.uiautomator.By.text("Target not reached")),
+                  5000));
       scenario.onActivity(
           a -> {
             assertTrue(a.viewingResults);

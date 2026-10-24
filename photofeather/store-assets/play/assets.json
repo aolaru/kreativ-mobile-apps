@@ -1,0 +1,120 @@
+{
+  "icon": "White feather on a green background.",
+  "featureGraphic": "PhotoFeather: Lighter photos. Ready to share. Compress and resize on your device.",
+  "screenshots": [
+    {
+      "file": "screenshots/01-select-photos.png",
+      "source": "review/release-1.0.0/screenshots/01-home.png",
+      "crop": {
+        "left": 0,
+        "top": 90,
+        "width": 1080,
+        "height": 2110
+      },
+      "padding": {
+        "left": 54,
+        "right": 54,
+        "top": 1,
+        "bottom": 1
+      },
+      "width": 1188,
+      "height": 2112,
+      "alt": "Select photos with on-device processing and no account."
+    },
+    {
+      "file": "screenshots/02-resize-presets.png",
+      "source": "review/resize-presets/screenshots/resize-01-presets.png",
+      "crop": {
+        "left": 0,
+        "top": 90,
+        "width": 1080,
+        "height": 2110
+      },
+      "padding": {
+        "left": 54,
+        "right": 54,
+        "top": 1,
+        "bottom": 1
+      },
+      "width": 1188,
+      "height": 2112,
+      "alt": "Small, Medium, Large and Custom resize presets with planned dimensions."
+    },
+    {
+      "file": "screenshots/03-custom-resize.png",
+      "source": "review/resize-presets/screenshots/resize-02-custom.png",
+      "crop": {
+        "left": 0,
+        "top": 90,
+        "width": 1080,
+        "height": 2110
+      },
+      "padding": {
+        "left": 54,
+        "right": 54,
+        "top": 1,
+        "bottom": 1
+      },
+      "width": 1188,
+      "height": 2112,
+      "alt": "Custom longest-edge resize with live per-photo dimensions."
+    },
+    {
+      "file": "screenshots/04-measured-results.png",
+      "source": "review/resize-presets/screenshots/resize-04-measured-result.png",
+      "crop": {
+        "left": 0,
+        "top": 90,
+        "width": 1080,
+        "height": 2110
+      },
+      "padding": {
+        "left": 54,
+        "right": 54,
+        "top": 1,
+        "bottom": 1
+      },
+      "width": 1188,
+      "height": 2112,
+      "alt": "Measured JPEG size and output dimensions after processing."
+    },
+    {
+      "file": "screenshots/05-compare-photos.png",
+      "source": "review/release-1.0.0/screenshots/06-comparison-original.png",
+      "crop": {
+        "left": 0,
+        "top": 90,
+        "width": 1080,
+        "height": 2110
+      },
+      "padding": {
+        "left": 54,
+        "right": 54,
+        "top": 1,
+        "bottom": 1
+      },
+      "width": 1188,
+      "height": 2112,
+      "alt": "Zoomable original and output comparison before exporting."
+    },
+    {
+      "file": "screenshots/06-dark-mode.png",
+      "source": "review/release-1.0.0/screenshots/08-dark-home.png",
+      "crop": {
+        "left": 0,
+        "top": 90,
+        "width": 1080,
+        "height": 2110
+      },
+      "padding": {
+        "left": 54,
+        "right": 54,
+        "top": 1,
+        "bottom": 1
+      },
+      "width": 1188,
+      "height": 2112,
+      "alt": "PhotoFeather selection screen in dark mode."
+    }
+  ]
+}

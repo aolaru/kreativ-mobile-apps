@@ -45,6 +45,35 @@ public class ReleaseSmokeTest {
   }
 
   @Test
+  public void privacyPolicyIsAvailableOfflineAndIdentifiesProvider() throws Exception {
+    try (ActivityScenario<MainActivity> scenario = ActivityScenario.launch(MainActivity.class)) {
+      scenario.onActivity(MainActivity::about);
+      androidx.test.uiautomator.UiDevice device =
+          androidx.test.uiautomator.UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+      androidx.test.uiautomator.UiObject2 policy =
+          device.wait(
+              androidx.test.uiautomator.Until.findObject(
+                  androidx.test.uiautomator.By.text(
+                      java.util.regex.Pattern.compile(
+                          "Privacy policy", java.util.regex.Pattern.CASE_INSENSITIVE))),
+              5000);
+      assertNotNull("About must expose an offline privacy policy", policy);
+      policy.click();
+      androidx.test.uiautomator.UiObject2 text =
+          device.wait(
+              androidx.test.uiautomator.Until.findObject(
+                  androidx.test.uiautomator.By.textContains("info@madebykreativ.com")),
+              5000);
+      assertNotNull("Policy must identify the support contact", text);
+      assertTrue(text.getText().contains("com.kreativ.photofeather"));
+      assertTrue(text.getText().contains("does not anonymise"));
+      assertTrue(text.getText().contains("24 hours"));
+      assertTrue(
+          device.takeScreenshot(new File(context.getExternalFilesDir(null), "privacy-policy.png")));
+    }
+  }
+
+  @Test
   public void releaseBuildIsNotDebuggableAndHasNoTestActivitiesOrSensitivePermissions()
       throws Exception {
     PackageInfo info =
