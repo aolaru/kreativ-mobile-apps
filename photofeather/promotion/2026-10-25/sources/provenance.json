@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-25",
+  "store": "https://play.google.com/store/apps/details?id=com.kreativ.photofeather",
+  "version": "1.0.0",
+  "files": [
+    {
+      "id": "5b8427cf79ac8e52",
+      "file": "01-select-photos",
+      "source": "sources/01-select-photos.webp",
+      "url": "https://play-lh.googleusercontent.com/yoOE83uS414ql_O1oRNATa4zSB0xKMO8nP8CBdPBbZoPsS78PjPOs-6QMgbKzT6PMW5x8i_WVik4i6aQfsEBt6A=w5120-h2880-rw",
+      "sourceSha256": "a35d2cdbfa3de9f7e5bfb91b17729e7824962ae733b83584f9700bcae7b40abe",
+      "tutorialSha256": "f50642e74ab44b894ddef74523a6f2b97889ee45c9e0870454a75688477c1a25",
+      "capture": "Screenshot currently published on the developer’s Google Play listing, downloaded 2026-10-25. Original capture environment not independently verified in this task.",
+      "processing": "WebP decoded to lossless PNG. Proportional scaling only in marketing layouts; no UI repainting.",
+      "alt": "PhotoFeather home screen with Choose photos and on-device processing information."
+    },
+    {
+      "id": "07706cc42ffac779",
+      "file": "02-resize-presets",
+      "source": "sources/02-resize-presets.webp",
+      "url": "https://play-lh.googleusercontent.com/Pv15Q3dejqUOyv_K8xgl5As4-Jy2KLchznCovfLcRMu-h1wBy29oVNGzrTxT75nLEFwSHnKxei5qSLYZb6gb=w5120-h2880-rw",
+      "sourceSha256": "00320d39fc0168d4d1fb8ee43efedd41033134c4d8b8f3650685ad0c408f6b9a",
+      "tutorialSha256": "85803b108de550fb588f1d454a98b73ea8c4b26aae89cf3a5d75c2fa16df2e94",
+      "capture": "Screenshot currently published on the developer’s Google Play listing, downloaded 2026-10-25. Original capture environment not independently verified in this task.",
+      "processing": "WebP decoded to lossless PNG. Proportional scaling only in marketing layouts; no UI repainting.",
+      "alt": "PhotoFeather resize settings with 1280, 1920 and 2560 pixel presets, custom size and planned dimensions."
+    },
+    {
+      "id": "a013b954e2010bd8",
+      "file": "03-custom-resize",
+      "source": "sources/03-custom-resize.webp",
+      "url": "https://play-lh.googleusercontent.com/CnvfHM-2Zxc9LOqWCvwZsUu0_SFNqTwZvVLkZGk3GdfOI7WPImepjWmRiNmRWvDEN5lXo0YDk3q4S0Iii7faySw=w5120-h2880-rw",
+      "sourceSha256": "c868367ef118670918220534482a94d38c705a5e7c0a98c5bb0bc79eddaab32b",
+      "tutorialSha256": "5af0df21924144245b7af21086105e8376669fc6ab9e4da7c071501be7826057",
+      "capture": "Screenshot currently published on the developer’s Google Play listing, downloaded 2026-10-25. Original capture environment not independently verified in this task.",
+      "processing": "WebP decoded to lossless PNG. Proportional scaling only in marketing layouts; no UI repainting.",
+      "alt": "PhotoFeather maximum file-size settings with 200 KB, 500 KB, 1 MB and custom target controls."
+    },
+    {
+      "id": "629d2ca37ded9d6d",
+      "file": "04-measured-results",
+      "source": "sources/04-measured-results.webp",
+      "url": "https://play-lh.googleusercontent.com/aBRQLHg-ZqZPmRJXjs8TIktotysMV3kqL7p_KCmD9TH3tdI0SWdSJ4RJxtNSxPQEP9ksavkjLt4Cn-hzJEOfm2E=w5120-h2880-rw",
+      "sourceSha256": "27e6b58f5e9322512dd19ad524f43edc5f75a5c18440e9361406e345541bd364",
+      "tutorialSha256": "6cc872d99ff0f08a5a9c4a900902c9c40b2bb0d2d1c3524d137e0432c25faeb5",
+      "capture": "Screenshot currently published on the developer’s Google Play listing, downloaded 2026-10-25. Original capture environment not independently verified in this task.",
+      "processing": "WebP decoded to lossless PNG. Proportional scaling only in marketing layouts; no UI repainting.",
+      "alt": "PhotoFeather measured result for a demo image, with original and output sizes, dimensions, Save selected and Share selected."
+    },
+    {
+      "id": "8cfc3bea9f1a4e45",
+      "file": "05-compare-photos",
+      "source": "sources/05-compare-photos.webp",
+      "url": "https://play-lh.googleusercontent.com/tcLgvqrLf5TM9UNlhVIfXYqKmjJX1X9OJNkEWTRPtNRQ186jJ8V3CL3i-a1p4M1yqGuvNY8dZybk0d-jXdDk=w5120-h2880-rw",
+      "sourceSha256": "0630874d4f1ec6f554e8dea08984ec139ceee832830670abee1bfff3952a1f42",
+      "tutorialSha256": "a4341ed54fc113420d77959aa6d0e8db2d73aeba558e4177707a20f1a9d3fd03",
+      "capture": "Screenshot currently published on the developer’s Google Play listing, downloaded 2026-10-25. Original capture environment not independently verified in this task.",
+      "processing": "WebP decoded to lossless PNG. Proportional scaling only in marketing layouts; no UI repainting.",
+      "alt": "PhotoFeather comparison view with Original, Output, Zoom out, Fit and Zoom in controls."
+    },
+    {
+      "id": "a76b40ed977132d4",
+      "file": "06-dark-mode",
+      "source": "sources/06-dark-mode.webp",
+      "url": "https://play-lh.googleusercontent.com/eBY0G83z7uvZHOwjTGFzl_IxP3ho7BZLVxYFcugIdoc10-EyCO6ZHYyhH85lvu8t6bB_UmPur-R6f54p60lvSg=w5120-h2880-rw",
+      "sourceSha256": "b700830b996349e786b26d0d7db29a3c3ef4ae4e552ccca59070885526bc421c",
+      "tutorialSha256": "1384f6bc76816dec928c22758f54767c691f785f827153b372ee2730717c2f24",
+      "capture": "Screenshot currently published on the developer’s Google Play listing, downloaded 2026-10-25. Original capture environment not independently verified in this task.",
+      "processing": "WebP decoded to lossless PNG. Proportional scaling only in marketing layouts; no UI repainting.",
+      "alt": "PhotoFeather home screen in dark mode with Choose photos and privacy information."
+    }
+  ]
+}

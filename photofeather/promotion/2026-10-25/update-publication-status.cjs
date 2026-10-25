@@ -1,0 +1,17 @@
+// Reconcile the review board with verified publication state without rebuilding artwork.
+const fs=require('node:fs'),path=require('node:path');
+const file=n=>path.join(__dirname,n),read=n=>fs.readFileSync(file(n),'utf8'),write=(n,s)=>fs.writeFileSync(file(n),s);
+const status=JSON.parse(read('publication.json'));
+const play=status.playSubmitted?'Google Play listing submitted for review.':'Google Play listing saved; final submission pending.';
+const web=status.websitePublished?'Website tutorial published.':'Website deployment in progress.';
+const notice=`${web} ${play} Social graphics and outreach remain unpublished.`;
+let html=read('index.html');
+html=html.replace(/<p><strong>[^<]*<\/strong><\/p>/,`<p><strong>${notice}</strong></p>`);
+html=html.replace('The existing icon and feature AI declarations are ON; all six screenshot declarations are OFF. No declarations changed.','The icon, new feature graphic and all six screenshot AI declarations are OFF. The icon matches a render of its checked-in Android vector exactly.');
+if(!html.includes('publication.json'))html=html.replace('<a href="AI-LABEL-STATUS.txt">AI-label audit</a>','<a href="AI-LABEL-STATUS.txt">Current AI-label status</a> · <a href="publication.json">Publication status</a>');
+write('index.html',html);
+let preview=read('tutorial/preview.html');preview=preview.replace(/<p class="notice">[^<]*<\/p>/,`<p class="notice">${status.websitePublished?`Published website tutorial. <a href="${status.tutorialUrl}">Read the live article</a>.`:'Website tutorial deployment in progress.'}</p>`);write('tutorial/preview.html',preview);
+for(const n of ['copy.json','tutorial/metadata.json','website-copy-proposal.json']){const data=JSON.parse(read(n));data.status=notice;data.publication=status;write(n,JSON.stringify(data,null,2)+'\n');}
+write('AI-LABEL-STATUS.txt',`UPDATED 25 OCTOBER 2026\n\nAll eight listing asset AI declarations are OFF: existing icon, new feature graphic and six new screenshot layouts. The icon flag was corrected after a decoded-pixel comparison proved a 100% exact RGB match to a render of the checked-in Android vector on its accent background. See sources/icon-comparison.txt and sources/existing-icon-512.png. No replacement icon uploaded to Play.\n\nThe feature graphic and screenshot layouts use SVG text/shapes around current public UI screenshots. No generative-image service was used. Original screenshot capture environment not independently verified.\n\nListing save confirmed with Don't label assets selected. ${play}\nPublishing overview: ${status.consoleUrl}\nPublic listing propagation is not yet verified.\n`);
+write('START-HERE.txt',`PHOTOFEATHER PROMOTION PACK — STATUS UPDATED 25 OCTOBER 2026\n\n${notice}\n\nTutorial: ${status.tutorialUrl}\nApp page: ${status.appUrl}\nConsole: ${status.consoleUrl}\n\nNew feature graphic and six screenshots saved in the default en-US Play listing, ordered selection, resize, target, results, comparison, dark mode. Title/short/full copy retained. All eight AI declarations OFF, including the verified vector icon. No new app build uploaded.\n\nThree social graphics, English/Romanian captions, a 24-second screenshot tour and outreach templates are still available for review. No social posts or emails sent. The tutorial link has not been added to Play.\n\nSee publication.json for deployment/submission evidence and QA.txt for check details.\n`);
+console.log(notice);

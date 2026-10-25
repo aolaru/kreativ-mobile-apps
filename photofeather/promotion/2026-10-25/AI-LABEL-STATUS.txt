@@ -1,0 +1,9 @@
+UPDATED 25 OCTOBER 2026
+
+All eight listing asset AI declarations are OFF: existing icon, new feature graphic and six new screenshot layouts. The icon flag was corrected after a decoded-pixel comparison proved a 100% exact RGB match to a render of the checked-in Android vector on its accent background. See sources/icon-comparison.txt and sources/existing-icon-512.png. No replacement icon uploaded to Play.
+
+The feature graphic and screenshot layouts use SVG text/shapes around current public UI screenshots. No generative-image service was used. Original screenshot capture environment not independently verified.
+
+Listing save confirmed with Don't label assets selected. Google Play listing submitted for review.
+Publishing overview: https://play.google.com/console/u/0/developers/7594712361231234431/app/4975471320992261227/publishing
+Public listing propagation is not yet verified.

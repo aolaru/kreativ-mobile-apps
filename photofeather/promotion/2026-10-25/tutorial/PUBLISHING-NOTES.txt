@@ -1,0 +1,5 @@
+UNPUBLISHED TUTORIAL
+
+Review preview.html, article-body.html and metadata.json. The proposed route is not an existing public article. Follow the existing madebykreativ.com repository instructions and article conventions when publication is requested. Copy the original PNG screenshots, generate responsive site images, then verify article, image URLs, app-page cross-link, RSS and sitemap after deployment. Add the tutorial link to Play only after publication and separate authorization.
+
+All five tutorial images are from the current public Play listing; their original capture environment was not independently verified. No installed app, native save/share dialogs or release binary was tested in this marketing task. Screenshots are kept intact; no invented UI.

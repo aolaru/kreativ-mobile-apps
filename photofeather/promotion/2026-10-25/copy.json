@@ -1,0 +1,104 @@
+{
+  "app": "PhotoFeather",
+  "date": "2026-10-25",
+  "version": "1.0.0",
+  "status": "Website tutorial published. Google Play listing submitted for review. Social graphics and outreach remain unpublished.",
+  "store": "https://play.google.com/store/apps/details?id=com.kreativ.photofeather",
+  "privacy": "https://madebykreativ.com/privacy/photofeather/",
+  "listing": {
+    "title": "PhotoFeather: Photo Compressor",
+    "shortDescription": "Compress and resize photos on your device for forms, email and sharing",
+    "fullDescription": "Lighter photos. Ready to share.\n\nPhotoFeather by Made by Kreativ helps you make photos smaller for upload forms, email and messaging. Select your photos, choose a file-size target or resize setting, preview the measured results, then save new copies or share them.\n\nCHOOSE A FILE-SIZE TARGET\nTry 200 KB, 500 KB, 1 MB or a custom maximum. PhotoFeather adjusts JPEG quality and, when needed, resolution within its processing limits. Results show the actual encoded file size. If a target cannot be met, the app explains it and does not offer that unsuccessful result for export.\n\nRESIZE WITH CLEAR DIMENSIONS\nChoose Small (1280 px), Medium (1920 px), Large (2560 px) or a custom longest edge from 64 to 8192 pixels. Aspect ratio is preserved and smaller photos are never enlarged. Planned width and height appear before processing; results show the final dimensions. Use resize-only mode when you do not need a file-size target.\n\nCHECK BEFORE YOU SAVE\nCompare original and output sizes, dimensions and percentage saved. Zoom and pan in the before-and-after view. Optional advanced JPEG quality controls let you set a quality limit. Large photos may be reduced to fit the app's memory limit, and a file-size target may reduce dimensions further.\n\nWORK WITH ONE PHOTO OR A BATCH\nSelect multiple photos, follow progress, cancel processing and review per-photo results. Retry failed items or export selected successful copies. Unsupported or unreadable files are identified individually. Larger or same-sized results require your explicit choice before export.\n\nKEEP YOUR ORIGINALS\nPhotoFeather saves new JPEG copies and never overwrites or deletes originals. Share copies through Android's share sheet. Transparent PNG and WebP images need an opaque background for JPEG output; choose the background before converting.\n\nON-DEVICE PROCESSING\nNo accounts, photo uploads, advertising SDKs, analytics SDKs or subscriptions. PhotoFeather has no internet permission. Android's system picker may retrieve photos from a cloud provider you choose; the provider handles that retrieval.\n\nMETADATA REMOVED FROM COPIES\nSource metadata, including embedded location metadata, is removed from newly encoded JPEG copies and checked before export. This does not anonymise photos or remove faces, text or sensitive details visible in the image.\n\nSUPPORTED FORMATS AND LIMITS\nInputs: JPEG, PNG and static WebP. Output: lossy JPEG. HEIC/HEIF, AVIF, GIF and animated images are not supported. JPEG compression can reduce visible quality; lossless compression and guaranteed visual quality are not promised. File-size units are decimal: 1 KB = 1000 bytes and 1 MB = 1000000 bytes.\n\nSupports dark mode, large text and labelled accessibility controls. All features described here are included in version 1.0.0, with no purchases.\n\nSupport: info@madebykreativ.com"
+  },
+  "posts": [
+    {
+      "name": "Graphic 01 — English launch caption",
+      "channel": "launch_social",
+      "text": "Photo too large for a form or email?\n\nI built PhotoFeather for Android to make that step a little easier: choose photos, set a file-size target or resize them, check the result, then save new JPEG copies or share them.\n\nEverything is processed on your device. Your originals stay untouched. No account, ads or purchases.\n\nJPEG compression can reduce quality, so you can compare before saving. Results vary by photo and settings.\n\nTry it and tell me which upload limits you run into most often.\n\n— Andrei, Made by Kreativ"
+    },
+    {
+      "name": "Romanian launch caption",
+      "channel": "launch_ro",
+      "text": "Fotografia este prea mare pentru un formular sau un e-mail?\n\nAm lansat PhotoFeather pentru Android: alegi fotografiile, setezi o dimensiune maximă a fișierului sau redimensionezi imaginea, verifici rezultatul și salvezi copii JPEG noi.\n\nProcesarea se face pe dispozitiv, iar originalele rămân intacte. Fără cont, reclame sau achiziții.\n\nCompresia JPEG poate reduce calitatea. Poți compara înainte de salvare, iar rezultatele diferă în funcție de fotografie și setări. Interfața aplicației este în engleză.\n\n— Andrei, Made by Kreativ"
+    },
+    {
+      "name": "Graphic 02 — file-size target",
+      "channel": "size_targets",
+      "text": "200 KB, 500 KB, 1 MB—or your own maximum. PhotoFeather helps prepare photos for upload limits. Check the actual output size and dimensions before saving a new JPEG copy. Targets can reduce both resolution and quality; some targets cannot be met."
+    },
+    {
+      "name": "Graphic 03 — measured results",
+      "channel": "measured_results",
+      "text": "See what changed before you save: original size, output size, final dimensions and a before-and-after comparison. PhotoFeather processes photos on your Android device and keeps your originals. The graphic shows one demo result; savings vary."
+    },
+    {
+      "name": "24-second screenshot tour",
+      "channel": "screenshot_tour",
+      "text": "Choose → resize → set a maximum → check → compare → dark mode. A 24-second tour of PhotoFeather using the screenshots currently published on Google Play, not live footage. On-device photo compression and resizing for Android. JPEG output is lossy; results vary."
+    },
+    {
+      "name": "Community introduction — where promotion is permitted",
+      "channel": "community",
+      "text": "Disclosure: I am the developer. I made PhotoFeather, a small Android app for making photos fit upload limits. It supports file-size targets, resize presets, measured results and comparisons, with processing on the device and no ads or account. Output is lossy JPEG, so it is useful for sharing copies rather than replacing originals. I would welcome feedback on the workflow, especially awkward form limits—not a particular rating or review."
+    }
+  ],
+  "outreach": [
+    {
+      "name": "Android utility editor",
+      "subject": "For consideration: PhotoFeather, an on-device photo compressor",
+      "body": "Hello, I am Andrei from Made by Kreativ. I recently released PhotoFeather for Android. It prepares photos for forms and email with file-size targets, resize presets, measured results and comparisons. There are no ads, accounts or purchases. JPEG output is lossy and originals stay untouched. I have a screenshot walkthrough if this fits your utility-app coverage. No coverage or positive review is expected."
+    },
+    {
+      "name": "Practical productivity newsletter",
+      "subject": "A small Android tool for photos that exceed upload limits",
+      "body": "Hello, I developed PhotoFeather to help with a familiar problem: a form or email attachment limit. Choose a target such as 200 KB or 500 KB, inspect the measured result, then save a new JPEG copy. Processing happens on the device. If this fits your practical mobile tips, I can provide genuine app screenshots and a short tutorial."
+    },
+    {
+      "name": "Offline-app editor",
+      "subject": "PhotoFeather: photo resizing and compression on the device",
+      "body": "Hello, I publish Made by Kreativ. PhotoFeather is a newly released Android photo compressor with no account, advertising SDK, analytics SDK or internet permission according to its published release description. It encodes new JPEG copies, removes source metadata and keeps originals. Visible details remain, so this is not an anonymisation claim. I can share its public listing, privacy policy and screenshot walkthrough if relevant to your coverage."
+    }
+  ],
+  "proposedTutorialPath": "/news/compress-photos-android-photofeather/",
+  "publication": {
+    "date": "2026-10-25",
+    "websitePublished": true,
+    "tutorialUrl": "https://madebykreativ.com/news/compress-photos-android-photofeather/",
+    "appUrl": "https://madebykreativ.com/apps/photofeather/",
+    "commit": "ddcec0b1cceb2c89811f9c87a312f8933d1a8a8f",
+    "deployment": "https://github.com/aolaru/madebykreativ.com/actions/runs/40201081714",
+    "deploymentStatus": "success",
+    "ciChecks": [
+      "Chromium",
+      "Firefox",
+      "WebKit",
+      "accessibility",
+      "responsive layouts",
+      "HTML",
+      "internal links",
+      "build artifacts",
+      "redirects",
+      "mobile performance",
+      "production smoke test"
+    ],
+    "playSaved": true,
+    "playSubmitted": true,
+    "playReviewStatus": "In review — Console explicitly confirms: Your changes are now in review.",
+    "quickChecksComplete": true,
+    "playApproved": false,
+    "submissionProof": "../../review/listing-in-review-2026-10-25.png",
+    "consoleUrl": "https://play.google.com/console/u/0/developers/7594712361231234431/app/4975471320992261227/publishing",
+    "playChanges": [
+      "Six new 1440x2560 phone screenshot layouts in workflow order",
+      "New 1024x500 feature graphic"
+    ],
+    "playCopyChanged": false,
+    "allEightAiDeclarationsOff": true,
+    "iconEvidence": "sources/icon-comparison.txt; 100% exact decoded RGB match to Android vector render",
+    "playSubmissionBlocker": null,
+    "submissionConfirmedAfter": "User completed the final confirmation. Console now shows Changes in review for both phone screenshots and feature graphic; quick checks completed.",
+    "socialPublished": false,
+    "outreachSent": false,
+    "tutorialUrlAddedToPlay": false
+  }
+}

@@ -1,0 +1,13 @@
+CHECKED 25 OCTOBER 2026
+
+Public Play listing: https://play.google.com/store/apps/details?id=com.kreativ.photofeather
+Privacy link observed in public App support: https://madebykreativ.com/privacy/photofeather/
+Console: default en-US listing Review/AI asset declarations and public version 1.0.0.
+AI-label proof: ../../review/play-ai-labels-audit-2026-10-25.png
+Current screenshot URLs and SHA-256 hashes: sources/provenance.json. Six WebP originals are archived. PNG tutorial copies preserve decoded pixels. Marketing designs use SVG text/shapes and proportional screenshots. No image-generation service used.
+
+Local source/screenshot versions are older than the published preset UI; they were not used as current screenshots. Original public capture environment not independently verified. No Android build, binary match, installed release, native save or share workflow was checked during this task.
+
+Supported by live release description: targets 200 KB/500 KB/1 MB/custom, resize presets 1280/1920/2560/custom 64–8192 px, preserved aspect ratio/no enlargement, actual output bytes/dimensions, batches, before/after comparison, new lossy JPEG copies, no ads/accounts/purchases/subscriptions. Metadata removal does not remove visible details. Picker may retrieve cloud photos by user choice.
+
+Never claim lossless JPEG, guaranteed target success, guaranteed visual quality, typical 96.8% savings, anonymisation, support for HEIC/AVIF/GIF/animated images, or a Pro entitlement that does not exist. The sample mountain is illustrated demo imagery. Current public icon/feature AI declarations remain ON; screenshots OFF. No Console edits or publication performed.

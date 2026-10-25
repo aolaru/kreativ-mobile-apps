@@ -1,0 +1,22 @@
+PHOTOFEATHER MARKETING PACK — 25 OCTOBER 2026
+
+Source: six screenshots currently published on the developer's Google Play listing. WebP originals archived with source URLs and SHA-256 hashes. Original capture environment not independently verified.
+
+Generation checks input dimensions and Play text limits. validate-pack.cjs checks archived hashes, decoded-pixel equivalence of tutorial PNGs, output sizes/RGB encoding, local links, image alternative text, HTML structure and video encoding/duration. See verification.json for results after validation completes.
+
+PASSED
+- All six archived source hashes match; all six tutorial PNGs have identical decoded pixels to their WebP sources.
+- Ten listing/social PNGs meet their intended dimensions, RGB encoding, no alpha and size below 8 MiB each.
+- Both HTML documents pass the existing site's HTML validator; 44 local references resolve. Images have alternative text. The article embeds five screenshots.
+- Title 30/30, short description 70/80, full description 2832/4000. All three strings were compared with the live Console values and match exactly.
+- Video: 24 seconds, H.264, 1080x1920, no audio. Captions provided in SRT/VTT.
+- All six listing layouts, three social graphics, feature graphic and original screenshot contact sheet visually inspected. Outer copy fits; UI was proportionally scaled without repainting. The result example is explicitly qualified.
+
+Browser responsive layout and interactive video playback are not verified: a local-file browser security restriction was encountered and respected, with no alternate browser or server workaround. Static HTML validation and raster visual inspection are used instead. No physical-device or installed-release testing was performed.
+
+PUBLICATION UPDATE
+The website tutorial and PhotoFeather app page are published. Deployment ddcec0b passed the full CI quality gate in Chromium, Firefox and WebKit, accessibility/responsive checks, performance budgets and production smoke checks. The live tutorial layout was inspected in Chrome. Website publication evidence is in ../../review/website-publication-verification-2026-10-25.json and ../../review/tutorial-live-2026-10-25.png.
+
+Six new screenshots and the new feature graphic are saved in the Play listing; original text retained. All eight AI declarations are OFF. The existing icon exactly matches an Android vector render at decoded RGB pixel level, so its flag was corrected; no replacement icon was uploaded. See sources/icon-comparison.txt.
+
+Final Play submission CONFIRMED after the user completed the confirmation. Console shows Changes in review for both phone screenshots and feature graphic, with the message Your changes are now in review. Quick checks completed. Proof: ../../review/listing-in-review-2026-10-25.png. Approval and public listing rollout are still pending. See publication.json for current status. No social posts or outreach sent. Tutorial URL not added to Play.

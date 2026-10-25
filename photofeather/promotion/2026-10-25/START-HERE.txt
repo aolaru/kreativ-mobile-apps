@@ -1,0 +1,13 @@
+PHOTOFEATHER PROMOTION PACK — STATUS UPDATED 25 OCTOBER 2026
+
+Website tutorial published. Google Play listing submitted for review. Social graphics and outreach remain unpublished.
+
+Tutorial: https://madebykreativ.com/news/compress-photos-android-photofeather/
+App page: https://madebykreativ.com/apps/photofeather/
+Console: https://play.google.com/console/u/0/developers/7594712361231234431/app/4975471320992261227/publishing
+
+New feature graphic and six screenshots saved in the default en-US Play listing, ordered selection, resize, target, results, comparison, dark mode. Title/short/full copy retained. All eight AI declarations OFF, including the verified vector icon. No new app build uploaded.
+
+Three social graphics, English/Romanian captions, a 24-second screenshot tour and outreach templates are still available for review. No social posts or emails sent. The tutorial link has not been added to Play.
+
+See publication.json for deployment/submission evidence and QA.txt for check details.
