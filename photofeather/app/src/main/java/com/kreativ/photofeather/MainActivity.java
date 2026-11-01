@@ -15,6 +15,7 @@ import com.kreativ.imageengine.CompressionOptions;
 import com.kreativ.imageengine.ResizePolicy;
 import java.io.File;
 import java.util.*;
+import org.json.JSONObject;
 
 public class MainActivity extends Activity {
   Session session;
@@ -204,10 +205,13 @@ public class MainActivity extends Activity {
     resizeDimensions = null;
     previewButton = null;
     resizeButtons.clear();
-    wasBusy = session.busy;
+    // The worker may finish between UI reads. Build this frame from one state snapshot.
+    boolean busyNow = session.busy;
+    boolean hasItems = !session.items.isEmpty();
+    wasBusy = busyNow;
     root = Ui.pageColumn(this);
     resultHeading = null;
-    dock = !session.busy && !session.items.isEmpty() ? Ui.column(this) : null;
+    dock = !busyNow && hasItems ? Ui.column(this) : null;
     scroll = Ui.page(this, root, dock);
     restorePosition(scroll, generation, showResults);
     LinearLayout brand = Ui.row(this);
@@ -234,7 +238,7 @@ public class MainActivity extends Activity {
       root.addView(brand);
     }
     Ui.gap(root, 24);
-    if (session.busy) {
+    if (busyNow) {
       LinearLayout card = Ui.card(this);
       card.addView(Ui.text(this, "Working on your device", 23, R.color.ink, true));
       Ui.gap(card, 12);
@@ -250,7 +254,7 @@ public class MainActivity extends Activity {
       root.addView(card);
       return;
     }
-    if (session.items.isEmpty()) {
+    if (!hasItems) {
       contentScrollY = 0;
       focusedField = "";
       home();
@@ -330,6 +334,10 @@ public class MainActivity extends Activity {
         Ui.gap(root, 12);
       }
       for (PhotoItem p : session.items) result(p);
+      Ui.addButton(root, "Create small, medium and large versions", false, this::createVersions);
+      Ui.gap(root, 12);
+      Ui.addButton(root, "Share selected as ZIP", false, () -> reviewExport(this::shareZip));
+      Ui.gap(root, 12);
       exportActions();
     }
     Ui.gap(root, 20);
@@ -401,6 +409,10 @@ public class MainActivity extends Activity {
     TextView h = Ui.text(this, "Output settings", 21, R.color.ink, true);
     Ui.heading(h);
     card.addView(h);
+    Ui.gap(card, 16);
+    Ui.addButton(card, "Saved presets", false, this::presets);
+    Ui.gap(card, 16);
+    Ui.addButton(card, "Batch file naming", false, this::batchNaming);
     Ui.gap(card, 16);
     CheckBox resize = new CheckBox(this);
     resize.setText(R.string.resize_only);
@@ -518,6 +530,131 @@ public class MainActivity extends Activity {
                 .setPositiveButton("Done", null)
                 .show());
     root.addView(card);
+  }
+
+  void batchNaming() {
+    LinearLayout fields = Ui.column(this);
+    fields.setPadding(Ui.dp(this, 24), 0, Ui.dp(this, 24), 0);
+    EditText prefix = new EditText(this);
+    prefix.setSingleLine(true);
+    prefix.setHint("Prefix (blank uses default)");
+    prefix.setText(session.namingPrefix);
+    fields.addView(prefix);
+    EditText start = Ui.number(this, "Starting number", String.valueOf(session.namingStart));
+    fields.addView(start);
+    Spinner style = new Spinner(this);
+    style.setMinimumHeight(Ui.dp(this, 48));
+    style.setContentDescription("Filename template");
+    style.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,
+        new String[] {"Prefix, then number", "Number, then prefix"}));
+    style.setSelection(session.namingStyle);
+    fields.addView(style);
+    fields.addView(Ui.text(this, "Letters, numbers, spaces, hyphens and underscores; up to 32 characters. A unique suffix prevents name collisions.", 13, R.color.muted, false));
+    new AlertDialog.Builder(this).setTitle("Batch file naming").setView(fields)
+        .setNegativeButton("Cancel", null).setPositiveButton("Save", (d, w) -> {
+          String value = prefix.getText().toString().trim();
+          try {
+            int first = Integer.parseInt(start.getText().toString());
+            if (!value.matches("[A-Za-z0-9 _-]{0,32}") || first < 1 || first > 999999)
+              throw new IllegalArgumentException();
+            session.namingPrefix = value;
+            session.namingStart = first;
+            session.namingStyle = style.getSelectedItemPosition();
+            session.persistLater();
+          } catch (IllegalArgumentException e) {
+            Toast.makeText(this, "Check the prefix and starting number (1–999999).", Toast.LENGTH_LONG).show();
+          }
+        }).show();
+  }
+
+  void presets() {
+    capture();
+    SharedPreferences prefs = getSharedPreferences("output-presets", MODE_PRIVATE);
+    ArrayList<String> names = new ArrayList<>(prefs.getAll().keySet());
+    Collections.sort(names, String.CASE_INSENSITIVE_ORDER);
+    ArrayList<String> choices = new ArrayList<>();
+    choices.add("Save current settings");
+    choices.addAll(names);
+    new AlertDialog.Builder(this)
+        .setTitle("Saved presets")
+        .setItems(choices.toArray(new String[0]), (dialog, index) -> {
+          if (index == 0) {
+            final int edge, quality;
+            try {
+              edge = ResizePolicy.parseLongestEdge(edgeDraft);
+              quality = session.advanced ? Integer.parseInt(qualityDraft) : 85;
+              new CompressionOptions(session.resizeOnly ? 0 : session.target, edge, quality,
+                  session.background, true);
+            } catch (IllegalArgumentException e) {
+              new AlertDialog.Builder(this).setTitle("Check your settings")
+                  .setMessage("Enter valid dimensions and JPEG quality before saving a preset.")
+                  .setPositiveButton("OK", null).show();
+              return;
+            }
+            EditText name = new EditText(this);
+            name.setSingleLine(true);
+            name.setHint("Preset name");
+            new AlertDialog.Builder(this).setTitle("Save preset").setView(name)
+                .setNegativeButton("Cancel", null)
+                .setPositiveButton("Save", (d, w) -> {
+                  String key = name.getText().toString().trim();
+                  if (key.isEmpty() || key.length() > 50 || prefs.contains(key)) {
+                    Toast.makeText(this, "Use a unique name of 1–50 characters.", Toast.LENGTH_LONG).show();
+                    return;
+                  }
+                  try {
+                    JSONObject value = new JSONObject().put("target", session.target)
+                        .put("edge", edge).put("quality", quality)
+                        .put("background", session.background).put("advanced", session.advanced)
+                        .put("resizeOnly", session.resizeOnly).put("customResize", session.customResize);
+                    if (!prefs.edit().putString(key, value.toString()).commit())
+                      Toast.makeText(this, "Could not save preset.", Toast.LENGTH_LONG).show();
+                  } catch (org.json.JSONException e) {
+                    Toast.makeText(this, "Could not save preset.", Toast.LENGTH_LONG).show();
+                  }
+                }).show();
+          } else {
+            String key = names.get(index - 1);
+            new AlertDialog.Builder(this).setTitle(key)
+                .setItems(new String[] {"Apply preset", "Delete preset"}, (d, action) -> {
+                  if (action == 1) {
+                    new AlertDialog.Builder(this).setTitle("Delete preset?")
+                        .setMessage(key).setNegativeButton("Cancel", null)
+                        .setPositiveButton("Delete", (confirm, which) -> prefs.edit().remove(key).apply())
+                        .show();
+                    return;
+                  }
+                  try {
+                    JSONObject value = new JSONObject(prefs.getString(key, ""));
+                    int edge = value.getInt("edge"), quality = value.getInt("quality");
+                    long target = value.getLong("target");
+                    boolean resizeOnly = value.getBoolean("resizeOnly");
+                    new CompressionOptions(resizeOnly ? 0 : target, edge, quality,
+                        value.getInt("background"), true);
+                    session.target = target;
+                    session.edge = edge;
+                    session.quality = quality;
+                    session.background = value.getInt("background");
+                    session.advanced = value.getBoolean("advanced");
+                    session.resizeOnly = resizeOnly;
+                    session.customResize = value.getBoolean("customResize");
+                    edgeDraft = String.valueOf(edge);
+                    qualityDraft = String.valueOf(quality);
+                    changingResizePreset = true;
+                    try {
+                      if (edgeInput != null) edgeInput.setText(edgeDraft);
+                    } finally {
+                      changingResizePreset = false;
+                    }
+                    if (qualityInput != null) qualityInput.setText(qualityDraft);
+                    session.persistLater();
+                    render();
+                  } catch (Exception e) {
+                    Toast.makeText(this, "This preset could not be read.", Toast.LENGTH_LONG).show();
+                  }
+                }).setNegativeButton("Cancel", null).show();
+          }
+        }).setNegativeButton("Close", null).show();
   }
 
   void resizeControls(LinearLayout card) {
@@ -1221,6 +1358,58 @@ public class MainActivity extends Activity {
     session.main.post(add);
   }
 
+  void createVersions() {
+    Set<String> ids = session.selectedIds();
+    if (ids.isEmpty()) {
+      Toast.makeText(this, "Select at least one prepared copy.", Toast.LENGTH_SHORT).show();
+      return;
+    }
+    capture();
+    final long target = session.resizeOnly ? 0 : session.target;
+    final int quality;
+    try {
+      quality = session.advanced ? Integer.parseInt(qualityDraft) : 85;
+      new CompressionOptions(target, 1280, quality, session.background, true);
+    } catch (IllegalArgumentException e) {
+      Toast.makeText(this, "Check the file-size target and quality first.", Toast.LENGTH_LONG).show();
+      return;
+    }
+    String[] colors = {"White", "Warm paper", "Black"};
+    int[] values = {Color.WHITE, 0xFFF3ECDD, Color.BLACK};
+    final int[] chosen = {session.background == Color.BLACK ? 2 : session.background == 0xFFF3ECDD ? 1 : 0};
+    boolean alpha = false;
+    for (PhotoItem p : session.items) if (ids.contains(p.id)) alpha |= p.alpha;
+    AlertDialog.Builder dialog = new AlertDialog.Builder(this)
+        .setTitle("Create three sizes")
+        .setNegativeButton("Cancel", null)
+        .setPositiveButton("Create versions", (d, w) -> session.createVersions(ids, target, quality, values[chosen[0]]));
+    if (alpha) dialog.setSingleChoiceItems(colors, chosen[0], (d, w) -> chosen[0] = w)
+        .setMessage("JPEG removes transparency. Choose a background. Each version is measured and larger copies remain blocked until allowed.");
+    else dialog.setMessage("Create up to 1280, 1920 and 2560 px versions. Each result is measured; larger copies remain blocked until allowed.");
+    dialog.show();
+  }
+
+  void shareZip() {
+    Set<String> ids = session.selectedIds();
+    if (ids.isEmpty()) {
+      Toast.makeText(this, "Select at least one prepared copy.", Toast.LENGTH_SHORT).show();
+      return;
+    }
+    session.shareZip(ids, archive -> {
+      if (isFinishing() || isDestroyed()) return;
+      try {
+        Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".files", archive, "PhotoFeather.zip");
+        Intent intent = new Intent(Intent.ACTION_SEND).setType("application/zip")
+            .putExtra(Intent.EXTRA_STREAM, uri).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setClipData(ClipData.newUri(getContentResolver(), "PhotoFeather ZIP", uri));
+        startActivity(Intent.createChooser(intent, "Share ZIP"));
+      } catch (RuntimeException e) {
+        new AlertDialog.Builder(this).setMessage("Could not share the ZIP. Try again.")
+            .setPositiveButton("OK", null).show();
+      }
+    });
+  }
+
   void savePreparedCopies() {
     Set<String> ids = session.selectedIds();
     if (ids.isEmpty()) return;
@@ -1293,7 +1482,7 @@ public class MainActivity extends Activity {
       if (p.exportable() && p.selectedForExport)
         uris.add(
             FileProvider.getUriForFile(
-                this, BuildConfig.APPLICATION_ID + ".files", new File(p.output)));
+                this, BuildConfig.APPLICATION_ID + ".files", new File(p.output), session.exportName(p)));
     if (uris.isEmpty()) return null;
     Intent share = new Intent(uris.size() == 1 ? Intent.ACTION_SEND : Intent.ACTION_SEND_MULTIPLE);
     share.setType("image/jpeg");

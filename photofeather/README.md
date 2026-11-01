@@ -26,6 +26,11 @@ Select photos → choose target/pixel dimensions → preview measured results �
 - Separate **Settings / Results** views, expandable technical details and fixed Preview / Save / Share actions. Large-text and short landscape layouts use a compact Export choice with the same metadata disclosure.
 - Remove individual photos, retry one or only failed photos, and select successful outputs to save/share. Export selection and pending folder-save selection survive recreation. Removal deletes only the private imported copy; saved photos and recent shared files stay untouched.
 - Batch progress/cancellation, per-image failures, retained successes, rotation support and interrupted-session recovery.
+- **Saved presets** retain named target, longest-edge, JPEG quality and background settings privately on-device. Presets survive clearing a session and can be deleted individually.
+- **Batch naming** offers a custom prefix, starting number and two templates; a unique suffix prevents collisions. It applies to saved copies, shared JPEG names and ZIP entries.
+- **Multiple versions** create separate 1280, 1920 and 2560 px results for selected prepared photos, sharing the private imported source without enlarging it. A session can contain up to 100 photos and versions. Each result is independently measured, and the usual larger-copy and unreachable-target safeguards apply. Interrupted versions can be retried with the current settings.
+- **ZIP sharing** builds an archive of selected exportable JPEGs locally, verifies each copy, supports cancellation and shares through Android's share sheet. Incomplete archives are deleted; completed private archives follow the existing 24-hour cleanup policy.
+- These capabilities are currently available without billing or a paywall. No account, backend, analytics or advertising was added. See [Pro feature test results](review/pro-features/REPORT.md).
 - Dark mode, scalable text, labelled controls and scrollable comparison layouts.
 
 ## Architecture
@@ -42,7 +47,7 @@ Originals are never written or deleted. Fresh JPEGs have all APP/comment metadat
 
 There is **no backend, internet permission, billing, ads or analytics SDK**. The system picker may retrieve a cloud-provider image at the user's request.
 
-The full offline privacy policy is available from **About → Privacy policy**. The matching [public privacy policy](https://madebykreativ.com/privacy/photofeather/) is live, effective 24 October 2026, and saved in Play Console. The website source is maintained separately in `aolaru/madebykreativ.com`; `store-assets/play/privacy-policy.html` remains the standalone prepared source. Play listing copy, graphics and sourced screenshots are in `store-assets/play/`.
+The full offline privacy policy is available from **About → Privacy policy**. The [public privacy policy](https://madebykreativ.com/privacy/photofeather/) describes the previously submitted build. The updated in-app and `store-assets/play/privacy-policy.html` drafts describe saved presets, ZIP files and custom names; the public website must be updated before these features are released. The website source is maintained separately in `aolaru/madebykreativ.com`. Play listing copy, graphics and sourced screenshots are in `store-assets/play/`.
 
 ## Tests and handoff
 
@@ -61,4 +66,4 @@ The release smoke script builds the **non-debuggable `.releasecheck` QA variant*
 
 See [completion report and screenshots](review/REPORT.md), [technical details](docs/TECHNICAL_NOTES.md), and the separately proposed free/Pro boundary in the report. Device tests generate synthetic fixtures and do not send photos to anyone.
 
-Release builds now use **R8 code optimisation/obfuscation and resource shrinking**. The separate QA release and its instrumentation APK use the same release optimisation settings. See [R8 build checks](review/r8-optimization/REPORT.md) for measured artifact sizes and the build-only validation limits. This source change does not alter the previously submitted build 4; a future Play upload needs a higher versionCode and fresh device validation.
+Release builds now use **R8 code optimisation/obfuscation and resource shrinking**. The separate QA release uses R8 plus test-only compatibility keep rules; a production-like QA build can omit those rules with `-PphotoFeatherBlackBoxQa`. See [R8 build checks](review/r8-optimization/REPORT.md) for measured artifact sizes and the build-only validation limits. This source change does not alter the previously submitted build 4; a future Play upload needs a higher versionCode and fresh device validation.

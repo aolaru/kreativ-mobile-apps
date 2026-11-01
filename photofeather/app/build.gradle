@@ -48,6 +48,10 @@ android {
                 // Installable, non-debuggable release-code check; never a production signing key.
                 applicationIdSuffix '.releasecheck'
                 signingConfig signingConfigs.debug
+                // AndroidX's separately shrunk test runner links Kotlin intrinsics across APKs.
+                if (!project.hasProperty('photoFeatherBlackBoxQa')) {
+                    proguardFile 'proguard-qa-rules.pro'
+                }
             } else if (releaseStore && releaseStorePassword && releaseAlias && releaseKeyPassword) {
                 signingConfig signingConfigs.release
             }

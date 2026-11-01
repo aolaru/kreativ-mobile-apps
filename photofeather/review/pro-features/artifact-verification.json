@@ -1,0 +1,57 @@
+{
+  "checks": {
+    "qaKotlinRulesAbsent": true,
+    "qaSessionRulesAbsent": true,
+    "r8OptimizationsEnabled": true,
+    "bundleContainsMatchingMapping": true,
+    "updatedOfflinePolicyPackaged": true,
+    "noAndroidPermissions": true,
+    "correctProductionIdentity": true,
+    "correctDebugIdentity": true,
+    "draftPolicyHtmlMatchesText": true,
+    "submittedArtifactsUnchanged": true,
+    "appLintNoErrors": true,
+    "image-engineLintNoErrors": true,
+    "unitTestsPass": true
+  },
+  "lint": {
+    "app": {
+      "Fatal": 0,
+      "Error": 0,
+      "Warning": 9
+    },
+    "image-engine": {
+      "Fatal": 0,
+      "Error": 0,
+      "Warning": 2
+    }
+  },
+  "unitTests": [
+    {
+      "name": "com.kreativ.imageengine.JpegInputTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.kreativ.imageengine.ResizePreviewTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.kreativ.imageengine.PolicyTest",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "unsignedProductionApkSha256": "71642d6c808550ed7a41d50f6878da41aa5cce42355c211cb4ceceb1158e2644",
+  "unsignedProductionBundleSha256": "2af573d8cdf266de9cf88084df3ebd909f8465b598bd008ed6664cb802fb2787",
+  "mappingSha256": "5621c26f19f040dc98de49123c80233c9d7277181de7850088b67c792f2c7f37",
+  "debugApkSha256": "b658c990fcb060412eb225101c5ad931d4867a339a8aaa87c7e30562add4dedc",
+  "note": "Local validation only. Version code 4 was used for the earlier submission; do not upload these artifacts."
+}

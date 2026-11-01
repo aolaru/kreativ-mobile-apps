@@ -20,7 +20,7 @@ The script retrieves the password from macOS Keychain and verifies the resulting
 
 ### Optimisation for future builds — 1 November 2026
 
-The current source enables `minifyEnabled true`, `shrinkResources true` and Android's `proguard-android-optimize.txt` for release, including the isolated `.releasecheck` QA build. Application rules are in `app/proguard-rules.pro`. Two exact exclusions for non-runtime Error Prone annotations referenced by AndroidX Test are confined to `app/proguard-test-rules.pro` through `testProguardFiles`; production missing-class checks remain enabled.
+The current source enables `minifyEnabled true`, `shrinkResources true` and Android's `proguard-android-optimize.txt` for release, including the isolated `.releasecheck` QA build. The instrumented QA build additionally keeps test-runner dependencies and app APIs used across the test APK boundary; these rules are not applied to production. Use `-PphotoFeatherQaRelease -PphotoFeatherBlackBoxQa` for a production-like QA build without those test-runner keeps. Application rules are in `app/proguard-rules.pro`. Two exact exclusions for non-runtime Error Prone annotations referenced by AndroidX Test are confined to `app/proguard-test-rules.pro` through `testProguardFiles`; production missing-class checks remain enabled.
 
 Keep `app/build/outputs/mapping/release/mapping.txt` with each actual released artifact for crash deobfuscation. Gradle also embeds its production mapping in the AAB's `BUNDLE-METADATA/com.android.tools.build.obfuscation/proguard.map`; verify this before uploading an optimised bundle. Do not reuse a mapping from another build.
 

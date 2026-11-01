@@ -14,6 +14,7 @@ final class PhotoItem {
       savedUri = "";
   volatile long before, after, requestTarget = -1;
   volatile int requestEdge, requestQuality;
+  volatile int versionEdge;
   volatile int ow, oh, w, h, orientation = 1, quality, attempts;
   volatile boolean alpha, allowLarger, selectedForExport = true;
 
@@ -54,6 +55,7 @@ final class PhotoItem {
         .put("requestTarget", requestTarget)
         .put("requestEdge", requestEdge)
         .put("requestQuality", requestQuality)
+        .put("versionEdge", versionEdge)
         .put("before", before)
         .put("after", after)
         .put("ow", ow)
@@ -79,6 +81,9 @@ final class PhotoItem {
     p.requestTarget = j.optLong("requestTarget", -1);
     p.requestEdge = j.optInt("requestEdge");
     p.requestQuality = j.optInt("requestQuality");
+    p.versionEdge = j.optInt("versionEdge");
+    if (p.versionEdge != 1280 && p.versionEdge != 1920 && p.versionEdge != 2560)
+      p.versionEdge = 0;
     p.before = j.optLong("before");
     p.after = j.optLong("after");
     p.ow = j.optInt("ow");

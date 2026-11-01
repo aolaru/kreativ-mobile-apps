@@ -32,6 +32,9 @@ final class Session {
   volatile long target = 500_000, preparedTarget = -1;
   volatile int preparedEdge, preparedQuality;
   volatile int edge = 2560, quality = 85, background = 0xFFFFFFFF;
+  volatile String namingPrefix = "";
+  volatile int namingStart = 1;
+  volatile int namingStyle;
   volatile boolean advanced, resizeOnly, customResize;
   volatile long previewGeneration;
   volatile Runnable listener;
@@ -121,6 +124,9 @@ final class Session {
               .put("advanced", advanced)
               .put("resizeOnly", resizeOnly)
               .put("customResize", customResize)
+              .put("namingPrefix", namingPrefix)
+              .put("namingStart", namingStart)
+              .put("namingStyle", namingStyle)
               .put("message", message)
               .put("pending", pending)
               .put("pendingItemId", pendingItemId)
@@ -156,6 +162,14 @@ final class Session {
       advanced = j.optBoolean("advanced");
       resizeOnly = j.optBoolean("resizeOnly");
       customResize = j.optBoolean("customResize", edge != 1280 && edge != 1920 && edge != 2560);
+      namingPrefix = j.optString("namingPrefix", "");
+      namingStart = j.optInt("namingStart", 1);
+      namingStyle = j.optInt("namingStyle", 0);
+      if (namingStyle < 0 || namingStyle > 1) namingStyle = 0;
+      if (!namingPrefix.matches("[A-Za-z0-9 _-]{0,32}") || namingStart < 1 || namingStart > 999999) {
+        namingPrefix = "";
+        namingStart = 1;
+      }
       JSONArray data = j.optJSONArray("items");
       boolean expired = System.currentTimeMillis() - j.optLong("updated") >= 86_400_000;
       if (data != null)
@@ -170,7 +184,7 @@ final class Session {
               && !new File(p.output)
                   .getCanonicalPath()
                   .startsWith(exports.getCanonicalPath() + File.separator)) continue;
-          if (p.status.equals("Processing") || p.status.equals("Importing")) {
+          if (p.status.equals("Processing") || p.status.equals("Importing") || p.status.equals("Waiting")) {
             p.status = "Interrupted";
             p.error = "The app stopped before this photo finished. Tap Preview copies to retry.";
           }
@@ -355,16 +369,22 @@ final class Session {
   }
 
   void process(CompressionOptions options, Set<String> ids) {
+    process(options, ids, true);
+  }
+
+  private void process(CompressionOptions options, Set<String> ids, boolean updateSettings) {
     List<PhotoItem> jobs = new ArrayList<>();
     for (PhotoItem p : items)
       if (!p.source.isEmpty() && (ids == null || ids.contains(p.id))) jobs.add(p);
     if (jobs.isEmpty()) return;
     if (!begin("Preparing your copies…")) return;
-    target = options.targetBytes == 0 ? target : options.targetBytes;
-    resizeOnly = options.targetBytes == 0;
-    edge = options.longestEdge;
-    quality = options.maxQuality;
-    background = options.background;
+    if (updateSettings) {
+      target = options.targetBytes == 0 ? target : options.targetBytes;
+      resizeOnly = options.targetBytes == 0;
+      edge = options.longestEdge;
+      quality = options.maxQuality;
+      background = options.background;
+    }
     worker.execute(
         () -> {
           int done = 0, failures = 0;
@@ -591,6 +611,109 @@ final class Session {
     return true;
   }
 
+  void createVersions(Set<String> ids, long requestedTarget, int requestedQuality, int color) {
+    List<PhotoItem> sources = new ArrayList<>();
+    for (PhotoItem p : items) if (ids.contains(p.id) && p.exportable()) {
+      if (p.source.isEmpty() || !new File(p.source).isFile()) {
+        message = "A selected original working copy is unavailable. Select that photo again.";
+        notifyUi();
+        return;
+      }
+      sources.add(p);
+    }
+    if (sources.isEmpty()) return;
+    if (items.size() + sources.size() * 3 > 100) {
+      message = "Choose fewer photos: a session can contain at most 100 photos and versions.";
+      notifyUi();
+      return;
+    }
+    if (!begin("Preparing version jobs…")) return;
+    worker.execute(() -> {
+      int[] edges = {1280, 1920, 2560};
+      List<Set<String>> groups = new ArrayList<>();
+      List<PhotoItem> added = new ArrayList<>();
+      for (int edge : edges) {
+        Set<String> group = new HashSet<>();
+        for (PhotoItem source : sources) {
+          PhotoItem p = new PhotoItem(UUID.randomUUID().toString(), source.name + " · " + edge + " px");
+          p.source = source.source;
+          p.before = source.before; p.ow = source.ow; p.oh = source.oh;
+          p.orientation = source.orientation; p.alpha = source.alpha;
+          p.versionEdge = edge;
+          p.status = "Waiting";
+          p.error = "Waiting to prepare this version.";
+          group.add(p.id); added.add(p);
+        }
+        groups.add(group);
+      }
+      if (cancelled) { finish("Version creation cancelled."); return; }
+      items.addAll(added);
+      if (!persist()) {
+        items.removeAll(added);
+        finish("Could not save version jobs. Free storage and try again.");
+        return;
+      }
+      finish("Version jobs prepared.");
+      main.post(new Runnable() {
+        int index;
+        public void run() {
+          if (cancelled) {
+            busy = true;
+            worker.execute(() -> {
+              for (PhotoItem p : added)
+                if (p.status.equals("Waiting")) {
+                  p.status = "Cancelled";
+                  p.error = "Cancelled before this version was processed. Retry uses current settings.";
+                }
+              finish("Version creation cancelled. Completed previews are kept.");
+            });
+            return;
+          }
+          if (index >= edges.length) return;
+          int current = index++;
+          process(new CompressionOptions(requestedTarget, edges[current], requestedQuality, color, true), groups.get(current), false);
+          whenReady(this);
+        }
+      });
+    });
+  }
+
+  void shareZip(Set<String> ids, java.util.function.Consumer<File> ready) {
+    List<PhotoItem> chosen = new ArrayList<>();
+    for (PhotoItem p : items) if (ids.contains(p.id) && p.exportable()) chosen.add(p);
+    if (chosen.isEmpty() || !begin("Preparing ZIP on your device…")) return;
+    List<String> names = new ArrayList<>();
+    for (PhotoItem p : chosen) names.add(exportName(p));
+    worker.execute(() -> {
+      File archive = new File(exports, UUID.randomUUID() + ".zip");
+      try {
+        ZipExporter.write(archive, chosen, names, this::check);
+        finish("ZIP ready to share.");
+        main.post(() -> ready.accept(archive));
+      } catch (CancellationException e) {
+        finish("ZIP preparation cancelled. Your previews are kept.");
+      } catch (Exception | OutOfMemoryError e) {
+        finish("Could not prepare ZIP: " + friendly(e));
+      }
+    });
+  }
+
+  String exportName(PhotoItem p) {
+    String version = p.versionEdge == 0 ? "" : "_" + p.versionEdge + "px";
+    if (namingPrefix.isEmpty()) return "PhotoFeather_" + p.id + version + ".jpg";
+    int index = 0;
+    boolean found = false;
+    for (PhotoItem item : items) {
+      if (!item.exportable() || !item.selectedForExport) continue;
+      if (item == p) { found = true; break; }
+      index++;
+    }
+    if (!found) index = Math.max(0, items.indexOf(p));
+    String number = String.format(Locale.US, "%04d", namingStart + index);
+    return (namingStyle == 1 ? number + "_" + namingPrefix : namingPrefix + "_" + number)
+        + "_" + p.id + version + ".jpg";
+  }
+
   void save(Uri tree) {
     save(tree, null);
   }
@@ -615,7 +738,7 @@ final class Session {
             notifyUi();
             try {
               Uri uri =
-                  ExportManager.save(
+                  ExportManager.saveNamed(
                       context,
                       p,
                       tree,
@@ -638,7 +761,7 @@ final class Session {
                             clearPending();
                           }
                         }
-                      });
+                      }, exportName(p));
               p.savedUri = uri.toString();
               p.saveError = "";
               saved++;

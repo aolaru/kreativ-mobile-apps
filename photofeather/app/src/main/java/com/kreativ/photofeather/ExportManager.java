@@ -22,6 +22,11 @@ final class ExportManager {
     return save(context, p, tree, cancel, journal, File::getUsableSpace);
   }
 
+  static Uri saveNamed(Context context, PhotoItem p, Uri tree, ImageEngine.Cancellation cancel,
+      Journal journal, String name) throws IOException {
+    return save(context, p, tree, cancel, journal, File::getUsableSpace, name);
+  }
+
   static Uri save(
       Context context,
       PhotoItem p,
@@ -30,6 +35,11 @@ final class ExportManager {
       Journal journal,
       ImageEngine.DiskSpace space)
       throws IOException {
+    return save(context, p, tree, cancel, journal, space, "PhotoFeather_" + p.id + ".jpg");
+  }
+
+  private static Uri save(Context context, PhotoItem p, Uri tree, ImageEngine.Cancellation cancel,
+      Journal journal, ImageEngine.DiskSpace space, String name) throws IOException {
     File file = new File(p.output);
     ImageEngine.verifyOutput(file, p.w, p.h);
     if (file.length() != p.after)
@@ -41,7 +51,6 @@ final class ExportManager {
     boolean gallery = Build.VERSION.SDK_INT >= 29 && tree == null;
     try {
       cancel.check();
-      String name = "PhotoFeather_" + p.id + ".jpg";
       if (gallery) {
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.DISPLAY_NAME, name);
