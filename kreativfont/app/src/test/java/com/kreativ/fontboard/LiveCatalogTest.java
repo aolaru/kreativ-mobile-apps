@@ -51,13 +51,39 @@ public class LiveCatalogTest {
         FontApi.Page results = FontApi.fetch(FontApi.searchUrl("Cookie", 1), null, 1);
         assertFalse(results.fonts.isEmpty());
         assertTrue(results.fonts.stream().anyMatch(font -> !latest.contains(font.id)));
-        FontApi.Page serif = FontApi.fetch(FontApi.searchUrl("serif", 1), null, 1);
+        FontSearch search = new FontSearch("serif", "All");
+        FontApi.Page serif = search.load(1);
         assertEquals(10, serif.fonts.size());
         assertTrue(serif.totalPages > 1);
-        FontApi.Page next = FontApi.fetch(FontApi.searchUrl("serif", 2), null, 2);
+        FontApi.Page next = search.load(2);
         Set<Long> searchIds = new HashSet<>();
         for (FontItem font : serif.fonts) assertTrue(searchIds.add(font.id));
         for (FontItem font : next.fonts) assertTrue(searchIds.add(font.id));
         assertEquals(20, searchIds.size());
+    }
+
+    @Test public void filteredSearchQueriesTheWholeCatalogue() throws Exception {
+        Assume.assumeTrue("true".equals(System.getenv("KREATIVFONT_LIVE_TESTS")));
+        for (String availability : new String[]{"Commercial", "Free"}) {
+            FontSearch search = new FontSearch("serif", availability);
+            FontApi.Page page = search.load(1);
+            assertEquals(10, page.fonts.size());
+            assertTrue(page.totalPages > 1);
+            for (FontItem font : page.fonts) {
+                assertEquals(availability, font.availability);
+                assertTrue(FontCatalog.safeUrl(font.fullImageUrl, true));
+            }
+            Set<Long> ids = new HashSet<>();
+            for (FontItem font : page.fonts) assertTrue(ids.add(font.id));
+            FontApi.Page next;
+            try { next = search.load(2); }
+            catch (Exception unavailable) { throw new AssertionError(availability + " second search batch unavailable", unavailable); }
+            assertEquals(10, next.fonts.size());
+            for (FontItem font : next.fonts) {
+                assertEquals(availability, font.availability);
+                assertTrue("Search batches must not repeat article IDs", ids.add(font.id));
+            }
+            assertEquals(20, ids.size());
+        }
     }
 }

@@ -41,6 +41,18 @@ public class FontPagingTest {
         assertThrows(org.json.JSONException.class, () -> FontCatalog.parseFeed(new JSONArray().put(post).toString(), null));
     }
 
+    @Test public void searchFiltersAreSentToTheServerOnEveryPage() {
+        String free = FontApi.searchUrl("serif", 2, "Free");
+        assertTrue(free.contains("categories=23584&search=serif"));
+        assertTrue(free.contains("page=2"));
+        assertFalse(free.contains("categories=3,"));
+        String commercial = FontApi.searchUrl("serif", 3, "Commercial");
+        assertTrue(commercial.contains("categories=3&categories_exclude=23584&search=serif"));
+        assertTrue(commercial.contains("page=3"));
+        assertEquals(FontApi.searchUrl("serif", 1), FontApi.searchUrl("serif", 1, "All"));
+        assertThrows(IllegalArgumentException.class, () -> FontApi.searchUrl("serif", 1, "Unknown"));
+    }
+
     @Test public void appendsDeduplicatedPagesAndStopsAtTheEnd() {
         FontPager pager = new FontPager();
         FontPager.Request first = pager.begin();

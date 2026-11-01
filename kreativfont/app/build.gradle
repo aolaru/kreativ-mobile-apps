@@ -19,9 +19,11 @@ android {
         minSdk 26
         targetSdk 36
         // Legacy production is 2.0.0 / version code 200.
-        versionCode 205
-        versionName '2.3.0'
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        versionCode 206
+        versionName '2.3.1'
+        testInstrumentationRunner project.hasProperty('kreativfontOptimizedChecks')
+                ? 'com.kreativ.fontboard.OptimizedReleaseRunner'
+                : 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     signingConfigs {
@@ -40,10 +42,16 @@ android {
             if (signingPropertiesFile.exists()) {
                 signingConfig signingConfigs.release
             }
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
         }
     }
     testBuildType 'release'
+
+    buildFeatures {
+        buildConfig true
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -52,6 +60,11 @@ android {
 }
 
 dependencies {
+    constraints {
+        implementation('androidx.fragment:fragment:1.9.1') {
+            because 'Replace the outdated Fragment 1.3.6 pulled in through Glide.'
+        }
+    }
     implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.22')
     implementation 'androidx.core:core:1.16.0'
     implementation 'com.github.bumptech.glide:glide:4.16.0'
@@ -61,4 +74,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.6.2'
     androidTestImplementation 'androidx.test:core:1.6.1'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    // AndroidX Test references these annotations; resolve them for its R8 pass.
+    // Test-only: this dependency is not packaged in the production app.
+    androidTestImplementation 'com.google.errorprone:error_prone_annotations:2.47.0'
 }

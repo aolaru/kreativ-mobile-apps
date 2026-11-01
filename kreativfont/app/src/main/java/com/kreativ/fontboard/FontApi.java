@@ -28,11 +28,20 @@ final class FontApi {
     }
 
     static String searchUrl(String query, int page) {
+        return searchUrl(query, page, "All");
+    }
+
+    static String searchUrl(String query, int page, String availability) {
         if (page < 1 || query.trim().isEmpty()) throw new IllegalArgumentException("Invalid search");
         String encoded;
         try { encoded = URLEncoder.encode(query.trim(), StandardCharsets.UTF_8.name()); }
         catch (java.io.UnsupportedEncodingException impossible) { throw new AssertionError(impossible); }
-        return BASE + "categories=" + FONT_CATEGORY + "," + FREE_CATEGORY + "&search=" + encoded
+        String categories;
+        if ("All".equals(availability)) categories = "categories=" + FONT_CATEGORY + "," + FREE_CATEGORY;
+        else if ("Free".equals(availability)) categories = "categories=" + FREE_CATEGORY;
+        else if ("Commercial".equals(availability)) categories = "categories=" + FONT_CATEGORY + "&categories_exclude=" + FREE_CATEGORY;
+        else throw new IllegalArgumentException("Invalid search filter");
+        return BASE + categories + "&search=" + encoded
                 + "&per_page=" + PAGE_SIZE + "&page=" + page + "&orderby=relevance&order=desc" + FIELDS;
     }
 
@@ -43,6 +52,14 @@ final class FontApi {
         Page(List<FontItem> fonts, int totalPages) {
             this.fonts = fonts;
             this.totalPages = totalPages;
+        }
+    }
+
+    static final class RequestFailure extends IllegalStateException {
+        final int status;
+        RequestFailure(int status) {
+            super("Catalogue unavailable (HTTP " + status + ")");
+            this.status = status;
         }
     }
 
@@ -60,7 +77,7 @@ final class FontApi {
                 }
                 throw new IllegalStateException("Catalogue unavailable");
             }
-            if (code != HttpURLConnection.HTTP_OK) throw new IllegalStateException("Catalogue unavailable");
+            if (code != HttpURLConnection.HTTP_OK) throw new RequestFailure(code);
             List<FontItem> fonts = FontCatalog.parseFeed(read(connection.getInputStream()), availability);
             if (fonts.size() > PAGE_SIZE) throw new IllegalStateException("Unexpected page size");
             int pages;

@@ -49,13 +49,18 @@ import java.util.concurrent.Future;
 
 public class MainActivity extends Activity {
     private static final String PRIVACY = "https://kreativfont.com/blog/terms-of-use-privacy-policy";
+    private static final String KREATIV_APPS = "https://madebykreativ.com/apps";
     private final ExecutorService network = Executors.newSingleThreadExecutor();
     private final ExecutorService searchNetwork = Executors.newFixedThreadPool(2);
     private final Handler handler = new Handler(Looper.getMainLooper());
     private final FontPager commercialPager = new FontPager(), freePager = new FontPager(), searchPager = new FontPager();
     private Future<?> searchTask;
+    private FontSearch searchSession;
     private Runnable searchDebounce;
     private String activeQuery = "";
+    private String searchFilter = "All";
+    private LinearLayout searchFilters;
+    private final Map<String, Button> filterButtons = new HashMap<>();
     private boolean searchWaiting;
     private List<FontItem> fonts = new ArrayList<>();
     private List<FontItem> favorites = new ArrayList<>();
@@ -89,6 +94,10 @@ public class MainActivity extends Activity {
         updatedAt = store.updatedAt();
         showingFavorites = state != null && state.getBoolean("favorites");
         if (state != null) {
+            String savedFilter = state.getString("search_filter", "All");
+            if (savedFilter.equals("Commercial") || savedFilter.equals("Free")) searchFilter = savedFilter;
+        }
+        if (state != null) {
             shelfPositions.put("Commercial", state.getInt("commercial_scroll"));
             shelfPositions.put("Free", state.getInt("free_scroll"));
         }
@@ -103,6 +112,7 @@ public class MainActivity extends Activity {
     protected void onSaveInstanceState(Bundle state) {
         state.putBoolean("favorites", showingFavorites);
         state.putString("query", search.getText().toString());
+        state.putString("search_filter", searchFilter);
         state.putInt("scroll", scroll.getScrollY());
         rememberShelves();
         state.putInt("commercial_scroll", shelfPositions.getOrDefault("Commercial", 0));
@@ -177,6 +187,22 @@ public class MainActivity extends Activity {
                     .hideSoftInputFromWindow(search.getWindowToken(), 0);
             return true;
         });
+        searchFilters = row();
+        searchFilters.setTag("search_filters");
+        for (String filter : new String[]{"All", "Commercial", "Free"}) {
+            if (!filterButtons.isEmpty()) gap(searchFilters, 8);
+            Button choice = button(filter, false);
+            choice.setTag("search_filter." + filter);
+            choice.setPadding(dp(4), 0, dp(4), 0);
+            choice.setOnClickListener(v -> {
+                if (searchFilter.equals(filter)) return;
+                searchFilter = filter;
+                onSearchChanged();
+            });
+            filterButtons.put(filter, choice);
+            searchFilters.addView(choice, weighted());
+        }
+        header.addView(searchFilters, margin(matchWrap(), 8));
         LinearLayout statusRow = row();
         status = label("", 12, muted);
         status.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
@@ -225,6 +251,14 @@ public class MainActivity extends Activity {
 
     private void updateHeader() {
         boolean searching = !showingFavorites && !search.getText().toString().trim().isEmpty();
+        searchFilters.setVisibility(searching ? View.VISIBLE : View.GONE);
+        for (Map.Entry<String, Button> filter : filterButtons.entrySet()) {
+            boolean selected = filter.getKey().equals(searchFilter);
+            filter.getValue().setSelected(selected);
+            filter.getValue().setBackgroundResource(selected ? R.drawable.primary_button : R.drawable.secondary_button);
+            filter.getValue().setTextColor(selected ? Color.WHITE : ink);
+            filter.getValue().setContentDescription(getString(selected ? R.string.filter_selected : R.string.filter_search, filter.getKey()));
+        }
         search.setHint(showingFavorites ? R.string.search_favorites_hint : R.string.search_hint);
         discoverTab.setBackgroundResource(!showingFavorites ? R.drawable.selected_tab : R.drawable.text_button);
         discoverTab.setTextColor(!showingFavorites ? accent : muted);
@@ -299,6 +333,17 @@ public class MainActivity extends Activity {
         Button privacy = textButton(getString(R.string.privacy_policy));
         privacy.setOnClickListener(v -> openUrl(PRIVACY));
         content.addView(privacy, margin(matchWrap(), 8));
+        LinearLayout credit = row();
+        credit.setTag("version_credit");
+        credit.setGravity(Gravity.CENTER);
+        TextView version = label(getString(R.string.app_version, BuildConfig.VERSION_NAME), 12, muted);
+        credit.addView(version, wrap());
+        Button maker = textButton(getString(R.string.maker_credit));
+        maker.setTag("maker_credit");
+        maker.setTextSize(12);
+        maker.setOnClickListener(v -> openUrl(KREATIV_APPS));
+        credit.addView(maker, wrap());
+        content.addView(credit, margin(matchWrap(), 8));
         scroll.post(() -> { if (!destroyed) scroll.scrollTo(0, position); });
     }
 
@@ -337,17 +382,36 @@ public class MainActivity extends Activity {
             params.setMarginEnd(dp(12));
             cards.addView(card(font, true), params);
         }
+        FontPager page = pager(availability);
         LinearLayout more = column();
-        more.setBackgroundResource(R.drawable.card);
-        more.setPadding(dp(16), dp(24), dp(16), dp(24));
-        more.addView(pageControl(pager(availability), () -> loadFeedPage(availability)), matchWrap());
-        TextView moreHint = label(getString(pager(availability).hasMore()
+        more.setTag("load_more_card." + availability);
+        more.setBackgroundResource(R.drawable.load_more_card);
+        more.setPadding(dp(16), dp(16), dp(16), dp(16));
+        more.setGravity(Gravity.CENTER);
+        TextView arrow = label("→", 32, accent);
+        arrow.setGravity(Gravity.CENTER);
+        arrow.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+        more.addView(arrow, matchWrap());
+        TextView moreTitle = label(getString(page.hasMore() ? R.string.explore_more_fonts : R.string.all_caught_up), 18, ink);
+        moreTitle.setTypeface(Typeface.DEFAULT_BOLD);
+        moreTitle.setGravity(Gravity.CENTER);
+        more.addView(moreTitle, margin(matchWrap(), 4));
+        TextView moreHint = label(getString(page.hasMore()
                 ? R.string.more_fonts_hint : R.string.catalogue_end_hint), 13, muted);
         moreHint.setGravity(Gravity.CENTER);
-        more.addView(moreHint, margin(matchWrap(), 12));
-        cards.addView(more, new LinearLayout.LayoutParams(width, -2));
+        more.addView(moreHint, margin(matchWrap(), 8));
+        View endControl = sectionPageControl(availability, false);
+        endControl.setTag("load_more_end." + availability);
+        more.addView(endControl, margin(matchWrap(), 16));
+        // A wrap-content end card floated above the font-card actions. Match the
+        // row's measured height and centre the call to action within that card.
+        cards.addView(more, new LinearLayout.LayoutParams(width, ViewGroup.LayoutParams.MATCH_PARENT));
         shelf.addView(cards, new HorizontalScrollView.LayoutParams(-2, -2));
         content.addView(shelf, margin(matchWrap(), 12));
+        // The same action is reachable without swiping past every preview.
+        View footerControl = sectionPageControl(availability, true);
+        footerControl.setTag("load_more_footer." + availability);
+        content.addView(footerControl, margin(matchWrap(), 12));
         shelves.put(availability, shelf);
         int position = shelfPositions.getOrDefault(availability, 0);
         shelf.post(() -> { if (!destroyed) shelf.scrollTo(position, 0); });
@@ -364,6 +428,20 @@ public class MainActivity extends Activity {
         return availability.equals("Free") ? freePager : commercialPager;
     }
 
+    private View sectionPageControl(String availability, boolean footer) {
+        FontPager page = pager(availability);
+        View control = pageControl(page, () -> loadFeedPage(availability));
+        if (control instanceof Button) {
+            Button button = (Button) control;
+            if (footer && !page.loading && !page.failed) {
+                button.setText(availability.equals("Free") ? R.string.load_more_free : R.string.load_more_commercial);
+            }
+            String title = getString(availability.equals("Free") ? R.string.latest_free : R.string.latest_commercial);
+            button.setContentDescription(getString(R.string.section_action, title, button.getText()));
+        }
+        return control;
+    }
+
     private View pageControl(FontPager page, Runnable load) {
         if (!page.hasMore()) {
             TextView end = label(getString(R.string.all_fonts_loaded), 14, muted);
@@ -373,7 +451,10 @@ public class MainActivity extends Activity {
         }
         Button more = button(getString(page.loading ? R.string.loading_more
                 : page.failed ? R.string.retry_more : R.string.load_more), true);
+        more.setMinHeight(dp(56));
+        more.setGravity(Gravity.CENTER);
         more.setEnabled(!page.loading && (page == searchPager || !loading));
+        more.setAlpha(more.isEnabled() ? 1f : .55f);
         more.setOnClickListener(v -> load.run());
         return more;
     }
@@ -384,6 +465,7 @@ public class MainActivity extends Activity {
         if (searchTask != null) searchTask.cancel(true);
         searchPager.reset();
         activeQuery = search.getText().toString().trim();
+        searchSession = new FontSearch(activeQuery, searchFilter);
         searchWaiting = !showingFavorites && !activeQuery.isEmpty();
         renderFonts(false);
         if (searchWaiting) {
@@ -409,11 +491,11 @@ public class MainActivity extends Activity {
         if (destroyed || showingFavorites || activeQuery.isEmpty()) return;
         FontPager.Request request = searchPager.begin();
         if (request == null) return;
-        String query = activeQuery;
+        FontSearch session = searchSession;
         renderFonts(true);
         searchTask = searchNetwork.submit(() -> {
             try {
-                FontApi.Page page = FontApi.fetch(FontApi.searchUrl(query, request.page), null, request.page);
+                FontApi.Page page = session.load(request.page);
                 runOnUiThread(() -> {
                     if (destroyed || isFinishing() || !searchPager.complete(request, page)) return;
                     updateFavorites(page.fonts);
@@ -421,6 +503,9 @@ public class MainActivity extends Activity {
                 });
             } catch (Exception failed) {
                 // Do not include query-bearing URLs or exception messages in logs.
+                Log.w("FontSearch", failed instanceof FontApi.RequestFailure
+                        ? "Catalogue request failed (HTTP " + ((FontApi.RequestFailure) failed).status + ")"
+                        : "Catalogue request failed (" + failed.getClass().getSimpleName() + ")");
                 runOnUiThread(() -> {
                     if (destroyed || isFinishing() || !searchPager.fail(request)) return;
                     renderFonts(true);
@@ -483,8 +568,8 @@ public class MainActivity extends Activity {
             };
             image.setScaleType(ImageView.ScaleType.FIT_CENTER);
             image.setBackgroundColor(getColor(R.color.preview_background));
-            image.setContentDescription(getString(R.string.font_preview, font.name));
-            image.setOnClickListener(v -> showDetails(font));
+            image.setContentDescription(getString(R.string.open_font_preview, font.name));
+            image.setOnClickListener(v -> openPreview(font));
             card.addView(image, matchWrap());
             Glide.with(this).load(font.imageUrl).fitCenter()
                     .placeholder(R.drawable.preview_placeholder).error(R.drawable.preview_placeholder).into(image);
@@ -539,6 +624,11 @@ public class MainActivity extends Activity {
         ScrollView details = new ScrollView(this);
         LinearLayout body = column();
         body.setPadding(dp(24), dp(8), dp(24), dp(16));
+        if (FontCatalog.safeUrl(font.fullImageUrl, true) || FontCatalog.safeUrl(font.imageUrl, true)) {
+            Button preview = button(getString(R.string.open_preview), true);
+            preview.setOnClickListener(v -> openPreview(font));
+            body.addView(preview, margin(matchWrap(), 8));
+        }
         TextView text = label(font.description, 16, muted);
         text.setLineSpacing(dp(4), 1);
         body.addView(text, matchWrap());
@@ -549,6 +639,18 @@ public class MainActivity extends Activity {
                 .setNeutralButton(isFavorite(font) ? R.string.remove_saved : R.string.save, (d, which) -> toggleFavorite(font))
                 .setNegativeButton(R.string.close, null).create();
         dialog.show();
+    }
+
+    private void openPreview(FontItem font) {
+        String imageUrl = FontCatalog.safeUrl(font.fullImageUrl, true) ? font.fullImageUrl : font.imageUrl;
+        if (!FontCatalog.safeUrl(imageUrl, true)) {
+            Toast.makeText(this, R.string.preview_unavailable, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Intent intent = new Intent(this, FontPreviewActivity.class);
+        intent.putExtra("image", imageUrl);
+        intent.putExtra("name", font.name);
+        startActivity(intent);
     }
 
     private boolean isFavorite(FontItem font) {
@@ -606,7 +708,7 @@ public class MainActivity extends Activity {
     }
 
     private void openUrl(String url) {
-        if (!FontCatalog.safeUrl(url, false)) {
+        if (!KREATIV_APPS.equals(url) && !FontCatalog.safeUrl(url, false)) {
             Toast.makeText(this, R.string.link_unavailable, Toast.LENGTH_SHORT).show();
             return;
         }

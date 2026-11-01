@@ -59,6 +59,22 @@ public class FontCatalogTest {
         assertEquals(original.articleUrl, restored.articleUrl);
         assertEquals(original.imageUrl, restored.imageUrl);
         assertEquals(original.description, restored.description);
+        assertEquals("https://kreativfont.com/preview.png", restored.fullImageUrl);
+    }
+
+    @Test public void oldFavoritesKeepTheirPreviewWithoutNewMetadata() throws Exception {
+        JSONObject json = new JSONObject().put("name", "Saved font").put("image", "https://kreativfont.com/old.png");
+        FontItem restored = FontItem.fromJson(json);
+        assertEquals(restored.imageUrl, restored.fullImageUrl);
+    }
+
+    @Test public void unsafeOriginalImageFallsBackToTheSafeThumbnail() throws Exception {
+        JSONObject post = article(123);
+        post.getJSONObject("_embedded").getJSONArray("wp:featuredmedia").getJSONObject(0)
+                .put("source_url", "https://unexpected.test/large.png");
+        FontItem font = FontCatalog.parseFeed(new JSONArray().put(post).toString(), "Commercial").get(0);
+        assertEquals(font.imageUrl, font.fullImageUrl);
+        assertTrue(FontCatalog.safeUrl(font.fullImageUrl, true));
     }
 
     @Test public void rollingFeedDoesNotDeleteAnOlderFavorite() throws Exception {

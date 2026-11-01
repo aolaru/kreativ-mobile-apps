@@ -49,12 +49,14 @@ final class FontCatalog {
             String description = excerpt == null ? "" : text(excerpt.optString("rendered"));
             if (description.isEmpty()) description = title;
             String imageUrl = "";
+            String fullImageUrl = "";
             double ratio = 2;
             JSONObject embedded = post.optJSONObject("_embedded");
             JSONArray media = embedded == null ? null : embedded.optJSONArray("wp:featuredmedia");
             JSONObject image = media == null ? null : media.optJSONObject(0);
             if (image != null && "image".equals(image.optString("media_type"))) {
                 imageUrl = image.optString("source_url");
+                fullImageUrl = imageUrl;
                 JSONObject details = image.optJSONObject("media_details");
                 if (details != null) {
                     ratio = details.optDouble("width", 2) / Math.max(1, details.optDouble("height", 1));
@@ -67,6 +69,7 @@ final class FontCatalog {
                 }
             }
             if (!safeUrl(imageUrl, true)) imageUrl = "";
+            if (!safeUrl(fullImageUrl, true)) fullImageUrl = imageUrl;
             String kind = availability;
             if (kind == null) {
                 JSONArray categories = post.getJSONArray("categories");
@@ -78,7 +81,7 @@ final class FontCatalog {
                 if (!free && !commercial) throw new JSONException("Not a font article");
                 kind = free ? "Free" : "Commercial";
             }
-            FontItem font = new FontItem(id, name(title), title, description, kind, url, imageUrl, ratio);
+            FontItem font = new FontItem(id, name(title), title, description, kind, url, imageUrl, ratio, fullImageUrl);
             for (FontItem existing : fonts) if (existing.id == id) throw new JSONException("Duplicate article");
             fonts.add(font);
         }

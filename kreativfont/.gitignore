@@ -13,3 +13,6 @@ build/
 .DS_Store
 *.apk
 *.aab
+
+# Immutable local release artifacts and matching R8 maps (survive Gradle clean).
+.release-archives/

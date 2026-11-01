@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:theme="@style/Theme.KreativFont"
         android:supportsRtl="true">
+        <activity android:name=".FontPreviewActivity" android:exported="false" android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

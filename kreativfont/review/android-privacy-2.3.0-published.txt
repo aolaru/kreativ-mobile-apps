@@ -1,0 +1,88 @@
+Kreativ Font Android app privacy
+Last updated: 15 October 2026
+
+Published at:
+https://kreativfont.com/blog/terms-of-use-privacy-policy#android-app-privacy
+Only the Android appendix was changed; the preceding website terms were
+verified byte-for-byte unchanged in the WordPress editor.
+
+This section applies to the Kreativ Font Android app (com.kreativ.fontapp),
+versions 2.2.1 and 2.3.0. Online catalogue search described below is available
+from version 2.3.0; version 2.2.1 searches loaded articles locally. The app is
+provided by Andrei Olaru / Kreativ Font. The website's membership, AI-tool and
+advertising features are not native app features.
+
+The app displays recent commercial and free font articles, descriptions and
+preview images from kreativfont.com. It does not require an account, contain
+advertising or analytics SDKs, or request access to your camera, photos,
+contacts or device location. It does not run the website's Google Analytics,
+Jetpack Stats or advertising JavaScript inside the native app.
+
+Data stored on your device
+
+Favorites, cached article information and preview images are stored in the
+app's private storage on your device. Searching saved favorites filters them
+locally; favorites are not uploaded by the native app. The app does not
+maintain a search-history list. Android may retain the current query
+temporarily to restore the search screen. You can remove favorites
+individually. Clearing the app's storage through Android settings or
+uninstalling it removes its local data. Android cloud backup and device
+transfer are disabled for the app.
+
+Catalogue requests and hosting logs
+
+In version 2.3.0, searching the website catalogue sends your search phrase to
+kreativfont.com in an HTTPS request so the website can return matching font
+articles. The phrase is included in the requested URL and may therefore
+appear in the hosting logs described below. Catalogue search is optional:
+you can browse font sections and use favorites without entering a search.
+An internet connection is required for catalogue search. Avoid entering
+personal or sensitive information in font searches. This is separate from
+the local search of saved favorites.
+
+To load current articles and preview images, the app sends HTTPS requests to
+kreativfont.com and WordPress/Jetpack image CDN servers operated by Automattic.
+These services receive your IP address and technical request information,
+such as the requested URL, request time and user-agent information supplied
+by your device. They process this information to deliver content, operate
+and protect the service, and investigate technical problems.
+
+WordPress.com's documentation states that its web-server logs record server
+requests and are retained for 30 days. Automattic's visitor privacy notice
+describes keeping IP-address, browser and operating-system information in
+web-server logs for approximately 30 days, with retention subject to legal
+requirements. This is separate from the app's local storage.
+
+Our website also uses the Redirection plugin. Requests that are redirected
+or encounter a missing page/file may be logged locally on the website with
+their full IP address. Redirect and missing-page logs are configured to
+expire after one day; cleanup is performed by WordPress's scheduled tasks.
+Additional HTTP-header capture is disabled.
+
+See Automattic's visitor privacy notice:
+https://automattic.com/privacy-notice/
+WordPress.com server-log documentation:
+https://wordpress.com/support/site-logs/
+
+Opening websites
+
+Article links, the privacy policy and the Made by Kreativ credit link to
+madebykreativ.com/apps open in your browser, outside the native app. These
+visits are governed by the website's privacy, cookie, analytics and affiliate
+disclosures, together with your browser's privacy settings. Older migrated
+favorites without an article link may open a website search; the browser
+then sends that search query to the website. Other linked websites have
+their own privacy policies.
+
+Contact and data requests
+
+For privacy questions or requests concerning data associated with the app's
+network requests, contact contact@kreativfont.com. To request deletion of
+server-side data associated with app requests, email contact@kreativfont.com
+and mention the Kreativ Font Android app. We will assess requests with the
+relevant hosting provider where necessary. Retention required for
+security or legal obligations may limit deletion. Do not send passwords or
+other sensitive information with your request. We cannot retrieve favorites
+or other information stored only on your device. Server-side request
+metadata, including catalogue search phrases, may be present in hosting
+logs subject to the retention described above.
