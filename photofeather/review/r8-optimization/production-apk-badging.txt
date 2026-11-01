@@ -1,0 +1,19 @@
+package: name='com.kreativ.photofeather' versionCode='4' versionName='1.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+sdkVersion:'26'
+targetSdkVersion:'36'
+uses-permission: name='com.kreativ.photofeather.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+application-label:'PhotoFeather'
+application-icon-160:'res/IG.xml'
+application-icon-65534:'res/IG.xml'
+application: label='PhotoFeather' icon='res/IG.xml'
+launchable-activity: name='com.kreativ.photofeather.MainActivity'  label='' icon=''
+feature-group: label=''
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+main
+other-activities
+other-receivers
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--'
+densities: '160' '65534'

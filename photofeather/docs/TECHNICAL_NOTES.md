@@ -79,3 +79,11 @@ All resizing remains free. Small/Medium/Large select longest-edge limits of 1280
 `ResizePolicy.previewSize` shares the engine’s safe-decode sampling policy, handles oriented dimensions and bounds both floor/ceiling codec-rounding possibilities before fitting the longest edge. The UI therefore calls these dimensions **up to** bounds, not encoded results. It discloses memory reductions and no-upscaling. A maximum file-size target can reduce resolution further; actual encoded dimensions and bytes remain measured in Results. No decoder/encoder algorithm, output format or metadata policy was changed.
 
 See [resize implementation and validation](../review/resize-presets/REPORT.md) for fresh test evidence and running-app screenshots.
+
+## R8 optimisation — 1 November 2026
+
+Release builds now run R8 code shrinking/optimisation/obfuscation and resource shrinking with Android's optimised defaults. Platform entry points are covered by manifest/default rules and dependencies' consumer rules; the app uses no custom reflection/JNI or reflection-driven JSON model loading, so no broad application keep rules were added. Debug builds remain unminified.
+
+When AndroidX Test's release instrumentation APK is shrunk, two compile-time Error Prone annotations are missing from its dependency graph. Exact `-dontwarn` rules are scoped to `testProguardFiles`, leaving production diagnostics intact. Adding the full annotation library was rejected because its compiler-only annotations introduce a JDK `javax.lang.model.element.Modifier` reference that Android does not provide. No dependency was added to the final app or tests.
+
+See [R8 build checks](../review/r8-optimization/REPORT.md) for results and remaining device verification. This change is for a future upload; the previously submitted build 4 is immutable.

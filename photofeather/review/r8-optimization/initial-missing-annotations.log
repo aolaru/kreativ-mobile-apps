@@ -1,0 +1,166 @@
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:generateReleaseBuildConfig UP-TO-DATE
+> Task :app:javaPreCompileRelease UP-TO-DATE
+> Task :image-engine:preBuild UP-TO-DATE
+> Task :image-engine:preReleaseBuild UP-TO-DATE
+> Task :image-engine:writeReleaseAarMetadata UP-TO-DATE
+> Task :app:checkReleaseAarMetadata UP-TO-DATE
+> Task :app:generateReleaseResValues UP-TO-DATE
+> Task :image-engine:generateReleaseResValues UP-TO-DATE
+> Task :image-engine:generateReleaseResources UP-TO-DATE
+> Task :image-engine:packageReleaseResources UP-TO-DATE
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:generateReleaseResources UP-TO-DATE
+> Task :app:packageReleaseResources UP-TO-DATE
+> Task :app:parseReleaseLocalResources UP-TO-DATE
+> Task :app:createReleaseCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksRelease UP-TO-DATE
+> Task :image-engine:extractDeepLinksRelease UP-TO-DATE
+> Task :image-engine:processReleaseManifest UP-TO-DATE
+> Task :app:processReleaseMainManifest UP-TO-DATE
+> Task :app:processReleaseManifest UP-TO-DATE
+> Task :app:processReleaseManifestForPackage UP-TO-DATE
+> Task :image-engine:parseReleaseLocalResources UP-TO-DATE
+> Task :image-engine:generateReleaseRFile UP-TO-DATE
+> Task :image-engine:javaPreCompileRelease UP-TO-DATE
+> Task :image-engine:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :image-engine:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :image-engine:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :image-engine:processReleaseJavaRes NO-SOURCE
+> Task :image-engine:createFullJarRelease UP-TO-DATE
+> Task :image-engine:extractProguardFiles UP-TO-DATE
+> Task :image-engine:generateReleaseLintModel UP-TO-DATE
+> Task :image-engine:prepareLintJarForPublish UP-TO-DATE
+> Task :image-engine:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :image-engine:mergeReleaseNativeLibs NO-SOURCE
+> Task :image-engine:stripReleaseDebugSymbols NO-SOURCE
+> Task :image-engine:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :image-engine:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :image-engine:extractReleaseAnnotations UP-TO-DATE
+> Task :image-engine:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :image-engine:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :image-engine:mergeReleaseShaders UP-TO-DATE
+> Task :image-engine:compileReleaseShaders NO-SOURCE
+> Task :image-engine:generateReleaseAssets UP-TO-DATE
+> Task :image-engine:packageReleaseAssets UP-TO-DATE
+> Task :image-engine:prepareReleaseArtProfile UP-TO-DATE
+> Task :image-engine:mergeReleaseJavaResource UP-TO-DATE
+> Task :image-engine:syncReleaseLibJars UP-TO-DATE
+> Task :image-engine:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :image-engine:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :image-engine:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :image-engine:generateReleaseLintVitalModel UP-TO-DATE
+> Task :app:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :image-engine:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:stripReleaseDebugSymbols NO-SOURCE
+> Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :app:checkReleaseDuplicateClasses UP-TO-DATE
+> Task :app:mergeReleaseArtProfile UP-TO-DATE
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :image-engine:exportReleaseConsumerProguardFiles
+> Task :app:mergeReleaseJavaResource UP-TO-DATE
+> Task :app:mergeReleaseStartupProfile UP-TO-DATE
+> Task :app:mergeReleaseShaders UP-TO-DATE
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets UP-TO-DATE
+> Task :app:compressReleaseAssets UP-TO-DATE
+> Task :app:extractReleaseVersionControlInfo UP-TO-DATE
+> Task :app:processApplicationManifestReleaseForBundle
+> Task :app:collectReleaseDependencies UP-TO-DATE
+> Task :app:sdkReleaseDependencyData UP-TO-DATE
+> Task :app:validateSigningRelease UP-TO-DATE
+> Task :app:writeReleaseAppMetadata UP-TO-DATE
+> Task :app:writeReleaseSigningConfigVersions UP-TO-DATE
+> Task :app:preReleaseAndroidTestBuild SKIPPED
+> Task :app:processReleaseAndroidTestManifest UP-TO-DATE
+> Task :app:generateReleaseAndroidTestBuildConfig UP-TO-DATE
+> Task :app:javaPreCompileReleaseAndroidTest UP-TO-DATE
+> Task :app:mergeReleaseResources
+> Task :app:checkReleaseAndroidTestAarMetadata UP-TO-DATE
+> Task :app:generateReleaseAndroidTestResValues UP-TO-DATE
+> Task :app:mapReleaseAndroidTestSourceSetPaths UP-TO-DATE
+> Task :app:generateReleaseAndroidTestResources UP-TO-DATE
+> Task :app:mergeReleaseAndroidTestResources UP-TO-DATE
+> Task :app:mergeReleaseAndroidTestShaders UP-TO-DATE
+> Task :app:compileReleaseAndroidTestShaders NO-SOURCE
+> Task :app:generateReleaseAndroidTestAssets UP-TO-DATE
+> Task :app:mergeReleaseAndroidTestAssets UP-TO-DATE
+> Task :app:compressReleaseAndroidTestAssets UP-TO-DATE
+> Task :app:checkReleaseAndroidTestDuplicateClasses UP-TO-DATE
+> Task :app:processReleaseAndroidTestJavaRes NO-SOURCE
+> Task :app:mergeReleaseAndroidTestJavaResource UP-TO-DATE
+> Task :app:mergeReleaseAndroidTestJniLibFolders UP-TO-DATE
+> Task :app:mergeReleaseAndroidTestNativeLibs NO-SOURCE
+> Task :app:stripReleaseAndroidTestDebugSymbols NO-SOURCE
+> Task :app:validateSigningReleaseAndroidTest UP-TO-DATE
+> Task :app:writeReleaseAndroidTestSigningConfigVersions UP-TO-DATE
+> Task :app:preReleaseUnitTestBuild UP-TO-DATE
+> Task :image-engine:lintAnalyzeRelease UP-TO-DATE
+> Task :image-engine:preReleaseUnitTestBuild UP-TO-DATE
+> Task :image-engine:generateReleaseUnitTestLintModel UP-TO-DATE
+> Task :image-engine:lintAnalyzeReleaseUnitTest UP-TO-DATE
+> Task :image-engine:generateReleaseLintReportModel UP-TO-DATE
+> Task :image-engine:lintReportRelease UP-TO-DATE
+> Task :image-engine:lintRelease
+> Task :image-engine:processReleaseUnitTestJavaRes NO-SOURCE
+> Task :image-engine:javaPreCompileReleaseUnitTest
+> Task :image-engine:generateReleaseUnitTestStubRFile
+> Task :app:processReleaseAndroidTestResources
+> Task :image-engine:compileReleaseUnitTestJavaWithJavac
+> Task :app:processReleaseResources
+> Task :image-engine:testReleaseUnitTest
+> Task :app:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:mergeReleaseGeneratedProguardFiles
+> Task :app:generateReleaseLintReportModel
+> Task :app:bundleReleaseClassesToCompileJar
+> Task :app:compileReleaseAndroidTestJavaWithJavac UP-TO-DATE
+> Task :app:generateReleaseAndroidTestLintModel
+> Task :app:generateReleaseUnitTestLintModel
+> Task :app:expandReleaseArtProfileWildcards
+> Task :app:bundleReleaseResources
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease SKIPPED
+> Task :app:lintVitalRelease SKIPPED
+> Task :app:lintAnalyzeReleaseUnitTest
+> Task :app:lintAnalyzeReleaseAndroidTest
+> Task :app:lintAnalyzeRelease
+
+> Task :app:lintReportRelease
+Wrote HTML report to file:///Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility%20apps/photofeather/app/build/reports/lint-results-release.html
+
+> Task :app:lintRelease
+> Task :app:minifyReleaseWithR8
+> Task :app:compileReleaseArtProfile
+> Task :app:shrinkReleaseRes
+> Task :app:convertReleaseProtoResources
+> Task :app:optimizeReleaseResources
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleRelease
+
+> Task :app:minifyReleaseAndroidTestWithR8 FAILED
+ERROR: Missing classes detected while running R8. Please add the missing classes or apply additional keep rules that are generated in /Users/andreiolaru/.codex/worktrees/photofeather-commit/Utility apps/photofeather/app/build/outputs/mapping/releaseAndroidTest/missing_rules.txt.
+ERROR: R8: Missing class com.google.errorprone.annotations.CanIgnoreReturnValue (referenced from: java.lang.Object androidx.test.internal.util.Checks.checkNotNull(java.lang.Object) and 3 other contexts)
+Missing class com.google.errorprone.annotations.MustBeClosed (referenced from: androidx.test.platform.tracing.Tracer$Span androidx.test.platform.tracing.Tracer$Span.beginChildSpan(java.lang.String) and 2 other contexts)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:minifyReleaseAndroidTestWithR8'.
+> A failure occurred while executing com.android.build.gradle.internal.tasks.R8Task$R8Runnable
+   > Compilation failed to complete
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 22s
+115 actionable tasks: 32 executed, 83 up-to-date

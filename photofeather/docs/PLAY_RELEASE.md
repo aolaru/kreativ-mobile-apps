@@ -18,6 +18,14 @@ bash scripts/build-play-release.sh
 
 The script retrieves the password from macOS Keychain and verifies the resulting AAB and APK signatures. It does not upload anything. Outputs are in `app/build/outputs/bundle/release/` and `app/build/outputs/apk/release/`. Copy a final build to the review folder and refresh checksums before uploading; QA builds can replace Gradle's transient release outputs.
 
+### Optimisation for future builds — 1 November 2026
+
+The current source enables `minifyEnabled true`, `shrinkResources true` and Android's `proguard-android-optimize.txt` for release, including the isolated `.releasecheck` QA build. Application rules are in `app/proguard-rules.pro`. Two exact exclusions for non-runtime Error Prone annotations referenced by AndroidX Test are confined to `app/proguard-test-rules.pro` through `testProguardFiles`; production missing-class checks remain enabled.
+
+Keep `app/build/outputs/mapping/release/mapping.txt` with each actual released artifact for crash deobfuscation. Gradle also embeds its production mapping in the AAB's `BUNDLE-METADATA/com.android.tools.build.obfuscation/proguard.map`; verify this before uploading an optimised bundle. Do not reuse a mapping from another build.
+
+The archived signed build 4 and its production submission are unchanged and were not R8-optimised. References below to its missing-deobfuscation warning describe that historical artifact. Local optimisation validation retains versionCode 4 and is **not a new store upload**. Before preparing the next Play release, increment versionCode above 4, run the optimised release on a device and archive the corresponding signed artifacts and mapping. No Play upload or publication change was made for this optimisation task. See [build-check evidence](../review/r8-optimization/REPORT.md).
+
 ### Dedicated upload key
 
 - Keystore: `~/Library/Application Support/Kreativ/PhotoFeather/photofeather-upload.jks`

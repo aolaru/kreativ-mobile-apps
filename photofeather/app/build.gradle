@@ -40,7 +40,10 @@ android {
     buildTypes {
         debug { applicationIdSuffix(project.findProperty('photoFeatherTestSuffix') ?: '.debug') }
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            testProguardFiles 'proguard-test-rules.pro'
             if (qaRelease) {
                 // Installable, non-debuggable release-code check; never a production signing key.
                 applicationIdSuffix '.releasecheck'

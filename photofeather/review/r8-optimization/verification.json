@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-01",
+  "buildChecks": {
+    "productionOptimisationEnabled": true,
+    "testAnnotationExclusionsAbsentFromProduction": true,
+    "bundleMappingMatchesBuild": true,
+    "offlinePolicyPackagedUnchanged": true,
+    "productionIdentityPreserved": true,
+    "nonDebuggable": true,
+    "noAndroidPermissions": true,
+    "manifestEntryPointsRetained": true,
+    "submittedArtifactsUnchanged": true,
+    "PhotoFeather-r8-qa.apkSignatureValid": true,
+    "PhotoFeather-r8-qa-test.apkSignatureValid": true
+  },
+  "unitTests": [
+    {
+      "name": "com.kreativ.imageengine.JpegInputTest",
+      "tests": "6",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.kreativ.imageengine.ResizePreviewTest",
+      "tests": "8",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "com.kreativ.imageengine.PolicyTest",
+      "tests": "12",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "lint": {
+    "app": {
+      "Fatal": 0,
+      "Error": 0,
+      "Warning": 8
+    },
+    "image-engine": {
+      "Fatal": 0,
+      "Error": 0,
+      "Warning": 2
+    }
+  },
+  "baselineSignedBuild4Apk": {
+    "bytes": 1757721,
+    "sha256": "27400659f43923018aa869e985e94e1e3f470c18e3528bfa1c8626116352b578",
+    "dexBytes": 5069136,
+    "compressedDexBytes": 1656259
+  },
+  "optimisedUnsignedProductionApk": {
+    "bytes": 123100,
+    "sha256": "8651b5b74e63a1cafcad55ca0eef8c213ecb1edfe9646909804a1d3b30739daa",
+    "dexBytes": 187716,
+    "compressedDexBytes": 91660
+  },
+  "optimisedUnsignedProductionAab": {
+    "bytes": 214234,
+    "sha256": "72738571eeff1b26b135a52a7414cc1940afc2797c592430da6c41e33fcb5a39",
+    "dexBytes": 187716,
+    "compressedDexBytes": 91660
+  },
+  "dexReductionPercent": 96.3,
+  "sizeComparisonNote": "APK baseline is signed; optimised production APK is unsigned. DEX byte comparison excludes signatures and packaging overhead. Not installed/download size or runtime performance.",
+  "runtimeTestsRun": false,
+  "mappingSha256": "a96ee8f27693d82a244a661aa72051270c769a2ed44b70c8a2a08125514cd46d"
+}
