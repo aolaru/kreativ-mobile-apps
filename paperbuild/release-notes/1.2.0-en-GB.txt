@@ -1,0 +1,7 @@
+New in Pro:
+• Edit existing PDFs: reorder, rotate, duplicate and remove pages.
+• Add logo watermarks and reuse them in saved presets.
+
+The PDF editor saves a new copy and keeps a separate draft. Your originals stay untouched.
+
+Includes code and resource optimisation for a smaller app.

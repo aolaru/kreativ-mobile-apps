@@ -166,6 +166,14 @@ final class DocumentProcessor {
 
     private void finish(PDDocument pdf, ExportOptions options) throws IOException {
         PDImageXObject watermark = null;
+        PDImageXObject logo = null;
+        if (!options.logo.isEmpty()) {
+            File file = new LogoStore(context).file(options.logo);
+            Bitmap bitmap = BitmapFactory.decodeFile(file.getPath());
+            if (bitmap == null) throw new IOException("Your saved logo is unavailable. Choose it again or remove it in Pro export options.");
+            try { logo = LosslessFactory.createFromImage(pdf, bitmap); }
+            finally { bitmap.recycle(); }
+        }
         if (!options.watermark.isEmpty()) {
             // Native text rendering supports Unicode without bundling or downloading fonts.
             Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG); paint.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
@@ -184,7 +192,7 @@ final class DocumentProcessor {
         int total = pdf.getNumberOfPages(), number = 0;
         for (PDPage page : pdf.getPages()) {
             number++;
-            if (watermark == null && !options.pageNumbers) continue;
+            if (watermark == null && logo == null && !options.pageNumbers) continue;
             PDRectangle box = page.getCropBox(); float w = box.getWidth(), h = box.getHeight();
             int rotation = ((page.getRotation() % 360) + 360) % 360;
             boolean sideways = rotation == 90 || rotation == 270;
@@ -202,6 +210,17 @@ final class DocumentProcessor {
                     float markH = markW * watermark.getHeight() / watermark.getWidth();
                     if (markH > visibleH * .20f) { markW *= visibleH * .20f / markH; markH = visibleH * .20f; }
                     stream.drawImage(watermark, (visibleW - markW) / 2, (visibleH - markH) / 2, markW, markH);
+                    stream.restoreGraphicsState();
+                }
+                if (logo != null) {
+                    // A quiet top-right brand mark, away from the text watermark and footer.
+                    stream.saveGraphicsState(); PDExtendedGraphicsState opacity = new PDExtendedGraphicsState();
+                    opacity.setNonStrokingAlphaConstant(.35f); stream.setGraphicsStateParameters(opacity);
+                    float logoW = visibleW * .22f;
+                    float logoH = logoW * logo.getHeight() / logo.getWidth();
+                    if (logoH > visibleH * .12f) { logoW *= visibleH * .12f / logoH; logoH = visibleH * .12f; }
+                    float margin = Math.min(24, Math.min(visibleW, visibleH) * .04f);
+                    stream.drawImage(logo, visibleW - logoW - margin, visibleH - logoH - margin, logoW, logoH);
                     stream.restoreGraphicsState();
                 }
                 if (options.pageNumbers) {
@@ -227,6 +246,97 @@ final class DocumentProcessor {
         if (!pdf.getCurrentAccessPermission().canAssembleDocument()) {
             throw new IOException("This PDF does not allow page editing.");
         }
+    }
+
+    File importEditablePdf(Uri uri) throws IOException {
+        File folder = folder(new File(context.getFilesDir(), "paperbuild/editor"));
+        File input = File.createTempFile("source-", ".pdf", folder);
+        boolean complete = false;
+        try {
+            copy(uri, input); editablePageCount(input); complete = true; return input;
+        } finally { if (!complete) input.delete(); }
+    }
+
+    int editablePageCount(File input) throws IOException {
+        try (PDDocument pdf = PDDocument.load(input, memory())) {
+            checkEditable(pdf); return pdf.getNumberOfPages();
+        } catch (com.tom_roush.pdfbox.pdmodel.encryption.InvalidPasswordException encrypted) {
+            throw new IOException("Choose an unlocked PDF. Password-protected inputs cannot be edited.", encrypted);
+        }
+    }
+
+    private void checkEditable(PDDocument pdf) throws IOException {
+        checkPdf(pdf);
+        if (!pdf.getSignatureDictionaries().isEmpty()
+                || (pdf.getDocumentCatalog().getAcroForm() != null && !pdf.getDocumentCatalog().getAcroForm().getFields().isEmpty())) {
+            throw new IOException("Signed and fillable PDFs cannot be edited here. Choose a regular, unlocked PDF.");
+        }
+    }
+
+    File editPdf(File input, List<PdfPagePlan.Page> plan, String title,
+                 ExportOptions options, Progress progress) throws IOException {
+        options.validate();
+        File output = output(title); boolean complete = false;
+        try (PDDocument source = PDDocument.load(input, memory()); PDDocument destination = new PDDocument(memory())) {
+            checkEditable(source);
+            new PdfPagePlan(plan, source.getNumberOfPages()); // Validate the whole plan before writing.
+            for (int i = 0; i < plan.size(); i++) {
+                PdfPagePlan.Page edit = plan.get(i); PDPage original = source.getPage(edit.source);
+                PDPage page = destination.importPage(original);
+                // importPage does not import inherited resources. Materialise inherited geometry too.
+                page.setResources(original.getResources()); page.setMediaBox(original.getMediaBox());
+                page.setCropBox(original.getCropBox()); page.setRotation(Math.floorMod(original.getRotation() + edit.rotation, 360));
+                // Each duplicate gets its own annotation dictionaries and page pointers.
+                java.util.ArrayList<com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotation> annotations = new java.util.ArrayList<>();
+                for (com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotation annotation : original.getAnnotations()) {
+                    com.tom_roush.pdfbox.cos.COSDictionary copy = new com.tom_roush.pdfbox.cos.COSDictionary(annotation.getCOSObject());
+                    copy.removeItem(com.tom_roush.pdfbox.cos.COSName.P);
+                    com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotation cloned =
+                            com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotation.createAnnotation(copy);
+                    cloned.setPage(page); annotations.add(cloned);
+                }
+                page.setAnnotations(annotations); progress.update((i + 1) * 100 / plan.size());
+            }
+            // Remap local links to the first retained copy; links to removed pages are dropped.
+            java.util.Map<com.tom_roush.pdfbox.cos.COSDictionary, PDPage> retained = new java.util.HashMap<>();
+            for (int i = 0; i < plan.size(); i++) retained.putIfAbsent(source.getPage(plan.get(i).source).getCOSObject(), destination.getPage(i));
+            for (PDPage page : destination.getPages()) {
+                // COSArrayList's iterator.remove() does not update its backing PDF array.
+                // Work on a plain list, then replace the page's annotation array below.
+                java.util.List<com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotation> annotations = new java.util.ArrayList<>(page.getAnnotations());
+                java.util.Iterator<com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotation> iterator = annotations.iterator();
+                while (iterator.hasNext()) {
+                    com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotation annotation = iterator.next();
+                    if (!(annotation instanceof com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotationLink)) continue;
+                    com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotationLink link = (com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotationLink) annotation;
+                    com.tom_roush.pdfbox.pdmodel.interactive.documentnavigation.destination.PDDestination target = link.getDestination();
+                    if (link.getAction() instanceof com.tom_roush.pdfbox.pdmodel.interactive.action.PDActionGoTo) {
+                        target = ((com.tom_roush.pdfbox.pdmodel.interactive.action.PDActionGoTo) link.getAction()).getDestination();
+                    }
+                    if (target instanceof com.tom_roush.pdfbox.pdmodel.interactive.documentnavigation.destination.PDNamedDestination) {
+                        target = source.getDocumentCatalog().findNamedDestinationPage((com.tom_roush.pdfbox.pdmodel.interactive.documentnavigation.destination.PDNamedDestination) target);
+                        if (target == null) { iterator.remove(); continue; }
+                    }
+                    if (target instanceof com.tom_roush.pdfbox.pdmodel.interactive.documentnavigation.destination.PDPageDestination) {
+                        com.tom_roush.pdfbox.pdmodel.interactive.documentnavigation.destination.PDPageDestination old =
+                                (com.tom_roush.pdfbox.pdmodel.interactive.documentnavigation.destination.PDPageDestination) target;
+                        PDPage original = old.getPage();
+                        int index = old.getPageNumber();
+                        if (original == null && index >= 0 && index < source.getNumberOfPages()) original = source.getPage(index);
+                        PDPage next = original == null ? null : retained.get(original.getCOSObject());
+                        if (next == null) { iterator.remove(); continue; }
+                        com.tom_roush.pdfbox.cos.COSArray array = new com.tom_roush.pdfbox.cos.COSArray();
+                        array.addAll((com.tom_roush.pdfbox.cos.COSArray) old.getCOSObject());
+                        com.tom_roush.pdfbox.pdmodel.interactive.documentnavigation.destination.PDPageDestination updated =
+                                (com.tom_roush.pdfbox.pdmodel.interactive.documentnavigation.destination.PDPageDestination)
+                                        com.tom_roush.pdfbox.pdmodel.interactive.documentnavigation.destination.PDDestination.create(array);
+                        updated.setPage(next); link.setAction(null); link.setDestination(updated);
+                    }
+                }
+                page.setAnnotations(annotations);
+            }
+            finish(destination, options); destination.save(output); complete = true; return output;
+        } finally { if (!complete) output.delete(); }
     }
 
     private File temporaryPdf(Uri uri) throws IOException {
@@ -308,7 +418,7 @@ final class DocumentProcessor {
         } catch (RuntimeException | OutOfMemoryError error) { bitmap.recycle(); throw error; }
     }
 
-    private Matrix orientation(Uri uri) {
+    Matrix orientation(Uri uri) {
         Matrix matrix = new Matrix();
         try (InputStream input = context.getContentResolver().openInputStream(uri)) {
             if (input == null) return matrix;

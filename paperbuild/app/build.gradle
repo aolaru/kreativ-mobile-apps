@@ -14,11 +14,19 @@ def releaseStorePassword = releaseSigning['storePassword'] ?: System.getenv('PAP
 def releaseKeyAlias = releaseSigning['keyAlias'] ?: System.getenv('PAPERBUILD_KEY_ALIAS')
 def releaseKeyPassword = releaseSigning['keyPassword'] ?: System.getenv('PAPERBUILD_KEY_PASSWORD')
 def hasReleaseSigning = releaseStoreFile && releaseStorePassword && releaseKeyAlias && releaseKeyPassword
+def isolatedOptimizationTest = project.hasProperty('paperbuildIsolatedTest')
+if (isolatedOptimizationTest) {
+    // Never overwrite production artifacts with an isolated, debug-key-signed test APK.
+    layout.buildDirectory.set(file('build/isolated-r8'))
+}
 
 android {
     namespace 'com.kreativ.paperbuild'
     compileSdk 36
-    testBuildType 'qa'
+    testBuildType isolatedOptimizationTest ? 'release' : 'qa'
+    if (isolatedOptimizationTest) {
+        sourceSets.androidTest.java.setSrcDirs(['src/androidTestOptimized/java'])
+    }
 
     buildFeatures {
         buildConfig true
@@ -33,9 +41,11 @@ android {
         applicationId 'com.kreativ.paperbuild'
         minSdk 26
         targetSdk 36
-        versionCode 4
-        versionName '1.1.0'
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        versionCode 6
+        versionName '1.2.0'
+        testInstrumentationRunner isolatedOptimizationTest
+                ? 'com.kreativ.paperbuild.OptimizedReleaseRunner'
+                : 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     signingConfigs {
@@ -52,13 +62,19 @@ android {
     buildTypes {
         qa {
             initWith debug
-            applicationIdSuffix '.qa'
+            // A fresh suffix lets regression runs preserve an existing owner's QA data.
+            applicationIdSuffix project.findProperty('paperbuildQaApplicationIdSuffix') ?: '.qa'
             resValue 'string', 'app_name', 'PaperBuild QA'
             matchingFallbacks = ['debug']
         }
         release {
-            minifyEnabled false
-            if (hasReleaseSigning) {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (isolatedOptimizationTest) {
+                applicationIdSuffix '.r8test'
+                signingConfig signingConfigs.debug
+            } else if (hasReleaseSigning) {
                 signingConfig signingConfigs.release
             }
         }
@@ -79,8 +95,10 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
-    androidTestImplementation 'androidx.test:runner:1.6.2'
-    androidTestImplementation 'androidx.test:core:1.6.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    if (!isolatedOptimizationTest) {
+        androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+        androidTestImplementation 'androidx.test:runner:1.6.2'
+        androidTestImplementation 'androidx.test:core:1.6.1'
+        androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    }
 }

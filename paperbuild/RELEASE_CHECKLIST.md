@@ -1,5 +1,35 @@
 # PaperBuild Release Checklist
 
+## Version 1.2.0 development preparation — 4 November 2026
+
+- [x] Bump to version code 6 / 1.2.0. Include the unreleased 1.1.1 R8/resource-shrinking changes. Existing Pro product ID, lifetime pricing, permissions and original files remain unchanged.
+- [x] Pro PDF editor: source-preserving new-copy export, selected-page preview, reorder/move-to-position, rotate, duplicate, remove, undo, persisted separate draft and confirmed clear/replace. Entry points in PDF tools and Recent PDFs. Preserve text/vector content and geometry; remap retained page links/drop links to removed pages. Reject signed, fillable and encrypted inputs before replacing the draft.
+- [x] Logo watermarks: private immutable PNG assets, bounded resize and EXIF orientation, transparent image support, selected-logo preview, top-right rotation-aware placement on all four export paths, saved-preset reuse from both builder and editor. Legacy presets stay compatible; passwords remain excluded from persistence.
+- [x] Update in-app Pro/About text, local privacy policy, draft store additions and `release-notes/1.2.0-en-GB.txt`. No external listing/policy writes or Console changes.
+- [x] Signed release APK/AAB builds pass, upload certificate matches the existing key. Production package `com.kreativ.paperbuild`, min SDK 26 / target SDK 36; no new permissions.
+- [x] Retain candidate in `app/build/outputs/releases/1.2.0/`: AAB `paperbuild-1.2.0-v6.aab`, 7,518,062 bytes, SHA-256 `45e102db44b1f757f74c278a62ada3e1cd0fca127c157853041e86a2087ae4d7`; APK and mapping alongside. APK/AAB DEX bytes match; mapping embedded. Local renamed-class coverage 1,314/1,356 (96.90%). Bundle 34.92% smaller than v4. These are local checks, not confirmation that Play's warning cleared.
+- [x] Debug/release JVM suites: 16 tests each, zero failures/errors/skips. Release lint: zero errors / 39 warnings. Prepared 24-test QA suite and four ordered release-equivalent black-box workflows, including editor/transparent-logo/preset/source-preservation coverage.
+- [x] Run the 24-test QA suite and four release-equivalent workflows on Samsung SM-A556B / Android 16. Use only fresh `.v120.qa` / `.r8test` packages; Play and the owner's original QA data stay untouched. Native small-preview rendering checks reject blank fixture pages. Fix link-removal backing-array handling and verify it with the regression suite.
+- [x] Independently reopen and render the eight release-equivalent outputs (38 pages) and QA vector/annotation/logo fixtures (19 reviewed pages). Verify order, rotations, crop/media boxes, links, text preservation, unchanged source bytes, logo transparency/placement and correct/wrong-password behaviour. Cross-check the low-resolution Poppler preview anomaly against 100 dpi renders, Apple Quartz and Android's content-pixel assertions; these pass.
+- [ ] After device validation, commit/push scoped PaperBuild changes while preserving the shared checkout/index and unrelated app work.
+- [ ] Refresh genuine editor/Pro screenshots, create a Play draft for v6, verify mapping/optimisation analysis and review current listing additions. Nothing uploaded/submitted for 1.2.
+- [ ] Obtain release submission approval once the tested draft is reviewable. Previous real-payment and Android 8/9 testing waivers remain in force; neither is described as passed.
+
+## Historical 1.1.1 optimisation preparation — superseded by 1.2
+
+- [x] Bump to version code 5 / version name 1.1.1. Enable `minifyEnabled true`, `shrinkResources true` and the default optimising R8 configuration. No runtime app feature, entitlement, permission or price change.
+- [x] Keep PDFBox's supplied reflective SecurityHandler rules; no blanket PDFBox/BouncyCastle keep, `-dontobfuscate`, or `-dontoptimize` rule. Suppress only its absent optional `com.gemalto.jp2.JP2Decoder` / `JP2Encoder` references (JPEG-2000 was not shipped before either; decoder discovery is guarded).
+- [x] Build signed production APK/AAB with existing upload key. APK signature verifies with certificate SHA-256 `9B:D5:B7:6E:E4:94:B9:BB:80:A1:F7:51:3C:B7:00:76:28:11:82:72:FC:F5:2A:E7:57:CF:8A:6B:E9:82:B2:66`. Package `com.kreativ.paperbuild`, non-debuggable, min SDK 26 / target SDK 36. No internet, ads-ID or broad modern photo permissions.
+- [x] Candidate AAB: `app/build/outputs/releases/1.1.1/paperbuild-1.1.1-v5.aab`, 7,492,092 bytes; SHA-256 `a8c0e6bbcc662eb359152311b9f5ceb1700a9ef538030ca8fc65d9700f84ee8a`. Versioned APK and `mapping.txt` retained alongside it. The AAB contains `BUNDLE-METADATA/com.android.tools.build.obfuscation/proguard.map`. `jarsigner` verifies it, with self-signed/no-timestamp and JarInputStream-layout warnings; Play acceptance is still pending.
+- [x] Inspect actual APK DEX and compare it byte-for-byte with the bundle's DEX: one 1,404,756-byte DEX, 1,331 defined classes, 1,290 renamed (96.92% local coverage). This is not Play's proprietary obfuscation percentage. Candidate bundle is 35.14% smaller than retained v4 (11,551,179 bytes).
+- [x] Debug/release JVM suites: 12 tests each, zero failures/errors/skips. Release lint: zero errors / 28 warnings. No existing warning cleanup is claimed.
+- [x] Compile an isolated, non-debuggable release-equivalent `.r8test` APK and platform-only black-box test APK, with no app-private reflection or test-only app keep rules. Separate output directory prevents overwriting production artifacts. Compile the deeper QA suite for fresh `.v111.qa` to preserve the old QA data.
+- [ ] Run the new three ordered release-equivalent workflows and the 18-test deep QA suite on an available device. **Owner requested no phone use while testing another app. No new APK was installed, no instrumentation was run, and no existing app data was modified.** Compilation is not a device-test pass; v1.1 results do not certify this R8 candidate.
+- [ ] Independently reopen and render the six device-generated PDFs (Free, protected, compact, merged, extracted, unlimited); verify correct/wrong passwords, page counts/sizes, watermarks and page numbering. No new PDF has been generated or visually reviewed yet.
+- [x] Prepare release notes at `release-notes/1.1.1-en-GB.txt`, guarded production-signing script and local DEX/mapping verification script. Source changes remain local pending device validation; no new commit/push is claimed.
+- [ ] After device checks, create the Play production **draft**, upload v5, validate supported-device/optimisation results and verify mapping acceptance. No upload or Play changes have been made for 1.1.1.
+- [ ] Obtain approval before Google review submission/publication. Existing payment-test and older-Android waivers remain unchanged; device availability is not a waiver of R8 regression testing.
+
 ## Version 1.1.0 submission — 16 October 2026
 
 - [x] Owner explicitly approved submitting the prepared three changes, with managed publishing off and automatic publication after approval disclosed.

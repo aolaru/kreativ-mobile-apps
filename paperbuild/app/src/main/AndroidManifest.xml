@@ -19,6 +19,7 @@
         android:supportsRtl="true">
         <activity android:name=".AboutActivity" android:exported="false" />
         <activity android:name=".CropActivity" android:exported="false" />
+        <activity android:name=".PdfEditorActivity" android:exported="false" />
         <activity android:name=".RecentPdfsActivity" android:exported="false" />
         <activity android:name=".ProActivity" android:exported="false" />
         <activity android:name=".MainActivity" android:exported="true">

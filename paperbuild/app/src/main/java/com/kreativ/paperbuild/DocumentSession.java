@@ -24,6 +24,7 @@ final class DocumentSession {
         final String message;
         final ArrayList<PageItem> imported;
         final String title;
+        String logo;
         Result(File pdf, String summary, String message) { this(pdf, summary, message, null); }
         Result(File pdf, String summary, String message, ArrayList<PageItem> imported) {
             this(pdf, summary, message, imported, "My document");
@@ -71,6 +72,10 @@ final class DocumentSession {
             if (retainedPdf != null) exports.add(retainedPdf.getPath());
             cleanFiles(new File(app.getCacheDir(), "paperbuild"), exports, 7L * 24 * 60 * 60 * 1000, cleanupBefore);
             cleanFiles(new File(app.getCacheDir(), "paperbuild/scratch"), new HashSet<>(), 0, cleanupBefore);
+            File[] logos = new File(app.getFilesDir(), "paperbuild/logos").listFiles();
+            if (logos != null) for (File file : logos) {
+                if (file.getName().endsWith(".input") && file.lastModified() < cleanupBefore) file.delete();
+            }
         });
     }
 
@@ -117,6 +122,7 @@ final class DocumentSession {
             main.post(() -> {
                 busy = false; progress = -1;
                 if (finished != null) {
+                    if (finished.logo != null) options = options.withLogo(finished.logo);
                     if (finished.imported != null) {
                         pages.addAll(finished.imported); revision++;
                         latestPdf = null; summary = "";
@@ -126,6 +132,14 @@ final class DocumentSession {
                 } else { status = failure; }
                 save(); notifyUi();
             });
+        });
+    }
+
+    void importLogo(Context context, Uri uri) {
+        LogoStore logos = new LogoStore(context);
+        run("Saving logo…", progress -> {
+            Result result = new Result(null, "", "Logo saved. Available in your export presets.");
+            result.logo = logos.importLogo(uri); return result;
         });
     }
 
@@ -149,13 +163,13 @@ final class DocumentSession {
                 .putString("pdfTitle", latestTitle)
                 .putString("summary", summary).putBoolean("busy", busy).apply();
         prefs.edit().putString("watermark", options.watermark).putBoolean("numbers", options.pageNumbers)
-                .putBoolean("protect", options.protect).apply();
+                .putBoolean("protect", options.protect).putString("logo", options.logo).apply();
     }
 
     private void restore() {
         name = prefs.getString("name", "My document");
         paper = prefs.getInt("paper", 0); enhancement = prefs.getInt("enhancement", 0); compression = prefs.getInt("compression", 0);
-        try { options = new ExportOptions(prefs.getString("watermark", ""), prefs.getBoolean("numbers", false), prefs.getBoolean("protect", false), ""); }
+        try { options = new ExportOptions(prefs.getString("watermark", ""), prefs.getBoolean("numbers", false), prefs.getBoolean("protect", false), "", prefs.getString("logo", "")); }
         catch (IllegalArgumentException ignored) { options = ExportOptions.NONE; }
         try {
             JSONArray list = new JSONArray(prefs.getString("pages", "[]"));

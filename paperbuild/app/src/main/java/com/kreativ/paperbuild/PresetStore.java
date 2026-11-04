@@ -28,7 +28,7 @@ final class PresetStore {
             for (int i = 0; i < all.length(); i++) {
                 JSONObject p = all.getJSONObject(i);
                 result.add(new Preset(p.getString("name"), p.optInt("paper"), p.optInt("style"), p.optInt("compression"),
-                        new ExportOptions(p.optString("watermark"), p.optBoolean("numbers"), p.optBoolean("protect"), "")));
+                        new ExportOptions(p.optString("watermark"), p.optBoolean("numbers"), p.optBoolean("protect"), "", p.optString("logo"))));
             }
         } catch (JSONException | IllegalArgumentException ignored) { }
         return result;
@@ -47,7 +47,7 @@ final class PresetStore {
         try {
             for (Preset p : all) data.put(new JSONObject().put("name", p.name).put("paper", p.paper)
                     .put("style", p.enhancement).put("compression", p.compression)
-                    .put("watermark", p.options.watermark).put("numbers", p.options.pageNumbers).put("protect", p.options.protect));
+                    .put("watermark", p.options.watermark).put("numbers", p.options.pageNumbers).put("protect", p.options.protect).put("logo", p.options.logo));
         } catch (JSONException error) { return false; }
         return prefs.edit().putString("items", data.toString()).commit();
     }

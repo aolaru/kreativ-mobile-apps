@@ -50,7 +50,7 @@ import java.util.Set;
 
 public class MainActivity extends Activity {
     private static final int PICK_IMAGES = 101, CAPTURE_PAGE = 102, WRITE_DOCUMENT = 103,
-            PICK_PDFS_TO_MERGE = 104, PICK_PDF_TO_SPLIT = 105;
+            PICK_PDFS_TO_MERGE = 104, PICK_PDF_TO_SPLIT = 105, PICK_LOGO = 106;
     private static final int A4_WIDTH = 595, A4_HEIGHT = 842, LETTER_WIDTH = 612, LETTER_HEIGHT = 792;
     private static final int ENHANCE_COLOR = 0, ENHANCE_GRAYSCALE = 1, ENHANCE_CONTRAST = 2;
     private static final int COMPRESSION_STANDARD = 0, COMPRESSION_SMALL = 1, FREE_PAGE_LIMIT = 10;
@@ -68,7 +68,8 @@ public class MainActivity extends Activity {
     private View emptyState;
     private Button settingsButton;
     private boolean settingsExpanded;
-    private Button recentButton, exportOptionsButton, presetsButton;
+    private Button recentButton, exportOptionsButton, presetsButton, editPdfButton;
+    private boolean logoPending;
     private int shownRevision = -1;
     private final Runnable sessionListener = this::renderSession;
 
@@ -77,6 +78,7 @@ public class MainActivity extends Activity {
         session = DocumentSession.get(this);
         pages = session.pages;
         settingsExpanded = state != null && state.getBoolean("settingsExpanded");
+        logoPending = state != null && state.getBoolean("logoPending");
         setContentView(buildScreen());
         documentName.addTextChangedListener(new TextWatcher() {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -97,6 +99,7 @@ public class MainActivity extends Activity {
     }
     @Override protected void onSaveInstanceState(Bundle state) {
         state.putBoolean("settingsExpanded", settingsExpanded);
+        state.putBoolean("logoPending", logoPending);
         super.onSaveInstanceState(state);
     }
     @Override protected void onStart() { super.onStart(); session.attach(sessionListener); }
@@ -214,6 +217,10 @@ public class MainActivity extends Activity {
         splitButton = button("Extract pages", false); Ui.icon(splitButton, R.drawable.ic_extract, Ui.ACCENT);
         splitButton.setOnClickListener(v -> { if (requirePro()) choosePdfForSplit(); });
         tools.addView(actionRow(mergeButton, splitButton)); Ui.gap(tools, 12);
+        editPdfButton = button("Edit PDF pages", false); editPdfButton.setId(R.id.edit_pdf);
+        Ui.icon(editPdfButton, R.drawable.ic_stack, Ui.ACCENT);
+        editPdfButton.setOnClickListener(v -> { if (requirePro()) startActivity(new Intent(this, PdfEditorActivity.class)); });
+        tools.addView(editPdfButton, matchWrap()); Ui.gap(tools, 10);
         exportOptionsButton = button("Pro export options", false); exportOptionsButton.setOnClickListener(v -> showExportOptions(null));
         exportOptionsButton.setId(R.id.export_options);
         tools.addView(exportOptionsButton, matchWrap()); Ui.gap(tools, 10);
@@ -281,6 +288,7 @@ public class MainActivity extends Activity {
         scanButton.setEnabled(!busy); addButton.setEnabled(!busy);
         mergeButton.setEnabled(!busy); splitButton.setEnabled(!busy); clearButton.setEnabled(!busy && !pages.isEmpty());
         recentButton.setEnabled(!busy); exportOptionsButton.setEnabled(!busy); presetsButton.setEnabled(!busy);
+        editPdfButton.setEnabled(!busy);
         exportOptionsButton.setText(isPro() ? session.options.summary() : "Pro export options");
         documentName.setEnabled(!busy);
         enableGroup(paperSizeGroup, !busy); enableGroup(enhancementGroup, !busy); enableGroup(compressionGroup, !busy);
@@ -306,6 +314,10 @@ public class MainActivity extends Activity {
         resultSummary.setVisibility(result ? View.VISIBLE : View.GONE);
         for (Button button : new Button[]{shareButton, saveButton, openButton}) {
             button.setEnabled(result); button.setVisibility(result ? View.VISIBLE : View.GONE);
+        }
+        if (logoPending && !busy) {
+            logoPending = false;
+            statusText.post(() -> { if (!isFinishing() && !isDestroyed()) showExportOptions(null); });
         }
     }
     private void enableGroup(RadioGroup group, boolean enabled) {
@@ -383,6 +395,8 @@ public class MainActivity extends Activity {
             }));
         } else if (request == PICK_PDF_TO_SPLIT && !selected.isEmpty()) {
             if (requirePro()) askSplitRange(selected.get(0));
+        } else if (request == PICK_LOGO && !selected.isEmpty()) {
+            if (requirePro()) { logoPending = true; session.importLogo(this, selected.get(0)); }
         } else if (request == PICK_IMAGES) { importImages(selected); }
     }
     private void importImages(ArrayList<Uri> selected) {
@@ -457,39 +471,13 @@ public class MainActivity extends Activity {
 
     private void showExportOptions(Runnable afterSave) {
         if (session.busy || !requirePro()) return;
-        ScrollView scroll = new ScrollView(this); LinearLayout fields = Ui.column(this);
-        int padding = dp(20); fields.setPadding(padding, dp(8), padding, dp(12)); scroll.addView(fields);
-        fields.addView(label("Applies to photos, merged PDFs and extracted pages.", 13, Ui.MUTED)); Ui.gap(fields, 12);
-        fields.addView(label("Watermark text (optional)", 13, Ui.MUTED));
-        EditText watermark = new EditText(this); watermark.setSingleLine(true); watermark.setText(session.options.watermark);
-        watermark.setHint("e.g. Confidential"); watermark.setContentDescription("Watermark text");
-        watermark.setFilters(new android.text.InputFilter[]{new android.text.InputFilter.LengthFilter(80)}); fields.addView(watermark);
-        CheckBox numbers = new CheckBox(this); numbers.setText("Add page numbers · 1 / total"); numbers.setChecked(session.options.pageNumbers); fields.addView(numbers);
-        CheckBox protect = new CheckBox(this); protect.setText("Require a password to open"); protect.setChecked(session.options.protect); fields.addView(protect);
-        EditText password = passwordField("Password · 8–64 characters"), confirm = passwordField("Confirm password");
-        fields.addView(password); fields.addView(confirm);
-        password.setText(session.options.password); confirm.setText(session.options.password);
-        password.setEnabled(protect.isChecked()); confirm.setEnabled(protect.isChecked());
-        protect.setOnCheckedChangeListener((v, checked) -> { password.setEnabled(checked); confirm.setEnabled(checked); });
-        Ui.gap(fields, 8); fields.addView(label("Passwords aren’t saved in drafts or presets. Enter one for each export. Forgotten passwords cannot be recovered.", 12, Ui.MUTED));
-        AlertDialog dialog = new AlertDialog.Builder(this).setTitle("Pro export options").setView(scroll)
-                .setNegativeButton("Cancel", null).setPositiveButton("Apply", null).create();
-        dialog.setOnShowListener(d -> dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+        ExportOptionsDialog.show(this, session.options, options -> {
             if (session.busy || !requirePro()) return;
-            if (protect.isChecked() && !password.getText().toString().equals(confirm.getText().toString())) { confirm.setError("Passwords don’t match."); return; }
-            try {
-                ExportOptions options = new ExportOptions(watermark.getText().toString(), numbers.isChecked(), protect.isChecked(), password.getText().toString());
-                options.validate(); session.options = options; session.changed();
-                password.setText(""); confirm.setText(""); dialog.dismiss(); if (afterSave != null) afterSave.run();
-            } catch (IllegalArgumentException invalid) { password.setError(invalid.getMessage()); }
-        })); dialog.show();
-        dialog.getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE);
-    }
-    private EditText passwordField(String hint) {
-        EditText field = new EditText(this); field.setHint(hint); field.setContentDescription(hint); field.setSingleLine(true);
-        field.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        field.setFilters(new android.text.InputFilter[]{new android.text.InputFilter.LengthFilter(64)});
-        field.setSaveEnabled(false); field.setImportantForAutofill(View.IMPORTANT_FOR_AUTOFILL_NO); return field;
+            session.options = options; session.changed(); if (afterSave != null) afterSave.run();
+        }, staged -> {
+            if (session.busy || !requirePro()) return;
+            session.options = staged; session.changed(); chooseFiles("image/*", false, PICK_LOGO, "Choose a logo");
+        });
     }
     private void showPresets() {
         if (session.busy || !requirePro()) return;

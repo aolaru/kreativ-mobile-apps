@@ -52,8 +52,9 @@ public class RecentPdfsActivity extends Activity {
         root.addView(Ui.text(this, "Saved privately on this device. Export copies to keep them after uninstalling.", 14, Ui.MUTED, false)); Ui.gap(root, 16);
         toggle = Ui.button(this, "", false); toggle.setOnClickListener(v -> { removed = !removed; page = 0; load(); }); root.addView(toggle); Ui.gap(root, 16);
         items = Ui.column(this); root.addView(items);
-        Button back = Ui.button(this, "Back to PaperBuild", false); back.setOnClickListener(v -> finish()); root.addView(back); setContentView(scroll); load();
+        Button back = Ui.button(this, "Back to PaperBuild", false); back.setOnClickListener(v -> finish()); root.addView(back); setContentView(scroll);
     }
+    @Override protected void onResume() { super.onResume(); if (items != null) load(); }
     private void load() {
         int request = ++generation; boolean showRemoved = removed;
         toggle.setText(removed ? "Show recent PDFs" : "Removed PDFs"); items.removeAllViews();
@@ -121,7 +122,7 @@ public class RecentPdfsActivity extends Activity {
                     .setMessage("Only PaperBuild’s private copy will be deleted. This cannot be undone. Copies you exported stay untouched.")
                     .setNegativeButton("Cancel", null).setPositiveButton("Delete", (d, w) -> mutate(() -> library.deleteForever(entry), "PDF deleted.")).show(); return;
         }
-        new AlertDialog.Builder(this).setTitle(entry.title).setItems(new String[]{"Share", "Save to Downloads", "Rename", "Move to Removed PDFs"}, (d, which) -> {
+        new AlertDialog.Builder(this).setTitle(entry.title).setItems(new String[]{"Share", "Save to Downloads", "Rename", "Edit pages · Pro", "Move to Removed PDFs"}, (d, which) -> {
             if (which == 0) open(entry, true);
             else if (which == 1) save(entry);
             else if (which == 2) {
@@ -132,6 +133,11 @@ public class RecentPdfsActivity extends Activity {
                     String title = name.getText().toString();
                     mutate(() -> library.rename(entry, title), "PDF renamed."); rename.dismiss();
                 })); rename.show();
+            } else if (which == 3) {
+                if (!ProBilling.isPro(this)) { startActivity(new Intent(this, ProActivity.class)); return; }
+                if (entry.protectedPdf) { Toast.makeText(this, "Choose an unlocked PDF to edit.", Toast.LENGTH_LONG).show(); return; }
+                Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", library.file(entry));
+                startActivity(new Intent(this, PdfEditorActivity.class).setData(uri));
             } else new AlertDialog.Builder(this).setTitle("Remove from Recent PDFs?")
                     .setMessage("You can restore it from Removed PDFs. Exported copies stay untouched.")
                     .setNegativeButton("Cancel", null).setPositiveButton("Remove", (dialog, w) -> mutate(() -> library.setRemoved(entry, true), "PDF moved to Removed PDFs.")).show();
