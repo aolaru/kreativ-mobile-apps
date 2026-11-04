@@ -37,7 +37,13 @@ also pass, including a native thumbnail check that rejects blank page content.
 Independent pypdf checks and Poppler renders verify output geometry, content,
 links, encryption, transparency and overlays; Apple Quartz confirms logo output.
 See `release-evidence/2026-11-04/1.2-VERIFICATION.md` for evidence and limits.
-Play draft preparation is in progress; nothing has been submitted or published.
+Source commit `3dcae85` is pushed to `codex/paperbuild-1-2` and `main`. Google
+Play production draft **1.2.0 — PDF page editor and logo watermarks** is saved
+with v6, the embedded ReTrace mapping and en-GB notes. Preview reports **Ready to
+release**, no blocking issues and no devices lost. Play estimates 6.55 MB for a
+new install (4.86 MB less than v4) and a 689 KB update. The final rollout Save
+and review submission were not pressed. Listing additions/screenshots still
+need their final marketing review; nothing has been submitted or published.
 
 To test on an available unlocked device, using new isolated app packages:
 

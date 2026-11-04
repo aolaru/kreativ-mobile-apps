@@ -11,7 +11,8 @@ The PDF editor keeps a separate local draft and preserves original page content
 and geometry. Password-protected, signed and fillable PDFs cannot be opened in
 the editor. Use a regular, unlocked PDF. Refresh the editor and logo screenshots
 from the tested device build before publication. Existing title, price and
-product ID stay unchanged. No Console changes have been made for 1.2.
+product ID stay unchanged. These listing additions remain local; v6 and release
+notes are saved separately as a validated Play production draft, not submitted.
 
 ## App name
 
