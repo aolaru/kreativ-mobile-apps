@@ -1,6 +1,6 @@
 # PaperBuild Release Checklist
 
-## Version 1.2.0 development preparation — 4 November 2026
+## Version 1.2.0 submission — 4 November 2026
 
 - [x] Bump to version code 6 / 1.2.0. Include the unreleased 1.1.1 R8/resource-shrinking changes. Existing Pro product ID, lifetime pricing, permissions and original files remain unchanged.
 - [x] Pro PDF editor: source-preserving new-copy export, selected-page preview, reorder/move-to-position, rotate, duplicate, remove, undo, persisted separate draft and confirmed clear/replace. Entry points in PDF tools and Recent PDFs. Preserve text/vector content and geometry; remap retained page links/drop links to removed pages. Reject signed, fillable and encrypted inputs before replacing the draft.
@@ -16,7 +16,9 @@
 - [x] Complete final marketing review: save/review the 3,527-character full description and 8/8 phone gallery in Play. Retain five unchanged Free panels; add actual 1.2 page-editor, exported-logo and Pro-feature panels. Verify Free/paid boundaries, dimensions, gallery order, source provenance and **Don't label assets** selection. Preserve existing title/short description, icon, feature graphic, price and product ID. Capture workflow passes independently; no runtime app code or signed v6 bundle changes.
 - [x] Save listing review and production rollout configuration into Publishing overview as three changes **not yet submitted for review**. The staged release is v6 / 1.2.0, full rollout to existing targeted countries. Managed publishing remains off. New review pack: `promotion/2026-11-04-listing/`.
 - [x] Google's automated quick checks passed. Publishing overview says **Your changes can now be sent for review**, with **Submit 3 changes for review** available: production 1.2.0, en-GB full description and phone screenshots. Evidence: `release-evidence/2026-11-04/1.2-ready-for-approval.png` and `1.2-three-changes-ready.png`. No submission/publication; managed publishing remains off.
-- [ ] Obtain release submission approval once the tested draft is reviewable. Previous real-payment and Android 8/9 testing waivers remain in force; neither is described as passed.
+- [x] Obtain explicit owner approval to submit 1.2 and the listing changes, with automatic publication after approval disclosed. Confirm **Submit 3 changes for review** → **Send changes for review**. Publishing overview confirms **Changes in review** for production 1.2.0 / Start full rollout, en-GB full description and phone screenshots. Evidence: `release-evidence/2026-11-04/1.2-submitted-for-review.png`.
+- Google restarted automatic quick checks after submission; completion is not yet confirmed. The prepared-state entries above record the earlier checks, not completion of this new run. Approval/publication remain unconfirmed; managed publishing is off.
+- Previous real-payment and Android 8/9 testing waivers remain in force; neither is described as passed.
 
 ## Historical 1.1.1 optimisation preparation — superseded by 1.2
 

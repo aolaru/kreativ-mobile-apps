@@ -1,9 +1,11 @@
 # PaperBuild 1.2 final listing review
 
-Prepared on 4 November 2026. **Not submitted or published.** Publishing overview
-contains three changes: production 1.2.0, en-GB full description and phone gallery.
-Google's automated quick checks passed; final submission awaits the owner.
+Submitted on 4 November 2026 after explicit owner approval. Publishing overview
+confirms **Changes in review** for production 1.2.0, en-GB full description and
+phone gallery. Google restarted automatic quick checks after submission;
+completion is not yet confirmed. Approval and publication remain unconfirmed.
 Managed publishing is off, so approval may publish the update automatically.
+Evidence: `release-evidence/2026-11-04/1.2-submitted-for-review.png`.
 
 ## Reviewed listing
 
@@ -52,14 +54,17 @@ and code-authored frames, without generative imagery or reconstructed UI.
 - Play saved the full description and 8/8 phone screenshots. Listing review
   shows **Changes ready to send for review**. Production v6 was revalidated
   with ReTrace mapping and zero devices lost, then staged for review alongside
-  the listing. Final **Submit 3 changes for review** was not pressed.
+  the listing. This was the prepared state before the owner approved submission.
 - No runtime app code or signed release bundle changed during this review.
   Candidate AAB SHA-256 remains
   `45e102db44b1f757f74c278a62ada3e1cd0fca127c157853041e86a2087ae4d7`.
-- Final Publishing overview says **Your changes can now be sent for review**
+- Before submission, Publishing overview said **Your changes can now be sent for review**
   and offers **Submit 3 changes for review**. Proof is retained in
   `release-evidence/2026-11-04/1.2-ready-for-approval.png` and
   `1.2-three-changes-ready.png`. Public tutorial and the November 4 privacy
   policy were also verified in Chrome; their listing URLs remain unchanged.
+- After owner approval, confirmed **Submit 3 changes for review** → **Send
+  changes for review**. All three changes moved to **Changes in review**;
+  automatic quick checks restarted. No approval or live publication is claimed.
 
 Open `review.html` or `screenshots-preview.png` to review the saved artwork.

@@ -2,10 +2,13 @@
 
 ## Version 1.2 final listing review — 4 November 2026
 
-**Latest status:** Full description and eight phone screenshots are saved and
-reviewed in Play, staged alongside production v6 / 1.2.0. Publishing overview
-shows three changes not yet submitted for review. Google quick checks passed;
-the owner has not approved submission/publication.
+**Latest status:** Submitted to Google with explicit owner approval on 4 November
+2026: production v6 / 1.2.0, the full description and eight phone screenshots.
+Publishing overview confirms **Changes in review** for all three changes.
+Google restarted automatic quick checks after submission; completion is not yet
+confirmed. Managed publishing is off, so approval may publish automatically.
+Approval and publication remain unconfirmed. Evidence:
+`release-evidence/2026-11-04/1.2-submitted-for-review.png`.
 
 The title and short description remain unchanged (24/30 and 75/80 characters).
 The full description is 3,527/4,000 and now covers existing-PDF page editing,

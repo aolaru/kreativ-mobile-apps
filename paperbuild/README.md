@@ -2,7 +2,7 @@
 
 An offline Android document-maker from Kreativ.
 
-## Version 1.2 development candidate — 4 November 2026
+## Version 1.2 submitted for review — 4 November 2026
 
 Version code **6 / 1.2.0** includes the previously prepared optimisation work
 and two new lifetime Pro features:
@@ -43,9 +43,12 @@ with v6, the embedded ReTrace mapping and en-GB notes. Preview reports **Ready t
 release**, no blocking issues and no devices lost. Play estimates 6.55 MB for a
 new install (4.86 MB less than v4) and a 689 KB update. Final listing review is
 complete: revised full description and 8/8 gallery are saved/reviewed in Play,
-with the release staged in Publishing overview as three changes awaiting the
-owner's approval. Google's automated quick checks passed. Managed
-publishing is off; nothing has been submitted or published. See the new review
+with the release submitted together as three changes after explicit owner
+approval. Publishing overview confirms **Changes in review** for production
+1.2.0, the en-GB full description and phone screenshots. Google restarted its
+automated quick checks after submission; their completion is not yet confirmed.
+Managed publishing is off, so approval may publish automatically. Approval and
+publication remain unconfirmed. See `release-evidence/2026-11-04/1.2-submitted-for-review.png` and the review
 pack at `promotion/2026-11-04-listing/review.html` and its `REVIEW.md`.
 
 To test on an available unlocked device, using new isolated app packages:
