@@ -1,0 +1,153 @@
+{
+  "date": "2026-11-04",
+  "app": "PaperBuild: Photo to PDF",
+  "release": "6 / 1.2.0",
+  "status": "Local release assets; Play status is recorded in REVIEW.md",
+  "captureDevice": "Samsung SM-A556B / Android 16, 1080 × 2340",
+  "processing": "Crop and proportional scale only. Actual UI/PDF output; no repainted controls, invented readings, prices or unlock state.",
+  "generativeImagery": false,
+  "iconAndFeatureGraphic": "Existing assets retained unchanged",
+  "counts": {
+    "title": 24,
+    "shortDescription": 75,
+    "fullDescription": 3527,
+    "screenshots": 8
+  },
+  "files": [
+    {
+      "file": "screenshots/01-photos-to-pdf.png",
+      "source": "../../store-assets/play/screenshots/1.1/01-home.png",
+      "sourceSha256": "40ab06753700ce9b00cd3453f264e77123b068dd43eaa664f287001362d240b9",
+      "crop": {
+        "left": 56,
+        "top": 136,
+        "width": 968,
+        "height": 1850
+      },
+      "alt": "PaperBuild home with Scan, Add images, a saved two-page draft and a sample page with crop and ordering controls.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false,
+      "captureVersion": "1.1.0; Free UI unchanged in 1.2",
+      "reusedFrom": "../2026-10-18/listing/screenshots/01-photos-to-pdf.png",
+      "sha256": "3241dda30b405b615d16c391cb1f7fdb241a53dd25cf611997110224e85f1f67"
+    },
+    {
+      "file": "screenshots/02-crop-pages.png",
+      "source": "../../store-assets/play/screenshots/1.1/02-crop.png",
+      "sourceSha256": "f62e32987a37ed2b1e848142f741fca0548c0a9ec1c90b05f32991abaf514234",
+      "crop": {
+        "left": 56,
+        "top": 270,
+        "width": 968,
+        "height": 1930
+      },
+      "alt": "Real crop screen with sample page, manual corners, Adjust crop bounds, Restore full page, Apply crop and Cancel.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false,
+      "captureVersion": "1.1.0; Free UI unchanged in 1.2",
+      "reusedFrom": "../2026-10-18/listing/screenshots/02-crop-pages.png",
+      "sha256": "d5fb4e159d7082bd747eae4be2b14863b233400482f1b1ac22b4a6d60f1c6a03"
+    },
+    {
+      "file": "screenshots/03-pdf-settings.png",
+      "source": "../../store-assets/play/screenshots/1.1/03-export.png",
+      "sourceSha256": "2b585aa36c8f8fd1259a7ec22be17e5d41a342570726d660eff67ff16bcfb63e",
+      "crop": {
+        "left": 56,
+        "top": 620,
+        "width": 968,
+        "height": 1510
+      },
+      "alt": "Actual export controls: document name, A4 or US Letter, page styles, Standard or Smaller Pro and Build PDF.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false,
+      "captureVersion": "1.1.0; Free UI unchanged in 1.2",
+      "reusedFrom": "../2026-10-18/listing/screenshots/03-pdf-settings.png",
+      "sha256": "9459ebb7e8eb44c24e4c6d4243c21a7543c56d7832dd9a9ebe02d05961cd02ee"
+    },
+    {
+      "file": "screenshots/04-save-share.png",
+      "source": "../../store-assets/play/screenshots/1.1/04-ready.png",
+      "sourceSha256": "36bb677877bfd07a554ee90675ffdb7e7eea386f2368a0ed31410bd9caed26d5",
+      "crop": {
+        "left": 56,
+        "top": 720,
+        "width": 968,
+        "height": 850
+      },
+      "alt": "Real Ready to share card for a fictional two-page PDF with Share PDF, Save PDF and Open PDF controls.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false,
+      "captureVersion": "1.1.0; Free UI unchanged in 1.2",
+      "reusedFrom": "../2026-10-18/listing/screenshots/04-save-share.png",
+      "sha256": "eb1728b854facfbe6808038645a2991098bb74356451e095832403e3b05ba40b"
+    },
+    {
+      "file": "screenshots/05-recent-pdfs.png",
+      "source": "../../store-assets/play/screenshots/1.1/05-recent.png",
+      "sourceSha256": "25799effaba19ac38e2fcafca12f9da20c1f89fb43fba0f9c4d814ead9019c00",
+      "crop": {
+        "left": 56,
+        "top": 136,
+        "width": 968,
+        "height": 1500
+      },
+      "alt": "Recent PDFs library with a fictional sample, Open PDF, More options, Removed PDFs and the local-storage warning.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false,
+      "captureVersion": "1.1.0; Free UI unchanged in 1.2",
+      "reusedFrom": "../2026-10-18/listing/screenshots/05-recent-pdfs.png",
+      "sha256": "864504b77ee6c2eb29b2c6a0ebcd5772509bb01962f008bbc3ba99aaeb1af2d9"
+    },
+    {
+      "file": "screenshots/06-edit-pdf-pages.png",
+      "captureVersion": "1.2.0 QA / same release UI and processing",
+      "sourceKind": "Genuine device screenshot",
+      "source": "../../store-assets/play/screenshots/1.2/raw/editor-pages.png",
+      "sourceSha256": "7516aacdc8d03cd8cab29a19d920ddbb5e6656dc042ff61cd462e69ab33bb78c",
+      "crop": {
+        "left": 56,
+        "top": 208,
+        "width": 968,
+        "height": 1670
+      },
+      "alt": "Actual Pro page editor with a fictional three-page project brief, page list and undo control.",
+      "sha256": "4eef9ee8f527451da7e7f7de7f047a024fb470ae83427f7da4a3c76d11b44b58"
+    },
+    {
+      "file": "screenshots/07-logo-watermarks.png",
+      "captureVersion": "1.2.0 QA / same release UI and processing",
+      "sourceKind": "Actual app-exported PDF rendered at 180 dpi",
+      "source": "../../store-assets/play/screenshots/1.2/raw/logo-export-render.png",
+      "sourceSha256": "52fc5e8e715ab92da725c38e80f4344b825de440c23e7c61df5a80a349f97714",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 1489,
+        "height": 2105
+      },
+      "alt": "Actual app-exported fictional project brief with logo, text watermark and page number.",
+      "sha256": "9e0c1c57dc2baea385807c5e1648596b936a46b35322dde8a3123d7cd01433a6"
+    },
+    {
+      "file": "screenshots/08-optional-pro.png",
+      "captureVersion": "1.2.0 QA / same release UI and processing",
+      "sourceKind": "Genuine device screenshot",
+      "source": "../../store-assets/play/screenshots/1.2/raw/pro-features.png",
+      "sourceSha256": "e53d86cde9c013b4febdb9edca41a3097cf2ca44c25c8bde52a1f037a265f366",
+      "crop": {
+        "left": 56,
+        "top": 310,
+        "width": 968,
+        "height": 1730
+      },
+      "alt": "Actual Pro feature list including page editing, password protection, logo watermarks and saved presets.",
+      "sha256": "f32c2eb322e0954b9e7e20cd2d62dbba7c3c62f5595fdaad3082903705df975a"
+    }
+  ]
+}

@@ -41,9 +41,12 @@ Source commit `3dcae85` is pushed to `codex/paperbuild-1-2` and `main`. Google
 Play production draft **1.2.0 — PDF page editor and logo watermarks** is saved
 with v6, the embedded ReTrace mapping and en-GB notes. Preview reports **Ready to
 release**, no blocking issues and no devices lost. Play estimates 6.55 MB for a
-new install (4.86 MB less than v4) and a 689 KB update. The final rollout Save
-and review submission were not pressed. Listing additions/screenshots still
-need their final marketing review; nothing has been submitted or published.
+new install (4.86 MB less than v4) and a 689 KB update. Final listing review is
+complete: revised full description and 8/8 gallery are saved/reviewed in Play,
+with the release staged in Publishing overview as three changes awaiting the
+owner's approval. Google's automated quick checks passed. Managed
+publishing is off; nothing has been submitted or published. See the new review
+pack at `promotion/2026-11-04-listing/review.html` and its `REVIEW.md`.
 
 To test on an available unlocked device, using new isolated app packages:
 

@@ -1,65 +1,79 @@
 # PaperBuild Google Play Store Listing
 
-## Version 1.2 local additions — not uploaded
+## Version 1.2 final listing review — 4 November 2026
 
-Add to the current live Pro feature copy before release:
+**Latest status:** Full description and eight phone screenshots are saved and
+reviewed in Play, staged alongside production v6 / 1.2.0. Publishing overview
+shows three changes not yet submitted for review. Google quick checks passed;
+the owner has not approved submission/publication.
 
-- Edit existing PDFs: reorder, rotate, duplicate and remove pages; save a new copy.
-- Add text or logo watermarks, plus page numbers. Reuse logos in saved presets.
+The title and short description remain unchanged (24/30 and 75/80 characters).
+The full description is 3,527/4,000 and now covers existing-PDF page editing,
+logo watermarks, saved logo presets, non-destructive drafts and input limits.
+Free and optional lifetime Pro remain explicit; pricing/product ID are unchanged.
 
-The PDF editor keeps a separate local draft and preserves original page content
-and geometry. Password-protected, signed and fillable PDFs cannot be opened in
-the editor. Use a regular, unlocked PDF. Refresh the editor and logo screenshots
-from the tested device build before publication. Existing title, price and
-product ID stay unchanged. These listing additions remain local; v6 and release
-notes are saved separately as a validated Play production draft, not submitted.
+The first five reviewed Free screenshots are retained, followed by fresh page
+editing, real exported logo sample and updated Pro panels. Eight RGB PNGs,
+1440 × 2560 / 9:16, under 8 MB each. App icon and feature graphic are unchanged.
+The **Don't label assets** option is selected for genuine captures/native output
+with code-authored frames and no generative imagery.
+
+Exact saved copy, source hashes, crop coordinates, eight artwork files and a
+review board are in `promotion/2026-11-04-listing/`. See `REVIEW.md`, `review.html`
+and `screenshots-preview.png`. Earlier listing/publication notes below are
+historical and do not describe the current 1.2 preparation state.
 
 ## App name
 
-PaperBuild - Private PDF Maker
+PaperBuild: Photo to PDF
 
 ## Short description
 
-Build clean PDFs from photos and scans. Private, offline, no account or ads.
+Turn photos into PDFs offline. Crop, arrange pages and save your documents.
 
 ## Full description
 
-Turn the pages in your pocket into a clean, share-ready PDF.
+Turn photos into a PDF on your Android phone. PaperBuild lets you capture a page with your camera app or choose images, arrange them, crop the edges and export one document. Processing happens on your device, without an account or ads.
 
-PaperBuild lets you capture a page with your phone's camera app or select images from your device, then arrange them into one document. Your draft is saved privately on your phone. Choose A4 or US Letter, keep original colour, switch to grayscale, or use high contrast for clear text. Build the PDF locally, then open, share, or save it when you are ready.
+FREE PHOTO TO PDF TOOLS
+- Add images with Android's system picker or open your camera app to capture a page
+- Build documents with up to 10 pages
+- Preview, reorder, rotate and remove pages
+- Crop manually without changing the original; restore the full page when needed
+- Choose A4 or US Letter and colour, grayscale or high-contrast page treatment
+- Resume your privately saved draft after closing the app
+- Open, share or save the finished PDF to Downloads/PaperBuild
 
-Document processing happens on your phone. PaperBuild has no account, no ads, and no internet permission. Google Play handles optional Pro purchases and restores.
+FIND YOUR RECENT PDFS
+Completed documents are saved in a private on-device library. Preview unprotected PDFs, rename them, open or share a copy, or save to Downloads. Move a document to Removed PDFs when you no longer need it; restore it or confirm permanent deletion later. Exported copies stay untouched.
 
-### Free features
-
-- Capture a page with your camera app
-- Add one or more images with Android's system picker
-- Preview, crop, reorder, rotate, and remove pages
-- Export A4 or US Letter PDFs
-- Choose colour, grayscale, or high-contrast document treatment
-- Open, share, or save PDFs to Downloads
-- Resume your saved draft after closing the app
-- Recent PDFs: private on-device storage, previews, rename, share, and reversible removal
-
-### Privacy by design
-
-- Your selected images and PDFs stay on your device
-- Original images are never changed
-- No broad photo-library or direct camera permission
-- No account, ads, tracking, analytics, or upload
-
-### PaperBuild Pro - one-time purchase
-
-- Smaller PDF exports for easier sharing
-- Unlimited pages (free documents support up to 10 pages)
-- Merge PDFs and extract a page or page range
+OPTIONAL PAPERBUILD PRO — ONE-TIME PURCHASE
+- Smaller PDF exports
+- More than the free 10-page limit
+- Merge PDFs or extract a page or page range
+- Reorder, rotate, duplicate and remove pages from existing PDFs
 - Password-protect exported PDFs
-- Add custom text watermarks and page numbers
-- Save and reuse named export presets (passwords are never saved)
+- Add text or logo watermarks and page numbers
+- Save named export presets, including logos; passwords are never saved
 
-Pro is a permanent unlock, not a subscription. The app shows your local Google Play price. The free PDF maker remains fully usable without Pro.
+Pro is a permanent unlock, not a subscription. Your local Google Play price is shown before purchase. Restore ownership using the same Google Play account. The photo-to-PDF workflow, cropping and Recent PDFs remain free.
 
-PDF tools preserve page content and original sizes. Password-protected input PDFs are not supported; use an unlocked copy. Pro can password-protect the output. Editing a signed PDF invalidates its digital signatures. Watermarks are not redaction.
+The Pro page editor keeps a separate draft and saves a new PDF. Your original and photo draft stay untouched. Preview pages, undo recent edits, or move a page to a specific position.
+
+ON-DEVICE PROCESSING
+PaperBuild has no account, advertising, analytics, tracking or internet permission. It does not upload your images or documents. Google Play handles connectivity for purchases and ownership checks. Android's image picker and camera app let you choose the pages; PaperBuild does not request broad gallery access or direct camera permission. Android 8 and 9 may require storage permission when saving to Downloads.
+
+When you open or share a PDF, the receiving app handles that copy under its own privacy terms. Keep important copies outside PaperBuild before uninstalling: uninstalling removes private drafts, saved logos, presets and the Recent PDFs library. Saved Downloads are not removed by the app.
+
+BEFORE YOU EXPORT
+PaperBuild does not recognise text (OCR), automatically detect page edges or edit PDF text. Review page order, cropping and readability before sharing. Smaller exports and page treatments can change image quality. PDF page editing, merge and extraction retain page content and sizes rather than rasterising pages. Password-protected input PDFs are not supported; use an unlocked copy. The page editor does not accept signed or fillable PDFs. Merge and extraction can invalidate signatures; extracted PDFs discard bookmarks and page labels. Watermarks and page numbers are not redaction or digital signatures.
+
+Output passwords protect exported PDFs, not source images or draft working files. Passwords are not saved in drafts or presets, and forgotten passwords cannot be recovered.
+
+Step-by-step tutorial: https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/
+
+Privacy: https://github.com/aolaru/kreativ-mobile-apps/blob/main/paperbuild/PRIVACY_POLICY.md
+Support: info@madebykreativ.com
 
 ## Store setup
 
