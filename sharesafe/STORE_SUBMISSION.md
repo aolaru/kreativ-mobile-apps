@@ -1,5 +1,58 @@
 # ShareSafe store-submission checklist
 
+## Prepared R8 optimisation update — November 1, 2026
+
+**Version 1.2.1 / code 5 is built locally, not uploaded or submitted.** The live
+Play build remains 1.2.0 / code 4. Console's App size page still recommends
+enabling code shrinking and obfuscation; its reference-device download is 10.8 MB.
+The reported live 0% obfuscation score is not changed by preparing local code.
+
+R8 settings were already present in the uncommitted local build configuration.
+They are preserved: release uses `minifyEnabled true`, `shrinkResources true`
+and `proguard-android-optimize.txt`, with no global opt-out in Gradle properties.
+The merged production configuration contains no `-dontoptimize`, `-dontobfuscate`
+or `-dontshrink`. Library consumer rules retain the WorkManager worker name and
+constructor used to restore outstanding purchase-acknowledgement jobs.
+
+Fresh signed production artifact:
+
+- AAB: `app/build/outputs/bundle/playRelease/app-play-release.aab`
+- SHA-256: `f4391df14bbab7e275c57f25b1a29e1a53b5bc0d2ce0b80b9b2f978547f9f8e7`
+- Package `com.kreativ.sharesafe`, target SDK 36; existing upload certificate
+  verified on the matching release APK.
+- DEX: **10,777,796 → 1,794,000 bytes (83.35% smaller)** against the exact signed
+  code 4 bundle (`dba354ddbb601078d9b2f0d8fb1da6c9a5b12447ff329e27870e9e5eb82398f2`).
+- DEX files: 2 → 1; class definitions: 10,351 → 2,727; method references:
+  69,672 → 12,100. These are DEX counts, not runtime performance measurements.
+- AAB: 21,389,743 → 19,516,203 bytes. This is bundle size, not a per-device
+  Google Play download estimate.
+- Mapping records 3,149 classes, with 3,059 renamed, including 37 ShareSafe
+  classes. Do not report those counts as Google's obfuscation percentage.
+- Embedded `BUNDLE-METADATA/com.android.tools.build.obfuscation/proguard.map`
+  exactly matches `app/build/outputs/mapping/playRelease/mapping.txt`.
+- All 8 release unit tests pass (0 skipped), release lint has 0 errors / 16
+  warnings, and all 6 optimisation-verifier tests pass.
+- Static native LOAD/ZIP alignment and release APK zipalign pass; the existing
+  two ML Kit RELRO warnings and incomplete 16 KB runtime testing remain unchanged.
+
+The existing release instrumentation work is extended to cover face suggestions,
+applied covers, undo/redo, recreation, flattened export and WorkManager's public
+constructor, without depending on private app field names. Isolated R8 test
+outputs now have their own build directory and package; they cannot overwrite the
+production bundle or installed Play app. Test-only Kotlin/tracing keep rules do
+not apply to production. The production build script rejects the isolated-test
+property. Both isolated app and instrumentation APKs compile successfully (three
+workflow tests); package/target-package and matching signing are verified. The
+isolated app's internal EditorSession is still obfuscated (`w1.h`). Phone tests
+are pending: the A55 was disconnected, and the user asked for time to connect it.
+Do not claim a minified runtime pass from build/unit checks.
+
+Before release: run the isolated minified workflows on the phone, perform an
+appropriate final production smoke check, retain the matching mapping, obtain
+upload/submission authorization, and inspect Play's new artifact analysis. No
+price, SKU, permission, privacy disclosure or feature change is included. Existing
+payment-test and 16 KB runtime limitations remain separate from this optimisation.
+
 ## Play update 1.2.0 / code 4 — October 15, 2026
 
 Production release `1.2.0 – Privacy Check & Face Assist` is **submitted** in Play
