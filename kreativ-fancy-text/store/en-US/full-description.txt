@@ -1,0 +1,28 @@
+Give a little text a little personality.
+
+Kreativ Fancy Text is a pocket typography studio for styled text and shareable images. Write a thought, a name, or a message, then turn it into copyable Unicode text and matching PNG artwork. Everything is created on your device.
+
+MAKE EACH WORD YOUR OWN
+Choose from 17 text styles, including bold, italic, script, gothic, monospace, bubble, and small caps. Tap an individual word to give it its own style or image color. Mix styles without starting your design again.
+
+SIX LOOKS TO EXPLORE
+Find a feeling with The original, Lilac daydream, After hours, Love notes, Ink & paper, and Golden hour. Adjust text size, alignment, and an optional signature to make the image yours.
+
+TEXT AND IMAGES, READY TO SHARE
+Copy your styled text or open Android's share sheet. Export PNG artwork in square, portrait, or story format, with standard or 2x resolution and an optional transparent background. Save through Android's file picker to a location you choose.
+
+KEEP YOUR FAVORITES CLOSE
+Your current draft restores when you reopen the app. Save up to 50 complete designs on your device, then reopen and edit them later.
+
+OFFLINE BY DESIGN
+Fonts and artwork are included. No account, ads, analytics, cloud sync, or internet permission. The app does not install a keyboard or request accessibility service access.
+
+OPTIONAL FANCY TEXT PRO
+Make more with 12 premium templates, custom solid and gradient backgrounds, decorative frames, and up to 30 named style presets. Preview a look before applying it, keep your words, and reuse favourite styles with new text. Pro is a one-time purchase through Google Play with no subscription. Existing free features stay free. Purchase and restore require a Google Play connection.
+
+A NOTE ABOUT FANCY TEXT
+Copyable styles use Unicode characters. Their appearance and support depend on the fonts in the receiving app. Colors, artwork, and the bundled image font are preserved in exported PNGs. Unsupported letters stay in their original form. Input supports up to 1,200 UTF-16 code units.
+
+Saved drafts, favorites and style presets are local to this installation. Clearing app storage or uninstalling removes them; exported or shared copies remain where you put them.
+
+Support: info@madebykreativ.com

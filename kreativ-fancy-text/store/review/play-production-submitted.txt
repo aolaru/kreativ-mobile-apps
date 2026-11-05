@@ -1,0 +1,206 @@
+Browser tab: 52791348, Title: "Publishing overview | Kreativ Fancy Text", URL: "https://play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/publishing".
+1 AXWebArea Publishing overview | Kreativ Fancy Text, URL: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/publishing
+	2 container
+		3 text Loading Google Play Console
+		4 container
+			5 container
+				6 link Description: Google Play Console logo, Value: play.google.com/console/u/0/developers/7594712361231234431/home
+				7 button Unread notifications Open notification centre
+					8 text Unread notifications
+				9 pop up button (collapsed) Description: Switch developer accounts, Secondary Actions: Expand
+				10 button (collapsed) Description: Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership, Secondary Actions: Expand
+			11 content list
+				12 container Home
+					13 button Home
+				14 container Manage account
+					15 button Manage account
+				16 container Kreativ Fancy Text
+					17 pop up button Kreativ Fancy Text
+				18 container Dashboard
+					19 button Dashboard
+				20 container Statistics
+					21 button Statistics
+				22 container Publishing overview
+					23 button Publishing overview
+				24 container Protected with Play
+					25 button Protected with Play
+				26 container (collapsed) Description: Test and release, Secondary Actions: Expand
+					27 button Test and release
+				28 container (collapsed) Description: Monitor and improve, Secondary Actions: Expand
+					29 button Monitor and improve
+				30 container (collapsed) Description: Grow users, Secondary Actions: Expand
+					31 button Grow users
+				32 container (collapsed) Description: Monetise with Play, Secondary Actions: Expand
+					33 button Monetise with Play
+			34 container main-content
+				35 container
+					210 heading Publishing overview, Value: 1
+						211 text Publishing overview
+					212 container
+						213 text See an overview of the changes made to your app and control when changes are sent for review or published.
+						214 button Show more details about Publishing overview
+					215 pop up button (collapsed) Managed publishing off, ID: a2CE0DBB0-76DB-460C-B846-BE6B754F76C0--2, Secondary Actions: Expand
+					216 link Description: Submission activity, Value: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/publishing/submission-activity
+					217 heading Geo-blocking regulation, Value: 4
+						218 text Geo-blocking regulation
+					219 button (expanded) Description: Geo-blocking regulation, Collapse to show less information, Secondary Actions: Collapse
+					220 container a7C1ED889-ADFB-403A-9DAD-7FC8539CB2B7--51
+						221 text If you're distributing apps in the EU, see Geo-blocking Regulation (EU) 2018/302
+						222 link Description: Learn more about Geo-blocking regulations in the EU (opens in a new tab), Value: support.google.com/googleplay/android-developer/answer/6223646
+						223 button Dismiss message entitled 'Geo-blocking regulation'
+							224 text Dismiss
+					225 heading Changes in review, Value: 2
+						226 text Changes in review
+					227 button (collapsed) Description: More information about 'Changes in review', Secondary Actions: Expand
+					228 button Remove changes
+						229 text Remove changes
+					230 button (expanded) Description: Hide content: Changes in review, Secondary Actions: Collapse
+						231 text Hide
+					232 heading Running quick checks for commonly found issues, Value: 4
+						233 text Running quick checks for commonly found issues
+					234 level indicator Running quick checks for commonly found issues, Value: 11
+					235 container
+						236 text These checks help to find certain policy and app quality issues, so that you can fix them before review. Changes will be sent for review as soon as checks complete successfully.
+						237 link Value: support.google.com/googleplay/android-developer/answer/14807773, Description: Go to the Help Centre to learn more about the automated checks that we run to detect issues before you send your changes for review
+					238 text Up to 13 minutes remaining
+					239 table Changes
+						240 row Item changed Description
+							241 cell
+								242 text Item changed
+							243 cell
+								244 text Description
+							245 cell
+						246 row Production
+							247 cell
+								248 text Production
+						249 row 1.0.1 (4) Start full rollout More actions
+							250 cell
+								251 text 1.0.1 (4)
+							252 cell
+								253 text Start full rollout
+							254 cell
+								255 list More actions
+									256 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+						257 row Countries/regions Add 177 countries/regions: Albania, Algeria and 175 more More actions
+							258 cell
+								259 text Countries/regions
+							260 cell
+								261 text Add 177 countries/regions: Albania, Algeria and 175 more
+							262 cell
+								263 list More actions
+									264 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+						265 row Countries/regions Add rest of world More actions
+							266 cell
+								267 text Countries/regions
+							268 cell
+								269 text Add rest of world
+							270 cell
+								271 list More actions
+									272 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+						273 row Store listings
+							274 cell
+								275 text Store listings
+						276 row English (United States) – en-US Default store listing Add language. Provided app name (Kreativ Fancy Text), and all other required information. More actions
+							277 cell
+								278 text English (United States) – en-US
+								279 text Default store listing
+							280 cell
+								281 text Add language. Provided app name (Kreativ Fancy Text), and all other required information.
+							282 cell
+								283 list More actions
+									284 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+						285 row App content
+							286 cell
+								287 text App content
+						288 row Content Rating Submit new questionnaire More actions
+							289 cell
+								290 text Content Rating
+							291 cell
+								292 text Submit new questionnaire
+							293 cell
+								294 list More actions
+									295 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+						296 row Target audience and content Update Target audience and content information. Target age is 13 and older. More actions
+							297 cell
+								298 text Target audience and content
+							299 cell
+								300 text Update Target audience and content information. Target age is 13 and older.
+							301 cell
+								302 list More actions
+									303 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+						304 row Privacy policy Set privacy policy URL to https://madebykreativ.com/privacy/kreativ-fancy-text/ More actions
+							305 cell
+								306 text Privacy policy
+							307 cell
+								308 text Set privacy policy URL to https://madebykreativ.com/privacy/kreativ-fancy-text/
+							309 cell
+								310 list More actions
+									311 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+						312 row Ads declaration Update ads declaration More actions
+							313 cell
+								314 text Ads declaration
+							315 cell
+								316 text Update ads declaration
+							317 cell
+								318 list More actions
+									319 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+						320 row Data safety Complete Data safety questionnaire More actions
+							321 cell
+								322 text Data safety
+							323 cell
+								324 text Complete Data safety questionnaire
+							325 cell
+								326 list More actions
+									327 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+						328 row Health apps Complete Health apps declaration More actions
+							329 cell
+								330 text Health apps
+							331 cell
+								332 text Complete Health apps declaration
+							333 cell
+								334 list More actions
+									335 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+						336 row Store settings
+							337 cell
+								338 text Store settings
+						339 row App category Select app category (Art & design app) More actions
+							340 cell
+								341 text App category
+							342 cell
+								343 text Select app category (Art & design app)
+							344 cell
+								345 list More actions
+									346 pop up button (collapsed) Description: More actions, Secondary Actions: Expand
+					347 heading What you've told us, Value: 3
+						348 text What you've told us
+					349 text Items listed here aren't published, but we'll take them into account when reviewing your app:
+					350 content list
+						351 container
+							352 AXListMarker • 
+							353 link App content
+								354 text App content
+							355 text : Update sign-in details instructions (all functionality available without special access)
+						356 container
+							357 AXListMarker • 
+							358 link App content
+								359 text App content
+							360 text : 'Advertising ID' declaration updated
+						361 container
+							362 AXListMarker • 
+							363 link App content
+								364 text App content
+							365 text : 'Government apps' declaration updated
+						366 container
+							367 AXListMarker • 
+							368 link App content
+								369 text App content
+							370 text : 'Financial features' declaration updated
+				203 link Description: Product updates, Value: play.google.com/console/about/whats-new/
+				204 link Description: Status dashboard, Value: status.play.google.com/
+				205 link Description: Help, Value: play.google.com/console/u/0/developers/7594712361231234431/help-and-support?app=4976006210494663211
+				206 text © 2026 Google
+				207 link Description: Privacy, Value: google.com/policies/privacy/
+				208 link Description: Developer Distribution Agreement, Value: play.google.com/about/developer-distribution-agreement.html
+				209 link Description: Terms of Service, Value: play.google.com/about/console/terms-of-service/
+
+The focused UI element is 1 AXWebArea Publishing overview | Kreativ Fancy Text, URL: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/publishing

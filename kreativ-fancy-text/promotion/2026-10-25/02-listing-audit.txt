@@ -1,0 +1,8 @@
+PUBLIC LISTING AUDIT — 25 OCTOBER 2026
+
+Confirmed Live in Console and accessible public Google Play listing. Name: Kreativ Fancy Text. Current short 68/80, full 1848/4000. Five genuine 1.0.1 screenshots; public About dialog confirms version 1.0.1.
+
+KEEP: clear offline/ad-free positioning; explain Unicode vs PNG; six themes and per-word styling; no installer/keyboard claims.
+IMPROVE: put the result before technical detail; explain Undo/Redo and export-fit limits; add benefit-led screenshot headings. Keep the existing name; no keyword stuffing. Proposed copy/layouts are in this pack only.
+
+AI labels were attached to icon and feature graphic, not the five UI screenshots. These local assets have reproducible vector/app-rendered sources. Declaration correction is documented separately in AI-LABEL-STATUS.txt. Do not remove mandatory disclosures from genuinely generated raster content.

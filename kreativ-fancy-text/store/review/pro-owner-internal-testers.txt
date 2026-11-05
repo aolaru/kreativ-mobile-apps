@@ -1,0 +1,145 @@
+- progressbar
+- generic: Loading Google Play Console
+- banner:
+  - link "Google Play Console logo":
+    - /url: /console/u/0/developers/7594712361231234431/home
+    - button "Google Play Console logo"
+  - button "Unread notifications Open notification centre":
+    - img: notifications_unread
+    - generic: Unread notifications
+  - button "Switch developer accounts":
+    - img: more_vert
+  - 'button "Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership"':
+- navigation:
+  - list:
+    - listitem "Home":
+      - button "Home":
+        - img: home
+    - listitem "Manage account":
+      - button "Manage account":
+        - img: badge
+    - listitem "Kreativ Fancy Text":
+      - button "Kreativ Fancy Text":
+        - img: play_prism
+    - listitem "Dashboard":
+      - button "Dashboard":
+        - img: dashboard
+    - listitem "Statistics":
+      - button "Statistics":
+        - img: bar_chart
+    - listitem "Publishing overview":
+      - button "Publishing overview":
+        - img: overview
+    - listitem "Protected with Play":
+      - button "Protected with Play":
+        - img: shield
+    - listitem "Test and release":
+      - button "Test and release":
+        - img: rocket_launch
+    - listitem "Monitor and improve":
+      - button "Monitor and improve":
+        - img: vital_signs
+    - listitem "Grow users":
+      - button "Grow users":
+        - img: finance_mode
+    - listitem "Monetise with Play":
+      - button "Monetise with Play":
+        - img: sell
+- heading "Internal testing" [level=1]
+- button "Select form factors. Phones, Tablets, Desktop (Googlebook OS, ChromeOS), Android XR":
+  - img: phonelink
+  - generic: Phones, Tablets, Desktop (Googlebook OS, ChromeOS), Android XR
+  - img: arrow_drop_down
+- button "Create new release":
+  - generic: Create new release
+- heading "Track summary (Phones, Tablets, Desktop, Android XR)" [level=4]
+- button "Pause track":
+  - generic: Pause track
+- list:
+  - listitem: Active
+  - listitem: "Latest release: 1.1.0 (7) — Pro purchase tests"
+- tablist:
+  - tab "Releases":
+    - generic: Releases
+  - tab "Testers" [selected]:
+    - generic: Testers
+- heading "Testers" [level=2]
+- generic: Up to 100 testers can join your internal tests. You can choose more than 100 testers, but only the first 100 to join will be successful.
+- group "Testers":
+  - generic: Testers
+  - search "Email lists":
+    - img: search
+    - generic: Email lists
+    - textbox "Email lists"
+  - grid "Email lists":
+    - row "Select all rows List name Users":
+      - gridcell "Select all rows":
+        - checkbox "Select all rows" [checked=mixed]:
+      - columnheader "List name"
+      - columnheader "Users"
+      - cell
+    - row "admin admin 1 Edit email list admin":
+      - gridcell "admin":
+        - checkbox "admin":
+      - gridcell "admin":
+        - generic: admin
+      - gridcell "1":
+        - generic: "1"
+      - gridcell "Edit email list admin":
+        - button "Edit email list admin":
+          - img: arrow_right_alt
+    - row "BLOCKSHIFT internal testers BLOCKSHIFT internal testers 2 Edit email list BLOCKSHIFT internal testers":
+      - gridcell "BLOCKSHIFT internal testers":
+        - checkbox "BLOCKSHIFT internal testers":
+      - gridcell "BLOCKSHIFT internal testers":
+        - generic: BLOCKSHIFT internal testers
+      - gridcell "2":
+        - generic: "2"
+      - gridcell "Edit email list BLOCKSHIFT internal testers":
+        - button "Edit email list BLOCKSHIFT internal testers":
+          - img: arrow_right_alt
+    - row "Licence testers (auto-generated) Licence testers (auto-generated) 1 Edit email list Licence testers (auto-generated)":
+      - gridcell "Licence testers (auto-generated)":
+        - checkbox "Licence testers (auto-generated)" [checked]:
+      - gridcell "Licence testers (auto-generated)":
+        - generic: Licence testers (auto-generated)
+      - gridcell "1":
+        - generic: "1"
+      - gridcell "Edit email list Licence testers (auto-generated)":
+        - button "Edit email list Licence testers (auto-generated)":
+          - img: arrow_right_alt
+    - row "ShareSafe internal testers ShareSafe internal testers 1 Edit email list ShareSafe internal testers":
+      - gridcell "ShareSafe internal testers":
+        - checkbox "ShareSafe internal testers":
+      - gridcell "ShareSafe internal testers":
+        - generic: ShareSafe internal testers
+      - gridcell "1":
+        - generic: "1"
+      - gridcell "Edit email list ShareSafe internal testers":
+        - button "Edit email list ShareSafe internal testers":
+          - img: arrow_right_alt
+  - button "Create email list":
+    - generic: Create email list
+- heading "How testers join your test" [level=3]
+- group "Join on the web":
+  - generic: Join on the web
+  - generic: Testers can join your test on the web
+  - 'button "Copy link: https://play.google.com/apps/internaltest/4701453847955130384"':
+    - img: link
+    - generic: Copy link
+- button "Save" [disabled]:
+  - generic: Save
+- link "Product updates":
+  - /url: https://play.google.com/console/about/whats-new/
+- link "Status dashboard":
+  - /url: https://status.play.google.com/
+- link "Help":
+  - /url: /console/u/0/developers/7594712361231234431/help-and-support?app=4976006210494663211
+- generic: © 2026 Google
+- link "Privacy":
+  - /url: https://www.google.com/policies/privacy/
+- link "Developer Distribution Agreement":
+  - /url: https://play.google.com/about/developer-distribution-agreement.html
+- link "Terms of Service":
+  - /url: https://play.google.com/about/console/terms-of-service/
+- status

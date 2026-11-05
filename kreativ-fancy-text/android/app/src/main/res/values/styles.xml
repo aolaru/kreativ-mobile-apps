@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/kreativ_purple</item>
+    <item name="colorPrimaryDark">@color/kreativ_background</item>
+    <item name="colorAccent">@color/kreativ_purple</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:statusBarColor">@color/kreativ_background</item>
+    <item name="android:navigationBarColor">@color/kreativ_background</item>
+  </style>
+  <style name="AppTheme.NoActionBar" parent="AppTheme">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:background">@null</item>
+  </style>
+  <style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
+    <item name="windowSplashScreenBackground">@color/kreativ_background</item>
+    <item name="windowSplashScreenAnimatedIcon">@drawable/ic_kreativ</item>
+    <item name="postSplashScreenTheme">@style/AppTheme.NoActionBar</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:background">@color/kreativ_background</item>
+  </style>
+</resources>

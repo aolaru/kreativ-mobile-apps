@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-25",
+  "websitePublished": true,
+  "appUrl": "https://madebykreativ.com/apps/kreativ-fancy-text/",
+  "tutorialUrl": "https://madebykreativ.com/news/fancy-text-png-designs-android-kreativ/",
+  "commit": "3b9e8bff8fc7c67a97ab0e127b1fc1d78e2d9dcf",
+  "workflow": "https://github.com/aolaru/madebykreativ.com/actions/runs/40204795163",
+  "workflowConclusion": "success",
+  "verifiedUrls": 22,
+  "tutorialImagesVerified": 15,
+  "checks": [
+    {
+      "path": "/news/fancy-text-png-designs-android-kreativ/",
+      "status": 200
+    },
+    {
+      "path": "/apps/kreativ-fancy-text/",
+      "status": 200
+    },
+    {
+      "path": "/apps/",
+      "status": 200
+    },
+    {
+      "path": "/updates/",
+      "status": 200
+    },
+    {
+      "path": "/updates/rss.xml",
+      "status": 200
+    },
+    {
+      "path": "/news/rss.xml",
+      "status": 200
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/01-create.png",
+      "status": 200,
+      "bytes": 188482,
+      "sha256": "54d72776d9a0ec025b38486add38976e99d3beac7d4bcea73045683bd54f1868"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/01-create-960.webp",
+      "status": 200,
+      "bytes": 58496,
+      "sha256": "788d826c1f36e86d7957a67d5500794afc5265495ca167df491168da27850658"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/02-word-styles-960.webp",
+      "status": 200,
+      "bytes": 65580,
+      "sha256": "cbfe9aafa5b5df6b8e8c0270e4ad85faa9a8d740a47efee695be05ab033bd95b"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/01-create-480.webp",
+      "status": 200,
+      "bytes": 25336,
+      "sha256": "a52a353e27dee09cbbdb7471a7b04f7861eb1e9e520767c4ab1b29d42b2f183f"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/02-word-styles-480.webp",
+      "status": 200,
+      "bytes": 28740,
+      "sha256": "af6494b04063d666859d6b73e221a7246e0c0e8096f14376544751c2d6cb1221"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/04-png-options-480.webp",
+      "status": 200,
+      "bytes": 27506,
+      "sha256": "87c3291832a51a5094f3747fd6f7e2cb04732de031f135c1e3cc4c5062e951ee"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/03-matching-image-480.webp",
+      "status": 200,
+      "bytes": 22770,
+      "sha256": "921ff0a8b8fbd95b404e67d357d6d3df6d4edebd9df7ac98ea50dbc088fa6c38"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/05-saved-designs-480.webp",
+      "status": 200,
+      "bytes": 23410,
+      "sha256": "b2dc00a4065d12b285b7747267e9bd9a2922c07bfd80592edda4a86aa9274682"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/03-matching-image-960.webp",
+      "status": 200,
+      "bytes": 51684,
+      "sha256": "38443834ef7d475b8e2454948b4a4dbf78086166784553ac39cea79eadf84041"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/04-png-options-960.webp",
+      "status": 200,
+      "bytes": 58176,
+      "sha256": "007e2424f9a6e40262081f0b054d3c268cfc88dc493bc02b7d24e063901a4a16"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/05-saved-designs-960.webp",
+      "status": 200,
+      "bytes": 52622,
+      "sha256": "bd9154ae2e4ce9bc056b767ff2e5ed5762f34351d5dab184a3e4d191025c1901"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/05-saved-designs.png",
+      "status": 200,
+      "bytes": 194685,
+      "sha256": "0e290674fc8fedf76469df7220c48dafee49c1445df3c4c9a7d9bf9ac52d2ca1"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/02-word-styles.png",
+      "status": 200,
+      "bytes": 225232,
+      "sha256": "376744ceaefd0ffcc44e41979fcaab8f35220f4540b034b8dd6091633e07475e"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/04-png-options.png",
+      "status": 200,
+      "bytes": 198798,
+      "sha256": "bffda64b33a67185216618e3ef3573b47c948ab4bb389916a2d6af630922d087"
+    },
+    {
+      "path": "/images/kreativ-fancy-text/tutorial/03-matching-image.png",
+      "status": 200,
+      "bytes": 221811,
+      "sha256": "0b0c38bc2c10f196eab1009a08a0f7b5c2cf7e49e1c798504754b74921c2485a"
+    }
+  ]
+}

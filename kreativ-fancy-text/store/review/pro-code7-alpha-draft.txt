@@ -1,0 +1,146 @@
+- progressbar
+- generic: Loading Google Play Console
+- banner:
+  - link "Google Play Console logo":
+    - /url: /console/u/0/developers/7594712361231234431/home
+    - button "Google Play Console logo"
+  - button "Unread notifications Open notification centre":
+    - img: notifications_unread
+    - generic: Unread notifications
+  - button "Switch developer accounts":
+    - img: more_vert
+  - 'button "Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership"':
+- navigation:
+  - list:
+    - listitem "Home":
+      - button "Home":
+        - img: home
+    - listitem "Manage account":
+      - button "Manage account":
+        - img: badge
+    - listitem "Kreativ Fancy Text":
+      - button "Kreativ Fancy Text":
+        - img: play_prism
+    - listitem "Dashboard":
+      - button "Dashboard":
+        - img: dashboard
+    - listitem "Statistics":
+      - button "Statistics":
+        - img: bar_chart
+    - listitem "Publishing overview":
+      - button "Publishing overview":
+        - img: overview
+    - listitem "Protected with Play":
+      - button "Protected with Play":
+        - img: shield
+    - listitem "Test and release":
+      - button "Test and release":
+        - img: rocket_launch
+    - listitem "Monitor and improve":
+      - button "Monitor and improve":
+        - img: vital_signs
+    - listitem "Grow users":
+      - button "Grow users":
+        - img: finance_mode
+    - listitem "Monetise with Play":
+      - button "Monetise with Play":
+        - img: sell
+- heading "Create closed testing release" [level=1]
+- generic: Closed testing releases are available to a limited number of testers that you choose
+- tablist:
+  - tab "Step 1 of 2, Create release" [selected]:
+    - generic: "1"
+    - generic: Create release
+  - tab "Step 2 of 2, Preview and confirm" [disabled]:
+    - generic: "2"
+    - generic: Preview and confirm
+- tabpanel
+- button "Discard draft release":
+  - generic: Discard draft release
+- heading "App bundles" [level=2]
+- img: clock_loader_60
+- heading "‎2 of 3 enhancements active" [level=3]
+- 'button "Show content: ‎2 of 3 enhancements active"':
+  - img: expand_more
+- heading "Upload app bundles" [level=3]
+- img: apk_document
+- generic: Drop app bundles here to upload
+- button "Upload":
+  - img: upload
+  - generic: Upload
+- button "Add from library":
+  - img: add_to_photos
+  - generic: Add from library
+- grid "Artifacts":
+  - row "File type Version API levels Target SDK Screen layouts ABIs Required features":
+    - columnheader "File type"
+    - columnheader "Version"
+    - columnheader "API levels"
+    - columnheader "Target SDK"
+    - columnheader "Screen layouts"
+    - columnheader "ABIs"
+    - columnheader "Required features"
+    - cell
+    - cell
+  - 'row "App bundle This app bundle has the following file attached: ReTrace mapping file Enhanced 7 (1.1.0) 24+ 36 4 All 1 Manage artifact View details for App bundle: 7 (1.1.0)"':
+    - 'gridcell "App bundle This app bundle has the following file attached: ReTrace mapping file Enhanced"':
+      - generic: App bundle
+      - 'img "This app bundle has the following file attached: ReTrace mapping file"': attachment
+      - button "Enhanced":
+        - img: info
+        - generic: Enhanced
+    - gridcell "7 (1.1.0)":
+      - generic: 7 (1.1.0)
+    - gridcell "24+":
+      - generic: 24+
+    - gridcell "36":
+      - generic: "36"
+    - gridcell "4":
+      - generic: "4"
+    - gridcell "All":
+      - generic: All
+    - gridcell "1":
+      - generic: "1"
+    - gridcell "Manage artifact":
+      - button "Manage artifact":
+        - img: more_vert
+    - 'gridcell "View details for App bundle: 7 (1.1.0)"':
+      - 'button "View details for App bundle: 7 (1.1.0)"':
+        - img: arrow_right_alt
+- heading "Release details" [level=2]
+- group "Release name":
+  - generic: Release name *
+  - textbox "Release name": 1.1.0 (7) — Pro development
+  - paragraph
+  - generic: 27 / 50
+  - generic: Text is 27 characters out of 50
+- group "Release notes":
+  - generic: Release notes
+  - button "Copy from a previous release":
+    - generic: Copy from a previous release
+  - textbox "Release notes": "<en-US> Development test of optional Kreativ Pro: premium templates, custom backgrounds and saved style presets. One-time unlock; existing free features remain free. </en-US>"
+  - paragraph
+  - generic: Release notes provided for 1 language
+  - generic: Let users know what's in your release. Enter release notes for each language within the language tags.
+- img: check_circle
+- generic: Changes saved. You can now preview your release before sending it for review.
+- button "Discard changes" [disabled]:
+  - generic: Discard changes
+- button "Save as draft" [disabled]:
+  - generic: Save as draft
+- button "Next":
+  - generic: Next
+- link "Product updates":
+  - /url: https://play.google.com/console/about/whats-new/
+- link "Status dashboard":
+  - /url: https://status.play.google.com/
+- link "Help":
+  - /url: /console/u/0/developers/7594712361231234431/help-and-support?app=4976006210494663211
+- generic: © 2026 Google
+- link "Privacy":
+  - /url: https://www.google.com/policies/privacy/
+- link "Developer Distribution Agreement":
+  - /url: https://play.google.com/about/developer-distribution-agreement.html
+- link "Terms of Service":
+  - /url: https://play.google.com/about/console/terms-of-service/
+- status

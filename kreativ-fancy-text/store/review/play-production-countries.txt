@@ -1,0 +1,1156 @@
+Browser tab: 52791351, Title: "Production | Kreativ Fancy Text", URL: "https://play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/tracks/production?tab=countryAvailability".
+0 AXWebArea Production | Kreativ Fancy Text, URL: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/tracks/production?tab=countryAvailability
+	1 container
+		2 text Loading Google Play Console
+		3 container
+			4 container
+				5 link Description: Google Play Console logo, Value: play.google.com/console/u/0/developers/7594712361231234431/home
+				6 button Unread notifications Open notification centre
+					7 text Unread notifications
+				8 pop up button (collapsed) Description: Switch developer accounts, Secondary Actions: Expand
+				9 button (collapsed) Description: Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership, Secondary Actions: Expand
+			10 content list
+				11 container Home
+					12 button Home
+				13 container Manage account
+					14 button Manage account
+				15 container Kreativ Fancy Text
+					16 pop up button Kreativ Fancy Text
+				17 container Dashboard
+					18 button Dashboard
+				19 container Statistics
+					20 button Statistics
+				21 container Publishing overview
+					22 button Publishing overview
+				23 container Protected with Play
+					24 button Protected with Play
+				25 container (expanded) Description: Test and release, Secondary Actions: Collapse
+					26 button Test and release
+				27 container (collapsed) Description: Monitor and improve, Secondary Actions: Expand
+					28 button Monitor and improve
+				29 container (collapsed) Description: Grow users, Secondary Actions: Expand
+					30 button Grow users
+				31 container (collapsed) Description: Monetise with Play, Secondary Actions: Expand
+					32 button Monetise with Play
+			33 container main-content
+				34 container
+					35 heading Production, Value: 1
+						36 text Production
+					37 pop up button (collapsed) Description: Select form factors. Phones, Tablets, Desktop (Googlebook OS, ChromeOS), Android XR, ID: a2A25F81C-6262-472D-96E2-CCB6EE3DE4FC--0, Secondary Actions: Expand
+					69 button (disabled) Create new release
+						70 text Create new release
+					40 container
+						41 text Create and manage production releases to make your app available to all users in your chosen countries.
+						42 link Description: Learn more about Production (opens in a new tab), Value: play.google.com/console/about/publicreleases
+					43 heading Track summary (Phones, Tablets, Desktop, Android XR), Value: 4
+						44 text Track summary (Phones, Tablets, Desktop, Android XR)
+					71 content list
+						72 text Inactive
+						73 container
+							74 text Draft release
+						75 container
+							76 text 178 countries/regions
+						77 container
+							78 text 0 installs
+					53 tab group
+						54 tab (selectable, settable, boolean) Description: Release dashboard, Value: 0
+						55 tab (selectable, settable, boolean) Description: Releases, Value: 0
+						56 tab (selected, settable, boolean) Description: Countries/regions, Value: 1
+					57 heading Countries/regions, Value: 2
+						58 text Countries/regions
+					59 button (collapsed) Description: More information about 'Countries/regions', Secondary Actions: Expand
+					79 pop up button (collapsed) Targeted (178), ID: a2A25F81C-6262-472D-96E2-CCB6EE3DE4FC--4, Secondary Actions: Expand
+					80 container Search
+						81 container
+							82 text Search
+							83 text field (settable) Search
+					84 button Edit countries/regions
+						85 text Edit countries/regions
+					86 table Countries/regions
+						87 row Country/region Status
+							88 cell Country/region
+								89 text Country/region
+							90 cell Status
+								91 text Status
+						92 row Albania Targeted
+							93 cell
+								94 container Albania
+									95 text Albania
+							96 cell
+								97 text Targeted
+						98 row Algeria Targeted
+							99 cell
+								100 container Algeria
+									101 text Algeria
+							102 cell
+								103 text Targeted
+						104 row Angola Targeted
+							105 cell
+								106 container Angola
+									107 text Angola
+							108 cell
+								109 text Targeted
+						110 row Antigua & Barbuda Targeted
+							111 cell
+								112 container Antigua & Barbuda
+									113 text Antigua & Barbuda
+							114 cell
+								115 text Targeted
+						116 row Argentina Targeted
+							117 cell
+								118 container Argentina
+									119 text Argentina
+							120 cell
+								121 text Targeted
+						122 row Armenia Targeted
+							123 cell
+								124 container Armenia
+									125 text Armenia
+							126 cell
+								127 text Targeted
+						128 row Aruba Targeted
+							129 cell
+								130 container Aruba
+									131 text Aruba
+							132 cell
+								133 text Targeted
+						134 row Australia Targeted
+							135 cell
+								136 container Australia
+									137 text Australia
+							138 cell
+								139 text Targeted
+						140 row Austria Targeted
+							141 cell
+								142 container Austria
+									143 text Austria
+							144 cell
+								145 text Targeted
+						146 row Azerbaijan Targeted
+							147 cell
+								148 container Azerbaijan
+									149 text Azerbaijan
+							150 cell
+								151 text Targeted
+						152 row Bahamas Targeted
+							153 cell
+								154 container Bahamas
+									155 text Bahamas
+							156 cell
+								157 text Targeted
+						158 row Bahrain Targeted
+							159 cell
+								160 container Bahrain
+									161 text Bahrain
+							162 cell
+								163 text Targeted
+						164 row Bangladesh Targeted
+							165 cell
+								166 container Bangladesh
+									167 text Bangladesh
+							168 cell
+								169 text Targeted
+						170 row Belarus Targeted
+							171 cell
+								172 container Belarus
+									173 text Belarus
+							174 cell
+								175 text Targeted
+						176 row Belgium Targeted
+							177 cell
+								178 container Belgium
+									179 text Belgium
+							180 cell
+								181 text Targeted
+						182 row Belize Targeted
+							183 cell
+								184 container Belize
+									185 text Belize
+							186 cell
+								187 text Targeted
+						188 row Benin Targeted
+							189 cell
+								190 container Benin
+									191 text Benin
+							192 cell
+								193 text Targeted
+						194 row Bermuda Targeted
+							195 cell
+								196 container Bermuda
+									197 text Bermuda
+							198 cell
+								199 text Targeted
+						200 row Bolivia Targeted
+							201 cell
+								202 container Bolivia
+									203 text Bolivia
+							204 cell
+								205 text Targeted
+						206 row Bosnia & Herzegovina Targeted
+							207 cell
+								208 container Bosnia & Herzegovina
+									209 text Bosnia & Herzegovina
+							210 cell
+								211 text Targeted
+						212 row Botswana Targeted
+							213 cell
+								214 container Botswana
+									215 text Botswana
+							216 cell
+								217 text Targeted
+						218 row Brazil Targeted
+							219 cell
+								220 container Brazil
+									221 text Brazil
+							222 cell
+								223 text Targeted
+						224 row British Virgin Islands Targeted
+							225 cell
+								226 container British Virgin Islands
+									227 text British Virgin Islands
+							228 cell
+								229 text Targeted
+						230 row Bulgaria Targeted
+							231 cell
+								232 container Bulgaria
+									233 text Bulgaria
+							234 cell
+								235 text Targeted
+						236 row Burkina Faso Targeted
+							237 cell
+								238 container Burkina Faso
+									239 text Burkina Faso
+							240 cell
+								241 text Targeted
+						242 row Cambodia Targeted
+							243 cell
+								244 container Cambodia
+									245 text Cambodia
+							246 cell
+								247 text Targeted
+						248 row Cameroon Targeted
+							249 cell
+								250 container Cameroon
+									251 text Cameroon
+							252 cell
+								253 text Targeted
+						254 row Canada Targeted
+							255 cell
+								256 container Canada
+									257 text Canada
+							258 cell
+								259 text Targeted
+						260 row Cape Verde Targeted
+							261 cell
+								262 container Cape Verde
+									263 text Cape Verde
+							264 cell
+								265 text Targeted
+						266 row Cayman Islands Targeted
+							267 cell
+								268 container Cayman Islands
+									269 text Cayman Islands
+							270 cell
+								271 text Targeted
+						272 row Chad Targeted
+							273 cell
+								274 container Chad
+									275 text Chad
+							276 cell
+								277 text Targeted
+						278 row Chile Targeted
+							279 cell
+								280 container Chile
+									281 text Chile
+							282 cell
+								283 text Targeted
+						284 row China Targeted
+							285 cell
+								286 container China
+									287 text China
+							288 cell
+								289 text Targeted
+						290 row Colombia Targeted
+							291 cell
+								292 container Colombia
+									293 text Colombia
+							294 cell
+								295 text Targeted
+						296 row Comoros Targeted
+							297 cell
+								298 container Comoros
+									299 text Comoros
+							300 cell
+								301 text Targeted
+						302 row Congo - Brazzaville Targeted
+							303 cell
+								304 container Congo - Brazzaville
+									305 text Congo - Brazzaville
+							306 cell
+								307 text Targeted
+						308 row Congo - Kinshasa Targeted
+							309 cell
+								310 container Congo - Kinshasa
+									311 text Congo - Kinshasa
+							312 cell
+								313 text Targeted
+						314 row Costa Rica Targeted
+							315 cell
+								316 container Costa Rica
+									317 text Costa Rica
+							318 cell
+								319 text Targeted
+						320 row Croatia Targeted
+							321 cell
+								322 container Croatia
+									323 text Croatia
+							324 cell
+								325 text Targeted
+						326 row Cuba Targeted
+							327 cell
+								328 container Cuba
+									329 text Cuba
+							330 cell
+								331 text Targeted
+						332 row Cyprus Targeted
+							333 cell
+								334 container Cyprus
+									335 text Cyprus
+							336 cell
+								337 text Targeted
+						338 row Czechia Targeted
+							339 cell
+								340 container Czechia
+									341 text Czechia
+							342 cell
+								343 text Targeted
+						344 row Côte d’Ivoire Targeted
+							345 cell
+								346 container Côte d’Ivoire
+									347 text Côte d’Ivoire
+							348 cell
+								349 text Targeted
+						350 row Denmark Targeted
+							351 cell
+								352 container Denmark
+									353 text Denmark
+									354 text Includes 2 locations
+							355 cell
+								356 text Targeted
+						357 row Djibouti Targeted
+							358 cell
+								359 container Djibouti
+									360 text Djibouti
+							361 cell
+								362 text Targeted
+						363 row Dominica Targeted
+							364 cell
+								365 container Dominica
+									366 text Dominica
+							367 cell
+								368 text Targeted
+						369 row Dominican Republic Targeted
+							370 cell
+								371 container Dominican Republic
+									372 text Dominican Republic
+							373 cell
+								374 text Targeted
+						375 row Ecuador Targeted
+							376 cell
+								377 container Ecuador
+									378 text Ecuador
+							379 cell
+								380 text Targeted
+						381 row Egypt Targeted
+							382 cell
+								383 container Egypt
+									384 text Egypt
+							385 cell
+								386 text Targeted
+						387 row El Salvador Targeted
+							388 cell
+								389 container El Salvador
+									390 text El Salvador
+							391 cell
+								392 text Targeted
+						393 row Eritrea Targeted
+							394 cell
+								395 container Eritrea
+									396 text Eritrea
+							397 cell
+								398 text Targeted
+						399 row Estonia Targeted
+							400 cell
+								401 container Estonia
+									402 text Estonia
+							403 cell
+								404 text Targeted
+						405 row Ethiopia Targeted
+							406 cell
+								407 container Ethiopia
+									408 text Ethiopia
+							409 cell
+								410 text Targeted
+						411 row Fiji Targeted
+							412 cell
+								413 container Fiji
+									414 text Fiji
+							415 cell
+								416 text Targeted
+						417 row Finland Targeted
+							418 cell
+								419 container Finland
+									420 text Finland
+									421 text Includes 1 location
+							422 cell
+								423 text Targeted
+						424 row France Targeted
+							425 cell
+								426 container France
+									427 text France
+									428 text Includes 11 locations
+							429 cell
+								430 text Targeted
+						431 row Gabon Targeted
+							432 cell
+								433 container Gabon
+									434 text Gabon
+							435 cell
+								436 text Targeted
+						437 row Gambia Targeted
+							438 cell
+								439 container Gambia
+									440 text Gambia
+							441 cell
+								442 text Targeted
+						443 row Georgia Targeted
+							444 cell
+								445 container Georgia
+									446 text Georgia
+							447 cell
+								448 text Targeted
+						449 row Germany Targeted
+							450 cell
+								451 container Germany
+									452 text Germany
+							453 cell
+								454 text Targeted
+						455 row Ghana Targeted
+							456 cell
+								457 container Ghana
+									458 text Ghana
+							459 cell
+								460 text Targeted
+						461 row Gibraltar Targeted
+							462 cell
+								463 container Gibraltar
+									464 text Gibraltar
+							465 cell
+								466 text Targeted
+						467 row Greece Targeted
+							468 cell
+								469 container Greece
+									470 text Greece
+							471 cell
+								472 text Targeted
+						473 row Grenada Targeted
+							474 cell
+								475 container Grenada
+									476 text Grenada
+							477 cell
+								478 text Targeted
+						479 row Guatemala Targeted
+							480 cell
+								481 container Guatemala
+									482 text Guatemala
+							483 cell
+								484 text Targeted
+						485 row Guinea Targeted
+							486 cell
+								487 container Guinea
+									488 text Guinea
+							489 cell
+								490 text Targeted
+						491 row Guinea-Bissau Targeted
+							492 cell
+								493 container Guinea-Bissau
+									494 text Guinea-Bissau
+							495 cell
+								496 text Targeted
+						497 row Haiti Targeted
+							498 cell
+								499 container Haiti
+									500 text Haiti
+							501 cell
+								502 text Targeted
+						503 row Honduras Targeted
+							504 cell
+								505 container Honduras
+									506 text Honduras
+							507 cell
+								508 text Targeted
+						509 row Hong Kong Targeted
+							510 cell
+								511 container Hong Kong
+									512 text Hong Kong
+							513 cell
+								514 text Targeted
+						515 row Hungary Targeted
+							516 cell
+								517 container Hungary
+									518 text Hungary
+							519 cell
+								520 text Targeted
+						521 row Iceland Targeted
+							522 cell
+								523 container Iceland
+									524 text Iceland
+							525 cell
+								526 text Targeted
+						527 row India Targeted
+							528 cell
+								529 container India
+									530 text India
+							531 cell
+								532 text Targeted
+						533 row Indonesia Targeted
+							534 cell
+								535 container Indonesia
+									536 text Indonesia
+							537 cell
+								538 text Targeted
+						539 row Iran Targeted
+							540 cell
+								541 container Iran
+									542 text Iran
+							543 cell
+								544 text Targeted
+						545 row Iraq Targeted
+							546 cell
+								547 container Iraq
+									548 text Iraq
+							549 cell
+								550 text Targeted
+						551 row Ireland Targeted
+							552 cell
+								553 container Ireland
+									554 text Ireland
+							555 cell
+								556 text Targeted
+						557 row Israel Targeted
+							558 cell
+								559 container Israel
+									560 text Israel
+							561 cell
+								562 text Targeted
+						563 row Italy Targeted
+							564 cell
+								565 container Italy
+									566 text Italy
+							567 cell
+								568 text Targeted
+						569 row Jamaica Targeted
+							570 cell
+								571 container Jamaica
+									572 text Jamaica
+							573 cell
+								574 text Targeted
+						575 row Japan Targeted
+							576 cell
+								577 container Japan
+									578 text Japan
+							579 cell
+								580 text Targeted
+						581 row Jordan Targeted
+							582 cell
+								583 container Jordan
+									584 text Jordan
+							585 cell
+								586 text Targeted
+						587 row Kazakhstan Targeted
+							588 cell
+								589 container Kazakhstan
+									590 text Kazakhstan
+							591 cell
+								592 text Targeted
+						593 row Kenya Targeted
+							594 cell
+								595 container Kenya
+									596 text Kenya
+							597 cell
+								598 text Targeted
+						599 row Kuwait Targeted
+							600 cell
+								601 container Kuwait
+									602 text Kuwait
+							603 cell
+								604 text Targeted
+						605 row Kyrgyzstan Targeted
+							606 cell
+								607 container Kyrgyzstan
+									608 text Kyrgyzstan
+							609 cell
+								610 text Targeted
+						611 row Laos Targeted
+							612 cell
+								613 container Laos
+									614 text Laos
+							615 cell
+								616 text Targeted
+						617 row Latvia Targeted
+							618 cell
+								619 container Latvia
+									620 text Latvia
+							621 cell
+								622 text Targeted
+						623 row Lebanon Targeted
+							624 cell
+								625 container Lebanon
+									626 text Lebanon
+							627 cell
+								628 text Targeted
+						629 row Liberia Targeted
+							630 cell
+								631 container Liberia
+									632 text Liberia
+							633 cell
+								634 text Targeted
+						635 row Libya Targeted
+							636 cell
+								637 container Libya
+									638 text Libya
+							639 cell
+								640 text Targeted
+						641 row Liechtenstein Targeted
+							642 cell
+								643 container Liechtenstein
+									644 text Liechtenstein
+							645 cell
+								646 text Targeted
+						647 row Lithuania Targeted
+							648 cell
+								649 container Lithuania
+									650 text Lithuania
+							651 cell
+								652 text Targeted
+						653 row Luxembourg Targeted
+							654 cell
+								655 container Luxembourg
+									656 text Luxembourg
+							657 cell
+								658 text Targeted
+						659 row Macao Targeted
+							660 cell
+								661 container Macao
+									662 text Macao
+							663 cell
+								664 text Targeted
+						665 row Malaysia Targeted
+							666 cell
+								667 container Malaysia
+									668 text Malaysia
+							669 cell
+								670 text Targeted
+						671 row Maldives Targeted
+							672 cell
+								673 container Maldives
+									674 text Maldives
+							675 cell
+								676 text Targeted
+						677 row Mali Targeted
+							678 cell
+								679 container Mali
+									680 text Mali
+							681 cell
+								682 text Targeted
+						683 row Malta Targeted
+							684 cell
+								685 container Malta
+									686 text Malta
+							687 cell
+								688 text Targeted
+						689 row Mauritius Targeted
+							690 cell
+								691 container Mauritius
+									692 text Mauritius
+							693 cell
+								694 text Targeted
+						695 row Mexico Targeted
+							696 cell
+								697 container Mexico
+									698 text Mexico
+							699 cell
+								700 text Targeted
+						701 row Micronesia Targeted
+							702 cell
+								703 container Micronesia
+									704 text Micronesia
+							705 cell
+								706 text Targeted
+						707 row Moldova Targeted
+							708 cell
+								709 container Moldova
+									710 text Moldova
+							711 cell
+								712 text Targeted
+						713 row Monaco Targeted
+							714 cell
+								715 container Monaco
+									716 text Monaco
+							717 cell
+								718 text Targeted
+						719 row Mongolia Targeted
+							720 cell
+								721 container Mongolia
+									722 text Mongolia
+							723 cell
+								724 text Targeted
+						725 row Morocco Targeted
+							726 cell
+								727 container Morocco
+									728 text Morocco
+							729 cell
+								730 text Targeted
+						731 row Mozambique Targeted
+							732 cell
+								733 container Mozambique
+									734 text Mozambique
+							735 cell
+								736 text Targeted
+						737 row Myanmar (Burma) Targeted
+							738 cell
+								739 container Myanmar (Burma)
+									740 text Myanmar (Burma)
+							741 cell
+								742 text Targeted
+						743 row Namibia Targeted
+							744 cell
+								745 container Namibia
+									746 text Namibia
+							747 cell
+								748 text Targeted
+						749 row Nepal Targeted
+							750 cell
+								751 container Nepal
+									752 text Nepal
+							753 cell
+								754 text Targeted
+						755 row Netherlands Targeted
+							756 cell
+								757 container Netherlands
+									758 text Netherlands
+							759 cell
+								760 text Targeted
+						761 row New Zealand Targeted
+							762 cell
+								763 container New Zealand
+									764 text New Zealand
+							765 cell
+								766 text Targeted
+						767 row Nicaragua Targeted
+							768 cell
+								769 container Nicaragua
+									770 text Nicaragua
+							771 cell
+								772 text Targeted
+						773 row Niger Targeted
+							774 cell
+								775 container Niger
+									776 text Niger
+							777 cell
+								778 text Targeted
+						779 row Nigeria Targeted
+							780 cell
+								781 container Nigeria
+									782 text Nigeria
+							783 cell
+								784 text Targeted
+						785 row North Macedonia Targeted
+							786 cell
+								787 container North Macedonia
+									788 text North Macedonia
+							789 cell
+								790 text Targeted
+						791 row Norway Targeted
+							792 cell
+								793 container Norway
+									794 text Norway
+									795 text Includes 1 location
+							796 cell
+								797 text Targeted
+						798 row Oman Targeted
+							799 cell
+								800 container Oman
+									801 text Oman
+							802 cell
+								803 text Targeted
+						804 row Pakistan Targeted
+							805 cell
+								806 container Pakistan
+									807 text Pakistan
+							808 cell
+								809 text Targeted
+						810 row Panama Targeted
+							811 cell
+								812 container Panama
+									813 text Panama
+							814 cell
+								815 text Targeted
+						816 row Papua New Guinea Targeted
+							817 cell
+								818 container Papua New Guinea
+									819 text Papua New Guinea
+							820 cell
+								821 text Targeted
+						822 row Paraguay Targeted
+							823 cell
+								824 container Paraguay
+									825 text Paraguay
+							826 cell
+								827 text Targeted
+						828 row Peru Targeted
+							829 cell
+								830 container Peru
+									831 text Peru
+							832 cell
+								833 text Targeted
+						834 row Philippines Targeted
+							835 cell
+								836 container Philippines
+									837 text Philippines
+							838 cell
+								839 text Targeted
+						840 row Poland Targeted
+							841 cell
+								842 container Poland
+									843 text Poland
+							844 cell
+								845 text Targeted
+						846 row Portugal Targeted
+							847 cell
+								848 container Portugal
+									849 text Portugal
+							850 cell
+								851 text Targeted
+						852 row Qatar Targeted
+							853 cell
+								854 container Qatar
+									855 text Qatar
+							856 cell
+								857 text Targeted
+						858 row Romania Targeted
+							859 cell
+								860 container Romania
+									861 text Romania
+							862 cell
+								863 text Targeted
+						864 row Russia Targeted
+							865 cell
+								866 container Russia
+									867 text Russia
+							868 cell
+								869 text Targeted
+						870 row Rwanda Targeted
+							871 cell
+								872 container Rwanda
+									873 text Rwanda
+							874 cell
+								875 text Targeted
+						876 row Samoa Targeted
+							877 cell
+								878 container Samoa
+									879 text Samoa
+							880 cell
+								881 text Targeted
+						882 row San Marino Targeted
+							883 cell
+								884 container San Marino
+									885 text San Marino
+							886 cell
+								887 text Targeted
+						888 row Saudi Arabia Targeted
+							889 cell
+								890 container Saudi Arabia
+									891 text Saudi Arabia
+							892 cell
+								893 text Targeted
+						894 row Senegal Targeted
+							895 cell
+								896 container Senegal
+									897 text Senegal
+							898 cell
+								899 text Targeted
+						900 row Serbia Targeted
+							901 cell
+								902 container Serbia
+									903 text Serbia
+							904 cell
+								905 text Targeted
+						906 row Seychelles Targeted
+							907 cell
+								908 container Seychelles
+									909 text Seychelles
+							910 cell
+								911 text Targeted
+						912 row Sierra Leone Targeted
+							913 cell
+								914 container Sierra Leone
+									915 text Sierra Leone
+							916 cell
+								917 text Targeted
+						918 row Singapore Targeted
+							919 cell
+								920 container Singapore
+									921 text Singapore
+							922 cell
+								923 text Targeted
+						924 row Slovakia Targeted
+							925 cell
+								926 container Slovakia
+									927 text Slovakia
+							928 cell
+								929 text Targeted
+						930 row Slovenia Targeted
+							931 cell
+								932 container Slovenia
+									933 text Slovenia
+							934 cell
+								935 text Targeted
+						936 row Solomon Islands Targeted
+							937 cell
+								938 container Solomon Islands
+									939 text Solomon Islands
+							940 cell
+								941 text Targeted
+						942 row Somalia Targeted
+							943 cell
+								944 container Somalia
+									945 text Somalia
+							946 cell
+								947 text Targeted
+						948 row South Africa Targeted
+							949 cell
+								950 container South Africa
+									951 text South Africa
+							952 cell
+								953 text Targeted
+						954 row South Korea Targeted
+							955 cell
+								956 container South Korea
+									957 text South Korea
+							958 cell
+								959 text Targeted
+						960 row Spain Targeted
+							961 cell
+								962 container Spain
+									963 text Spain
+							964 cell
+								965 text Targeted
+						966 row Sri Lanka Targeted
+							967 cell
+								968 container Sri Lanka
+									969 text Sri Lanka
+							970 cell
+								971 text Targeted
+						972 row St Kitts & Nevis Targeted
+							973 cell
+								974 container St Kitts & Nevis
+									975 text St Kitts & Nevis
+							976 cell
+								977 text Targeted
+						978 row St Lucia Targeted
+							979 cell
+								980 container St Lucia
+									981 text St Lucia
+							982 cell
+								983 text Targeted
+						984 row Sudan Targeted
+							985 cell
+								986 container Sudan
+									987 text Sudan
+							988 cell
+								989 text Targeted
+						990 row Suriname Targeted
+							991 cell
+								992 container Suriname
+									993 text Suriname
+							994 cell
+								995 text Targeted
+						996 row Sweden Targeted
+							997 cell
+								998 container Sweden
+									999 text Sweden
+							1000 cell
+								1001 text Targeted
+						1002 row Switzerland Targeted
+							1003 cell
+								1004 container Switzerland
+									1005 text Switzerland
+							1006 cell
+								1007 text Targeted
+						1008 row Taiwan Targeted
+							1009 cell
+								1010 container Taiwan
+									1011 text Taiwan
+							1012 cell
+								1013 text Targeted
+						1014 row Tajikistan Targeted
+							1015 cell
+								1016 container Tajikistan
+									1017 text Tajikistan
+							1018 cell
+								1019 text Targeted
+						1020 row Tanzania Targeted
+							1021 cell
+								1022 container Tanzania
+									1023 text Tanzania
+							1024 cell
+								1025 text Targeted
+						1026 row Thailand Targeted
+							1027 cell
+								1028 container Thailand
+									1029 text Thailand
+							1030 cell
+								1031 text Targeted
+						1032 row Togo Targeted
+							1033 cell
+								1034 container Togo
+									1035 text Togo
+							1036 cell
+								1037 text Targeted
+						1038 row Tonga Targeted
+							1039 cell
+								1040 container Tonga
+									1041 text Tonga
+							1042 cell
+								1043 text Targeted
+						1044 row Trinidad & Tobago Targeted
+							1045 cell
+								1046 container Trinidad & Tobago
+									1047 text Trinidad & Tobago
+							1048 cell
+								1049 text Targeted
+						1050 row Tunisia Targeted
+							1051 cell
+								1052 container Tunisia
+									1053 text Tunisia
+							1054 cell
+								1055 text Targeted
+						1056 row Turkmenistan Targeted
+							1057 cell
+								1058 container Turkmenistan
+									1059 text Turkmenistan
+							1060 cell
+								1061 text Targeted
+						1062 row Turks & Caicos Islands Targeted
+							1063 cell
+								1064 container Turks & Caicos Islands
+									1065 text Turks & Caicos Islands
+							1066 cell
+								1067 text Targeted
+						1068 row Türkiye Targeted
+							1069 cell
+								1070 container Türkiye
+									1071 text Türkiye
+							1072 cell
+								1073 text Targeted
+						1074 row Uganda Targeted
+							1075 cell
+								1076 container Uganda
+									1077 text Uganda
+							1078 cell
+								1079 text Targeted
+						1080 row Ukraine Targeted
+							1081 cell
+								1082 container Ukraine
+									1083 text Ukraine
+							1084 cell
+								1085 text Targeted
+						1086 row United Arab Emirates Targeted
+							1087 cell
+								1088 container United Arab Emirates
+									1089 text United Arab Emirates
+							1090 cell
+								1091 text Targeted
+						1092 row United Kingdom Targeted
+							1093 cell
+								1094 container United Kingdom
+									1095 text United Kingdom
+							1096 cell
+								1097 text Targeted
+						1098 row United States Targeted
+							1099 cell
+								1100 container United States
+									1101 text United States
+									1102 text Includes 7 locations
+							1103 cell
+								1104 text Targeted
+						1105 row Uruguay Targeted
+							1106 cell
+								1107 container Uruguay
+									1108 text Uruguay
+							1109 cell
+								1110 text Targeted
+						1111 row Uzbekistan Targeted
+							1112 cell
+								1113 container Uzbekistan
+									1114 text Uzbekistan
+							1115 cell
+								1116 text Targeted
+						1117 row Vanuatu Targeted
+							1118 cell
+								1119 container Vanuatu
+									1120 text Vanuatu
+							1121 cell
+								1122 text Targeted
+						1123 row Vatican City Targeted
+							1124 cell
+								1125 container Vatican City
+									1126 text Vatican City
+							1127 cell
+								1128 text Targeted
+						1129 row Venezuela Targeted
+							1130 cell
+								1131 container Venezuela
+									1132 text Venezuela
+							1133 cell
+								1134 text Targeted
+						1135 row Vietnam Targeted
+							1136 cell
+								1137 container Vietnam
+									1138 text Vietnam
+							1139 cell
+								1140 text Targeted
+						1141 row Yemen Targeted
+							1142 cell
+								1143 container Yemen
+									1144 text Yemen
+							1145 cell
+								1146 text Targeted
+						1147 row Zambia Targeted
+							1148 cell
+								1149 container Zambia
+									1150 text Zambia
+							1151 cell
+								1152 text Targeted
+						1153 row Zimbabwe Targeted
+							1154 cell
+								1155 container Zimbabwe
+									1156 text Zimbabwe
+							1157 cell
+								1158 text Targeted
+						1159 row Rest of world Targeted
+							1160 cell
+								1161 container Rest of world
+									1162 text Rest of world
+							1163 cell
+								1164 text Targeted
+				62 link Description: Product updates, Value: play.google.com/console/about/whats-new/
+				63 link Description: Status dashboard, Value: status.play.google.com/
+				64 link Description: Help, Value: play.google.com/console/u/0/developers/7594712361231234431/help-and-support?app=4976006210494663211
+				65 text © 2026 Google
+				66 link Description: Privacy, Value: google.com/policies/privacy/
+				67 link Description: Developer Distribution Agreement, Value: play.google.com/about/developer-distribution-agreement.html
+				68 link Description: Terms of Service, Value: play.google.com/about/console/terms-of-service/
+
+The focused UI element is 0 AXWebArea Production | Kreativ Fancy Text, URL: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/tracks/production?tab=countryAvailability

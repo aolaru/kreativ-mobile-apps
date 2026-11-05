@@ -1,0 +1,154 @@
+Window: "Edit one-time product | Kreativ Fancy Text", App: Google Chrome.
+0 standard window Edit one-time product | Kreativ Fancy Text - Google Chrome – Andrei, Secondary Actions: Raise, URL: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/one-time-products/sku/kreativ_pro_lifetime
+	1 container Edit one-time product | Kreativ Fancy Text - Google Chrome – Andrei, URL: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/one-time-products/sku/kreativ_pro_lifetime
+		2 container
+			3 toolbar
+				4 button Back
+				5 button (disabled) Forward
+				6 button Reload
+				7 container
+					8 pop-up button View site information
+					9 text field (settable) Address and search bar, Placeholder: Ask Google or type a URL, Value: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/one-time-products/sku/kreativ_pro_lifetime
+					10 button Ask Google
+					11 button Bookmark this tab
+				12 container
+					13 pop-up button GoFullPage - Full Page Screen Capture
+Wants access to this site
+					14 pop-up button Extensions
+				15 button Andrei
+				16 pop-up button Chrome
+			17 toolbar Bookmarks
+				18 bookmark button Apps
+				19 toolbar Saved tab groups
+					20 saved tab group button  📦 Publish Identifier 1.0.6 group – Closed
+					21 saved tab group button  🗓️ Check publishing gaps group – Closed
+					22 saved tab group button  🔎 Inspect font specimen group – Closed
+					23 button Tab groups
+				24 splitter Separator
+				25 bookmark button Unnamed bookmark for https://photos.google.com/search/texture
+				26 bookmark folder button Bussines
+				27 bookmark folder button EUCommission
+				28 bookmark button SEP Submission Availability Dashboard - Dynatrace
+				29 bookmark folder button Maria
+				30 bookmark button Unnamed bookmark for https://chrome.google.com/webstore
+				31 bookmark button JSONPath Online Evaluator
+				32 pop-up button Menu containing hidden bookmarks
+				33 bookmark folder button All Bookmarks
+				34 splitter Separator
+			35 container
+				36 scroll area
+					37 HTML content Edit one-time product | Kreativ Fancy Text, URL: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/one-time-products/sku/kreativ_pro_lifetime
+						38 container
+							39 text Loading Google Play Console
+							40 container
+								41 container
+									42 link Google Play Console logo, Value: play.google.com/console/u/0/developers/7594712361231234431/home
+									43 button Unread notifications Open notification centre
+									44 pop-up button Switch developer accounts
+									45 button Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership
+								46 content list
+									47 container Home
+										48 button Home
+									49 container Manage account
+										50 button Manage account
+									51 container Kreativ Fancy Text
+										52 pop-up button Kreativ Fancy Text
+									53 container Dashboard
+										54 button Dashboard
+									55 container Statistics
+										56 button Statistics
+									57 container Publishing overview
+										58 button Publishing overview
+									59 container Protected with Play
+										60 button Protected with Play
+									61 container Test and release
+										62 button Test and release
+									63 container Monitor and improve
+										64 button Monitor and improve
+									65 container Grow users
+										66 button Grow users
+									67 container Monetise with Play
+										68 button Monetise with Play
+								69 container
+									70 link Go back to One-time products, Value: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/one-time-products
+									71 heading Edit one-time product, Value: 1
+										72 text Edit one-time product
+									73 button Delete
+									74 button Edit one-time product details
+									75 button Manage your one-time products with AI agent
+									76 container
+										77 text Product ID kreativ_pro_lifetime Name Fancy Text Pro Description Unlock premium templates, custom solid and gradient backgrounds, decorative frames and saved style presets. One-time purchase. No subscription. Tax and compliance settings Digital app sales Age rating (shown in applicable US states)
+										78 button Learn more about age ratings
+										79 text All ages
+										80 heading Purchase options and offers, Value: 2
+											81 text Purchase options and offers
+										82 button Add purchase option
+										83 container Search by ID
+											84 container
+												85 text Search by ID
+												86 text field (settable) Search by ID
+										87 table Purchase options and offers
+											88 row Purchase options and offers Countries/regions Last updated Status
+												89 column header Purchase options and offers
+													90 text Purchase options and offers
+												91 column header Countries/regions
+													92 text Countries/regions
+												93 column header Last updated
+													94 text Last updated
+												95 column header Status
+													96 text Status
+												97 cell
+												98 cell
+												99 cell
+												100 cell
+											101 row buy Buy Backwards compatible 174 countries/regions 4 Nov 2026 Active Add offer More actions View purchase option
+												102 cell
+													103 text buy
+													104 text Buy
+													105 button Backwards compatible
+												106 cell
+													107 text 174 countries/regions
+												108 cell
+													109 text 4 Nov 2026
+												110 cell
+													111 text Active
+												112 cell
+												113 cell
+													114 list box Add offer
+														115 pop-up button Add offer
+															116 text Add offer
+												117 cell
+													118 list box More actions
+														119 pop-up button More actions
+												120 cell
+													121 link View purchase option, Value: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/one-time-products/sku/kreativ_pro_lifetime/purchase-options/po/buy#edit
+									122 link Product updates, Value: play.google.com/console/about/whats-new/
+									123 link Status dashboard, Value: status.play.google.com/
+									124 link Help, Value: play.google.com/console/u/0/developers/7594712361231234431/help-and-support?app=4976006210494663211
+									125 text © 2026 Google
+									126 link Privacy, Value: google.com/policies/privacy/
+									127 link Developer Distribution Agreement, Value: play.google.com/about/developer-distribution-agreement.html
+									128 link Terms of Service, Value: play.google.com/about/console/terms-of-service/
+			129 pop-up button Tab search
+			130 container
+				131 tab group
+					132 tab (settable, boolean) Inbox (41) - andrei.olaru@gmail.com - Gmail – Pinned - Memory usage - 450 MB, Value: off
+					133 tab (selected, settable, boolean) Edit one-time product | Kreativ Fancy Text - Memory usage - 363 MB, Value: on
+						134 button Close
+			135 button New tab
+	136 close button
+	137 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	138 minimise button
+139 menu bar
+	140 Chrome
+	141 File
+	142 Edit
+	143 View
+	144 History
+	145 Bookmarks
+	146 Profiles
+	147 Tab
+	148 Window
+	149 Help
+
+The focused UI element is 37 HTML content Edit one-time product | Kreativ Fancy Text, URL: play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/one-time-products/sku/kreativ_pro_lifetime

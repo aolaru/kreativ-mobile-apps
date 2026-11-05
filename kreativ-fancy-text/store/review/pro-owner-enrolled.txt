@@ -1,0 +1,32 @@
+- banner:
+  - link "Google":
+    - /url: /?authuser=0
+  - button "Google apps":
+  - 'button "Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership"':
+- main:
+  - paragraph: You’re a tester for Kreativ Fancy Text (com.kreativfont.studio)
+  - paragraph: If you already have the app installed on your device, you’ll get updates as they become available. If you're downloading the app for the first time, you may need to wait a few minutes for it to become available.
+  - paragraph: Certain data related to your use of this app will be collected and shared with the developer to help them improve the app.
+  - paragraph: To stop being a tester, leave the program and get the public version of the app if there’s one available.
+  - paragraph: "To get the public version of this app:"
+  - list:
+    - listitem: Remove the test version from your device
+    - link "Install public version":
+      - /url: https://play.google.com/store/apps/details?id=com.kreativfont.studio&hl=en-US&ah=WiGoZqovQ6kAAsqhvUSm1DSj1Ng
+  - paragraph
+  - button "Leave test program"
+  - link "Download test app":
+    - /url: https://play.google.com/store/apps/details?id=com.kreativfont.studio&hl=en-US&ah=WiGoZqovQ6kAAsqhvUSm1DSj1Ng
+- contentinfo:
+  - text: © 2026 Google -
+  - link "Google Play Terms of Service":
+    - /url: http://play.google.com/about/terms.html
+  - text: "-"
+  - link "Devices Terms of Sale":
+    - /url: https://play.google.com/about/device-terms.html
+  - text: "-"
+  - link "Privacy Policy":
+    - /url: http://www.google.com/policies/privacy/
+  - text: "-"
+  - link "Developers":
+    - /url: https://developer.android.com/index.html

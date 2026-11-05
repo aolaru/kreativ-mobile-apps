@@ -1,0 +1,129 @@
+- progressbar
+- generic: Loading Google Play Console
+- banner:
+  - link "Google Play Console logo":
+    - /url: /console/u/0/developers/7594712361231234431/home
+    - button "Google Play Console logo"
+  - button "Unread notifications Open notification centre":
+    - img: notifications_unread
+    - generic: Unread notifications
+  - button "Switch developer accounts":
+    - img: more_vert
+  - 'button "Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership"':
+- navigation:
+  - list:
+    - listitem "Home":
+      - button "Home":
+        - img: home
+    - listitem "Manage account":
+      - button "Manage account":
+        - img: badge
+    - listitem "Kreativ Fancy Text":
+      - button "Kreativ Fancy Text":
+        - img: play_prism
+    - listitem "Dashboard":
+      - button "Dashboard":
+        - img: dashboard
+    - listitem "Statistics":
+      - button "Statistics":
+        - img: bar_chart
+    - listitem "Publishing overview":
+      - button "Publishing overview":
+        - img: overview
+    - listitem "Protected with Play":
+      - button "Protected with Play":
+        - img: shield
+    - listitem "Test and release":
+      - button "Test and release":
+        - img: rocket_launch
+    - listitem "Monitor and improve":
+      - button "Monitor and improve":
+        - img: vital_signs
+    - listitem "Grow users":
+      - button "Grow users":
+        - img: finance_mode
+    - listitem "Monetise with Play":
+      - button "Monetise with Play":
+        - img: sell
+- link "Go back to One-time products":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/one-time-products
+  - img: keyboard_backspace
+  - generic: One-time products
+- heading "Edit one-time product" [level=1]
+- button "Delete":
+  - generic: Delete
+- button "Edit one-time product details":
+  - generic: Edit one-time product details
+- button "Manage your one-time products with AI agent":
+  - img: pen_spark
+  - generic: Manage with AI
+- generic: Product ID
+- generic: kreativ_pro_lifetime
+- generic: Name
+- generic: Kreativ Pro
+- generic: Description
+- generic: Unlock premium templates, custom solid and gradient backgrounds, decorative frames and saved style presets. One-time purchase. No subscription.
+- generic: Tax and compliance settings
+- generic: Digital app sales
+- generic: Age rating
+- generic: (shown in applicable US states)
+- button "Learn more about age ratings":
+  - img: help
+- generic: All ages
+- heading "Purchase options and offers" [level=2]
+- button "Add purchase option": Add purchase option
+- search "Search by ID":
+  - img: search
+  - generic: Search by ID
+  - textbox "Search by ID"
+- grid "Purchase options and offers":
+  - row "Purchase options and offers Countries/regions Last updated Status":
+    - columnheader "Purchase options and offers"
+    - columnheader "Countries/regions"
+    - columnheader "Last updated"
+    - columnheader "Status"
+    - cell
+    - cell
+    - cell
+    - cell
+  - row "buy Buy Backwards compatible 174 countries/regions 4 Nov 2026 Active View purchase option":
+    - gridcell "buy Buy Backwards compatible":
+      - generic: buy
+      - generic: Buy
+      - button "Backwards compatible":
+        - generic: Backwards compatible
+    - gridcell "174 countries/regions":
+      - generic: 174 countries/regions
+    - gridcell "4 Nov 2026":
+      - generic: 4 Nov 2026
+    - gridcell "Active":
+      - img: check_circle
+      - generic: Active
+    - gridcell
+    - gridcell:
+      - listbox "Add offer":
+        - button "Add offer":
+          - generic: Add offer
+          - img: arrow_drop_down
+    - gridcell:
+      - listbox "More actions":
+        - button "More actions":
+          - img: more_vert
+    - gridcell "View purchase option":
+      - link "View purchase option":
+        - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/one-time-products/sku/kreativ_pro_lifetime/purchase-options/po/buy#edit
+        - img: arrow_right_alt
+- link "Product updates":
+  - /url: https://play.google.com/console/about/whats-new/
+- link "Status dashboard":
+  - /url: https://status.play.google.com/
+- link "Help":
+  - /url: /console/u/0/developers/7594712361231234431/help-and-support?app=4976006210494663211
+- generic: © 2026 Google
+- link "Privacy":
+  - /url: https://www.google.com/policies/privacy/
+- link "Developer Distribution Agreement":
+  - /url: https://play.google.com/about/developer-distribution-agreement.html
+- link "Terms of Service":
+  - /url: https://play.google.com/about/console/terms-of-service/
+- status

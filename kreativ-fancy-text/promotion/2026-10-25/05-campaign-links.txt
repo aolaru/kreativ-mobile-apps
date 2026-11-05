@@ -1,0 +1,22 @@
+launch_social
+https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=launch_social&utm_medium=social&utm_campaign=fancytext_launch_202610&referrer=utm_source%3Dlaunch_social%26utm_medium%3Dsocial%26utm_campaign%3Dfancytext_launch_202610
+
+launch_ro
+https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=launch_ro&utm_medium=social&utm_campaign=fancytext_launch_202610&referrer=utm_source%3Dlaunch_ro%26utm_medium%3Dsocial%26utm_campaign%3Dfancytext_launch_202610
+
+text_vs_png
+https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=text_vs_png&utm_medium=social&utm_campaign=fancytext_launch_202610&referrer=utm_source%3Dtext_vs_png%26utm_medium%3Dsocial%26utm_campaign%3Dfancytext_launch_202610
+
+saved_designs
+https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=saved_designs&utm_medium=social&utm_campaign=fancytext_launch_202610&referrer=utm_source%3Dsaved_designs%26utm_medium%3Dsocial%26utm_campaign%3Dfancytext_launch_202610
+
+screenshot_tour
+https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=screenshot_tour&utm_medium=social&utm_campaign=fancytext_launch_202610&referrer=utm_source%3Dscreenshot_tour%26utm_medium%3Dsocial%26utm_campaign%3Dfancytext_launch_202610
+
+community
+https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=community&utm_medium=social&utm_campaign=fancytext_launch_202610&referrer=utm_source%3Dcommunity%26utm_medium%3Dsocial%26utm_campaign%3Dfancytext_launch_202610
+
+Website
+https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=madebykreativ&utm_medium=website&utm_campaign=fancytext_launch_202610&referrer=utm_source%3Dmadebykreativ%26utm_medium%3Dwebsite%26utm_campaign%3Dfancytext_launch_202610
+
+Install-referrer tags are supplied for campaign comparison, not a guarantee of attribution. No analytics SDK added.

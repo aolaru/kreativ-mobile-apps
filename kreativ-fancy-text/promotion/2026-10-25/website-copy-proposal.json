@@ -1,0 +1,14 @@
+{
+  "status": "Draft; existing website not changed",
+  "name": "Kreativ Fancy Text",
+  "headline": "Give a little text a little personality.",
+  "description": "Style individual words, copy Unicode text or save matching PNG artwork. An offline Android typography studio, without an account or ads.",
+  "store": "https://play.google.com/store/apps/details?id=com.kreativfont.studio",
+  "privacy": "https://madebykreativ.com/privacy/kreativ-fancy-text/",
+  "importantLimits": [
+    "Copied text appearance varies by receiving app.",
+    "Colors and artwork are preserved in PNGs, not copied text.",
+    "Saved designs stay local; no cloud recovery."
+  ],
+  "tutorialPath": "Publish and verify the proposed tutorial before linking."
+}

@@ -1,0 +1,21 @@
+QA RESULTS — 25 OCTOBER 2026
+
+PASS: nine output PNGs, dimensions/RGB/no alpha/file sizes; five original source
+hashes and five byte-identical tutorial screenshots; Play copy limits 18/30,
+72/80 and 2331/4000; 41 local links; two HTML pages with no validation errors
+or warnings; 20-second H.264 1080x1920 silent video and caption files.
+
+Inspected all five listing layouts, three social graphics, feature graphic and
+tutorial contact sheet. Outer text is not clipped; real UI was not repainted.
+No generated photos or baked-in AI marks. Source captures preserve their actual
+scroll positions, including partially visible content at viewport edges.
+
+Browser layout/playback NOT verified: local-file URL blocked by browser security.
+No alternate-browser or server workaround. Responsive layout, keyboard/screen
+reader interaction and playback remain manual checks. Public listing version
+1.0.1 and persisted Don't label assets were verified separately in the browser.
+
+No physical-device testing in this task. Earlier 1.0.1 phone testing remains
+deferred. New marketing copy/assets, website tutorial and outreach remain drafts.
+No social post, email, website publication or new listing-asset submission.
+See verification.json and AI-LABEL-STATUS.txt for exact scope.
