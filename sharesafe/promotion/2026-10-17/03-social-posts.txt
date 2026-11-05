@@ -1,0 +1,59 @@
+Launch post — LinkedIn / Facebook
+
+Keep the moment. Not the metadata.
+
+I built ShareSafe for Android to create fresh JPEG copies with embedded photo metadata removed—without uploading your photos. Your originals stay untouched.
+
+Metadata cleaning and selected before/after EXIF checks are free. Optional Pro adds editing tools and Face Assist.
+
+It is not an anonymity guarantee: visible details still matter, and the metadata check has limits. The Play edition includes SDK diagnostics; photo processing remains on-device.
+
+Try it on a non-sensitive photo and tell me which part of the workflow could be clearer.
+
+Google Play: https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=launch_social&utm_medium=social&utm_campaign=sharesafe_privacy_202610
+
+==============================
+
+Vertical-video caption — Instagram / YouTube
+
+Your photo can carry more than the picture.
+
+ShareSafe creates fresh JPEG copies with embedded metadata removed. Photo processing stays on your Android phone; originals stay unchanged. Cleaning is free, with optional paid Pro tools.
+
+This video illustrates the workflow—it is not a screen recording. Always review visible details before sharing.
+
+Search Google Play for ShareSafe by Made by Kreativ. Link in profile.
+
+#AndroidApps #PhotoPrivacy #ShareSafe
+
+Google Play: https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=short_video&utm_medium=social&utm_campaign=sharesafe_privacy_202610
+
+==============================
+
+Community post — only where developer promotion is allowed
+
+Developer disclosure: I made ShareSafe, an Android tool for creating photo copies with embedded metadata removed.
+
+The useful free part: select photos, inspect selected readable EXIF fields, clean copies, then share or save JPEGs. Originals are left unchanged and photo processing is on-device.
+
+Optional paid Pro adds manual covers and on-device face suggestions. Face detection can miss faces; metadata cleaning does not remove details visible in the image. The ML Kit SDK collects diagnostic/usage information and identifiers, not photos.
+
+I’d appreciate feedback on whether the before/after check is understandable, especially its ‘unknown / unreadable’ results. No ratings or reviews requested.
+
+Google Play: https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=community&utm_medium=community&utm_campaign=sharesafe_privacy_202610
+
+==============================
+
+Romanian launch caption
+
+Păstrează momentul, nu metadatele.
+
+Am creat ShareSafe pentru Android: selectezi fotografii și creezi copii JPEG din care sunt eliminate metadatele încorporate. Fotografiile originale rămân neschimbate, iar procesarea are loc pe telefon.
+
+Curățarea metadatelor și verificarea anumitor câmpuri EXIF sunt gratuite. Instrumentele Pro sunt opționale și contra cost.
+
+Aplicația nu garantează anonimatul: verifică și informațiile vizibile în imagine înainte de distribuire. Ediția Play include diagnosticare SDK, fără încărcarea fotografiilor.
+
+Dacă o încerci, mi-ar fi util să aflu ce pas ar putea fi mai clar.
+
+Google Play: https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=launch_ro&utm_medium=social&utm_campaign=sharesafe_privacy_202610

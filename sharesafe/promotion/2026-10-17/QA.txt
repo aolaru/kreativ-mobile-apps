@@ -1,0 +1,24 @@
+SHARESAFE PROMOTION PACK — QUALITY CHECKS
+17 October 2026
+
+PASS: public listing read in Chrome; new Privacy Check and Face Assist advertised.
+PASS: wording checked against local README, submission notes and implementation.
+PASS: title 25/30, short description 77/80, full description 2373/4000 characters.
+PASS: 3 PNG social graphics, 1080 × 1350, visually inspected as a contact sheet.
+PASS: video scene 3 inspected at full size for readable labels and limits.
+PASS: MP4 H.264, yuv420p, 1080 × 1920, 30 fps, exactly 20 seconds; decoded without errors.
+PASS: browser video loaded with duration 20 and no media error.
+PASS: review HTML rendered at desktop width without horizontal overflow; all 3 images loaded.
+PASS: 21 local links/media references exist; 15 external links parse as valid URLs.
+PASS: no changes to pre-existing app source or existing store assets.
+
+NOT CLAIMED / STILL REQUIRED
+- Fresh current-version app screenshots: no Android phone connected.
+- Live screen recording: not captured; provided video is explicitly illustrated.
+- Mobile-width review-document visual QA: not performed; responsive CSS included.
+- HowToMen current business-contact verification: not completed; no unverified email supplied.
+- Actual click/install attribution and campaign results: not tested; no campaign launched.
+- Editorial coverage, download uplift, privacy anonymity, payment or 16 KB runtime verification: not established by this pack.
+
+No private reviewer-access code, signing credential, personal gallery or customer data is included.
+No publication, upload, submission, email or paid campaign was performed.

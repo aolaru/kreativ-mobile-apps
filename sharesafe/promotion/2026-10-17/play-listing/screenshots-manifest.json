@@ -1,0 +1,36 @@
+{
+  "appVersion": "1.2.0",
+  "captureBuild": "Play debug; shared release UI only; no test-only controls visible",
+  "sourceDate": "2026-10-17",
+  "policyReference": "https://support.google.com/googleplay/android-developer/answer/9866151",
+  "files": [
+    {
+      "file": "01-privacy-check.png",
+      "source": "04-before-after.png",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "02-keep-originals.png",
+      "source": "01-choose-photos.png",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "03-export-options.png",
+      "source": "03-export-options.png",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "04-ready-to-share.png",
+      "source": "05-ready-to-share.png",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    }
+  ]
+}

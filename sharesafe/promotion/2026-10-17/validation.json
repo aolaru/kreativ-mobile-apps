@@ -1,0 +1,21 @@
+{
+  "counts": {
+    "title": 25,
+    "shortDescription": 77,
+    "fullDescription": 2373
+  },
+  "graphics": {
+    "width": 1080,
+    "height": 1350,
+    "count": 3
+  },
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "seconds": 20,
+    "liveFootage": false
+  },
+  "freshScreenshots": false,
+  "published": false,
+  "sent": false
+}

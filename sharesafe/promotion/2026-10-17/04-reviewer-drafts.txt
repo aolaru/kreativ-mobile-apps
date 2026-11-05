@@ -1,0 +1,76 @@
+UNSENT OUTREACH DRAFTS — APPROVAL REQUIRED BEFORE CONTACT
+Do not offer rewards, ask for positive reviews, or include private reviewer-access codes. Public listing is sufficient to test free features. Share Pro review access separately only after user approval. Do not claim prior contact, read articles or creator endorsement. Do not attach internal source/evidence files.
+
+RECIPIENT: Droid Life
+ROUTE: https://www.droid-life.com/contact/
+STATUS: Official contact form verified 17 October 2026; explicitly accepts app tips. Editorial coverage is not guaranteed.
+SUBJECT: App tip: ShareSafe’s free before/after photo-metadata check
+
+Hi Droid Life team,
+
+Your contact page invites app tips, so here is a small Android utility I built: ShareSafe.
+
+It creates fresh JPEG copies with embedded metadata removed, preserves the originals, and processes photos on-device. The current update adds a free before/after check for selected readable EXIF fields. Optional one-time Pro adds manual covers and face suggestions.
+
+The story angle is practical photo privacy, with honest limits: metadata removal does not hide visible details, the check does not cover every format, and the face SDK collects diagnostics—not photos.
+
+If it fits your apps coverage, I’d welcome an independent look. There is no request for a positive rating or guaranteed coverage.
+
+Thanks,
+Andrei
+Made by Kreativ
+
+Google Play: https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=droid_life&utm_medium=outreach&utm_campaign=sharesafe_privacy_202610
+Privacy policy: https://madebykreativ.com/privacy/sharesafe/
+
+==============================
+
+RECIPIENT: Android Authority
+ROUTE: news@androidauthority.com
+STATUS: News address verified on official contact page, 17 October 2026: https://www.androidauthority.com/contact/ . Larger editorial outlet; treat as a long-shot unpaid tip, not a promised placement.
+SUBJECT: Android app tip: metadata cleaning without photo uploads
+
+Hi Android Authority news team,
+
+I’m Andrei, the developer of ShareSafe. I’m sending this as an editorial app tip, not a paid-placement request.
+
+ShareSafe creates JPEG photo copies with embedded metadata removed, leaving originals unchanged. Its free Privacy Check reports selected readable EXIF fields before and after cleaning. Photos are processed on-device; optional one-time Pro adds manual covers and face-area suggestions.
+
+A possible angle for your Android tips coverage: what metadata cleaning can—and cannot—do before sharing a photo. The app is not an anonymity tool. Its Play edition’s ML Kit SDK sends diagnostics and identifiers, not photo content.
+
+If useful, the Play listing and public privacy policy are below. I’d be glad to answer technical questions; no favourable review is expected.
+
+Thanks,
+Andrei
+Made by Kreativ
+
+Google Play: https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=android_authority&utm_medium=outreach&utm_campaign=sharesafe_privacy_202610
+Privacy policy: https://madebykreativ.com/privacy/sharesafe/
+
+==============================
+
+RECIPIENT: HowToMen
+ROUTE: https://www.youtube.com/@HowToMen/about
+STATUS: Creator candidate for an Android-app roundup. Open the creator’s official channel and verify its current business-contact route before sending. No email address copied from third-party databases; contact not yet verified.
+SUBJECT: Android roundup candidate: ShareSafe photo metadata cleaner
+
+Hi HowToMen team,
+
+I built a focused Android utility that may suit an app-discovery roundup: ShareSafe. The short demonstration is select photos → check selected EXIF fields → create fresh JPEG copies → share, with originals preserved.
+
+The metadata cleaner and before/after check are free. Photo processing is on-device. Optional one-time Pro adds solid covers, editing controls and face suggestions you review yourself.
+
+I’ve prepared original promotional graphics and a short illustrated explainer. It is not live app footage. For a review, please test the actual Play build; I’m happy to answer questions.
+
+A privacy caveat worth including: metadata removal is not anonymity, face detection can miss faces, and ML Kit collects diagnostics/identifiers rather than photos.
+
+No positive review or placement is expected.
+
+Thanks,
+Andrei
+Made by Kreativ
+
+Google Play: https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=howtomen&utm_medium=outreach&utm_campaign=sharesafe_privacy_202610
+Privacy policy: https://madebykreativ.com/privacy/sharesafe/
+
+Optional follow-up, once after 7–10 days: “Hi, one brief follow-up on ShareSafe in case this fits your Android-app coverage. No action needed if it is not a fit. Thanks, Andrei.” Do not schedule or send automatically.

@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-25",
+  "version": "1.2.0",
+  "device": "Samsung Galaxy A55 (SM-A556B), Android 16",
+  "build": "Google Play debug package with release-shared UI. No paid purchase or production app changes.",
+  "test": "ListingScreenshotsTest#captureActualProCover — passed",
+  "source": "05-pro-after.png",
+  "sourceWidth": 968,
+  "sourceHeight": 1516,
+  "sourceSha256": "d2a4f72b55aa0fb431407ba74fed8012b90c775faf1e1cee39157c0d1b95ab2a",
+  "fullSource": "05-pro-after-full.png",
+  "fullSourceSha256": "6a691a42bf8efcb0a0d7b05c8d085beb2228ec34feab1118232e48c3199a3ad0",
+  "fixture": "Android Canvas bicycle listing with a fictional address, rendered by the existing instrumentation fixture. No personal photo or real address.",
+  "action": "Actual Cover tool applied in EditorSession. Complete real editor card and Find faces · Pro control captured. No fabricated face detections shown.",
+  "processing": "Proportional scaling only; UI pixels not redrawn or retouched. No generative-image service used.",
+  "output": "../listing/screenshots/05-pro-cover.png",
+  "width": 1440,
+  "height": 2560,
+  "hasAlpha": false
+}

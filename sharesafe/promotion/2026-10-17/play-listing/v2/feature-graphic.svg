@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="500" viewBox="0 0 1024 500"><rect width="1024" height="500" fill="#dfeee4"/>
+    <circle cx="950" cy="260" r="300" fill="#c6dfd0"/>
+    <text x="72" y="111" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4" fill="#347463">SHARESAFE</text>
+    <text x="72" y="202" font-family="Arial, sans-serif" font-size="54" font-weight="700" letter-spacing="-1.5" fill="#193d35">Remove hidden</text>
+    <text x="72" y="266" font-family="Arial, sans-serif" font-size="54" font-weight="700" letter-spacing="-1.5" fill="#193d35">photo metadata.</text>
+    <text x="74" y="328" font-family="Arial, sans-serif" font-size="23" fill="#465e56">On-device cleaning.</text>
+    <text x="74" y="363" font-family="Arial, sans-serif" font-size="23" fill="#465e56">Originals unchanged.</text>
+    <g transform="translate(690 100) rotate(8 105 150)"><rect width="210" height="280" rx="20" fill="#94bda7"/></g>
+    <g transform="translate(662 112) rotate(-8 105 140)"><rect width="210" height="280" rx="20" fill="#f3f7f5"/>
+      <rect x="16" y="16" width="178" height="195" rx="12" fill="#c9dfcf"/>
+      <circle cx="148" cy="62" r="20" fill="#f4d790"/>
+      <path d="M16 170 L71 87 L132 172 L162 132 L194 177 V199 Q194 211 182 211 H28 Q16 211 16 199 Z" fill="#347463"/>
+      <path d="M35 243 H175" stroke="#b5cebf" stroke-width="9" stroke-linecap="round"/>
+    </g></svg>

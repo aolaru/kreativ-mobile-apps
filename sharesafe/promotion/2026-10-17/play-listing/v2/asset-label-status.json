@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-17",
+  "scope": "ShareSafe default English UK listing and inherited default visual assets; no other apps changed",
+  "requestedByUser": "Remove AI marks from everywhere",
+  "consoleSetting": "Don't label assets",
+  "verifiedAfterReload": true,
+  "assets": {
+    "icon-512.png": false,
+    "feature-graphic.png": false,
+    "01-remove-metadata.png": false,
+    "02-keep-originals.png": false,
+    "03-export-options.png": false,
+    "04-ready-to-share.png": false
+  },
+  "pendingReview": false,
+  "publicVerification": "The public store still displayed AI on all four screenshots immediately after the Console change. Public removal is not yet confirmed.",
+  "provenance": "Unchanged: genuine app captures, code-native SVG layouts and feature illustration, AI-assisted copy and layout code. No images, source capture records or historical declarations were deleted.",
+  "proof": "console-ai-labels-removed.png"
+}

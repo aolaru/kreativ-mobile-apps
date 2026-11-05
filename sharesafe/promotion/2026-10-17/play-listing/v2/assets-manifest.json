@@ -1,0 +1,75 @@
+{
+  "version": "1.2.0",
+  "date": "2026-10-17",
+  "capture": "Free panels: verified 17 October Galaxy A55 Play debug captures, release-shared UI and synthetic EXIF. See capture-crops.json. Pro is included only after a real capture is available.",
+  "proExample": "Not captured: phone disconnected; emulator installer blocked and host storage full",
+  "processing": "Proportional scaling and crops of complete real UI panels only. No UI redrawing, substitution, or retouching. Full source screens retained.",
+  "featureGraphic": {
+    "file": "feature-graphic.png",
+    "width": 1024,
+    "height": 500,
+    "hasAlpha": false,
+    "alt": "ShareSafe. Remove hidden photo metadata. On-device cleaning and unchanged originals, with a green photo-card illustration."
+  },
+  "title": "ShareSafe: Metadata Remover",
+  "shortDescription": "Remove photo metadata on-device. Keep originals. Optional Pro editing.",
+  "shortDescriptionCharacters": 70,
+  "files": [
+    {
+      "file": "01-remove-metadata.png",
+      "source": "01-metadata.png",
+      "title": [
+        "Remove hidden",
+        "photo metadata."
+      ],
+      "subtitle": "Check selected location, date and camera fields.",
+      "footer": "Selected fields only. Not an anonymity guarantee.",
+      "alt": "Privacy Check shows selected location, date and camera fields found before cleaning and absent from the new JPEG copy.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "02-keep-originals.png",
+      "source": "02-originals.png",
+      "title": [
+        "Keep your originals.",
+        "Create fresh copies."
+      ],
+      "subtitle": "Choose photos. Clean a copy on your device.",
+      "footer": "Your original files are not changed.",
+      "alt": "ShareSafe’s photo chooser explains on-device processing and confirms that original photos stay untouched.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "03-export-options.png",
+      "source": "03-options.png",
+      "title": [
+        "Your photos.",
+        "Your export options."
+      ],
+      "subtitle": "Choose JPEG quality, individual photos or a ZIP.",
+      "footer": "Large images may be resized. Copies are JPEGs.",
+      "alt": "Export options offer three JPEG quality levels, individual photos or a ZIP file, with image-conversion limits.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "04-ready-to-share.png",
+      "source": "04-sharing.png",
+      "title": [
+        "Clean a copy.",
+        "Choose where it goes."
+      ],
+      "subtitle": "Share it directly or save it to your gallery.",
+      "footer": "Review visible details before sharing.",
+      "alt": "A successful export shows one cleaned copy, selected metadata checks passed, and sharing and gallery-save controls.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    }
+  ]
+}

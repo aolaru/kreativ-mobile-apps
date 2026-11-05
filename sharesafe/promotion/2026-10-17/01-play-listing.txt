@@ -1,0 +1,39 @@
+SHARESAFE — PROPOSED GOOGLE PLAY COPY
+Prepared 17 October 2026. Draft only; not saved to Play Console.
+
+TITLE (25/30)
+ShareSafe: Photo Metadata
+
+SHORT DESCRIPTION (77/80)
+Remove photo metadata on-device. Keep originals. Free cleaning, optional Pro.
+
+FULL DESCRIPTION (2373/4000)
+Keep the moment. Not the metadata.
+
+Photos can contain more than the picture: embedded location, dates and camera details. ShareSafe creates fresh JPEG copies with embedded metadata removed, while leaving your original photos unchanged. Photo processing happens on your device.
+
+FREE PHOTO PRIVACY TOOLS
+• Choose photos using Android’s system picker, without broad gallery access.
+• Use Privacy Check to inspect the presence of selected readable EXIF location, date/time and camera/device fields.
+• Create fresh JPEG copies and view the selected metadata checks before and after cleaning.
+• Choose JPEG quality, save copies to your gallery, or share individual images or a ZIP.
+• No ShareSafe account required. Metadata cleaning does not require a Pro purchase.
+
+OPTIONAL SHARESAFE PRO — ONE-TIME PURCHASE
+Advanced editing works on one photo at a time. Use solid Cover masks to hide visible details, adjust individual areas, zoom, and undo or redo edits. Blur and pixelation are also available as optional effects.
+
+Face Assist uses an on-device model to suggest face areas. Review suggestions and apply or dismiss them yourself. It detects faces; it does not identify people, can miss faces and does not guarantee anonymity.
+
+IMPORTANT LIMITS
+Privacy Check covers selected EXIF fields, not every metadata format. Android or your photo provider may hide source metadata. Unreadable or unsupported data is unknown, not proof that a photo is safe.
+
+Metadata cleaning does not hide faces, addresses, reflections or other details visible in the picture. Review every exported copy before sharing. Blur and pixelation can still reveal information; prefer solid Cover for stronger concealment of visible details.
+
+Exports are JPEGs, up to 4096 pixels per side and 8 megapixels. Large photos may be resized, transparent areas become white, and animated images export one frame. Exported copies are rechecked for the selected EXIF fields; copies that fail that check are skipped.
+
+PRIVACY
+Photo processing is on-device; ShareSafe does not upload your photos or Face Assist detection results. The Play edition’s Google ML Kit SDK collects diagnostic/usage information and identifiers and may contact Google. Optional purchases use Google Play services. This is not a ‘no data collected’ claim.
+
+Read the privacy policy: https://madebykreativ.com/privacy/sharesafe/
+
+Made by Kreativ.

@@ -1,0 +1,18 @@
+THREE SCREENSHOT HEADLINES / CAPTURE BRIEF
+
+1. Know what your photos carry.
+Free checks for selected readable EXIF fields.
+Capture: Current 1.2.0 main screen with a selected, owned test photo and Privacy Check expanded before cleaning. Use a valid synthetic EXIF fixture. Show actual found/unknown results; do not invent GPS coordinates or report values. Keep the limitations visible.
+Status: Needs fresh device capture; do not upload old screenshots as current UI.
+
+2. Keep originals. Share fresh copies.
+Photo processing happens on your phone.
+Capture: Current 1.2.0 result card and expanded before/after Privacy Check after a real successful export. Only show verified results from the actual app. Avoid a blanket ‘safe’ or ‘anonymous’ label.
+Status: Needs fresh device capture.
+
+3. Share your way.
+Individual JPEGs or one ZIP. Cleaning is free.
+Capture: Current 1.2.0 export options with JPEG quality and share format visible. Avoid exposing account addresses or personal gallery contents. Do not show a Pro purchase screen unless labelled paid.
+Status: Needs fresh device capture.
+
+No Android device was connected during preparation. Existing store-assets screenshots depict an earlier interface. They were not repackaged as current screenshots. The social PNGs are original illustrations, not app screenshots.

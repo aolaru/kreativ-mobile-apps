@@ -1,0 +1,24 @@
+SHARESAFE PROMOTION PACK — 17 OCTOBER 2026
+
+Open index.html for the visual review board.
+
+READY FOR YOUR REVIEW
+- 01-play-listing.txt: proposed title, short and full description, with checked Play character limits.
+- social/01.png, 02.png, 03.png: 1080×1350 original promotional graphics.
+- demo/sharesafe-explainer.mp4: 20-second 1080×1920 silent illustrated explainer, with visible disclosure; not a live recording.
+- demo/captions.srt: optional captions.
+- 03-social-posts.txt: launch, video, community and Romanian captions.
+- 05-tracked-links.txt: separate Google Play campaign links by channel.
+- 04-reviewer-drafts.txt: three unsent pitches; two contact routes verified, one pending.
+
+NEEDS FRESH CAPTURE
+- 02-screenshot-brief.txt: three proposed screenshot headlines and exact capture instructions for the current UI.
+- demo/live-recording-brief.txt: live 25-second capture plan.
+No Android phone was attached during preparation. Old screenshots were not passed off as current.
+
+FIRST LOW-EFFORT ACTION
+Approve one caption and social/01.png. Choose an existing public channel. Then approve publication separately. Do not upload the pack as a whole: it contains internal instructions and drafts.
+
+Review the listing separately before any Play submission. No campaigns were created and no messages sent.
+
+Read claims-and-sources.txt before editing privacy promises. Use only current-version features. Rebuild generated assets with node build-pack.cjs; this script uses the bundled sharp runtime and installed ffmpeg.

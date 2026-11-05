@@ -1,0 +1,75 @@
+<p>To remove embedded photo metadata with ShareSafe, choose your photos, inspect the free <strong>Privacy Check</strong>, then tap <strong>Clean photos</strong>. Save or share the new JPEG copies instead of the originals. Photo processing happens on your Android device, and your original files stay unchanged.</p>
+<p>This guide covers the Google Play edition. Metadata cleaning and Privacy Check are free; the optional Pro editing tools are not needed for the main steps below.</p>
+<p>Screenshots show the 1.2.0 test build on a Samsung Galaxy A55, using a demo image with synthetic metadata. Tap any screenshot to view it at full size.</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=madebykreativ&utm_medium=website&utm_campaign=sharesafe_privacy_202610&utm_content=metadata_tutorial_intro">Get ShareSafe on Google Play</a></p>
+<h2>What photo metadata can reveal</h2>
+<p>A photo file can contain information beyond the visible picture. EXIF metadata may include GPS location, the original capture date and time, and camera or device details. The fields present depend on the image, camera settings and how the file has been handled.</p>
+<p>Removing embedded metadata addresses that information, not everything someone could learn from the picture. A street sign, face, document or reflection may still reveal something private.</p>
+<p>For example, if you are sending a photo of an item you want to sell, clean a copy and also check the background for your house number, mail or personal documents. Metadata removal is not an anonymity guarantee.</p>
+<h2>Clean a photo copy step by step</h2>
+<h3>1 Choose the photos</h3>
+<p>Open ShareSafe and tap <strong>Choose photos</strong>. Use Android’s system picker to select one or more images. ShareSafe does not request broad access to your entire gallery.</p>
+<p>For a first try, use a non-sensitive photo. If you choose a file from a cloud provider, that provider may need to download it before ShareSafe can process it.</p>
+<p><a href="screenshots/01-choose-photos.png"><img width="1080" height="2340" decoding="async" src="screenshots/01-choose-photos.png" alt="ShareSafe home screen with the Choose photos button and a note that originals stay untouched."></a></p>
+<p><em>Start with Choose photos. The screenshots do not show a private gallery.</em></p>
+<h3>2 Inspect Privacy Check</h3>
+<p>Expand <strong>Privacy Check · Free</strong> to see the original metadata report. It checks whether selected readable EXIF fields contain location, date/time or camera/device information. It reports their presence, not the actual coordinates or identifying values.</p>
+<p>Read the results carefully:</p>
+<table>
+<thead>
+<tr>
+<th>Result</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Found</td>
+<td>At least one checked field in that category was readable and present.</td>
+</tr>
+<tr>
+<td>Not found in readable metadata</td>
+<td>None of the checked fields in that category was found in the data available to the app.</td>
+</tr>
+<tr>
+<td>Unknown or unreadable</td>
+<td>The app could not complete that part of the check.</td>
+</tr>
+</tbody></table>
+<p>The check does not cover every metadata format. Android or your selected photo provider may hide source metadata, so “not found” is not a clean bill of health.</p>
+<p><a href="screenshots/02-original-metadata.png"><img width="1080" height="2340" decoding="async" src="screenshots/02-original-metadata.png" alt="Expanded original Privacy Check report showing location, date and time, and camera or device tags found in one demo photo, with the check limitations underneath."></a></p>
+<p><em>The demo file contains all three checked categories. Only their presence is shown, not the underlying values.</em></p>
+<h3>3 Choose how to export</h3>
+<p>Open <strong>Export options</strong> and choose a JPEG quality setting. <strong>Balanced</strong> produces smaller files; <strong>High</strong> and <strong>Maximum</strong> use higher JPEG quality settings. All three create new JPEG copies rather than identical backups.</p>
+<p>Choose <strong>Individual photos</strong> for separate images, or <strong>One ZIP file</strong> to package the copies together for email or an archive. The ZIP contains JPEG copies, not the original files.</p>
+<p><a href="screenshots/03-export-options.png"><img width="1080" height="2340" decoding="async" src="screenshots/03-export-options.png" alt="Expanded export options with Balanced, High and Maximum JPEG quality settings, plus Individual photos and One ZIP file formats."></a></p>
+<p><em>Balanced quality and Individual photos are selected here. Change them before cleaning if needed.</em></p>
+<h3>4 Create the copies</h3>
+<p>Tap <strong>Clean photos</strong> and wait for processing to finish. ShareSafe redraws the images into fresh JPEG files without carrying over the original embedded metadata or filenames.</p>
+<p>Large images may be resized: exported copies are limited to 4096 pixels per side and 8 megapixels. Transparent areas become white, and animated images export a single frame. Your originals are not modified.</p>
+<h3>5 Check the result</h3>
+<p>Expand Privacy Check again to see the before/after report. ShareSafe checks the exported JPEGs for the same selected EXIF fields. Copies that still contain checked fields, or cannot be verified, are skipped rather than offered for sharing.</p>
+<p>If an image is skipped, read the app’s status message. Do not substitute an unchecked original and assume it has been cleaned.</p>
+<p><a href="screenshots/04-before-after.png"><img width="1080" height="2340" decoding="async" src="screenshots/04-before-after.png" alt="Before and after Privacy Check report showing checked tags found in the demo original and not found in readable metadata in its exported copy."></a></p>
+<p><em>Compare the original with the exported copy. The same check limitations still apply.</em></p>
+<h3>6 Review and share the new copy</h3>
+<p>Tap <strong>Save to gallery</strong>, then open the new image in your gallery to check its visible contents. Saved copies normally appear in <strong>Pictures/ShareSafe</strong>. Make sure you are reviewing the exported copy, not the original.</p>
+<p>When ready, return to ShareSafe and use <strong>Share cleaned photos</strong> or <strong>Share ZIP</strong>, depending on your export choice. Android opens its sharing options so you can choose a destination. The receiving app handles the file under its own privacy policy and may upload it when you send or post it.</p>
+<p><a href="screenshots/05-ready-to-share.png"><img width="1080" height="2340" decoding="async" src="screenshots/05-ready-to-share.png" alt="Ready to share result card with the export summary, Share cleaned photos button and Save to gallery button."></a></p>
+<p><em>Use the new copy from the result card. Cleaning does not send or publish the photo.</em></p>
+<h2>Hide visible details with optional Pro editing</h2>
+<p>If the picture contains a face, name, address or other visible information you want to conceal, metadata cleaning alone will not hide it.</p>
+<p>The Google Play edition offers <strong>Advanced edit · Pro</strong> as a one-time paid unlock. Select one photo, open the editor and use <strong>Cover</strong> to place solid masks over sensitive areas. You can adjust individual areas and use undo/redo. Blur and pixelation are optional effects, but retain visual information; prefer solid Cover for sensitive details.</p>
+<p><strong>Face Assist</strong> suggests possible face areas on-device. Numbered outlines are suggestions, not redactions: review them and apply selected covers or dismiss them. Detection can miss faces and does not automatically find text, IDs or number plates.</p>
+<p>Tap <strong>Create redacted copy</strong> when your edits are ready. Back on the main screen, tap <strong>Clean photos</strong> to prepare that copy for sharing, then review the exported image.</p>
+<h2>Does ShareSafe upload photos</h2>
+<p>Photo cleaning, metadata checks, editing and face detection happen on-device. ShareSafe does not upload your photos or face-detection results to Made by Kreativ or Google.</p>
+<p>That is different from saying no data is collected. The Play edition includes Google ML Kit, which collects diagnostic and usage information, including device/app information and per-installation identifiers. Google Play handles optional purchases. See the <a href="https://madebykreativ.com/privacy/sharesafe/">ShareSafe privacy policy</a> and <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google’s ML Kit data disclosure</a>.</p>
+<h2>Before you share</h2>
+<ul>
+<li>Confirm that you are sending the exported copy, not the original.</li>
+<li>Read the selected metadata check without treating it as a guarantee.</li>
+<li>Review faces, text, reflections and the background for visible private details.</li>
+<li>Check the destination and audience before you send or publish.</li>
+</ul>
+<p>Keep originals as your source files. Use a reviewed copy for the share you intend to make.</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=madebykreativ&utm_medium=website&utm_campaign=sharesafe_privacy_202610&utm_content=metadata_tutorial_footer">Try ShareSafe on Google Play</a> · <a href="https://madebykreativ.com/apps/sharesafe/">ShareSafe features</a> · <a href="https://madebykreativ.com/contact/">Get support</a></p>

@@ -1,0 +1,14 @@
+LIVE SCREEN RECORDING — NOT YET CAPTURED
+
+The included MP4 is a 20-second animated illustrated explainer, not footage of app interactions and not proof of processing time. It has no music, voiceover or third-party stock assets. A visible on-video disclosure identifies it as illustrated.
+
+For a real demonstration, connect and unlock an Android phone with the current Play edition. Use only owned or synthetic photos. Prepare one non-sensitive photo with known EXIF fields; verify the picker exposes them. Do not show actual private coordinates or personal galleries. Hide notifications.
+
+0–3 sec: hook — “Your photo can carry more than the picture.”
+3–7 sec: choose the prepared test image.
+7–11 sec: expand free Privacy Check and show the actual before result.
+11–16 sec: tap Clean photos; keep real processing time or visibly label any cuts.
+16–21 sec: show the actual exported check and the Ready to share card.
+21–25 sec: show export choices; stop before sending to anyone. CTA: “ShareSafe by Made by Kreativ — Google Play.”
+
+Always review the exported file. Do not call it anonymous, guaranteed safe, lossless or full-resolution. Do not show a zero-tag report if the real result is unknown. Any Pro footage must be clearly labelled optional paid Pro. SDK diagnostics must not be described as photo uploads or as no data collected.

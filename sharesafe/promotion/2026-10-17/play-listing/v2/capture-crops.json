@@ -1,0 +1,41 @@
+{
+  "sourceDirectory": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/sharesafe/promotion/2026-10-17/tutorial/screenshots",
+  "device": "Galaxy A55",
+  "version": "1.2.0 Play debug; only release-shared UI visible",
+  "date": "2026-10-17",
+  "note": "Complete UI panels cropped from verified tutorial captures. Status/navigation bars and adjacent partial cards excluded; no UI pixels repainted or rearranged.",
+  "crops": [
+    {
+      "source": "04-before-after.png",
+      "file": "01-metadata.png",
+      "left": 52,
+      "top": 176,
+      "width": 976,
+      "height": 1040
+    },
+    {
+      "source": "01-choose-photos.png",
+      "file": "02-originals.png",
+      "left": 52,
+      "top": 130,
+      "width": 976,
+      "height": 1274
+    },
+    {
+      "source": "03-export-options.png",
+      "file": "03-options.png",
+      "left": 52,
+      "top": 176,
+      "width": 976,
+      "height": 1578
+    },
+    {
+      "source": "05-ready-to-share.png",
+      "file": "04-sharing.png",
+      "left": 52,
+      "top": 176,
+      "width": 976,
+      "height": 1058
+    }
+  ]
+}

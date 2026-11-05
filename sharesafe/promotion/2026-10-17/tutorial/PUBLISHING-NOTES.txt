@@ -1,0 +1,71 @@
+SHARESAFE WEBSITE TUTORIAL — PUBLISHED
+Prepared 17 October 2026
+
+Published 17 October 2026 after user approval:
+https://madebykreativ.com/news/remove-photo-metadata-android-sharesafe/
+Website commit: f008901ebaf4e992f79fd4e1baf186ab6cf85459
+Successful GitHub Pages deployment: https://github.com/aolaru/madebykreativ.com/actions/runs/39021839013
+The live article, all five screenshots, app-page link, RSS and sitemap were verified after deployment. Public PNG SHA-256 hashes match the source captures. Local quality gate: 99 tests passed, 2 optional visual-capture tests skipped; production build and deployment succeeded.
+website-published.png is a browser screenshot of the published page. The local preview.html remains a noindex review copy, not the canonical published page. The website repository now owns the published article and asset paths. Earlier preparation notes below describe the original draft workflow.
+
+FILES
+- remove-photo-metadata-android-sharesafe.md: editable article with frontmatter matching the website’s Astro news collection.
+- preview.html: local reading preview, marked noindex/nofollow. Not a deployed website page.
+- build-preview.cjs: reproducible preview renderer. It reads the Markdown article and writes preview.html plus article-body.html and metadata.json.
+- article-body.html: rendered article body for CMS use; no navigation, title or draft label. It is generated from the Markdown, not a second editorial source.
+- metadata.json: proposed title, description, article route and campaign labels.
+- screenshots/: five unmodified 1080 × 2340 PNG captures of the running 1.2.0 Play test build on a Samsung Galaxy A55.
+
+PROPOSED EXISTING-COLLECTION ROUTE
+https://madebykreativ.com/news/remove-photo-metadata-android-sharesafe/
+
+The article source can be placed at:
+src/content/news/remove-photo-metadata-android-sharesafe.md
+
+PUBLICATION APPROVED AND COMPLETED
+The existing schema has no draft flag. Every .md entry in that folder becomes a public page, can appear in Updates/RSS, and is picked up by the static build. The draft was kept in this promotion folder until approval; the published source now lives in the website collection with public image paths, valid Step headings, an app-specific next step and a link from the ShareSafe app page.
+
+BEFORE PUBLISHING
+1. Approve the article and recheck the current Play workflow/labels if the app changes.
+2. Update dateLabel/sortDate to the actual publication date. October 17 is the draft preparation date, not a claim of publication.
+3. Review src/pages/news/[slug].astro. Its generic “Continue from here” fallback points to Product-to-Profit, not ShareSafe. Give this tutorial an app-specific next step or a dedicated guide template before publication; do not leave an unrelated sales CTA beneath it. Do not set project: sharesafe unless Sharesafe actually exists in projectDirectory (it currently belongs to the separate apps data).
+4. Run the website’s documented build, HTML, local-link, artifact, browser and accessibility checks. This draft preview is not a passing production-site build.
+5. Check that the two Play CTA links retain utm_source=madebykreativ, utm_medium=website, utm_campaign=sharesafe_privacy_202610 and the distinct intro/footer utm_content labels. Source/campaign attribution is not guaranteed for every click, and no install results are claimed.
+6. Add a contextual link from the ShareSafe app page after the tutorial is approved and available. The apps index/news archive need not be redesigned.
+7. Read the built page and its social preview before deploying. Keep the article discoverable with normal navigation; a tutorial does not guarantee search rankings or downloads.
+8. Copy screenshots/ to public/images/sharesafe/tutorial/ and replace the article's relative screenshots/ image and full-size link destinations with /images/sharesafe/tutorial/. Add responsive image/caption styles to the website article template; the local preview styles do not transfer with the Markdown. Verify all five images on the built article before deployment.
+
+VISUALS
+Five real app screenshots are embedded beside steps 1, 2, 3, 5 and 6, with descriptive alt text, captions and full-size links. They were captured on 17 October 2026 from the separately installed com.kreativ.sharesafe.debug 1.2.0 test build, not the phone's store-installed 1.1.0 app. The article labels that distinction. The test-only editor entry is not a production feature; no paid editing workflow is illustrated.
+
+The capture test uses a generated four-colour JPEG and synthetic EXIF camera, date/time and location fields. It asserts all three checked categories are found before cleaning and none are found after cleaning. These are actual app results, not drawn or substituted values. No private gallery, notification contents, real coordinates, purchase flow or receiving app is opened. The PNGs retain their original screen pixels, including system bars; Privacy Check's limitations remain visible.
+
+Capture source: app/src/androidTest/java/com/kreativ/sharesafe/TutorialScreenshotsTest.java. Build with :app:assemblePlayDebugAndroidTest, install the test APK alongside the matching 1.2.0 Play debug app, then run only that instrumentation class. Captures are written to the debug app's external-files tutorial-screenshots/ folder and copied into this draft. No production app source or store installation was changed. The demo fixture is removed from the debug cache after the capture; generated exports use the normal app cache lifecycle.
+
+FACT CHECK
+Source files reviewed:
+- sharesafe/README.md
+- sharesafe/app/src/main/java/com/kreativ/sharesafe/MainActivity.java
+- sharesafe/app/src/main/java/com/kreativ/sharesafe/PrivacyCheck.java
+- sharesafe/app/src/main/java/com/kreativ/sharesafe/RedactActivity.java
+- sharesafe/app/src/main/java/com/kreativ/sharesafe/ImageProcessor.java
+- website src/pages/privacy/sharesafe.astro
+- website src/content.config.ts and src/pages/news/[slug].astro
+
+The public Play listing was read on October 17 during promotion-pack preparation. It advertises free Privacy Check, paid Pro Face Assist, the October 15 update and revised SDK data disclosures. The article does not depend on an unverified price, download claim, performance benchmark or anonymity guarantee.
+
+No broad “no data collected,” “all metadata detected,” “no network,” “lossless,” “full-resolution,” or automatic face anonymisation claim is included. The article distinguishes cleaning from sending copies through another app. Face suggestions require review and applied covers. Pro editing returns a redacted copy to the main screen; Clean photos is still required before the normal sharing flow.
+
+The tutorial and its five screenshots were published by the later approved website publication. No app release, email or social post was made.
+
+PREPARATION CHECKS
+- Editorial review: headings, step order, free/Pro separation, report limits, image conversion and SDK disclosure checked against the source files above.
+- Article: approximately six minutes of reading, with five screenshots and captions.
+- Proposed metadata: title 54 characters; description 154 characters.
+- Two Play links carry the correct app package and campaign, with distinct intro/footer utm_content labels.
+- All local preview links resolve to existing files; the reading preview has one H1 and noindex/nofollow.
+- Preview passes the website’s html-validate configuration with zero reported errors.
+- Desktop Chrome preview inspected for readability; all five images load and no horizontal overflow was observed. Full deployed-site accessibility checks remain part of publication QA.
+- The preview was also checked at 390px width: all five images load, fit the reading column and produce no horizontal overflow. The temporary browser viewport override was reset afterward.
+- Screenshot capture instrumentation passed on the connected Galaxy A55, including before/after metadata assertions.
+- Website checkout remained clean after preparation; no live-site files changed.

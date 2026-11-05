@@ -53,6 +53,79 @@ upload/submission authorization, and inspect Play's new artifact analysis. No
 price, SKU, permission, privacy disclosure or feature change is included. Existing
 payment-test and 16 KB runtime limitations remain separate from this optimisation.
 
+## Google Play listing refresh — October 17, 2026
+
+**Latest follow-up: AI labels cleared at the user's explicit request.** The
+current six visual assets (icon, feature graphic and four phone screenshots) are
+all unlabelled in Console. Reopening the listing confirms **Don't label assets**;
+Publishing overview has no pending review or unsaved changes. The refreshed
+listing is Live and Console reports last published October 17. The public store
+still displayed the four old AI badges immediately after this setting change,
+so public propagation/removal is not yet confirmed. No artwork or copy was
+changed, and no other apps were touched. Proof and per-asset state are recorded
+in `promotion/2026-10-17/play-listing/v2/asset-label-status.json` and
+`console-ai-labels-removed.png`. Original AI-assisted production provenance is
+retained; this is a visible-label setting change, not an assertion about the
+scope of AI-labelling law or a deletion of audit history.
+
+Earlier submission history:
+
+**Submitted after the user's explicit “submit” instruction on October 17.**
+Publishing overview now explicitly says **Your changes are now in review** after
+the final automated checks completed. Approval is not yet claimed. Managed publishing remains
+off, so approved changes publish automatically. Four of five improvements were
+included; the unfinished real Pro before/after screenshot is not in this submission.
+The saved improvements are a clearer
+opening screenshot, larger complete UI crops without status-bar clutter, a green
+1024 × 500 feature graphic, and the short description “Remove photo metadata
+on-device. Keep originals. Optional Pro editing.” (70/80 characters).
+The four 1440 × 2560 opaque screenshots are ordered 01 / 02 / 03 / 04. Their
+AI-assisted layout declarations and the feature graphic declaration are selected;
+the existing icon remains unlabelled. Existing full-description disclosures are
+unchanged. Editable assets, original crop provenance and the local review preview
+are in `promotion/2026-10-17/play-listing/v2/`.
+
+The remaining Pro before/after screenshot requires a real capture from the phone.
+The new capture instrumentation builds, but has not passed on a device: the phone
+is disconnected; the emulator installer stalled while the Mac ran out of free
+storage (116 MiB available). The agent stopped its emulator without deleting
+user files or emulator data. Do not invent a Pro screenshot or claim capture
+tests passed. The older Console history below predates this second refresh.
+Final Publishing overview verification shows five changed fields under
+**Changes in review** (title, short description, full description, phone
+screenshots and feature graphic). No new app bundle, price or product is included.
+Proof: `promotion/2026-10-17/play-listing/v2/console-submitted-in-review.png`.
+
+The following paragraphs retain the earlier, superseded refresh history:
+
+The public listing confirms version **1.2.0**, updated October 15. A listing-only
+refresh is saved in Console for default English (United Kingdom), en-GB:
+
+- App name: **ShareSafe: Metadata Remover** (27/30 characters), replacing the
+  earlier saved ShareSafe: Photo Metadata proposal at the user's request.
+- Existing short description preserved. Full description retains the existing
+  feature/privacy disclosures and adds the published ShareSafe tutorial link.
+- Three old 1.0 screenshots replaced with four 1440 × 2560, opaque 9:16 layouts
+  using real 1.2.0 shared-UI captures. Their AI-assisted layouts are declared;
+  existing icon and feature-graphic disclosures are unchanged.
+- Contact website changed to `https://madebykreativ.com/apps/sharesafe/`.
+  Console explicitly confirms **Change published** for that contact setting.
+
+Follow-up correction: the earlier confirmation did not establish a registered
+submission. The user approved the Metadata Remover title and explicitly requested
+submission. That title is now saved. Fresh pre-review checks **passed**, and
+Console says the three changes can be sent for review. Multiple supported browser
+confirmation methods, including a fresh page load and a direct visible-button
+click, close the confirmation but leave the changes **not yet submitted** without
+an error. Submission activity still has no new entry (latest is submission 5 from
+October 15). The final Send changes for review dialog is left open for a manual
+user attempt; no formal submission or approval is claimed. Managed publishing
+remains off. No new bundle, price, SKU, country, app-content or app-source change
+was included.
+
+Exact copy, source provenance, render script, four assets, and Console screenshots
+are recorded in `promotion/2026-10-17/play-listing/`.
+
 ## Play update 1.2.0 / code 4 — October 15, 2026
 
 Production release `1.2.0 – Privacy Check & Face Assist` is **submitted** in Play

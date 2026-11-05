@@ -1,0 +1,102 @@
+SHARESAFE GOOGLE PLAY LISTING REFRESH
+17 October 2026
+
+LATEST FOLLOW-UP — AI LABELS CLEARED IN CONSOLE
+At the user's request, cleared labels on the feature graphic and all four phone
+screenshots. The existing icon was already unlabelled. Reopening the listing
+confirms Don't label assets. No pixels, app copy, other apps or provenance records
+were changed. Publishing overview has no pending changes/review action. Console
+shows Live and last published October 17 for the refreshed listing.
+The public store still showed the four AI badges immediately after this change;
+do not claim public badge removal is confirmed yet. Detailed saved settings and
+proof are in v2/asset-label-status.json and v2/console-ai-labels-removed.png.
+
+PREVIOUS SUBMISSION STATUS
+
+LATEST STATUS — SUBMITTED OCTOBER 17 AFTER EXPLICIT USER APPROVAL
+The user subsequently instructed “submit”. The five saved changed fields were
+sent using Submit 5 changes for review and Send changes for review. Console now
+explicitly says Your changes are now in review after final quick checks completed.
+This is a registered submission; no approval is claimed. Managed publishing is off, so
+approved changes publish automatically. No new bundle, price or SKU was sent.
+The unfinished Pro example is excluded and remains optional follow-up work.
+Proof: v2/console-submitted-in-review.png.
+
+PREVIOUS FOLLOW-UP — SUBMISSION WAS ON HOLD
+The user asked not to send the listing and then approved five listing improvements.
+Four of five are saved in Console: clearer screenshot headline, cleaner/larger
+real UI panels, a green 1024 x 500 feature graphic, and the short description:
+Remove photo metadata on-device. Keep originals. Optional Pro editing.
+(70/80 characters.) Four 1440 x 2560 opaque PNGs are ordered 01 / 02 / 03 / 04.
+These are focused crops of complete panels from the verified Galaxy A55 tutorial
+captures, with no system bars, adjacent partial cards, repainted or invented UI.
+Existing full-description privacy, Pro and SDK disclosures remain unchanged.
+The title remains ShareSafe: Metadata Remover. The new visual layouts are
+declared AI-assisted; the app icon declaration is unchanged (off).
+
+The genuine paid-Pro before/after example is NOT complete. A reproducible
+ListingScreenshotsTest compiles successfully, but runtime capture could not run:
+the phone is disconnected and the emulator's installer stalled while the Mac
+reached only 116 MiB free storage. The agent stopped its emulator; no existing
+user files or emulator data were deleted. Reconnect the Galaxy phone to finish
+the real fictional-address Cover demonstration. Do not substitute a mock editor.
+
+Replacement assets, SVGs, crop provenance, character/pixel checks and the local
+review preview are in v2/. build-refreshed-assets.cjs --free-only builds the
+verified four-screen set. The full renderer requires real 05-pro-before.png and
+05-pro-after.png captures before it can include Pro. The new instrumentation
+test source is in app/src/androidTestPlay, not in production source sets.
+
+No Send changes for review action was taken during this follow-up. The earlier
+notes below describe the previous listing-refresh attempt, not a current review
+submission. Publication remains explicitly on hold.
+Final Console verification: Publishing overview lists exactly five pending
+changes (title, short description, full description, phone screenshots, feature
+graphic) under Changes not yet submitted for review. This count is Console's
+changed-field count, not a claim that the unfinished Pro example is complete.
+Proof: v2/console-saved-not-submitted.png. No confirmation dialog is open.
+
+EARLIER REFRESH NOTES
+
+App: com.kreativ.sharesafe
+Console app ID: 4976355471675436843
+Default language: English (United Kingdom), en-GB
+
+COMPLETED
+- Changed the app name from ShareSafe to ShareSafe: Metadata Remover (27/30 characters), replacing the earlier saved ShareSafe: Photo Metadata proposal at the user's request.
+- Preserved the existing short description and accurate free/Pro, ML Kit, privacy and export disclosures.
+- Added the published step-by-step tutorial link to the full description (2876/4000 characters).
+- Replaced three September screenshots showing the 1.0 interface with four current-workflow screenshot layouts.
+- Published the support website change from http://madebykreativ.com to https://madebykreativ.com/apps/sharesafe/. Console confirmed Change published; propagation may take up to an hour or longer.
+- Saved the three listing changes to Publishing overview and clicked Send changes for review, confirming the dialog for exactly those three changes. No unrelated pending changes were included.
+
+REVIEW STATUS
+Final confirmation after the requested rename: ShareSafe: Metadata Remover is saved. Google's fresh pre-review checks finished successfully, and Console says the three changes can now be sent for review. However, confirmation attempts through semantic click, native button click, keyboard confirmation and a direct visible-button click all closed the dialog without changing the pending state. A fresh Console page load and Submission activity still showed no registered new submission (latest entry remains submission 5 from October 15). No browser error or new validation message was reported. This is an unresolved submission-registration issue, not a review rejection. No formal submission or approval is claimed. The final Send changes for review dialog is left open for a manual user attempt. Managed publishing remains off.
+
+SCREENSHOTS AND DISCLOSURES
+Four opaque 24-bit PNGs, 1440 x 2560 pixels, 9:16. All satisfy Console's image-size validation. Order:
+1. 01-privacy-check.png — real before/after report
+2. 02-keep-originals.png — choose photos and unchanged originals
+3. 03-export-options.png — quality and JPEG/ZIP options
+4. 04-ready-to-share.png — real successful export and sharing controls
+
+The source PNGs are the unmodified 17 October tutorial captures from the 1.2.0 Play test build on a Galaxy A55. Only shared release UI is visible; no test-only control, private gallery, real EXIF values, purchase flow or reviewer-access code is shown. The real app captures were scaled proportionally in code-native SVG frames, not cropped, retouched or reconstructed. Headers describe the shown free features and retain important privacy limits.
+
+The four new AI-assisted layouts were declared in the asset-specific AI disclosure. The existing app-icon declaration (off) and feature-graphic declaration (on) were preserved. Existing icon and feature graphic image files were not replaced. Removed screenshots remain recoverable from the Console asset library and original store-assets/play/screenshots/ files.
+
+FILES
+- listing-copy.json: exact original and saved listing copy plus website/tutorial URLs.
+- build-screenshots.cjs: reproducible SVG-frame/PNG renderer, using the real captured source images.
+- screenshots/: four uploaded PNGs and editable SVG layouts.
+- screenshots-manifest.json: source provenance and validated dimensions.
+- screenshots-preview.png: four-image contact sheet.
+- website-link-published.png: Console confirmation for the contact website change.
+- review-requested.png: final Publishing overview showing the three changes and running pre-review checks.
+- metadata-remover-submit-handoff.png: requested new title saved, checks passed, final confirmation ready for a manual attempt.
+
+No new app bundle, price, product, country, permission, SDK, privacy-policy or app-source change was made by this listing refresh. No payment or 16 KB runtime test is claimed.
+
+POLICY REFERENCES CHECKED
+https://support.google.com/googleplay/android-developer/answer/9866151
+https://support.google.com/googleplay/android-developer/answer/17262077
+https://support.google.com/googleplay/android-developer/answer/14807773

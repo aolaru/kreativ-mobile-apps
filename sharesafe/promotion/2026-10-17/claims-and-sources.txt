@@ -1,0 +1,35 @@
+VERIFICATION / LIMITS — 17 OCTOBER 2026
+
+Public Google Play page opened in Chrome. It displays an October 15 update, free Privacy Check, Pro Face Assist and revised Data safety (App activity, App info/performance, Device or other IDs). The full version number was not independently retrieved from Console. Local version 1.2.0 / code 4 matches the advertised feature set.
+
+Local evidence reviewed: sharesafe/README.md; STORE_SUBMISSION.md; app/src/main/java/com/kreativ/sharesafe/MainActivity.java; PrivacyCheck.java; app/build.gradle. No credentials or raw reviewer code were read or placed in this pack.
+
+Approved claims: fresh JPEG copies; original photos unchanged; on-device photo processing; free metadata cleaning and selected EXIF checks; optional one-time paid Pro; JPEG and ZIP output; no ShareSafe account.
+
+Avoid: no data collected / no analytics / zero network traffic / guaranteed anonymity / removes every possible identifier / automatic guaranteed face anonymisation / original-resolution or lossless copies / cross-store Pro portability / absolute price or availability claims. Do not imply source coordinates were read when Android redacts them.
+
+Pro Face Assist uses ML Kit; diagnostics, usage information and identifiers are collected, not photos or detection results. SDK data cannot be treated as if all data stays on the device. Original-file preservation does not mean JPEG copies preserve every pixel or format.
+
+Current screenshots and live footage remain a capture task because no Android device is connected. Existing screenshots depict older UI. Social artwork contains conceptual vector illustrations, not a simulated screenshot or a real before/after result.
+
+Public contact sources: Droid Life and Android Authority verified on official pages. HowToMen is a candidate; its current business contact needs verification. These are outreach suggestions, not endorsements or guaranteed coverage.
+
+Nothing was uploaded, published, emailed or submitted. No application code, store prices, SDKs or existing assets were modified.
+
+Public ShareSafe listing — verified in Chrome, updated 15 October 2026
+https://play.google.com/store/apps/details?id=com.kreativ.sharesafe
+
+ShareSafe privacy policy
+https://madebykreativ.com/privacy/sharesafe/
+
+Google Play acquisition and campaign reporting
+https://support.google.com/googleplay/android-developer/answer/9859173?hl=en
+
+Droid Life official contact
+https://www.droid-life.com/contact/
+
+Android Authority official contact
+https://www.androidauthority.com/contact/
+
+HowToMen official channel — contact needs verification
+https://www.youtube.com/@HowToMen/about

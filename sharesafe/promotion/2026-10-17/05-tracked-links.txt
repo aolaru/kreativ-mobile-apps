@@ -1,0 +1,35 @@
+PUBLIC CAMPAIGN LINKS
+Campaign: sharesafe_privacy_202610
+Canonical Play URL: https://play.google.com/store/apps/details?id=com.kreativ.sharesafe
+
+website
+https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=website&utm_medium=owned&utm_campaign=sharesafe_privacy_202610
+
+email_signature
+https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=email_signature&utm_medium=email&utm_campaign=sharesafe_privacy_202610
+
+launch_social
+https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=launch_social&utm_medium=social&utm_campaign=sharesafe_privacy_202610
+
+short_video
+https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=short_video&utm_medium=social&utm_campaign=sharesafe_privacy_202610
+
+community
+https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=community&utm_medium=community&utm_campaign=sharesafe_privacy_202610
+
+launch_ro
+https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=launch_ro&utm_medium=social&utm_campaign=sharesafe_privacy_202610
+
+droid_life
+https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=droid_life&utm_medium=outreach&utm_campaign=sharesafe_privacy_202610
+
+android_authority
+https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=android_authority&utm_medium=outreach&utm_campaign=sharesafe_privacy_202610
+
+howtomen
+https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=howtomen&utm_medium=outreach&utm_campaign=sharesafe_privacy_202610
+
+Google Play supports UTM source/campaign breakdowns in store-listing acquisition reports. Filter Ads and referrals to inspect UTM source. Attribution may be missing or aggregated; there is no guarantee every social click is attributable. No app SDK was added. Social captions should use a profile link where caption URLs are not clickable. Keep the channel tags when replacing profile links.
+
+Measure visitors, acquisitions and conversion by source. Record launch dates; allow enough traffic before judging. Do not invent a baseline, conversion rate or install target.
+Source: https://support.google.com/googleplay/android-developer/answer/9859173?hl=en

@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:04,000
+Your photo carries more than a picture. Location, dates and camera details can be embedded in the file.
+
+2
+00:00:04,000 --> 00:00:08,000
+Choose photos. Keep the originals. Select the photos you want to share. ShareSafe works on fresh copies.
+
+3
+00:00:08,000 --> 00:00:12,000
+Check selected EXIF fields. Privacy Check is free. Unknown does not mean safe.
+
+4
+00:00:12,000 --> 00:00:16,000
+Keep the moment. Not the metadata. Create fresh JPEG copies. Photo processing is on-device.
+
+5
+00:00:16,000 --> 00:00:20,000
+Ready for your next share. Save JPEGs or share a ZIP. Review the picture before sharing.
