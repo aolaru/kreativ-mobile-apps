@@ -1,0 +1,34 @@
+TABLET CAPTURE PROCEDURE — READY AFTER DISK SPACE IS AVAILABLE
+
+Use the existing WorkflowTest#capturesRunningAppAndComparison. It renders the
+actual app views, imports a deterministic Canvas-drawn demo landscape, processes
+it through the real image engine, and captures the device framebuffer. It does
+not repaint or fabricate UI or savings. Existing home/settings/results/comparison
+screens can provide the three or more required distinct tablet screenshots.
+
+1. Verify adequate free disk space. The existing AVD failed hasSufficientDiskSpace
+   with about 685 MB free. No user files or caches were deleted in this task.
+2. Start an isolated read-only emulator session using the existing Android image.
+   Use an 800x1280 pixel display at 160 dpi for an Android tablet-sized viewport.
+   Do not modify a connected user's phone display. Do not label the capture Fire OS.
+3. Run the existing debug workflow capture test on this isolated test installation:
+   JAVA_HOME=/Applications/Android Studio.app/Contents/jbr/Contents/Home
+   ./gradlew --offline :app:assembleDebug :app:assembleDebugAndroidTest
+   Install app-debug.apk and app-debug-androidTest.apk on the emulator only.
+   Run com.kreativ.photofeather.WorkflowTest#capturesRunningAppAndComparison
+   with AndroidJUnitRunner in com.kreativ.photofeather.debug.test.
+4. Export the PNG files from the test app's external files/screenshots directory.
+   Preserve native 800x1280 output. Visually inspect every screenshot for clipping,
+   legibility and genuine measured results. Capture at least home, settings,
+   results and comparison; omit redundant or defective frames.
+5. Save emulator Android version, API, density, display dimensions, application
+   version and screenshot hashes with provenance. No AI marks or synthetic UI.
+6. Upload approved tablet screenshots to the existing Amazon draft, keeping icons
+   and promotional artwork. Confirm multimedia Complete and review all fields.
+7. Keep Amazon's actual Fire-device compatibility results separate. Android tablet
+   screenshots and earlier Android 9 workflow tests do not establish Fire-specific
+   document-picker/save/share behavior by themselves.
+
+Amazon test rerun uses an installable test-signed copy of the unchanged production
+release. The store draft retains the production unsigned APK for Amazon ingestion.
+No new production signing key or package rename is necessary for the current pilot.

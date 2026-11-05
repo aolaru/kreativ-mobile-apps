@@ -1,0 +1,11 @@
+.gradle/
+.idea/
+**/build/
+local.properties
+*.iml
+
+# Signing material stays outside version control.
+*.jks
+*.keystore
+release-signing.properties
+.DS_Store

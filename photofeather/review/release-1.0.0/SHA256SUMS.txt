@@ -1,0 +1,4 @@
+dd9f23936e56fad55776c012d6ec84543b1209a9d8bead2e5e508885c34ebc53  PhotoFeather-1.0.0-debug.apk
+8ed65f775ec9ed37e4e4826b84316f11ed8200c6f9a9694be23ffa1f147e8085  PhotoFeather-1.0.0-release-QA.apk
+c42448bc5bf050a346fc0fb221b5870b3e321f3ee81c9e3689d3395802f7ec0e  PhotoFeather-1.0.0-unsigned.apk
+b4b6d9d6527c1c007bcbc2654a2892839b0e27d7ee3ca67c81205bdd8b209446  PhotoFeather-1.0.0-unsigned.aab

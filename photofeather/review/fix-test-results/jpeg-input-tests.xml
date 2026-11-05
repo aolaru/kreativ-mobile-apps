@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kreativ.imageengine.JpegInputTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-22T11:08:17" hostname="Andreis-MacBook-Air.local" time="0.018">
+  <properties/>
+  <testcase name="missingEndOfImageIsRejected" classname="com.kreativ.imageengine.JpegInputTest" time="0.006"/>
+  <testcase name="trailingDataDoesNotRejectACompleteFirstImage" classname="com.kreativ.imageengine.JpegInputTest" time="0.002"/>
+  <testcase name="segmentTruncationIsRejected" classname="com.kreativ.imageengine.JpegInputTest" time="0.004"/>
+  <testcase name="baselineMarkersAndStuffedScanAreAccepted" classname="com.kreativ.imageengine.JpegInputTest" time="0.001"/>
+  <testcase name="scanTruncationIsRejected" classname="com.kreativ.imageengine.JpegInputTest" time="0.001"/>
+  <testcase name="progressiveMultipleScansAreAccepted" classname="com.kreativ.imageengine.JpegInputTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

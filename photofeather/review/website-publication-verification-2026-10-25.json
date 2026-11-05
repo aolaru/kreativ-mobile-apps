@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-25",
+  "commit": "ddcec0b1cceb2c89811f9c87a312f8933d1a8a8f",
+  "workflow": "https://github.com/aolaru/madebykreativ.com/actions/runs/40201081714",
+  "websitePublished": true,
+  "verifiedUrls": 21,
+  "tutorialImagesVerified": 15,
+  "checks": [
+    {
+      "path": "/news/compress-photos-android-photofeather/",
+      "status": 200
+    },
+    {
+      "path": "/apps/photofeather/",
+      "status": 200
+    },
+    {
+      "path": "/updates/",
+      "status": 200
+    },
+    {
+      "path": "/updates/rss.xml",
+      "status": 200
+    },
+    {
+      "path": "/news/rss.xml",
+      "status": 200
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200
+    },
+    {
+      "path": "/images/photofeather/tutorial/01-select-photos.png",
+      "status": 200,
+      "bytes": 152936,
+      "sha256": "f50642e74ab44b894ddef74523a6f2b97889ee45c9e0870454a75688477c1a25"
+    },
+    {
+      "path": "/images/photofeather/tutorial/01-select-photos-960.webp",
+      "status": 200,
+      "bytes": 62356,
+      "sha256": "be31e6d71d359121f0ad0a41ef5300f111c56b6bcc292be203adb1762ab3d710"
+    },
+    {
+      "path": "/images/photofeather/tutorial/03-custom-resize-960.webp",
+      "status": 200,
+      "bytes": 67400,
+      "sha256": "59722049f163baf48585d56dd2239d93678cdcdfa18cb6c9069bb4d8a4eebfe1"
+    },
+    {
+      "path": "/images/photofeather/tutorial/02-resize-presets-960.webp",
+      "status": 200,
+      "bytes": 69690,
+      "sha256": "e65106a409260ffd7b6a78d6e97f0dbb75226c3fd0696cd72551f5ebf2db1d74"
+    },
+    {
+      "path": "/images/photofeather/tutorial/01-select-photos-480.webp",
+      "status": 200,
+      "bytes": 28612,
+      "sha256": "b7ad91502dc78f4a330ea4a4d453b7c92c0b4fe4caa217a699aa6bb22d094781"
+    },
+    {
+      "path": "/images/photofeather/tutorial/05-compare-photos-960.webp",
+      "status": 200,
+      "bytes": 35452,
+      "sha256": "11ef95811b536eedec6ba0db42ebea52004e2fdb13a69ba7b93fdd051e4d4219"
+    },
+    {
+      "path": "/images/photofeather/tutorial/03-custom-resize-480.webp",
+      "status": 200,
+      "bytes": 28186,
+      "sha256": "6caadc0da4f1ba58ca05ea896aa86a669a0c736a6a11238d487035ba434013ef"
+    },
+    {
+      "path": "/images/photofeather/tutorial/05-compare-photos-480.webp",
+      "status": 200,
+      "bytes": 15406,
+      "sha256": "c6f49c5b821a4b873d1387e92fdcba6a686c9cb61edea82c8589fb8f58516990"
+    },
+    {
+      "path": "/images/photofeather/tutorial/02-resize-presets-480.webp",
+      "status": 200,
+      "bytes": 29758,
+      "sha256": "52c32f76f530dd90dd66aa0361e85a5d82efc65ef6c9af6febeca578b5948c7a"
+    },
+    {
+      "path": "/images/photofeather/tutorial/04-measured-results-960.webp",
+      "status": 200,
+      "bytes": 71056,
+      "sha256": "cec8d542ff35ad3ce3b1806b6eca627f16a36d483b948a8968cd890a0b21cfed"
+    },
+    {
+      "path": "/images/photofeather/tutorial/04-measured-results-480.webp",
+      "status": 200,
+      "bytes": 31538,
+      "sha256": "91b4d9ad0ee2f9b51dcf490314a534994851a1a26cd6027edef4553ec80ce62d"
+    },
+    {
+      "path": "/images/photofeather/tutorial/02-resize-presets.png",
+      "status": 200,
+      "bytes": 153763,
+      "sha256": "85803b108de550fb588f1d454a98b73ea8c4b26aae89cf3a5d75c2fa16df2e94"
+    },
+    {
+      "path": "/images/photofeather/tutorial/03-custom-resize.png",
+      "status": 200,
+      "bytes": 151207,
+      "sha256": "5af0df21924144245b7af21086105e8376669fc6ab9e4da7c071501be7826057"
+    },
+    {
+      "path": "/images/photofeather/tutorial/04-measured-results.png",
+      "status": 200,
+      "bytes": 322123,
+      "sha256": "6cc872d99ff0f08a5a9c4a900902c9c40b2bb0d2d1c3524d137e0432c25faeb5"
+    },
+    {
+      "path": "/images/photofeather/tutorial/05-compare-photos.png",
+      "status": 200,
+      "bytes": 964839,
+      "sha256": "a4341ed54fc113420d77959aa6d0e8db2d73aeba558e4177707a20f1a9d3fd03"
+    }
+  ]
+}

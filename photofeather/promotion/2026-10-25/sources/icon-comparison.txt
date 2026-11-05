@@ -1,0 +1,13 @@
+ICON PROVENANCE CHECK — 25 OCTOBER 2026
+
+Existing Play Console icon downloaded through the browser's pageAssets capability and archived as existing-icon-512.png. Observed URL:
+https://lh3.googleusercontent.com/yudgHEVvWmR6px_ao6mXIOa9Zlnbn0-vkjwFMDJhRlVLMKRyK46tx9iIve1XcZAilnodDlFfw8NKEdFr134cxQ
+
+The icon is 512x512 PNG. Reproduced the checked-in Android vector at app/src/main/res/drawable/launcher_foreground.xml on a full square #226B5A background, matching values/colors.xml accent.
+
+Comparison at decoded RGB pixel level using sharp:
+- Exact pixel fraction: 1 (100%).
+- White shape intersection over union: 1.
+- Mean absolute channel error: 0.
+
+This is an exact vector-rendered match, not a visual guess. The old AI flag can be corrected for this icon. No new icon was uploaded to Google Play. The website icon uses the same vector with rounded corners.

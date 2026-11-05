@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-25",
+  "counts": {
+    "title": 30,
+    "shortDescription": 70,
+    "fullDescription": 2832
+  },
+  "pngsValidated": 10,
+  "sourceHashesVerified": 6,
+  "pixelEquivalentTutorialCopies": 6,
+  "localLinksChecked": 45,
+  "htmlPagesValidated": 2,
+  "tutorialImages": 5,
+  "video": {
+    "seconds": 24,
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "audio": false,
+    "bytes": 376896
+  },
+  "browserLayoutVerified": false,
+  "nativeReleaseTestPerformed": false
+}

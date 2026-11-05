@@ -1,0 +1,39 @@
+Production signing — pending owner key/account access
+
+The prepared APK and AAB have the base package com.kreativ.photofeather,
+versionName 1.0.0, versionCode 3, minSdk 26 and targetSdk 36. No runtime source
+change or new store flavor was needed for this free, store-independent app.
+
+The production credentials were not configured in this session:
+  PHOTOFEATHER_KEYSTORE
+  PHOTOFEATHER_STORE_PASSWORD
+  PHOTOFEATHER_KEY_ALIAS
+  PHOTOFEATHER_KEY_PASSWORD
+Keep keys and passwords outside this repository and submission pack. Do not
+paste passwords into listing fields, review notes, source files or chat logs.
+
+Existing Gradle signing support reads those variables. Once configured securely:
+  ./gradlew :app:assembleRelease :app:bundleRelease
+The signed APK is app/build/outputs/apk/release/app-release.apk. Verify its
+certificate with Android SDK apksigner before treating it as an upload artifact.
+The preparation script intentionally accepts only unsigned artifacts; do not use
+it to relabel a signed file. Add signed artifacts only after signing is reviewed.
+
+SIGNING CHOICE TO RESOLVE BEFORE UPLOAD
+- Prefer an APK signed with the same app-signing certificate as the installed
+  Google Play edition if that production key is under the owner's control.
+- A Play upload key may differ from Google's Play app-signing key. Using the
+  upload key does not establish cross-store update compatibility.
+- Samsung manages signing for AAB uploads. It can use an existing key supplied
+  through its workflow or a Galaxy Store signing key. This decision is part of
+  registration, not something this preparation silently selects.
+- If Samsung and Play certificates differ, the same package cannot replace an
+  installation from the other store. Decide whether a separate Samsung package
+  is preferable before publication. A package change also needs privacy-policy
+  coverage and a fresh build/test pass; this pack has not made that change.
+
+The locally tested QA artifact uses .releasecheck and a debug certificate only
+for device validation. It must never be used as the production store upload.
+
+Samsung signing reference:
+https://developer.samsung.com/galaxy-store/launch.html

@@ -1,0 +1,17 @@
+Appstore Certificate Hashes
+As part of the ingestion process, Amazon removes your developer signature and applies an Amazon signature. This signature is unique to you, does not change, and is the same for all apps in your account.
+MD5
+Hexadecimal
+F4:5F:AB:15:B6:96:3B:92:4F:50:0B:83:94:84:D7:FF
+Base64
+9F+rFbaWO5JPUAuDlITX/w==
+SHA-1
+Hexadecimal
+73:EB:89:52:AB:5A:6E:24:3A:00:CE:0C:56:51:84:37:3A:7F:A2:AA
+Base64
+c+uJUqtabiQ6AM4MVlGENzp/oqo=
+SHA-256
+Hexadecimal
+BD:53:49:58:A6:57:08:25:DA:3C:B0:EF:CA:3D:37:EC:2B:63:58:7B:54:CF:D7:9D:BE:BE:37:BE:08:05:78:9D
+Base64
+vVNJWKZXCCXaPLDvyj037CtjWHtUz9edvr43vggFeJ0=

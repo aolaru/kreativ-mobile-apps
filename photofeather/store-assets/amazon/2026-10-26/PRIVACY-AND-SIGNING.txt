@@ -1,0 +1,25 @@
+Developer source: no INTERNET permission, ads, analytics, Google services, IAP,
+account or native libraries. All photo processing is local. User-initiated share
+and cloud-provider selection follow their destination/provider's policies.
+
+Amazon removes the developer signature, applies its account certificate and wraps
+the app, including store analytics, even if automatic DRM is off. Official Amazon
+documentation says signed or unsigned APKs can be submitted. Do not create a new
+production key just for this pilot. Record the Amazon certificate after upload.
+The Amazon certificate normally differs from Google Play's signing certificate:
+same-package cross-store replacements may be blocked. No package change made.
+
+Privacy questionnaire must be completed before submission. Proposed developer-
+source answer is no developer data collection/transfer, subject to current form
+definitions. Verify Amazon wrapper disclosures and processed binary first. Do not
+promise zero networking/zero telemetry for Amazon's processed edition.
+Current published policy describes the original edition; add the Amazon store
+wrapper distinction before Amazon publication. No home-address changes included.
+
+Sources, checked 26 October 2026:
+https://developer.amazon.com/docs/app-submission/understanding-submission.html
+https://developer.amazon.com/docs/in-app-purchasing/ja-iap-get-started.html
+https://developer.amazon.com/docs/app-submission/appstore-details.html
+https://developer.amazon.com/docs/app-submission/device-filtering-and-compatibility.html
+https://developer.amazon.com/docs/app-submission/appstore-privacy-labels.html
+https://developer.amazon.com/docs/app-testing/live-device-interaction-physical.html

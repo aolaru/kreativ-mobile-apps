@@ -1,0 +1,41 @@
+PhotoFeather 1.0.0 / code 3 — review instructions
+
+No login, reviewer account, purchase or subscription is needed. All described
+features are free. No advertising, analytics, billing or network SDK is bundled.
+The app supports JPEG, PNG and static WebP input and exports new lossy JPEGs.
+
+Suggested review using a non-sensitive test photo:
+1. Launch PhotoFeather and select Choose photos. Select a JPEG, PNG or static
+   WebP using Android's system picker. Only selected items are accessed.
+2. In Settings, select a file-size target such as 200 KB, or enable Resize only
+   and choose Small/Medium/Large or a custom longest edge. Read planned dimensions.
+3. Select Preview. In Results, review actual file size, dimensions and savings.
+   If a target cannot be reached, the app explains this and prevents that failed
+   result from being exported; choose another target or use resize-only mode.
+4. Open Compare before & after. Use Original/Output, zoom and Fit to inspect it.
+5. Save selected to create new JPEG copies. On Android 10+, copies go into
+   Pictures/PhotoFeather; on Android 8–9, choose a destination folder.
+6. Share selected opens Android's share sheet. Sending to a recipient is not
+   necessary to evaluate the app. Originals are not overwritten or deleted.
+7. Optional: repeat with several photos, choose individual outputs, remove or
+   retry a result, rotate the phone, and check dark mode / larger system text.
+
+Privacy and limits:
+- Processing is local and the app has no internet permission. A cloud source
+  selected in Android's picker may be retrieved by the selected provider.
+- Source metadata is removed from newly encoded JPEG copies and checked before
+  export. Visible faces, text and sensitive image content are not anonymised.
+- PNG/WebP transparency needs a selected opaque background for JPEG conversion.
+- HEIC/HEIF, AVIF, GIF and animated inputs are not supported.
+- Large inputs may be reduced within the app's memory limits. JPEG is lossy;
+  no lossless compression or guaranteed visual quality is claimed.
+- Working copies and recovery state stay in private app storage. Clearing or
+  uninstalling the app removes private state; exported copies remain where saved.
+
+Support: info@madebykreativ.com
+Privacy: https://madebykreativ.com/privacy/photofeather/
+Tutorial: https://madebykreativ.com/news/compress-photos-android-photofeather/
+
+Screenshot provenance: the existing app icon and six approved screenshot-based
+graphics from the live Play promotion pack. No AI-generated imagery, fabricated
+controls, new UI repainting or AI marks were introduced for Samsung.

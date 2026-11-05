@@ -1,0 +1,99 @@
+Alexa
+Amazon Appstore
+Ring
+AWS
+Documentation
+Alexa
+Amazon Appstore
+Ring
+AWS
+Documentation
+
+Console
+
+AO
+My Apps
+My Appstore Cases
+My Reports
+My Settings
+Tools & Services
+Connect
+Appstore Quality Central
+Test Your App
+Test Summary
+Live Device Interaction
+Contact Us
+Help
+
+
+Success
+Your test run has been successfully submitted. You will receive an email notification (typically within 1 hour) as soon as the tests are completed.
+
+
+Find all your submitted tests
+Filter by:
+OS
+OS
+Device Family
+Device Family
+1
+Test Name
+	
+Test Type
+	
+Test Run Status
+	
+OS
+	
+Device Family
+	
+Submission date
+Test Name
+	
+Test Type
+	
+Test Run Status
+	
+OS
+	
+Device Family
+	
+Submission date
+
+
+PhotoFeather 1.0.0-3 signed Fire tablets 2026-10-26
+	
+Functional, Performance
+	
+In progress
+	
+FOS
+	
+Fire Tablets
+	
+12:23:28 AM PDT 26-Oct-2026
+
+
+PhotoFeather 1.0.0-3 Fire tablets 2026-10-26
+	
+Functional, Performance
+	
+Complete
+	
+FOS
+	
+Fire Tablets
+	
+12:08:09 AM PDT 26-Oct-2026
+
+© 2010-2026, Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+English
+
+Terms
+
+Amazon Developer Blog
+
+Contact Us
+
+Feedback

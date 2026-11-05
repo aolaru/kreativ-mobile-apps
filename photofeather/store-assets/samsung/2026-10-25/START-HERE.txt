@@ -1,0 +1,47 @@
+PhotoFeather — Samsung Galaxy Store preparation
+Prepared 25 October 2026. No app has been submitted or published to Samsung.
+
+OPEN preview.html to review the listing and six approved screenshots.
+
+READY
+- Title: PhotoFeather: Photo Compressor
+- Samsung short description: Compress and resize photos offline
+- English full description with tutorial, privacy and support links.
+- Existing 512 x 512 PNG icon and six 1440 x 2560 RGB screenshots.
+- Free app: no purchases, subscriptions, advertising or account.
+- Universal production-code APK/AAB, version 1.0.0 / code 3 / Android 8+.
+  Files labelled UNSIGNED are preparation artifacts, not signed store uploads.
+- See validation.json, evidence/, REVIEWER-NOTES.txt and SHA256SUMS.txt.
+
+REMAINING BEFORE UPLOAD / SUBMISSION
+1. Sign in to Samsung Seller Portal and verify commercial seller approval.
+   This account status is required even for free Android apps. No account
+   registration, agreement acceptance or financial profile was completed here.
+2. Confirm the production signing approach. The four PHOTOFEATHER_* signing
+   variables are not configured in this session. No new key was generated.
+   See SIGNING-AND-BUILD.txt. Do not upload the QA/debug APK.
+3. Confirm initial launch countries, complete Samsung's age/content and privacy
+   questionnaires, and review public seller contact/address information.
+4. Enter the fields from listing.json and upload the icon and six screenshots.
+   Samsung permits 4–8 screenshots; a Play feature graphic is not a required
+   replacement for the app icon or screenshot set. No video URL is needed.
+5. Upload the properly signed production APK (or complete Samsung's AAB signing
+   workflow), inspect device eligibility, and perform the final portal validation.
+6. Submit only when the account, signing and questionnaire gates are complete.
+   This task prepares the materials; it does not authorize publishing a new app.
+
+No runtime code or Google Play listing was changed for this preparation.
+No Samsung SDK or store-specific flavor is needed for the current free app:
+it does not use Google billing, Google Play services or an internet permission.
+The same package is currently retained, pending the signing decision.
+
+REGENERATE
+From the PhotoFeather project, build normal production artifacts (not QA):
+  JAVA_HOME='/Applications/Android Studio.app/Contents/jbr/Contents/Home' ./gradlew --offline :app:assembleRelease :app:bundleRelease
+Then:
+  python3 scripts/prepare-samsung.py
+
+SOURCES CHECKED 25 OCTOBER 2026
+Seller onboarding: https://developer.samsung.com/galaxy-store/prepare.html
+Registration: https://developer.samsung.com/galaxy-store/launch.html
+Field and asset limits: https://developer.samsung.com/galaxy-store/galaxy-store-developer-api/content-publish-api/reference.html

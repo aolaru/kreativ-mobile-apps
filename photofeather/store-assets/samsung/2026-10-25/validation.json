@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-25",
+  "shortDescriptionUtf8Bytes": 34,
+  "descriptionUtf8Bytes": 2979,
+  "screenshots": [
+    {
+      "file": "screenshots/01-select-photos.png",
+      "width": 1440,
+      "height": 2560,
+      "mode": "RGB"
+    },
+    {
+      "file": "screenshots/02-resize-presets.png",
+      "width": 1440,
+      "height": 2560,
+      "mode": "RGB"
+    },
+    {
+      "file": "screenshots/03-custom-resize.png",
+      "width": 1440,
+      "height": 2560,
+      "mode": "RGB"
+    },
+    {
+      "file": "screenshots/04-measured-results.png",
+      "width": 1440,
+      "height": 2560,
+      "mode": "RGB"
+    },
+    {
+      "file": "screenshots/05-compare-photos.png",
+      "width": 1440,
+      "height": 2560,
+      "mode": "RGB"
+    },
+    {
+      "file": "screenshots/06-dark-mode.png",
+      "width": 1440,
+      "height": 2560,
+      "mode": "RGB"
+    }
+  ],
+  "icon": {
+    "width": 512,
+    "height": 512,
+    "format": "PNG",
+    "bytes": 12261
+  },
+  "aiGeneratedImagery": false,
+  "provenance": "Existing app icon and the six approved Play listing graphics. Genuine app UI from promotion/2026-10-25 sources; no new image generation, no UI repainting, no AI marks added.",
+  "nativeLibrariesInBinaries": 0,
+  "productionSigning": "Missing: APK and AAB are unsigned preparation artifacts, not upload-ready signed releases",
+  "runtimeSourceChanged": false,
+  "requirements": "https://developer.samsung.com/galaxy-store/galaxy-store-developer-api/content-publish-api/reference.html"
+}

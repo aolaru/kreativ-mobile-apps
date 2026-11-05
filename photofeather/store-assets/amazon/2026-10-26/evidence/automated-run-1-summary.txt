@@ -1,0 +1,142 @@
+Alexa
+Amazon Appstore
+Ring
+AWS
+Documentation
+Alexa
+Amazon Appstore
+Ring
+AWS
+Documentation
+
+Console
+
+AO
+My Apps
+My Appstore Cases
+My Reports
+My Settings
+Tools & Services
+Connect
+Appstore Quality Central
+Test Your App
+Test Summary
+Live Device Interaction
+Contact Us
+Help
+PhotoFeather 1.0.0-3 Fire tablets 2026-10-26
+App Name
+PhotoFeather-1.0.0-code3-UNSIGNED
+Test type
+Functional, Performance
+Submission date
+12:08:09 AM PDT 26-Oct-2026
+Device type
+Fire Tablets
+Test duration
+5 minutes 26 seconds
+Test status
+Complete
+Overall result *
+0/8 devices compatible
+8/8 devices non-compatible
+See detail test results at a device level by selecting a device below. Compatibility and non-compatibility of a device is decided by determining if all critical tests have passed or failed respectively.
+Device results summary
+Device
+	
+Device Family
+	
+Device OS
+	
+Test Result
+Device
+	
+Device Family
+	
+Device OS
+	
+Test Result
+
+
+Fire HD 10 (2023)
+	
+Fire Tablets
+	
+FOS 8
+	
+Non-compatible
+
+
+Fire 7 (2017)
+	
+Fire Tablets
+	
+FOS 5
+	
+Non-compatible
+
+
+Fire Max 11 (2023)
+	
+Fire Tablets
+	
+FOS 8
+	
+Non-compatible
+
+
+Fire 7 (2019)
+	
+Fire Tablets
+	
+FOS 7
+	
+Non-compatible
+
+
+Fire HD 8 (2022)
+	
+Fire Tablets
+	
+FOS 8
+	
+Non-compatible
+
+
+Fire (2015)
+	
+Fire Tablets
+	
+FOS 5
+	
+Non-compatible
+
+
+Fire HD 10 (2021)
+	
+Fire Tablets
+	
+FOS 7
+	
+Non-compatible
+
+
+Fire HD 10 (2019)
+	
+Fire Tablets
+	
+FOS 7
+	
+Non-compatible
+
+© 2010-2026, Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+English
+
+Terms
+
+Amazon Developer Blog
+
+Contact Us
+
+Feedback

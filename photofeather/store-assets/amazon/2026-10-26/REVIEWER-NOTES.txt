@@ -1,0 +1,9 @@
+PhotoFeather 1.0.0 (3), com.kreativ.photofeather. Free, no purchases, ads or login.
+Select JPEG/PNG/static WebP using Choose photos. Choose Resize or Maximum file
+size, process, inspect measured results, use Compare before & after, then save
+or share new JPEG copies. Output is lossy. Unsupported inputs and unmet targets
+are identified. Originals are never overwritten. On older Android-based Fire OS,
+use the folder chooser to save. Use only non-sensitive demo photos for testing.
+
+Fire compatibility and tablet screenshots are pending; this pack alone is not
+a declaration that the release has passed Amazon review.

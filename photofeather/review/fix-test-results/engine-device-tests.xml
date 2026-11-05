@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.kreativ.imageengine.ImageEngineTest" tests="14" failures="0" errors="0" skipped="0" time="2.73" timestamp="2026-10-22T11:14:37" hostname="localhost">
+  <properties>
+    <property name="device" value="SM-A556B - 16" />
+    <property name="flavor" value="" />
+    <property name="project" value=":image-engine" />
+  </properties>
+  <testcase name="allExifOrientationsBecomeUprightPixels" classname="com.kreativ.imageengine.ImageEngineTest" time="0.198" />
+  <testcase name="transparencyRequiresConsentAndUsesChosenBackground" classname="com.kreativ.imageengine.ImageEngineTest" time="0.029" />
+  <testcase name="largeInputIsMemoryBounded" classname="com.kreativ.imageengine.ImageEngineTest" time="0.324" />
+  <testcase name="targetBytesAreMeasuredAndOriginalUnchanged" classname="com.kreativ.imageengine.ImageEngineTest" time="0.581" />
+  <testcase name="impossibleTargetIsHonestAndBounded" classname="com.kreativ.imageengine.ImageEngineTest" time="0.203" />
+  <testcase name="corruptImageFailsWithoutOutput" classname="com.kreativ.imageengine.ImageEngineTest" time="0.003" />
+  <testcase name="alreadyTinyImageReportsNoBenefit" classname="com.kreativ.imageengine.ImageEngineTest" time="0.003" />
+  <testcase name="sourceMetadataIsRemovedAndOutputReopens" classname="com.kreativ.imageengine.ImageEngineTest" time="0.034" />
+  <testcase name="staticWebPIsSupported" classname="com.kreativ.imageengine.ImageEngineTest" time="0.034" />
+  <testcase name="resizeOnlyHonoursMaximumQualityAndShape" classname="com.kreativ.imageengine.ImageEngineTest" time="0.096" />
+  <testcase name="animatedPngIsExplicitlyRejected" classname="com.kreativ.imageengine.ImageEngineTest" time="0.002" />
+  <testcase name="progressiveJpegIsAcceptedAndItsTruncatedVersionIsRejected" classname="com.kreativ.imageengine.ImageEngineTest" time="0.063" />
+  <testcase name="cancellationCleansPartialFiles" classname="com.kreativ.imageengine.ImageEngineTest" time="0.225" />
+  <testcase name="lowStorageIsExplicitAndLeavesOriginal" classname="com.kreativ.imageengine.ImageEngineTest" time="0.002" />
+</testsuite>

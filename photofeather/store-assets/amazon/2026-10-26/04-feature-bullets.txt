@@ -1,0 +1,5 @@
+Choose 200 KB, 500 KB, 1 MB or a custom file-size target
+Resize one photo or a batch and preserve aspect ratio
+Compare measured sizes and dimensions before saving
+Save and share new JPEG copies without overwriting originals
+Process photos on-device, with no ads, account or purchases

@@ -1,0 +1,28 @@
+PENDING — FIRE TABLET COMPATIBILITY AND SCREENSHOTS
+
+Existing Android 9 and Galaxy A55 tests are supporting evidence, not Fire testing.
+Test the store-processed APK on Fire OS 7 and Fire OS 8 tablets, or limit targeting
+to verified devices. minSdk 26 excludes Fire OS 6/API 25 and older. No Fire TV.
+
+1. Install, cold launch, offline relaunch; no account/Google services required.
+2. Choose photos through the real system document picker: JPEG, PNG, static WebP,
+   multi-select, cancellation, unreadable/unsupported inputs. Test with Wi-Fi off.
+3. Compress to 200 KB/500 KB/1 MB; confirm measured file size and final dimensions.
+4. Resize-only, custom settings, batch, cancellation and retry.
+5. Before/after compare: portrait/landscape, zoom/pan, large text, dark mode.
+6. Fire OS 7/API 28: real folder chooser, create JPEG, reopen and verify saved bytes.
+   Fire OS 8/API 30: MediaStore gallery save and reopening. Originals unchanged.
+7. Real share sheet to a local receiving app; cancel cleanly; no unintended sending.
+8. Rotate during processing; background/restore; low-memory and storage errors.
+9. Save 3–10 genuine tablet screenshots of home, settings, results/compare.
+   Allowed dimensions include 800x1280, 1200x1920, 1600x2560 or landscape reverse.
+   Capture the actual app at an accepted tablet resolution. Record whether it was
+   captured on a Fire tablet or Android tablet emulator; do not repaint Android phone
+   captures into a Fire experience. Current Play phone graphics are not included
+   as Amazon screenshots. No AI generation or AI marks.
+10. Recheck permissions, Amazon wrapper behavior, privacy text and labels against
+    the downloaded Amazon-processed APK before final publication.
+
+If no physical Fire tablet is available, check this account's Appstore Quality
+Central device access. Physical remote access is restricted to selected partners.
+Do not pay for hardware/testing without a separately agreed budget.

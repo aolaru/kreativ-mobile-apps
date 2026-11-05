@@ -1,0 +1,11 @@
+PHOTOFEATHER PUBLIC LISTING AUDIT — 25 OCTOBER 2026
+
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather
+Public listing accessible. Version 1.0.0; updated 24 October 2026. Title 30/30, short 70/80, full 2832/4000. Category Photography. Public Data safety says no data collected or shared. Support email is info@madebykreativ.com and privacy link is https://madebykreativ.com/privacy/photofeather/
+
+KEEP: title, short description, detailed limits, on-device processing and untouched originals. Copy accurately distinguishes file size from dimensions and metadata removal from anonymisation. No purchases/subscriptions advertised.
+IMPROVE: current screenshot order is select, dark, resize, maximum size, results, comparison. Move dark mode last and add benefit-led headings around the actual UI. A static synthetic mountain example shows very high savings; explicitly label it an example and do not imply typical savings. New layouts do this.
+
+AI DECLARATIONS: Console review shows ON for icon and feature graphic, OFF for all six screenshots. Audit screenshot: ../../review/play-ai-labels-audit-2026-10-25.png. No declarations changed. A label is not sufficient evidence about how an asset was created; verify original provenance before correcting it. The proposed replacement feature graphic is built with SVG around a published screenshot. No image-generation service was used for this pack.
+
+SOURCE GAP: local repository/screenshots predate the published preset controls. This pack uses the six current public screenshots, archived with URLs and hashes. Their original capture environment was not independently verified. No installed release or Android file/share dialog was re-tested.

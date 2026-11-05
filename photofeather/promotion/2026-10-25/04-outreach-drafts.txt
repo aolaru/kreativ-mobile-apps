@@ -1,0 +1,29 @@
+UNSENT TEMPLATES — no recipients selected, verified, drafted in Gmail or contacted.
+
+Android utility editor
+Subject: For consideration: PhotoFeather, an on-device photo compressor
+
+Hello, I am Andrei from Made by Kreativ. I recently released PhotoFeather for Android. It prepares photos for forms and email with file-size targets, resize presets, measured results and comparisons. There are no ads, accounts or purchases. JPEG output is lossy and originals stay untouched. I have a screenshot walkthrough if this fits your utility-app coverage. No coverage or positive review is expected.
+
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather
+Privacy: https://madebykreativ.com/privacy/photofeather/
+
+====================
+
+Practical productivity newsletter
+Subject: A small Android tool for photos that exceed upload limits
+
+Hello, I developed PhotoFeather to help with a familiar problem: a form or email attachment limit. Choose a target such as 200 KB or 500 KB, inspect the measured result, then save a new JPEG copy. Processing happens on the device. If this fits your practical mobile tips, I can provide genuine app screenshots and a short tutorial.
+
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather
+Privacy: https://madebykreativ.com/privacy/photofeather/
+
+====================
+
+Offline-app editor
+Subject: PhotoFeather: photo resizing and compression on the device
+
+Hello, I publish Made by Kreativ. PhotoFeather is a newly released Android photo compressor with no account, advertising SDK, analytics SDK or internet permission according to its published release description. It encodes new JPEG copies, removes source metadata and keeps originals. Visible details remain, so this is not an anonymisation claim. I can share its public listing, privacy policy and screenshot walkthrough if relevant to your coverage.
+
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather
+Privacy: https://madebykreativ.com/privacy/photofeather/

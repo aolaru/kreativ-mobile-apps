@@ -1,0 +1,95 @@
+Supported devices
+Amazon Fire Tablets
+Amazon Fire TV
+Amazon Automotive
+Amazon Fire tablet
+Select all
+Deselect all
+Fire 7 (2019)
+KFMUWI
+Fire HD 10 (2019)
+KFMAWI
+Fire HD 8 (2018)
+KFKAWI
+Fire HD 8 (2020)
+KFONWI
+Fire HD 10 (2021)
+KFTRWI
+Fire HD 10 Plus (2021)
+KFTRPWI
+Fire HD 8 (2022)
+KFRAWI
+Fire HD 8 Plus (2022) / Fire HD 8 (2024)
+KFRAPWI
+Fire 7 (2022)
+KFQUWI
+Fire Max 11 (2023)
+KFSNWI
+Fire HD 10 (2023)
+KFTUWI
+Fire HD 8 (2024)
+KFRASWI
+Kindle Fire (2011)
+Kindle Fire
+Kindle Fire (2012)
+KFOT
+Kindle Fire HD (2012)
+KFTT
+Kindle Fire HD 8.9 (2012)
+KFJWI
+Kindle Fire HD 8.9 WAN (2012)
+KFJWA
+Kindle Fire HD (2013)
+KFSOWI
+Kindle Fire HDX WAN (2013)
+KFTHWA
+Kindle Fire HDX (2013)
+KFTHWI
+Kindle Fire HDX 8.9 WAN (2013)
+KFAPWA
+Kindle Fire HDX 8.9 (2013)
+KFAPWI
+Fire HD 6 (2014)
+KFARWI
+Fire HD 7 (2014)
+KFASWI
+Fire HDX 8.9 WAN (2014)
+KFSAWA
+Fire HDX 8.9 (2014)
+KFSAWI
+Fire HD 10 (2015)
+KFTBWI
+Fire HD 8 (2015)
+KFMEWI
+Fire (2015)
+KFFOWI
+Fire HD 8 (2016)
+KFGIWI
+Fire 7 (2017)
+KFAUWI
+Fire HD 10 (2017)
+KFSUWI
+Fire HD 8 (2017)
+KFDOWI
+Alexa Tablets and Amazon Kids Tablets
+Select all
+Deselect all
+Alexa Tablet 8, Amazon Kids Tablet 8
+ATROWI
+Alexa Tablet 8, Amazon Kids Tablet 8-U
+ATROUWI
+Alexa Tablet 12 Pro
+ATSPWI
+Alexa Tablet 12 Pro-U
+ATSPUWI
+Alexa Tablet 11, Amazon Kids Tablet 11
+ATTQWI
+Alexa Tablet 11, Amazon Kids Tablet 11-U
+ATTQUWI
+Amazon Fire phone
+Select all
+Deselect all
+Fire Phone
+SD4930UR
+Editing the pre-selected devices would impact the target countries and regions selected
+Save

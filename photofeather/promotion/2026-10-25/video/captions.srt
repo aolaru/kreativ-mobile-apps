@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:04,000
+Choose one photo or a batch.
+
+2
+00:00:04,000 --> 00:00:08,000
+Resize with presets or a custom longest edge.
+
+3
+00:00:08,000 --> 00:00:12,000
+Set a maximum file size, if needed.
+
+4
+00:00:12,000 --> 00:00:16,000
+Check actual sizes and dimensions. Savings vary.
+
+5
+00:00:16,000 --> 00:00:20,000
+Compare before saving a new JPEG copy.
+
+6
+00:00:20,000 --> 00:00:24,000
+Dark mode. No account, ads or purchases.

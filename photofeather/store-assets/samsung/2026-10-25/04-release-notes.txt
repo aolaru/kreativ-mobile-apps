@@ -1,0 +1,1 @@
+First Galaxy Store release. Compress and resize photos on-device, compare measured results, and save or share new JPEG copies. All features are free, with no ads or account.

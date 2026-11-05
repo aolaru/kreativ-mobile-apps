@@ -1,0 +1,868 @@
+Download functional logs
+
+--------- beginning of kernel
+10-26 12:42:30.153 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2025 us]
+10-26 12:42:30.154 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Router Advertisement
+10-26 12:42:30.177 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+--------- beginning of main
+10-26 12:42:30.280 26100 26100 W app_process: type=1400 audit(0.0:5964): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9204 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-26 12:42:30.280 26100 26100 W app_process: type=1400 audit(0.0:5965): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9204 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-26 12:42:30.280 26100 26100 I chatty : uid=2000(shell) app_process identical 1 line
+10-26 12:42:30.280 26100 26100 W app_process: type=1400 audit(0.0:5967): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9204 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-26 12:42:30.283 26100 26100 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-26 12:42:30.286 26100 26100 E libc : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-26 12:42:30.286 26100 26100 E libc : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-26 12:42:30.286 26100 26100 I AndroidRuntime: Using default boot image
+10-26 12:42:30.286 26100 26100 E libc : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-26 12:42:30.286 26100 26100 I AndroidRuntime: Leaving lock profiling enabled
+10-26 12:42:30.286 26100 26100 E libc : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-26 12:42:30.304 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1024ms> Tput: 29152(0.028mbps) [0:0:3732:42][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069679:126] lv:0 th:5 fg:0x9
+10-26 12:42:30.304 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993767,2041466,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:30.304 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[117][0][0][0]
+10-26 12:42:30.304 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069679, dup:0, error:1256456), PER(0), Congestion(idle slot:170267457, diff:126, AwakeDur:21)
+10-26 12:42:30.307 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3029 us]
+10-26 12:42:30.308 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287553 0] T[1230900 1230900 1230897 / 133160 133160 133160 133160] R[2041700 / 2019819] T_R[0 0 3 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:30.332 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:30.375 26100 26100 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-26 12:42:30.375 26100 26100 E app_process: Couldn't initialize ICU (udata_setCommonData): U_INVALID_FORMAT_ERROR (/apex/com.android.tzdata/etc/icu/icu_tzdata.dat)
+10-26 12:42:30.375 26100 26100 W app_process: TZ module override file /apex/com.android.tzdata/etc/icu/icu_tzdata.dat exists but could not be loaded. Skipping.
+10-26 12:42:30.375 26100 26100 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-26 12:42:30.383 26100 26100 I app_process: The ClassLoaderContext is a special shared library.
+10-26 12:42:30.385 26100 26107 I app_process: Bumping SignalCatcher priority from 5 to 10
+10-26 12:42:30.406 26100 26100 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-26 12:42:30.409 26100 26100 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-26 12:42:30.414 26100 26100 D AndroidRuntime: Shutting down VM
+10-26 12:42:30.437 1175 1175 D WifiHAL : enter wifi_get_link_stats id[0] iface[0x0xb400006fdd414580]
+10-26 12:42:30.437 1175 1175 I WifiHAL : Creating message to get link statistics; iface = 13
+10-26 12:42:30.437 1175 1175 D WifiHAL : WifiRequest::create vendor command to iface 13, vendor_id=0x1a11, subcmd=0x1200, res=0
+10-26 12:42:30.438 0 0 I [wlan][1201]wlanQueryMibInfo: (RSN INFO) MT6632 : wlanoidQueryMibInfo index = 0
+10-26 12:42:30.441 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3056 us]
+10-26 12:42:30.442 0 0 I [wlan][1201]nicEventMibInfo: (RSN INFO) EVENT_ID_MIB_INFO
+10-26 12:42:30.442 0 0 I [wlan][1201]nicCmdEventQueryMibInfo: (RSN INFO) MT6632 : nicCmdEventQueryMibInfo
+10-26 12:42:30.444 1175 1175 D WifiHAL : In GetLinkStatsCommand::handleResponse
+10-26 12:42:30.444 1175 1175 D WifiHAL : on_time: = 297721568
+10-26 12:42:30.444 1175 1175 D WifiHAL : tx_time: = 14358
+10-26 12:42:30.444 1175 1175 D WifiHAL : rx_time: = 1644027
+10-26 12:42:30.444 1175 1175 D WifiHAL : on_time_scan: = 24916
+10-26 12:42:30.444 1175 1175 D WifiHAL : beacon_rx: = 5720581
+10-26 12:42:30.444 1175 1175 D WifiHAL : rssi_mgmt: = -52
+10-26 12:42:30.444 1175 1175 D WifiHAL : received mpdu: = 2069721
+10-26 12:42:30.444 1175 1175 D WifiHAL : transmite mpdu: = 91077
+10-26 12:42:30.444 1175 1175 D WifiHAL : lost mpdu: = 5903
+10-26 12:42:30.444 1175 1175 D WifiHAL : retry mpdu: = 14574
+10-26 12:42:30.444 1175 1175 D WifiHAL : mId[0] mIface[0x0xb400006fdd414580]
+10-26 12:42:30.444 0 0 I [wlan][1201]nicUpdateLinkQuality: (RLM INFO) Rssi=-52, NewRssi=-52
+10-26 12:42:30.447 0 0 I [wlan][528]mtk_cfg80211_get_station: (REQ INFO) link speed=865, rssi=-52, BSSID:[f0:61:**:**:**:b0], TxFail=0, TxTimeOut=0, TxOK=133160, RxOK=2041466
+10-26 12:42:30.465 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:30.663 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2045 us]
+10-26 12:42:30.687 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:30.766 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1087 us]
+10-26 12:42:30.791 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:30.880 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:30.973 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3197 us]
+10-26 12:42:30.973 0 0 W statsParsePktInfo: 110 callbacks suppressed
+10-26 12:42:30.973 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Neighbor Advertisement
+10-26 12:42:30.973 0 0 I chatty : uid=0(root) logd identical 8 lines
+10-26 12:42:30.973 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Neighbor Advertisement
+10-26 12:42:30.997 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:31.073 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1088 us]
+10-26 12:42:31.098 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:31.328 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1024ms> Tput: 14840(0.014mbps) [0:0:1900:23][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069721:140] lv:0 th:5 fg:0x9
+10-26 12:42:31.328 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993801,2041489,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:31.328 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[117][0][0][0]
+10-26 12:42:31.329 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069721, dup:0, error:1256458), PER(0), Congestion(idle slot:170267742, diff:140, AwakeDur:6)
+10-26 12:42:31.332 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3189 us]
+10-26 12:42:31.332 0 0 W mtk_axi_interrupt: 31 callbacks suppressed
+10-26 12:42:31.332 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287571 0] T[1230906 1230906 1230903 / 133160 133160 133160 133160] R[2041723 / 2019830] T_R[0 0 3 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:31.357 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:31.380 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1104 us]
+10-26 12:42:31.381 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Router Advertisement
+10-26 12:42:31.405 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:31.904 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:31.994 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3206 us]
+10-26 12:42:32.018 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:32.096 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1097 us]
+10-26 12:42:32.121 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:32.248 0 0 I : gm30_ui_soc_show
+10-26 12:42:32.298 0 0 I diff : duration:[1-8] 692,3450923,462,1301154,39409231,1002076,3938000,49605769
+10-26 12:42:32.298 0 0 I : mt6370_pmu_charger mt6370_pmu_charger: mt6370_get_vbus: vbus = 5100mV
+10-26 12:42:32.302 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2132 us]
+10-26 12:42:32.326 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:32.352 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1024ms> Tput: 14576(0.014mbps) [0:0:1866:22][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069744:86] lv:0 th:5 fg:0x9
+10-26 12:42:32.352 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993830,2041511,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:32.352 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[117][0][0][0]
+10-26 12:42:32.352 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069744, dup:0, error:1256461), PER(0), Congestion(idle slot:170267828, diff:86, AwakeDur:25)
+10-26 12:42:32.356 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3209 us]
+10-26 12:42:32.356 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287582 0] T[1230909 1230909 1230906 / 133160 133160 133160 133160] R[2041745 / 2019837] T_R[0 0 3 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:32.381 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:32.609 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2136 us]
+10-26 12:42:32.633 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:32.813 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1098 us]
+10-26 12:42:32.838 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:32.928 0 0 W [HIF-SDIO][I]wmt_dev_tra_poll: **poll_during_time = 3104 > 3000, during_count = 1176 > 200, query
+10-26 12:42:32.928 0 0 I [STP-PSM] [I]_stp_psm_do_wait: STP is waiting state for ACT, i=1, state = 2
+10-26 12:42:32.952 0 0 I [STP-PSM] [I]_stp_psm_do_wait: +Total waits for ACT takes 23715 usec
+10-26 12:42:32.957 0 0 W [HIF-SDIO][I]wmt_dev_tm_temp_query: [Thermal] current_temp = 0x15
+10-26 12:42:32.957 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:33.088 0 0 I : liquid_routine_work enter
+10-26 12:42:33.121 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1093 us]
+10-26 12:42:33.121 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Router Advertisement
+10-26 12:42:33.136 0 0 I : No liquid detected.
+10-26 12:42:33.136 0 0 I liquid_routine_work: SBU show: Step1 result: SBU1:0 SBU2:0 Step2 result: SBU1:-1 SBU2:-1.
+10-26 12:42:33.145 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:33.376 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1024ms> Tput: 1608(0.001mbps) [0:0:206:3][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069766:348] lv:0 th:5 fg:0x9
+10-26 12:42:33.376 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993839,2041514,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:33.376 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[117][0][0][0]
+10-26 12:42:33.377 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069766, dup:0, error:1256464), PER(0), Congestion(idle slot:170268176, diff:348, AwakeDur:27)
+10-26 12:42:33.380 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3223 us]
+10-26 12:42:33.380 0 0 W mtk_axi_interrupt: 19 callbacks suppressed
+10-26 12:42:33.380 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287591 0] T[1230912 1230912 1230909 / 133160 133160 133160 133160] R[2041748 / 2019843] T_R[0 0 3 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:33.405 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:33.428 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1102 us]
+10-26 12:42:33.453 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:33.456 1175 1175 D WifiHAL : enter wifi_get_link_stats id[0] iface[0x0xb400006fdd414580]
+10-26 12:42:33.456 1175 1175 I WifiHAL : Creating message to get link statistics; iface = 13
+10-26 12:42:33.456 1175 1175 D WifiHAL : WifiRequest::create vendor command to iface 13, vendor_id=0x1a11, subcmd=0x1200, res=0
+10-26 12:42:33.457 0 0 I [wlan][1201]wlanQueryMibInfo: (RSN INFO) MT6632 : wlanoidQueryMibInfo index = 0
+10-26 12:42:33.460 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3193 us]
+10-26 12:42:33.462 0 0 I [wlan][1201]nicEventMibInfo: (RSN INFO) EVENT_ID_MIB_INFO
+10-26 12:42:33.462 0 0 I [wlan][1201]nicCmdEventQueryMibInfo: (RSN INFO) MT6632 : nicCmdEventQueryMibInfo
+10-26 12:42:33.466 1175 1175 D WifiHAL : In GetLinkStatsCommand::handleResponse
+10-26 12:42:33.466 1175 1175 D WifiHAL : on_time: = 297724588
+10-26 12:42:33.466 1175 1175 D WifiHAL : tx_time: = 14358
+10-26 12:42:33.466 1175 1175 D WifiHAL : rx_time: = 1644065
+10-26 12:42:33.466 1175 1175 D WifiHAL : on_time_scan: = 24916
+10-26 12:42:33.466 1175 1175 D WifiHAL : beacon_rx: = 5720659
+10-26 12:42:33.466 1175 1175 D WifiHAL : rssi_mgmt: = -52
+10-26 12:42:33.466 1175 1175 D WifiHAL : received mpdu: = 2069770
+10-26 12:42:33.466 1175 1175 D WifiHAL : transmite mpdu: = 91077
+10-26 12:42:33.466 1175 1175 D WifiHAL : lost mpdu: = 5903
+10-26 12:42:33.466 1175 1175 D WifiHAL : retry mpdu: = 14574
+10-26 12:42:33.466 1175 1175 D WifiHAL : mId[0] mIface[0x0xb400006fdd414580]
+10-26 12:42:33.466 0 0 I [wlan][1201]nicUpdateLinkQuality: (RLM INFO) Rssi=-52, NewRssi=-52
+10-26 12:42:33.471 0 0 I [wlan][528]mtk_cfg80211_get_station: (REQ INFO) link speed=865, rssi=-52, BSSID:[f0:61:**:**:**:b0], TxFail=0, TxTimeOut=0, TxOK=133160, RxOK=2041515
+10-26 12:42:33.485 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:33.838 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1097 us]
+10-26 12:42:33.862 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:33.984 26115 26115 W app_process: type=1400 audit(0.0:5968): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9204 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-26 12:42:33.984 26115 26115 W app_process: type=1400 audit(0.0:5969): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9204 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-26 12:42:33.984 26115 26115 I chatty : uid=2000(shell) app_process identical 1 line
+10-26 12:42:33.984 26115 26115 W app_process: type=1400 audit(0.0:5971): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9204 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-26 12:42:33.984 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:33.986 26115 26115 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-26 12:42:33.990 26115 26115 E libc : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-26 12:42:33.990 26115 26115 E libc : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-26 12:42:33.990 26115 26115 I AndroidRuntime: Using default boot image
+10-26 12:42:33.990 26115 26115 E libc : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-26 12:42:33.990 26115 26115 I AndroidRuntime: Leaving lock profiling enabled
+10-26 12:42:33.990 26115 26115 E libc : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-26 12:42:34.085 26115 26115 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-26 12:42:34.085 26115 26115 E app_process: Couldn't initialize ICU (udata_setCommonData): U_INVALID_FORMAT_ERROR (/apex/com.android.tzdata/etc/icu/icu_tzdata.dat)
+10-26 12:42:34.085 26115 26115 W app_process: TZ module override file /apex/com.android.tzdata/etc/icu/icu_tzdata.dat exists but could not be loaded. Skipping.
+10-26 12:42:34.085 26115 26115 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-26 12:42:34.095 26115 26115 I app_process: The ClassLoaderContext is a special shared library.
+10-26 12:42:34.097 26115 26122 I app_process: Bumping SignalCatcher priority from 5 to 10
+10-26 12:42:34.119 26115 26115 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-26 12:42:34.121 26115 26115 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-26 12:42:34.126 764 772 I libPowerHal: [perfLockAcq] idx:0 hdl:577 hint:0 pid:764 duration:500 => ret_hdl:577
+10-26 12:42:34.126 764 772 I libPowerHal: [PE] scn:0 hdl:577 hint:0 comm:mtkpower@1.0-se pid:764
+10-26 12:42:34.126 764 772 I libPowerHal: INTERACTION: sysfs_freq set cpu freq: 2000000 2000000 2050000 2050000
+10-26 12:42:34.126 764 772 I libPowerHal: [PE] INTERACTION update cmd:1000000 param:0
+10-26 12:42:34.127 764 772 I libPowerHal: [perfLockAcq] idx:1 hdl:578 hint:0 pid:764 duration:500 => ret_hdl:578
+10-26 12:42:34.127 764 772 I libPowerHal: [PE] scn:1 hdl:578 hint:0 comm:mtkpower@1.0-se pid:764
+--------- beginning of system
+10-26 12:42:34.128 891 1012 V DisplayPowerController: Brightness [1.0] reason changing to: 'manual', previous reason: 'manual [ dim ]'.
+10-26 12:42:34.132 26115 26115 D AndroidRuntime: Shutting down VM
+10-26 12:42:34.135 427 427 D android.hardware.lights-service.mediatek: write 15 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.135 555 581 D AAL : onBacklightChanged: 56/1023 -> 60/1023(phy:240/4095)
+10-26 12:42:34.135 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.136 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:293007.813,L:14 L:14 map:56 T:297737.460,L:15 L:15 map:60
+10-26 12:42:34.146 427 427 D android.hardware.lights-service.mediatek: write 17 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.149 555 581 D AAL : onBacklightChanged: 60/1023 -> 68/1023(phy:272/4095)
+10-26 12:42:34.149 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.163 427 427 D android.hardware.lights-service.mediatek: write 20 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.166 555 581 D AAL : onBacklightChanged: 68/1023 -> 80/1023(phy:320/4095)
+10-26 12:42:34.166 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.180 427 427 D android.hardware.lights-service.mediatek: write 23 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.183 555 581 D AAL : onBacklightChanged: 80/1023 -> 92/1023(phy:368/4095)
+10-26 12:42:34.183 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.197 427 427 D android.hardware.lights-service.mediatek: write 26 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.199 555 581 D AAL : onBacklightChanged: 92/1023 -> 104/1023(phy:416/4095)
+10-26 12:42:34.199 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.213 427 427 D android.hardware.lights-service.mediatek: write 29 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.214 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297737.472,L:17 L:17 map:68 T:297737.488,L:20 L:20 map:80 T:297737.505,L:23 L:23 map:92 T:297737.522,L:26 L:26 map:104 T:297737.539,L:29 L:29 map:116
+10-26 12:42:34.216 555 581 D AAL : onBacklightChanged: 104/1023 -> 116/1023(phy:464/4095)
+10-26 12:42:34.216 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.216 555 581 D AAL : 10-26 12:42:34.150 BL= 65,ESS= 256, 10-26 12:42:34.166 BL= 77,ESS= 256, 10-26 12:42:34.183 BL= 89,ESS= 256, 10-26 12:42:34.200 BL= 101,ESS= 256, 10-26 12:42:34.216 BL= 114,ESS= 256,
+10-26 12:42:34.230 427 427 D android.hardware.lights-service.mediatek: write 32 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.233 555 581 D AAL : onBacklightChanged: 116/1023 -> 128/1023(phy:512/4095)
+10-26 12:42:34.233 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.246 427 427 D android.hardware.lights-service.mediatek: write 35 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.249 555 581 D AAL : onBacklightChanged: 128/1023 -> 140/1023(phy:560/4095)
+10-26 12:42:34.249 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.263 427 427 D android.hardware.lights-service.mediatek: write 38 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.266 2108 2108 I F_C.DefaultPlaceholderD: Setting loading placeholder icon.
+10-26 12:42:34.266 555 581 D AAL : onBacklightChanged: 140/1023 -> 152/1023(phy:608/4095)
+10-26 12:42:34.266 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.280 427 427 D android.hardware.lights-service.mediatek: write 41 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.283 555 581 D AAL : onBacklightChanged: 152/1023 -> 164/1023(phy:656/4095)
+10-26 12:42:34.283 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.296 427 427 D android.hardware.lights-service.mediatek: write 44 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.297 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297737.555,L:32 L:32 map:128 T:297737.571,L:35 L:35 map:140 T:297737.589,L:38 L:38 map:152 T:297737.605,L:41 L:41 map:164 T:297737.621,L:44 L:44 map:177
+10-26 12:42:34.299 555 581 D AAL : onBacklightChanged: 164/1023 -> 177/1023(phy:708/4095)
+10-26 12:42:34.299 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.300 555 581 D AAL : 10-26 12:42:34.233 BL= 126,ESS= 256, 10-26 12:42:34.250 BL= 139,ESS= 256, 10-26 12:42:34.266 BL= 151,ESS= 256, 10-26 12:42:34.283 BL= 164,ESS= 256, 10-26 12:42:34.300 BL= 177,ESS= 256,
+10-26 12:42:34.313 427 427 D android.hardware.lights-service.mediatek: write 47 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.316 555 581 D AAL : onBacklightChanged: 177/1023 -> 189/1023(phy:756/4095)
+10-26 12:42:34.316 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.330 427 427 D android.hardware.lights-service.mediatek: write 50 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.333 555 581 D AAL : onBacklightChanged: 189/1023 -> 201/1023(phy:804/4095)
+10-26 12:42:34.333 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.346 427 427 D android.hardware.lights-service.mediatek: write 53 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.349 555 581 D AAL : onBacklightChanged: 201/1023 -> 213/1023(phy:852/4095)
+10-26 12:42:34.349 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.363 427 427 D android.hardware.lights-service.mediatek: write 56 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.366 555 581 D AAL : onBacklightChanged: 213/1023 -> 225/1023(phy:900/4095)
+10-26 12:42:34.366 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.380 427 427 D android.hardware.lights-service.mediatek: write 59 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.380 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297737.638,L:47 L:47 map:189 T:297737.655,L:50 L:50 map:201 T:297737.671,L:53 L:53 map:213 T:297737.688,L:56 L:56 map:225 T:297737.705,L:59 L:59 map:237
+10-26 12:42:34.383 555 581 D AAL : onBacklightChanged: 225/1023 -> 237/1023(phy:948/4095)
+10-26 12:42:34.383 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.383 555 581 D AAL : 10-26 12:42:34.316 BL= 188,ESS= 256, 10-26 12:42:34.333 BL= 200,ESS= 256, 10-26 12:42:34.350 BL= 213,ESS= 256, 10-26 12:42:34.366 BL= 224,ESS= 256, 10-26 12:42:34.383 BL= 236,ESS= 256,
+10-26 12:42:34.397 427 427 D android.hardware.lights-service.mediatek: write 62 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.399 555 581 D AAL : onBacklightChanged: 237/1023 -> 249/1023(phy:996/4095)
+10-26 12:42:34.399 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.400 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1024ms> Tput: 936(0.000mbps) [0:0:120:2][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069770:822] lv:0 th:5 fg:0x9
+10-26 12:42:34.400 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993851,2041516,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:34.400 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[117][0][0][0]
+10-26 12:42:34.400 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069770, dup:0, error:1256464), PER(0), Congestion(idle slot:170269055, diff:822, AwakeDur:10)
+10-26 12:42:34.403 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3109 us]
+10-26 12:42:34.403 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287608 0] T[1230919 1230919 1230916 / 133160 133160 133160 133160] R[2041750 / 2019853] T_R[0 0 3 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:34.413 427 427 D android.hardware.lights-service.mediatek: write 65 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.416 555 581 D AAL : onBacklightChanged: 249/1023 -> 261/1023(phy:1045/4095)
+10-26 12:42:34.416 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.427 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:34.430 427 427 D android.hardware.lights-service.mediatek: write 68 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.433 555 581 D AAL : onBacklightChanged: 261/1023 -> 273/1023(phy:1093/4095)
+10-26 12:42:34.433 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.433 410 490 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:0.333721,dur:5993.02,max:5916.33,min:76.69
+10-26 12:42:34.446 427 427 D android.hardware.lights-service.mediatek: write 71 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.449 555 581 D AAL : onBacklightChanged: 273/1023 -> 285/1023(phy:1141/4095)
+10-26 12:42:34.449 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.451 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2055 us]
+10-26 12:42:34.451 427 427 D android.hardware.lights-service.mediatek: write 72 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.452 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297737.722,L:62 L:62 map:249 T:297737.738,L:65 L:65 map:261 T:297737.755,L:68 L:68 map:273 T:297737.771,L:71 L:71 map:285 T:297737.777,L:72 L:72 map:289
+10-26 12:42:34.466 555 581 D AAL : onBacklightChanged: 285/1023 -> 289/1023(phy:1157/4095)
+10-26 12:42:34.466 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.466 555 581 D AAL : 10-26 12:42:34.400 BL= 249,ESS= 256, 10-26 12:42:34.416 BL= 261,ESS= 256, 10-26 12:42:34.433 BL= 273,ESS= 256, 10-26 12:42:34.450 BL= 285,ESS= 256, 10-26 12:42:34.466 BL= 289,ESS= 256,
+10-26 12:42:34.468 427 427 D android.hardware.lights-service.mediatek: write 75 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.475 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:34.483 555 581 D AAL : onBacklightChanged: 289/1023 -> 301/1023(phy:1205/4095)
+10-26 12:42:34.483 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.485 427 427 D android.hardware.lights-service.mediatek: write 78 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.499 555 581 D AAL : onBacklightChanged: 301/1023 -> 313/1023(phy:1253/4095)
+10-26 12:42:34.499 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.501 427 427 D android.hardware.lights-service.mediatek: write 81 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.516 555 581 D AAL : onBacklightChanged: 313/1023 -> 325/1023(phy:1301/4095)
+10-26 12:42:34.516 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.518 427 427 D android.hardware.lights-service.mediatek: write 84 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.533 555 581 D AAL : onBacklightChanged: 325/1023 -> 337/1023(phy:1349/4095)
+10-26 12:42:34.533 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.535 427 427 D android.hardware.lights-service.mediatek: write 87 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.535 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297737.793,L:75 L:75 map:301 T:297737.810,L:78 L:78 map:313 T:297737.827,L:81 L:81 map:325 T:297737.843,L:84 L:84 map:337 T:297737.860,L:87 L:87 map:349
+10-26 12:42:34.549 555 581 D AAL : onBacklightChanged: 337/1023 -> 349/1023(phy:1397/4095)
+10-26 12:42:34.549 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.550 555 581 D AAL : 10-26 12:42:34.483 BL= 301,ESS= 256, 10-26 12:42:34.500 BL= 313,ESS= 256, 10-26 12:42:34.516 BL= 325,ESS= 256, 10-26 12:42:34.533 BL= 336,ESS= 256, 10-26 12:42:34.550 BL= 349,ESS= 256,
+10-26 12:42:34.552 427 427 D android.hardware.lights-service.mediatek: write 90 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.566 555 581 D AAL : onBacklightChanged: 349/1023 -> 361/1023(phy:1445/4095)
+10-26 12:42:34.566 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.568 427 427 D android.hardware.lights-service.mediatek: write 93 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.583 555 581 D AAL : onBacklightChanged: 361/1023 -> 373/1023(phy:1493/4095)
+10-26 12:42:34.583 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.585 427 427 D android.hardware.lights-service.mediatek: write 96 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.599 555 581 D AAL : onBacklightChanged: 373/1023 -> 385/1023(phy:1541/4095)
+10-26 12:42:34.599 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.601 427 427 D android.hardware.lights-service.mediatek: write 99 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.616 555 581 D AAL : onBacklightChanged: 385/1023 -> 397/1023(phy:1589/4095)
+10-26 12:42:34.616 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.618 427 427 D android.hardware.lights-service.mediatek: write 102 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.619 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297737.877,L:90 L:90 map:361 T:297737.894,L:93 L:93 map:373 T:297737.910,L:96 L:96 map:385 T:297737.927,L:99 L:99 map:397 T:297737.943,L:102 L:102 map:409
+10-26 12:42:34.628 764 772 I mtkpower@impl: [powerd_req] TIMER_MSG_PERF_LOCK_TIMEOUT hdl:577
+10-26 12:42:34.628 764 772 I libPowerHal: [perfLockRel] hdl:577, idx:0
+10-26 12:42:34.628 764 772 I libPowerHal: [PD] scn:0 hdl:577 hint:0 comm:mtkpower@1.0-se pid:764
+10-26 12:42:34.628 764 772 I mtkpower@impl: [powerd_req] TIMER_MSG_PERF_LOCK_TIMEOUT hdl:578
+10-26 12:42:34.628 764 772 I libPowerHal: [perfLockRel] hdl:578, idx:1
+10-26 12:42:34.628 764 772 I libPowerHal: [PD] scn:1 hdl:578 hint:0 comm:mtkpower@1.0-se pid:764
+10-26 12:42:34.628 764 772 I libPowerHal: INTERACTION: sysfs_freq set cpu freq: 500000 2000000 774000 2050000
+10-26 12:42:34.628 764 772 I libPowerHal: [PD] INTERACTION update cmd:1000000 param:-1
+10-26 12:42:34.629 0 0 I DVFSRC : ddr opp = 1, val = 5
+10-26 12:42:34.633 555 581 D AAL : onBacklightChanged: 397/1023 -> 409/1023(phy:1637/4095)
+10-26 12:42:34.633 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.633 555 581 D AAL : 10-26 12:42:34.566 BL= 361,ESS= 256, 10-26 12:42:34.583 BL= 372,ESS= 256, 10-26 12:42:34.600 BL= 385,ESS= 256, 10-26 12:42:34.616 BL= 397,ESS= 256, 10-26 12:42:34.633 BL= 408,ESS= 256,
+10-26 12:42:34.636 427 427 D android.hardware.lights-service.mediatek: write 105 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.649 555 581 D AAL : onBacklightChanged: 409/1023 -> 421/1023(phy:1685/4095)
+10-26 12:42:34.650 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.652 427 427 D android.hardware.lights-service.mediatek: write 108 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.666 555 581 D AAL : onBacklightChanged: 421/1023 -> 433/1023(phy:1733/4095)
+10-26 12:42:34.666 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.669 427 427 D android.hardware.lights-service.mediatek: write 111 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.683 555 581 D AAL : onBacklightChanged: 433/1023 -> 445/1023(phy:1781/4095)
+10-26 12:42:34.683 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.686 427 427 D android.hardware.lights-service.mediatek: write 114 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.699 555 581 D AAL : onBacklightChanged: 445/1023 -> 457/1023(phy:1829/4095)
+10-26 12:42:34.699 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.702 427 427 D android.hardware.lights-service.mediatek: write 117 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.703 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297737.961,L:105 L:105 map:421 T:297737.978,L:108 L:108 map:433 T:297737.994,L:111 L:111 map:445 T:297738.11,L:114 L:114 map:457 T:297738.28,L:117 L:117 map:469
+10-26 12:42:34.716 555 581 D AAL : onBacklightChanged: 457/1023 -> 469/1023(phy:1877/4095)
+10-26 12:42:34.716 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.717 555 581 D AAL : 10-26 12:42:34.650 BL= 420,ESS= 256, 10-26 12:42:34.667 BL= 433,ESS= 256, 10-26 12:42:34.683 BL= 445,ESS= 256, 10-26 12:42:34.700 BL= 457,ESS= 256, 10-26 12:42:34.717 BL= 469,ESS= 256,
+10-26 12:42:34.719 427 427 D android.hardware.lights-service.mediatek: write 120 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.733 555 581 D AAL : onBacklightChanged: 469/1023 -> 481/1023(phy:1925/4095)
+10-26 12:42:34.733 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.736 427 427 D android.hardware.lights-service.mediatek: write 123 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.749 555 581 D AAL : onBacklightChanged: 481/1023 -> 493/1023(phy:1973/4095)
+10-26 12:42:34.749 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.753 427 427 D android.hardware.lights-service.mediatek: write 126 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.759 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1086 us]
+10-26 12:42:34.766 555 581 D AAL : onBacklightChanged: 493/1023 -> 505/1023(phy:2021/4095)
+10-26 12:42:34.766 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.769 427 427 D android.hardware.lights-service.mediatek: write 129 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.783 555 581 D AAL : onBacklightChanged: 505/1023 -> 518/1023(phy:2074/4095)
+10-26 12:42:34.783 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.784 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:34.786 427 427 D android.hardware.lights-service.mediatek: write 132 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.787 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297738.44,L:120 L:120 map:481 T:297738.61,L:123 L:123 map:493 T:297738.78,L:126 L:126 map:505 T:297738.94,L:129 L:129 map:518 T:297738.111,L:132 L:132 map:530
+10-26 12:42:34.799 555 581 D AAL : onBacklightChanged: 518/1023 -> 530/1023(phy:2122/4095)
+10-26 12:42:34.800 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.800 555 581 D AAL : 10-26 12:42:34.733 BL= 480,ESS= 256, 10-26 12:42:34.750 BL= 493,ESS= 256, 10-26 12:42:34.767 BL= 505,ESS= 256, 10-26 12:42:34.783 BL= 518,ESS= 256, 10-26 12:42:34.800 BL= 530,ESS= 256,
+10-26 12:42:34.803 427 427 D android.hardware.lights-service.mediatek: write 135 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.816 555 581 D AAL : onBacklightChanged: 530/1023 -> 542/1023(phy:2170/4095)
+10-26 12:42:34.816 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.819 427 427 D android.hardware.lights-service.mediatek: write 138 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.833 555 581 D AAL : onBacklightChanged: 542/1023 -> 554/1023(phy:2218/4095)
+10-26 12:42:34.833 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.836 427 427 D android.hardware.lights-service.mediatek: write 141 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.849 555 581 D AAL : onBacklightChanged: 554/1023 -> 566/1023(phy:2266/4095)
+10-26 12:42:34.850 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.852 427 427 D android.hardware.lights-service.mediatek: write 144 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.866 555 581 D AAL : onBacklightChanged: 566/1023 -> 578/1023(phy:2314/4095)
+10-26 12:42:34.866 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.869 427 427 D android.hardware.lights-service.mediatek: write 147 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.870 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297738.128,L:135 L:135 map:542 T:297738.145,L:138 L:138 map:554 T:297738.161,L:141 L:141 map:566 T:297738.177,L:144 L:144 map:578 T:297738.194,L:147 L:147 map:590
+10-26 12:42:34.883 555 581 D AAL : onBacklightChanged: 578/1023 -> 590/1023(phy:2362/4095)
+10-26 12:42:34.883 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.883 555 581 D AAL : 10-26 12:42:34.817 BL= 542,ESS= 256, 10-26 12:42:34.833 BL= 554,ESS= 256, 10-26 12:42:34.850 BL= 566,ESS= 256, 10-26 12:42:34.867 BL= 578,ESS= 256, 10-26 12:42:34.883 BL= 590,ESS= 256,
+10-26 12:42:34.886 427 427 D android.hardware.lights-service.mediatek: write 150 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.897 7487 7487 I com.amazon.redstone/ClientSideAmazonPlatformDependencyImpl: isAmazonDevice() in ClientSideAmazonPlatformDependencyImpl is called
+10-26 12:42:34.899 555 581 D AAL : onBacklightChanged: 590/1023 -> 602/1023(phy:2410/4095)
+10-26 12:42:34.899 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.900 1582 26131 I com.amazon.imp/TokenJobQueue[0]: Begin executing task GetToken:com.amazon.dcp.sso.token.oauth.amazon.access_token
+10-26 12:42:34.900 1582 26131 I com.amazon.imp/TokenJobQueue[0]: Scheduled running concurrent job GetToken:com.amazon.dcp.sso.token.oauth.amazon.access_token.
+10-26 12:42:34.900 1582 26132 I com.amazon.imp/TokenJobQueue[0]: Finish executing task GetToken:com.amazon.dcp.sso.token.oauth.amazon.access_token.
+10-26 12:42:34.902 1757 1775 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:34.902 427 427 D android.hardware.lights-service.mediatek: write 153 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.902 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='ersmqpys', schemaId='tft5/2/02330410', sampleRate=null}
+10-26 12:42:34.902 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:34.916 555 581 D AAL : onBacklightChanged: 602/1023 -> 614/1023(phy:2458/4095)
+10-26 12:42:34.916 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.919 427 427 D android.hardware.lights-service.mediatek: write 155 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.933 555 581 D AAL : onBacklightChanged: 614/1023 -> 622/1023(phy:2490/4095)
+10-26 12:42:34.933 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.936 427 427 D android.hardware.lights-service.mediatek: write 158 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.949 555 581 D AAL : onBacklightChanged: 622/1023 -> 634/1023(phy:2538/4095)
+10-26 12:42:34.949 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.952 427 427 D android.hardware.lights-service.mediatek: write 161 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.953 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297738.211,L:150 L:150 map:602 T:297738.227,L:153 L:153 map:614 T:297738.244,L:155 L:155 map:622 T:297738.261,L:158 L:158 map:634 T:297738.277,L:161 L:161 map:646
+10-26 12:42:34.966 555 581 D AAL : onBacklightChanged: 634/1023 -> 646/1023(phy:2586/4095)
+10-26 12:42:34.966 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.967 555 581 D AAL : 10-26 12:42:34.900 BL= 602,ESS= 256, 10-26 12:42:34.916 BL= 614,ESS= 256, 10-26 12:42:34.933 BL= 622,ESS= 256, 10-26 12:42:34.950 BL= 634,ESS= 256, 10-26 12:42:34.967 BL= 646,ESS= 256,
+10-26 12:42:34.969 427 427 D android.hardware.lights-service.mediatek: write 164 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.983 555 581 D AAL : onBacklightChanged: 646/1023 -> 658/1023(phy:2634/4095)
+10-26 12:42:34.983 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:34.985 427 427 D android.hardware.lights-service.mediatek: write 167 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:34.999 555 581 D AAL : onBacklightChanged: 658/1023 -> 670/1023(phy:2682/4095)
+10-26 12:42:35.000 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.002 427 427 D android.hardware.lights-service.mediatek: write 170 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.008 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:35.016 555 581 D AAL : onBacklightChanged: 670/1023 -> 682/1023(phy:2730/4095)
+10-26 12:42:35.016 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.019 427 427 D android.hardware.lights-service.mediatek: write 173 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.033 555 581 D AAL : onBacklightChanged: 682/1023 -> 694/1023(phy:2778/4095)
+10-26 12:42:35.033 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.036 427 427 D android.hardware.lights-service.mediatek: write 176 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.037 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297738.294,L:164 L:164 map:658 T:297738.310,L:167 L:167 map:670 T:297738.327,L:170 L:170 map:682 T:297738.344,L:173 L:173 map:694 T:297738.361,L:176 L:176 map:706
+10-26 12:42:35.049 555 581 D AAL : onBacklightChanged: 694/1023 -> 706/1023(phy:2826/4095)
+10-26 12:42:35.050 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.050 555 581 D AAL : 10-26 12:42:34.983 BL= 658,ESS= 256, 10-26 12:42:35.000 BL= 669,ESS= 256, 10-26 12:42:35.017 BL= 682,ESS= 256, 10-26 12:42:35.033 BL= 694,ESS= 256, 10-26 12:42:35.050 BL= 706,ESS= 256,
+10-26 12:42:35.053 427 427 D android.hardware.lights-service.mediatek: write 179 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.065 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1111 us]
+10-26 12:42:35.066 555 581 D AAL : onBacklightChanged: 706/1023 -> 718/1023(phy:2874/4095)
+10-26 12:42:35.066 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.069 427 427 D android.hardware.lights-service.mediatek: write 182 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.083 555 581 D AAL : onBacklightChanged: 718/1023 -> 730/1023(phy:2922/4095)
+10-26 12:42:35.083 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.085 427 427 D android.hardware.lights-service.mediatek: write 185 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.089 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:35.099 555 581 D AAL : onBacklightChanged: 730/1023 -> 742/1023(phy:2970/4095)
+10-26 12:42:35.100 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.102 427 427 D android.hardware.lights-service.mediatek: write 188 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.116 555 581 D AAL : onBacklightChanged: 742/1023 -> 754/1023(phy:3018/4095)
+10-26 12:42:35.116 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.119 427 427 D android.hardware.lights-service.mediatek: write 191 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.119 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297738.378,L:179 L:179 map:718 T:297738.394,L:182 L:182 map:730 T:297738.410,L:185 L:185 map:742 T:297738.427,L:188 L:188 map:754 T:297738.444,L:191 L:191 map:766
+10-26 12:42:35.133 555 581 D AAL : onBacklightChanged: 754/1023 -> 766/1023(phy:3066/4095)
+10-26 12:42:35.133 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.133 555 581 D AAL : 10-26 12:42:35.067 BL= 718,ESS= 256, 10-26 12:42:35.083 BL= 730,ESS= 256, 10-26 12:42:35.100 BL= 742,ESS= 256, 10-26 12:42:35.117 BL= 754,ESS= 256, 10-26 12:42:35.133 BL= 766,ESS= 256,
+10-26 12:42:35.136 427 427 D android.hardware.lights-service.mediatek: write 194 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.149 555 581 D AAL : onBacklightChanged: 766/1023 -> 778/1023(phy:3115/4095)
+10-26 12:42:35.149 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.153 427 427 D android.hardware.lights-service.mediatek: write 197 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.166 555 581 D AAL : onBacklightChanged: 778/1023 -> 790/1023(phy:3163/4095)
+10-26 12:42:35.166 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.169 427 427 D android.hardware.lights-service.mediatek: write 200 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.183 555 581 D AAL : onBacklightChanged: 790/1023 -> 802/1023(phy:3211/4095)
+10-26 12:42:35.183 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.186 427 427 D android.hardware.lights-service.mediatek: write 203 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.199 555 581 D AAL : onBacklightChanged: 802/1023 -> 814/1023(phy:3259/4095)
+10-26 12:42:35.200 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.202 427 427 D android.hardware.lights-service.mediatek: write 206 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.203 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297738.461,L:194 L:194 map:778 T:297738.478,L:197 L:197 map:790 T:297738.494,L:200 L:200 map:802 T:297738.511,L:203 L:203 map:814 T:297738.528,L:206 L:206 map:826
+10-26 12:42:35.216 555 581 D AAL : onBacklightChanged: 814/1023 -> 826/1023(phy:3307/4095)
+10-26 12:42:35.216 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.217 555 581 D AAL : 10-26 12:42:35.150 BL= 778,ESS= 256, 10-26 12:42:35.167 BL= 790,ESS= 256, 10-26 12:42:35.183 BL= 802,ESS= 256, 10-26 12:42:35.200 BL= 814,ESS= 256, 10-26 12:42:35.217 BL= 826,ESS= 256,
+10-26 12:42:35.219 427 427 D android.hardware.lights-service.mediatek: write 209 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.233 555 581 D AAL : onBacklightChanged: 826/1023 -> 838/1023(phy:3355/4095)
+10-26 12:42:35.233 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.236 427 427 D android.hardware.lights-service.mediatek: write 212 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.249 555 581 D AAL : onBacklightChanged: 838/1023 -> 850/1023(phy:3403/4095)
+10-26 12:42:35.249 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.253 427 427 D android.hardware.lights-service.mediatek: write 215 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.266 555 581 D AAL : onBacklightChanged: 850/1023 -> 863/1023(phy:3455/4095)
+10-26 12:42:35.266 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.269 427 427 D android.hardware.lights-service.mediatek: write 218 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.271 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2059 us]
+10-26 12:42:35.271 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Router Advertisement
+10-26 12:42:35.283 555 581 D AAL : onBacklightChanged: 863/1023 -> 875/1023(phy:3503/4095)
+10-26 12:42:35.283 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.286 427 427 D android.hardware.lights-service.mediatek: write 221 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.286 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297738.544,L:209 L:209 map:838 T:297738.561,L:212 L:212 map:850 T:297738.578,L:215 L:215 map:863 T:297738.594,L:218 L:218 map:875 T:297738.611,L:221 L:221 map:887
+10-26 12:42:35.295 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:35.299 555 581 D AAL : onBacklightChanged: 875/1023 -> 887/1023(phy:3551/4095)
+10-26 12:42:35.300 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.300 555 581 D AAL : 10-26 12:42:35.233 BL= 838,ESS= 256, 10-26 12:42:35.250 BL= 850,ESS= 256, 10-26 12:42:35.267 BL= 863,ESS= 256, 10-26 12:42:35.283 BL= 875,ESS= 256, 10-26 12:42:35.300 BL= 887,ESS= 256,
+10-26 12:42:35.302 427 427 D android.hardware.lights-service.mediatek: write 224 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.316 555 581 D AAL : onBacklightChanged: 887/1023 -> 899/1023(phy:3599/4095)
+10-26 12:42:35.316 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.319 427 427 D android.hardware.lights-service.mediatek: write 227 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.333 555 581 D AAL : onBacklightChanged: 899/1023 -> 911/1023(phy:3647/4095)
+10-26 12:42:35.333 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.336 427 427 D android.hardware.lights-service.mediatek: write 230 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.349 555 581 D AAL : onBacklightChanged: 911/1023 -> 923/1023(phy:3695/4095)
+10-26 12:42:35.349 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.352 427 427 D android.hardware.lights-service.mediatek: write 233 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.366 555 581 D AAL : onBacklightChanged: 923/1023 -> 935/1023(phy:3743/4095)
+10-26 12:42:35.366 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.369 427 427 D android.hardware.lights-service.mediatek: write 236 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.370 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297738.627,L:224 L:224 map:899 T:297738.644,L:227 L:227 map:911 T:297738.661,L:230 L:230 map:923 T:297738.678,L:233 L:233 map:935 T:297738.694,L:236 L:236 map:947
+10-26 12:42:35.383 555 581 D AAL : onBacklightChanged: 935/1023 -> 947/1023(phy:3791/4095)
+10-26 12:42:35.383 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.383 555 581 D AAL : 10-26 12:42:35.317 BL= 899,ESS= 256, 10-26 12:42:35.333 BL= 911,ESS= 256, 10-26 12:42:35.350 BL= 923,ESS= 256, 10-26 12:42:35.367 BL= 935,ESS= 256, 10-26 12:42:35.383 BL= 947,ESS= 256,
+10-26 12:42:35.386 427 427 D android.hardware.lights-service.mediatek: write 239 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.399 555 581 D AAL : onBacklightChanged: 947/1023 -> 959/1023(phy:3839/4095)
+10-26 12:42:35.400 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.403 427 427 D android.hardware.lights-service.mediatek: write 242 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.416 555 581 D AAL : onBacklightChanged: 959/1023 -> 971/1023(phy:3887/4095)
+10-26 12:42:35.416 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.419 427 427 D android.hardware.lights-service.mediatek: write 245 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.428 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1028ms> Tput: 2064(0.002mbps) [0:0:266:4][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069771:193] lv:0 th:5 fg:0x9
+10-26 12:42:35.428 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993862,2041520,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:35.428 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[118][0][0][0]
+10-26 12:42:35.428 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069771, dup:0, error:1256464), PER(0), Congestion(idle slot:170269248, diff:193, AwakeDur:13)
+10-26 12:42:35.432 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3193 us]
+10-26 12:42:35.432 0 0 W mtk_axi_interrupt: 28 callbacks suppressed
+10-26 12:42:35.432 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287620 0] T[1230922 1230922 1230919 / 133160 133160 133160 133160] R[2041754 / 2019860] T_R[0 0 3 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:35.433 555 581 D AAL : onBacklightChanged: 971/1023 -> 983/1023(phy:3935/4095)
+10-26 12:42:35.433 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.436 427 427 D android.hardware.lights-service.mediatek: write 248 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.449 555 581 D AAL : onBacklightChanged: 983/1023 -> 995/1023(phy:3983/4095)
+10-26 12:42:35.449 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.453 427 427 D android.hardware.lights-service.mediatek: write 251 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.453 0 0 I leds_mtk_pwm led_debug_log(150): [Light] Set lcd-backlight directlyT:297738.711,L:239 L:239 map:959 T:297738.728,L:242 L:242 map:971 T:297738.744,L:245 L:245 map:983 T:297738.761,L:248 L:248 map:995 T:297738.778,L:251 L:251 map:1007
+10-26 12:42:35.456 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:35.466 555 581 D AAL : onBacklightChanged: 995/1023 -> 1007/1023(phy:4031/4095)
+10-26 12:42:35.466 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.467 555 581 D AAL : 10-26 12:42:35.400 BL= 959,ESS= 256, 10-26 12:42:35.417 BL= 971,ESS= 256, 10-26 12:42:35.433 BL= 983,ESS= 256, 10-26 12:42:35.450 BL= 995,ESS= 256, 10-26 12:42:35.467 BL=1007,ESS= 256,
+10-26 12:42:35.469 427 427 D android.hardware.lights-service.mediatek: write 254 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.483 555 581 D AAL : onBacklightChanged: 1007/1023 -> 1019/1023(phy:4079/4095)
+10-26 12:42:35.483 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.486 427 427 D android.hardware.lights-service.mediatek: write 255 to /sys/class/leds/lcd-backlight/brightness, result: 0
+10-26 12:42:35.492 0 0 I mtk_charger_alarm_timer_func: not suspend, wake up charger
+10-26 12:42:35.494 0 0 I get_battery_temperature: 20
+10-26 12:42:35.495 0 0 I get_battery_voltage: 4126
+10-26 12:42:35.499 555 581 D AAL : onBacklightChanged: 1019/1023 -> 1023/1023(phy:4095/4095)
+10-26 12:42:35.499 555 581 D AAL : LABC: LABC after setTarget isSmoothBacklight=1
+10-26 12:42:35.516 555 581 D AAL : 10-26 12:42:35.483 BL=1019,ESS= 256, 10-26 12:42:35.500 BL=1023,ESS= 256,
+10-26 12:42:35.546 0 0 I diff : duration:[1-8] 769,3274923,1077,1176616,41082461,1002231,3872077,50912385
+10-26 12:42:35.546 0 0 I : mt6370_pmu_charger mt6370_pmu_charger: mt6370_get_vbus: vbus = 5000mV
+10-26 12:42:35.554 0 0 I : gm30_bat_cycle_show
+10-26 12:42:35.555 568 568 E integrity_module: --- integrity_module file read error ---
+10-26 12:42:35.555 410 662 I hwcomposer: [DPY] receive refesh frquest from driver: type[4]
+10-26 12:42:35.555 410 662 I hwcomposer: [HWC] fire a callback of refresh to SF
+10-26 12:42:35.581 410 490 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:0.871163,dur:1147.89,max:1147.89,min:1147.89
+10-26 12:42:35.594 0 0 I diff : duration:[1-8] 385,3031923,643154,1098769,37513307,1002231,4116462,47958615
+10-26 12:42:35.594 0 0 I : mt6370_pmu_charger mt6370_pmu_charger: mt6370_get_ibus: ibus = 400mA
+10-26 12:42:35.595 0 0 I get_battery_current: -221
+10-26 12:42:35.595 0 0 I get_uisoc: 99
+10-26 12:42:35.595 0 0 I : mt6370_pmu_charger mt6370_pmu_charger: mt6370_charger_get_online: online = 1
+10-26 12:42:35.595 0 0 I get_charger_type online: 1 type:4 usb_type:1
+10-26 12:42:35.595 0 0 I Vbat=4126 vbus: 5000 ibus:400 I=-221 T=20 uisoc:99 type:usb>usb pd:0
+10-26 12:42:35.595 0 0 I : mt6370_pmu_charger mt6370_pmu_charger: mt6370_charger_get_online: online = 1
+10-26 12:42:35.595 0 0 I get_charger_type online: 1 type:4 usb_type:1
+10-26 12:42:35.595 0 0 I mtk_charger_start_timer: alarm timer start:0, 297748 919457975
+10-26 12:42:35.595 0 0 I is_battery_exist: 1
+10-26 12:42:35.595 0 0 I chatty : uid=0(root) logd identical 1 line
+10-26 12:42:35.595 0 0 I is_battery_exist: 1
+10-26 12:42:35.595 0 0 I : mt6370_pmu_charger mt6370_pmu_charger: mt6370_charger_get_online: online = 1
+10-26 12:42:35.595 0 0 I get_charger_type online: 1 type:4 usb_type:1
+10-26 12:42:35.596 0 0 I get_bcm_flag: Charging is stopped by BCM:<charge_timer>
+10-26 12:42:35.642 0 0 I diff : duration:[1-8] 38261461,3036693,1000,930077,38268461,1001616,4147846,86184769
+10-26 12:42:35.642 0 0 I : mt6370_pmu_charger mt6370_pmu_charger: mt6370_get_vbus: vbus = 5000mV
+10-26 12:42:35.642 0 0 I ADC_Charger_Voltage_show: 5000
+10-26 12:42:35.643 0 0 I chr_type_show: 4
+10-26 12:42:35.647 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:35.690 0 0 I diff : duration:[1-8] 46882615,3413077,1154,1226000,37771000,1002000,3673000,94456923
+10-26 12:42:35.690 0 0 I : mt6370_pmu_charger mt6370_pmu_charger: mt6370_get_vbus: vbus = 5000mV
+10-26 12:42:35.690 0 0 I [charger_check_status] tmp: 20 (jeita:1 sm:2 cv:4200000 en:1) (sm:1) en:0 c:0 s:0 b:1 ov:0 e:0 0 i:0 0 0
+10-26 12:42:35.694 0 0 I : mt6370_pmu_charger mt6370_pmu_charger: __mt6370_set_cv: bat voreg = 4200000 (0x1E)
+10-26 12:42:35.702 0 0 I get_uisoc: 99
+10-26 12:42:35.702 0 0 I battery_psy_set_property: prop:73 500
+10-26 12:42:35.702 0 0 I set_battery_difference_full_cv: 0
+10-26 12:42:35.702 0 0 I get_uisoc: 99
+10-26 12:42:35.702 0 0 I battery_protect_algo: en[0] SOC[99,99,96] cv[4200 4200] disconnect_duration[0]
+10-26 12:42:35.702 0 0 I get_uisoc: 99
+10-26 12:42:35.703 0 0 I battery_full_track: 0,99,0
+10-26 12:42:35.704 0 0 I check_dpm_eoc_state: en 0,soc_exit 0,cv_enter 0,count 0
+10-26 12:42:35.707 0 0 I get_battery_voltage: 4123
+10-26 12:42:35.707 0 0 I get_battery_current: -189
+10-26 12:42:35.710 0 0 I check_dpm_eoc_state: cv 4200,bcv 4400,vbat 4123,ibat -189,icl 500,ccl 500,soc 99,vdpm 0,idpm 1,chg 0,done 0
+10-26 12:42:35.710 0 0 I check_dpm_eoc_state: No valid dpm state detect, reset dpm
+10-26 12:42:35.710 0 0 I : disable charging 0 1 0
+10-26 12:42:35.710 0 0 I : charger_routine_thread end , 0
+10-26 12:42:35.904 0 0 I : [Hang_Detect] hang_detect thread counts down 2147483647:2147483647, status 0.
+10-26 12:42:36.032 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:36.193 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3192 us]
+10-26 12:42:36.194 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Router Advertisement
+10-26 12:42:36.194 0 0 W statsParsePktInfo: 30 callbacks suppressed
+10-26 12:42:36.194 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Neighbor Advertisement
+10-26 12:42:36.194 0 0 I chatty : uid=0(root) logd identical 8 lines
+10-26 12:42:36.194 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Neighbor Advertisement
+10-26 12:42:36.217 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:36.296 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1093 us]
+10-26 12:42:36.320 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:36.448 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1020ms> Tput: 14424(0.014mbps) [0:0:1840:20][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069775:136] lv:0 th:5 fg:0x9
+10-26 12:42:36.449 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993887,2041540,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:36.449 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[118][0][0][0]
+10-26 12:42:36.449 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069775, dup:0, error:1256465), PER(0), Congestion(idle slot:170269384, diff:136, AwakeDur:22)
+10-26 12:42:36.452 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3202 us]
+10-26 12:42:36.452 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287627 0] T[1230925 1230925 1230922 / 133160 133160 133160 133160] R[2041774 / 2019865] T_R[0 0 3 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:36.477 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:36.485 1175 1175 D WifiHAL : enter wifi_get_link_stats id[0] iface[0x0xb400006fdd414580]
+10-26 12:42:36.486 1175 1175 I WifiHAL : Creating message to get link statistics; iface = 13
+10-26 12:42:36.486 1175 1175 D WifiHAL : WifiRequest::create vendor command to iface 13, vendor_id=0x1a11, subcmd=0x1200, res=0
+10-26 12:42:36.487 0 0 I [wlan][1201]wlanQueryMibInfo: (RSN INFO) MT6632 : wlanoidQueryMibInfo index = 0
+10-26 12:42:36.489 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2145 us]
+10-26 12:42:36.490 0 0 I [wlan][1201]nicEventMibInfo: (RSN INFO) EVENT_ID_MIB_INFO
+10-26 12:42:36.490 0 0 I [wlan][1201]nicCmdEventQueryMibInfo: (RSN INFO) MT6632 : nicCmdEventQueryMibInfo
+10-26 12:42:36.492 1175 1175 D WifiHAL : In GetLinkStatsCommand::handleResponse
+10-26 12:42:36.492 1175 1175 D WifiHAL : on_time: = 297727616
+10-26 12:42:36.492 1175 1175 D WifiHAL : tx_time: = 14358
+10-26 12:42:36.492 1175 1175 D WifiHAL : rx_time: = 1644089
+10-26 12:42:36.492 1175 1175 D WifiHAL : on_time_scan: = 24916
+10-26 12:42:36.492 1175 1175 D WifiHAL : beacon_rx: = 5720716
+10-26 12:42:36.492 1175 1175 D WifiHAL : rssi_mgmt: = -52
+10-26 12:42:36.492 1175 1175 D WifiHAL : received mpdu: = 2069795
+10-26 12:42:36.492 1175 1175 D WifiHAL : transmite mpdu: = 91077
+10-26 12:42:36.492 1175 1175 D WifiHAL : lost mpdu: = 5903
+10-26 12:42:36.492 1175 1175 D WifiHAL : retry mpdu: = 14574
+10-26 12:42:36.492 1175 1175 D WifiHAL : mId[0] mIface[0x0xb400006fdd414580]
+10-26 12:42:36.493 0 0 I [wlan][1201]nicUpdateLinkQuality: (RLM INFO) Rssi=-52, NewRssi=-52
+10-26 12:42:36.495 0 0 I [wlan][528]mtk_cfg80211_get_station: (REQ INFO) link speed=865, rssi=-52, BSSID:[f0:61:**:**:**:b0], TxFail=0, TxTimeOut=0, TxOK=133160, RxOK=2041540
+10-26 12:42:36.514 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:37.056 0 0 W [HIF-SDIO][I]wmt_dev_tra_poll: **poll_during_time = 4128 > 3000, during_count = 1048 > 200, query
+10-26 12:42:37.056 0 0 I [STP-PSM] [I]_stp_psm_do_wait: STP is waiting state for ACT, i=1, state = 2
+10-26 12:42:37.080 0 0 I [STP-PSM] [I]_stp_psm_do_wait: +Total waits for ACT takes 23562 usec
+10-26 12:42:37.085 0 0 W [HIF-SDIO][I]wmt_dev_tm_temp_query: [Thermal] current_temp = 0x15
+10-26 12:42:37.085 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:37.112 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1311 us]
+10-26 12:42:37.138 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:37.219 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3314 us]
+10-26 12:42:37.220 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Router Advertisement
+10-26 12:42:37.243 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:37.320 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1097 us]
+10-26 12:42:37.320 0 0 I [wlan][1201]statsParsePktInfo: (RX INFO) <RX><IPv6> ICMPV6 Router Advertisement
+10-26 12:42:37.344 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:37.472 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1024ms> Tput: 14576(0.014mbps) [0:0:1866:22][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069795:318] lv:0 th:5 fg:0x9
+10-26 12:42:37.472 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993919,2041562,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:37.472 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[117][0][0][0]
+10-26 12:42:37.472 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069795, dup:0, error:1256467), PER(0), Congestion(idle slot:170269834, diff:318, AwakeDur:6)
+10-26 12:42:37.476 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3185 us]
+10-26 12:42:37.476 0 0 W mtk_axi_interrupt: 22 callbacks suppressed
+10-26 12:42:37.476 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287643 0] T[1230931 1230931 1230928 / 133160 133160 133160 133160] R[2041796 / 2019875] T_R[0 0 3 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:37.500 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:37.529 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1106 us]
+10-26 12:42:37.553 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:37.676 26133 26133 W app_process: type=1400 audit(0.0:5972): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9204 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-26 12:42:37.676 26133 26133 W app_process: type=1400 audit(0.0:5973): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9204 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-26 12:42:37.676 26133 26133 W app_process: type=1400 audit(0.0:5974): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9204 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-26 12:42:37.676 26133 26133 W app_process: type=1400 audit(0.0:5975): avc: denied { read } for name="u:object_r:device_config_runtime_native_boot_prop:s0" dev="tmpfs" ino=9204 scontext=u:r:shell:s0 tcontext=u:object_r:device_config_runtime_native_boot_prop:s0 tclass=file permissive=0
+10-26 12:42:37.676 26133 26133 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+10-26 12:42:37.680 26133 26133 E libc : Access denied finding property "persist.device_config.runtime_native_boot.profilebootclasspath"
+10-26 12:42:37.680 26133 26133 E libc : Access denied finding property "persist.device_config.runtime_native_boot.enable_apex_image"
+10-26 12:42:37.680 26133 26133 I AndroidRuntime: Using default boot image
+10-26 12:42:37.680 26133 26133 E libc : Access denied finding property "persist.device_config.runtime_native_boot.disable_lock_profiling"
+10-26 12:42:37.680 26133 26133 I AndroidRuntime: Leaving lock profiling enabled
+10-26 12:42:37.680 26133 26133 E libc : Access denied finding property "persist.device_config.runtime_native_boot.enable_generational_cc"
+10-26 12:42:37.776 26133 26133 D app_process: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+10-26 12:42:37.776 26133 26133 E app_process: Couldn't initialize ICU (udata_setCommonData): U_INVALID_FORMAT_ERROR (/apex/com.android.tzdata/etc/icu/icu_tzdata.dat)
+10-26 12:42:37.776 26133 26133 W app_process: TZ module override file /apex/com.android.tzdata/etc/icu/icu_tzdata.dat exists but could not be loaded. Skipping.
+10-26 12:42:37.776 26133 26133 D app_process: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt66l.dat
+10-26 12:42:37.786 26133 26133 I app_process: The ClassLoaderContext is a special shared library.
+10-26 12:42:37.787 26133 26140 I app_process: Bumping SignalCatcher priority from 5 to 10
+10-26 12:42:37.811 26133 26133 W app_process: JNI RegisterNativeMethods: attempt to register 0 native methods for android.media.AudioAttributes
+10-26 12:42:37.815 26133 26133 D AndroidRuntime: Calling main entry com.android.commands.input.Input
+10-26 12:42:37.821 764 772 I libPowerHal: [perfLockAcq] idx:0 hdl:579 hint:0 pid:764 duration:500 => ret_hdl:579
+10-26 12:42:37.821 764 772 I libPowerHal: [PE] scn:0 hdl:579 hint:0 comm:mtkpower@1.0-se pid:764
+10-26 12:42:37.821 764 772 I libPowerHal: INTERACTION: sysfs_freq set cpu freq: 2000000 2000000 2050000 2050000
+10-26 12:42:37.821 764 772 I libPowerHal: [PE] INTERACTION update cmd:1000000 param:0
+10-26 12:42:37.822 764 772 I libPowerHal: [perfLockAcq] idx:1 hdl:580 hint:0 pid:764 duration:500 => ret_hdl:580
+10-26 12:42:37.822 764 772 I libPowerHal: [PE] scn:1 hdl:580 hint:0 comm:mtkpower@1.0-se pid:764
+10-26 12:42:37.823 26133 26133 D AndroidRuntime: Shutting down VM
+10-26 12:42:37.824 891 988 E SELinux : avc: denied { see_home_task } for scontext=u:r:platform_app:s0:c512,c768 tcontext=u:r:system_server:s0 tclass=amazon_policies permissive=0
+10-26 12:42:37.824 891 988 E SELinux : avc: denied { see_home_task } for scontext=u:r:platform_app:s0:c512,c768 tcontext=u:r:system_server:s0 tclass=amazon_policies permissive=0
+10-26 12:42:37.826 764 772 I libPowerHal: [perfLockAcq] idx:2 hdl:581 hint:0 pid:764 duration:500 => ret_hdl:581
+10-26 12:42:37.826 764 772 I libPowerHal: [PE] scn:2 hdl:581 hint:0 comm:mtkpower@1.0-se pid:764
+10-26 12:42:37.827 1234 1234 V ShadeControllerImpl: NotificationShadeWindow: com.android.systemui.statusbar.phone.NotificationShadeWindowView{26c1650 I.E...... ......ID 0,0-1200,1920} canPanelBeCollapsed(): false
+10-26 12:42:37.827 891 988 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10000100 cmp=com.amazon.firelauncher/.Launcher (has extras)} from uid 0
+10-26 12:42:37.827 216 216 I hwservicemanager: getTransport: Cannot find entry android.hardware.power@1.0::IPower/default in either framework or device manifest.
+10-26 12:42:37.828 216 216 I chatty : uid=1000(system) hwservicemanage identical 1 line
+10-26 12:42:37.828 216 216 I hwservicemanager: getTransport: Cannot find entry android.hardware.power@1.0::IPower/default in either framework or device manifest.
+10-26 12:42:37.828 891 1161 W Eve : Start or End time is 0
+10-26 12:42:37.830 2108 2108 I F_C.Launcher: onPause
+10-26 12:42:37.830 2108 2108 I F_C.NonDisruptiveAdapte: 128 - slots hidden: [ ]
+10-26 12:42:37.830 2108 2108 I F_C.MagazineController: Notifying F_C.PageAdapter:DELIVERIES on on visibility change: false
+10-26 12:42:37.830 2108 20636 D AmazonDownloadManager: unregister observer for id :-1
+10-26 12:42:37.830 2108 2108 I F_C.BufferedWeblabContr: Returning FIRELAUNCHER_PODIUM_911263 for weblab T1
+10-26 12:42:37.830 2108 2108 I F_C.OverrideWeblabContr: Returning FIRELAUNCHER_PODIUM_911263 for weblab T1, base class: BufferedWeblabController
+10-26 12:42:37.830 2108 2108 I F_C.WeblabCardFiltering: No filters found for treatment T1
+10-26 12:42:37.831 2108 2108 I F_C.PageExitMetric: Launcher background detected -- reporting page exit metric for current page
+10-26 12:42:37.831 2108 2108 I F_C.Launcher: Received intent:android.intent.action.MAIN
+10-26 12:42:37.831 2108 2108 W F_C.EditModeController: AppsGrid not in EditMode, exit not applicable.
+10-26 12:42:37.831 2108 2108 I F_C.Launcher: onResume
+10-26 12:42:37.832 2108 2108 I F_C.BaseSearchWidgetCon: setActiveSpec(), currentPage: 1
+10-26 12:42:37.832 2108 2108 I F_C.BaseSearchWidgetCon: Valid spec
+10-26 12:42:37.832 2108 2108 I F_C.BaseSearchWidgetCon: Calling onResume()
+10-26 12:42:37.832 2108 2108 I F_C.MagazineController: Notifying F_C.PageAdapter:DELIVERIES on on visibility change: true
+10-26 12:42:37.832 2108 2108 I F_C.BufferedWeblabContr: Returning FIRELAUNCHER_PODIUM_911263 for weblab T1
+10-26 12:42:37.832 2108 2108 I F_C.OverrideWeblabContr: Returning FIRELAUNCHER_PODIUM_911263 for weblab T1, base class: BufferedWeblabController
+10-26 12:42:37.832 2108 2108 I F_C.WeblabCardFiltering: No filters found for treatment T1
+10-26 12:42:37.833 2108 2108 I F_C.Launcher: Up Next/New Items has been enabled at App settings? - true
+10-26 12:42:37.833 2108 2108 I F_C.AgeVerificationMana: launchAgeVerification is called, shouldShowAvaDialog:false
+10-26 12:42:37.834 2108 2108 I F_C.AppsGrid: Notification Badge setting is enabled, but notification access permission is not granted. Not showing notification badges
+10-26 12:42:37.834 2108 2108 I F_C.NonDisruptiveAdapte: 128 - slots hidden: [ ]
+10-26 12:42:37.835 2108 2389 I PaCTFOSInterface:AmazonPrivacyAndConsentTooling: Calling doesPolicyApplyToCustomer with policyName=AVA
+10-26 12:42:37.835 2108 2389 D PaCTFOSInterface:NativePactService: Starting callPactTwoWay for API DoesPolicyApplyToCustomer
+10-26 12:42:37.835 2108 2389 D PaCTFOSInterface:NativePactService: created reply and data
+10-26 12:42:37.835 2108 2389 D PaCTFOSInterface:NativePactService: Sending json to PaCT: AVA
+10-26 12:42:37.835 2108 2341 I F_C.DefaultNetworkState: Re-evaluate in onResume
+10-26 12:42:37.835 2108 2341 I F_C.DefaultNetworkState: lastly notified connection state is true, skip notification
+10-26 12:42:37.836 2963 2963 I com_amazon_neopactser..: [call (cargo-project/src/lib.rs:145:9)] NEOPaCTClient service - call() started (code = 401)..
+10-26 12:42:37.836 2963 2963 I com_amazon_neopactser..: [call (cargo-project/src/api/pact_api.rs:201:9)] NEOPaCTClient service - call() started (code = 401)..
+10-26 12:42:37.836 2963 2963 I com_amazon_neopactser..: [call (cargo-project/src/api/pact_api.rs:203:9)] NEOPaCTClient service - call() request: AVA
+10-26 12:42:37.836 1389 1705 I PeriodicKPIReporter: Shutdown was invoked.
+10-26 12:42:37.837 1757 1775 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:37.837 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='pyxml0iu', schemaId='b20y/2/04330460', sampleRate=null}
+10-26 12:42:37.837 1757 1987 V MetricEventSampler: SRS sampling with sample rate 0.8
+10-26 12:42:37.837 1757 1987 V MetricEventSampler: Added _shadowRate dimension: 0.8
+10-26 12:42:37.837 1757 1987 V MetricEventSampler: Verdict true
+10-26 12:42:37.838 2963 2963 I com_amazon_neopactser..: [does_policy_apply_to_customer (cargo-project/src/api/services/policy_service.rs:40:13)] Policy AVA cache hit: false
+10-26 12:42:37.839 2963 2963 I com_amazon_neopactser..: [transmit_response (cargo-project/src/api/pact_api.rs:432:5)] Response Payload::format_response = {"status_code":200,"body":"{\"applies\":false,\"policy_name\":\"AVA\"}","error_message":null}
+10-26 12:42:37.839 410 490 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:0.443006,dur:2257.31,max:2257.31,min:2257.31
+10-26 12:42:37.840 1389 1705 I PeriodicKPIReporter: Shutdown was invoked.
+10-26 12:42:37.840 1757 1775 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:37.841 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='pyxml0iu', schemaId='b20y/2/04330460', sampleRate=null}
+10-26 12:42:37.841 1757 1987 V MetricEventSampler: SRS sampling with sample rate 0.8
+10-26 12:42:37.841 1757 1987 V MetricEventSampler: Added _shadowRate dimension: 0.8
+10-26 12:42:37.841 1757 1987 V MetricEventSampler: Verdict true
+10-26 12:42:37.841 1389 1705 I PeriodicKPIReporter: Shutdown was invoked.
+10-26 12:42:37.841 2963 2963 I com_amazon_neopactser..: [call (cargo-project/src/api/pact_api.rs:373:9)] NEOPaCTClient service - call() completed
+10-26 12:42:37.842 2108 2389 D PaCTFOSInterface:NativePactService: Health check thread interrupted after successful transaction
+10-26 12:42:37.842 1757 1775 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:37.842 2108 2389 D PaCTFOSInterface:NativePactService: setting pos to 0
+10-26 12:42:37.842 2108 2389 D PaCTFOSInterface:NativePactService: reading exception..
+10-26 12:42:37.842 2108 2389 D PaCTFOSInterface:NativePactService: reading reply
+10-26 12:42:37.842 2108 2389 D PaCTFOSInterface:NativePactService: Reply from NEO PaCT service: {"status_code":200,"body":"{\"applies\":false,\"policy_name\":\"AVA\"}","error_message":null}
+10-26 12:42:37.842 2108 2389 D PaCTFOSInterface:NativePactService: Health check thread interrupted in finally block
+10-26 12:42:37.842 2108 2389 D PaCTFOSInterface:NativePactService: Converting to policy response: {"status_code":200,"body":"{\"applies\":false,\"policy_name\":\"AVA\"}","error_message":null}
+10-26 12:42:37.842 2108 2389 D PaCTFOSInterface:NativeServiceResponse:JsonSerializer: Attempting to deserialize JSON: {"status_code":200,"body":"{\"applies\":false,\"policy_name\":\"AVA\"}","error_message":null}
+10-26 12:42:37.842 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='pyxml0iu', schemaId='b20y/2/04330460', sampleRate=null}
+10-26 12:42:37.843 1757 1987 V MetricEventSampler: SRS sampling with sample rate 0.8
+10-26 12:42:37.843 1757 1987 V MetricEventSampler: Added _shadowRate dimension: 0.8
+10-26 12:42:37.843 1757 1987 V MetricEventSampler: Verdict true
+10-26 12:42:37.849 2108 2389 D PaCTFOSInterface:NativeServiceResponse: Deserializing status code: 200
+10-26 12:42:37.849 2108 2389 D PaCTFOSInterface:NativeServiceResponse: 200 == 200
+10-26 12:42:37.850 2108 2389 D PaCTFOSInterface:PolicyResponse:JsonSerializer: Attempting to deserialize JSON: {"applies":false,"policy_name":"AVA"}
+10-26 12:42:37.856 2108 2389 D PaCTFOSInterface:NativePactService: Successfully converted to policy response!
+10-26 12:42:37.856 2108 2389 I F_C.AgeVerificationMana: Pact returns avaApplies: false
+10-26 12:42:37.856 2108 2108 I F_C.AgeVerificationMana: Should launch hourglass age verification flow:false
+10-26 12:42:37.933 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2050 us]
+10-26 12:42:37.943 410 662 I hwcomposer: [DPY] receive refesh frquest from driver: type[4]
+10-26 12:42:37.943 410 662 I hwcomposer: [HWC] fire a callback of refresh to SF
+10-26 12:42:37.957 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:38.112 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:38.138 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2047 us]
+10-26 12:42:38.162 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:38.243 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3062 us]
+10-26 12:42:38.267 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:38.322 764 772 I mtkpower@impl: [powerd_req] TIMER_MSG_PERF_LOCK_TIMEOUT hdl:579
+10-26 12:42:38.322 764 772 I libPowerHal: [perfLockRel] hdl:579, idx:0
+10-26 12:42:38.322 764 772 I libPowerHal: [PD] scn:0 hdl:579 hint:0 comm:mtkpower@1.0-se pid:764
+10-26 12:42:38.322 764 772 I mtkpower@impl: [powerd_req] TIMER_MSG_PERF_LOCK_TIMEOUT hdl:580
+10-26 12:42:38.322 764 772 I libPowerHal: [perfLockRel] hdl:580, idx:1
+10-26 12:42:38.322 764 772 I libPowerHal: [PD] scn:1 hdl:580 hint:0 comm:mtkpower@1.0-se pid:764
+10-26 12:42:38.326 764 772 I mtkpower@impl: [powerd_req] TIMER_MSG_PERF_LOCK_TIMEOUT hdl:581
+10-26 12:42:38.326 764 772 I libPowerHal: [perfLockRel] hdl:581, idx:2
+10-26 12:42:38.326 764 772 I libPowerHal: [PD] scn:2 hdl:581 hint:0 comm:mtkpower@1.0-se pid:764
+10-26 12:42:38.327 764 772 I libPowerHal: INTERACTION: sysfs_freq set cpu freq: 500000 2000000 774000 2050000
+10-26 12:42:38.327 764 772 I libPowerHal: [PD] INTERACTION update cmd:1000000 param:-1
+10-26 12:42:38.328 0 0 I DVFSRC : ddr opp = 1, val = 5
+10-26 12:42:38.448 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2119 us]
+10-26 12:42:38.471 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:38.496 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1024ms> Tput: 14640(0.014mbps) [0:0:1874:23][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069817:118] lv:0 th:5 fg:0x9
+10-26 12:42:38.496 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993950,2041585,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:38.496 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[118][0][0][0]
+10-26 12:42:38.496 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069817, dup:0, error:1256468), PER(0), Congestion(idle slot:170269952, diff:118, AwakeDur:23)
+10-26 12:42:38.500 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3157 us]
+10-26 12:42:38.500 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287656 0] T[1230934 1230934 1230931 / 133160 133160 133160 133160] R[2041819 / 2019883] T_R[0 0 3 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:38.524 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:38.787 0 0 I : [thread:0] 2026-10-26 07:12:38.787058 UTC;android time 2026-10-26 12:42:38.787058
+10-26 12:42:38.837 1757 1775 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:38.838 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='ssb691q0', schemaId='tq5c/2/02330403', sampleRate=null}
+10-26 12:42:38.838 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.839 1757 1775 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:38.841 1757 1775 I chatty : uid=10101(com.amazon.client.metrics) Binder:1757_1 identical 3 lines
+10-26 12:42:38.841 1757 1775 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:38.842 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='a0rk0jmc', schemaId='iowr/2/05330400', sampleRate=null}
+10-26 12:42:38.842 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.842 1757 1775 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:38.842 1757 1775 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:38.843 1757 5159 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:38.844 1757 5159 I chatty : uid=10101(com.amazon.client.metrics) Binder:1757_7 identical 1 line
+10-26 12:42:38.844 1757 5159 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:38.844 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='a0rk0jmc', schemaId='iowr/2/05330400', sampleRate=null}
+10-26 12:42:38.845 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.845 1757 5159 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:38.847 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='a0rk0jmc', schemaId='iowr/2/05330400', sampleRate=null}
+10-26 12:42:38.847 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.849 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='a0rk0jmc', schemaId='iowr/2/05330400', sampleRate=null}
+10-26 12:42:38.849 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.852 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='i5pk8m01', schemaId='xtmw/2/04330400', sampleRate=null}
+10-26 12:42:38.852 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.854 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1088 us]
+10-26 12:42:38.854 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='a0rk0jmc', schemaId='iowr/2/05330400', sampleRate=null}
+10-26 12:42:38.854 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.856 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='wghjr439', schemaId='z6of/2/06330400', sampleRate=null}
+10-26 12:42:38.857 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.858 1757 5159 V IonMetricEventBuilder: Found default sample rate, not adding sample rate.
+10-26 12:42:38.859 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='a0rk0jmc', schemaId='iowr/2/05330400', sampleRate=null}
+10-26 12:42:38.859 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.862 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='a0rk0jmc', schemaId='iowr/2/05330400', sampleRate=null}
+10-26 12:42:38.862 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.865 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='a0rk0jmc', schemaId='iowr/2/05330400', sampleRate=null}
+10-26 12:42:38.865 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.868 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='a0rk0jmc', schemaId='iowr/2/05330400', sampleRate=null}
+10-26 12:42:38.868 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.870 1757 1987 V MetricEventSampler: Sampling metric event: IonMetricEvent{mgid='wghjr439', schemaId='z6of/2/06330400', sampleRate=null}
+10-26 12:42:38.871 1757 1987 V MetricEventSampler: Not sampling config, keeping metric.
+10-26 12:42:38.879 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:39.136 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:39.366 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1093 us]
+10-26 12:42:39.391 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:39.501 1175 1175 D WifiHAL : enter wifi_get_link_stats id[0] iface[0x0xb400006fdd414580]
+10-26 12:42:39.502 1175 1175 I WifiHAL : Creating message to get link statistics; iface = 13
+10-26 12:42:39.502 1175 1175 D WifiHAL : WifiRequest::create vendor command to iface 13, vendor_id=0x1a11, subcmd=0x1200, res=0
+10-26 12:42:39.503 0 0 I [wlan][1201]wlanQueryMibInfo: (RSN INFO) MT6632 : wlanoidQueryMibInfo index = 0
+10-26 12:42:39.503 0 0 I [wlan][1201]cnmTimerStartTimer: (CNM WARN) Invalid NextExpiredSysTime: 297442824, currentSysTime: 297442828
+10-26 12:42:39.503 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1007ms> Tput: 952(0.000mbps) [0:0:120:2][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069840:362] lv:0 th:5 fg:0x9
+10-26 12:42:39.503 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993957,2041587,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:39.503 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[117][0][0][0]
+10-26 12:42:39.503 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069840, dup:0, error:1256471), PER(0), Congestion(idle slot:170270314, diff:362, AwakeDur:28)
+10-26 12:42:39.506 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3223 us]
+10-26 12:42:39.506 0 0 W mtk_axi_interrupt: 19 callbacks suppressed
+10-26 12:42:39.506 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287663 0] T[1230938 1230938 1230934 / 133160 133160 133160 133160] R[2041821 / 2019888] T_R[0 0 4 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:39.508 0 0 I [wlan][1201]nicEventMibInfo: (RSN INFO) EVENT_ID_MIB_INFO
+10-26 12:42:39.508 0 0 I [wlan][1201]nicCmdEventQueryMibInfo: (RSN INFO) MT6632 : nicCmdEventQueryMibInfo
+10-26 12:42:39.512 1175 1175 D WifiHAL : In GetLinkStatsCommand::handleResponse
+10-26 12:42:39.512 1175 1175 D WifiHAL : on_time: = 297730632
+10-26 12:42:39.512 1175 1175 D WifiHAL : tx_time: = 14358
+10-26 12:42:39.512 1175 1175 D WifiHAL : rx_time: = 1644120
+10-26 12:42:39.512 1175 1175 D WifiHAL : on_time_scan: = 24916
+10-26 12:42:39.512 1175 1175 D WifiHAL : beacon_rx: = 5720789
+10-26 12:42:39.512 1175 1175 D WifiHAL : rssi_mgmt: = -52
+10-26 12:42:39.512 1175 1175 D WifiHAL : received mpdu: = 2069842
+10-26 12:42:39.512 1175 1175 D WifiHAL : transmite mpdu: = 91077
+10-26 12:42:39.512 1175 1175 D WifiHAL : lost mpdu: = 5903
+10-26 12:42:39.512 1175 1175 D WifiHAL : retry mpdu: = 14574
+10-26 12:42:39.512 1175 1175 D WifiHAL : mId[0] mIface[0x0xb400006fdd414580]
+10-26 12:42:39.512 0 0 I [wlan][1201]nicUpdateLinkQuality: (RLM INFO) Rssi=-52, NewRssi=-52
+10-26 12:42:39.515 0 0 I [wlan][528]mtk_cfg80211_get_station: (REQ INFO) link speed=865, rssi=-52, BSSID:[f0:61:**:**:**:b0], TxFail=0, TxTimeOut=0, TxOK=133160, RxOK=2041587
+10-26 12:42:39.531 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:39.673 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1101 us]
+10-26 12:42:39.698 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:40.083 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[1096 us]
+10-26 12:42:40.108 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001
+10-26 12:42:40.160 0 0 W [HIF-SDIO][I]wmt_dev_tra_poll: **poll_during_time = 3104 > 3000, during_count = 1012 > 200, query
+10-26 12:42:40.160 0 0 I [STP-PSM] [I]_stp_psm_do_wait: STP is waiting state for ACT, i=1, state = 2
+10-26 12:42:40.184 0 0 I [STP-PSM] [I]_stp_psm_do_wait: +Total waits for ACT takes 23417 usec
+10-26 12:42:40.189 0 0 W [HIF-SDIO][I]wmt_dev_tm_temp_query: [Thermal] current_temp = 0x15
+10-26 12:42:40.189 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:40.254 410 490 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:1.655762,dur:2415.81,max:2300.43,min:13.44
+10-26 12:42:40.275 2108 2108 I F_C.DefaultPlaceholderD: Setting loading placeholder icon.
+10-26 12:42:40.312 410 662 I hwcomposer: [DPY] receive refesh frquest from driver: type[4]
+10-26 12:42:40.312 410 662 I hwcomposer: [HWC] fire a callback of refresh to SF
+10-26 12:42:40.512 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1009ms> Tput: 944(0.000mbps) [0:0:120:2][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069842:82] lv:0 th:5 fg:0x9
+10-26 12:42:40.512 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993967,2041589,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:40.512 0 0 I [wlan][1201]kalSetPerfReport: (SW4 INFO) Rate[24][0][0][0] RCPI[117][0][0][0]
+10-26 12:42:40.512 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069842, dup:0, error:1256471), PER(0), Congestion(idle slot:170270552, diff:82, AwakeDur:2)
+10-26 12:42:40.515 410 662 I hwcomposer: [DPY] receive refesh frquest from driver: type[4]
+10-26 12:42:40.516 410 662 I hwcomposer: [HWC] fire a callback of refresh to SF
+10-26 12:42:40.516 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3187 us]
+10-26 12:42:40.516 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287675 0] T[1230943 1230943 1230940 / 133160 133160 133160 133160] R[2041823 / 2019896] T_R[0 0 3 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:40.539 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:41.216 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:41.433 0 0 D logd : logdr: UID=1000 GID=1000 PID=26156 n tail=127 logMask=19 pid=0 start=0ns timeout=0ns
+10-26 12:42:41.536 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) <1024ms> Tput: 0(0.000mbps) [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Pending:0/256 [0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] Used:0/1536/512 [0][0][0][0] LQ[91077:2069844:137] lv:0 th:5 fg:0x9
+10-26 12:42:41.536 0 0 I [wlan][1201]kalPerMonUpdate: (SW4 INFO) ndevdrp:[0:0:0:0][0:0:0:0][0:0:0:0][0:0:0:0] drv[RM,RI,RT,RM,RW,RA,RB,DT,NS,IB,HS,LS,DD,ME,BD,NI,DR,TE,CE,DN]:3993970,2041589,2340,0,2117,0,4,234,0,0,0,0,0,0,0,0,219,0,13,221
+10-26 12:42:41.536 0 0 I [wlan][1201]wlanLinkQualityMonitor: (SW4 INFO) Link Quality: Tx(rate:865, total:91077, retry:14574, fail:43560, RTS fail:1268, ACK fail:42292), Rx(rate:120, total:2069844, dup:0, error:1256471), PER(0), Congestion(idle slot:170270689, diff:137, AwakeDur:19)
+10-26 12:42:41.539 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[3087 us]
+10-26 12:42:41.539 0 0 W mtk_axi_interrupt: 14 callbacks suppressed
+10-26 12:42:41.539 0 0 I [wlan][1202]kalDumpHifStats: (HAL INFO) I[3287678 0] T[1230945 1230945 1230943 / 133160 133160 133160 133160] R[2041823 / 2019899] T_R[0 0 2 0] R_R[0 0] Tok[0/1536] Rfb[2102/2102]
+10-26 12:42:41.550 0 0 D logd : logdr: UID=1000 GID=1000 PID=26158 n tail=127 logMask=80 pid=0 start=0ns timeout=0ns
+10-26 12:42:41.563 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10080000
+10-26 12:42:41.665 891 1601 W LastMileLogger: Failed to read event trace: /sys/kernel/debug/tracing/instances/wifi/trace
+10-26 12:42:41.951 891 910 I system_server: Background concurrent copying GC freed 354268(24MB) AllocSpace objects, 38(1264KB) LOS objects, 47% free, 26MB/50MB, paused 170us total 145.073ms
+10-26 12:42:41.953 891 912 W System : A resource failed to call release.
+10-26 12:42:41.953 891 912 I chatty : uid=1000(system) FinalizerDaemon identical 1 line
+10-26 12:42:41.953 891 912 W System : A resource failed to call release.
+10-26 12:42:42.064 891 891 W Binder:891_B: type=1400 audit(0.0:5976): avc: denied { getopt } for scontext=u:r:system_server:s0 tcontext=u:r:shell:s0 tclass=unix_stream_socket permissive=0
+10-26 12:42:42.064 891 891 I chatty : uid=0(root) Binder:891_3 identical 2 lines
+10-26 12:42:42.065 7670 7670 I abb : StartCommandInProcess(73657474696e67730067657400676c6f settings.get.glo [truncated])
+10-26 12:42:42.068 7670 7675 I abb : oneway function results will be dropped but finished with status OK and parcel size 4
+10-26 12:42:42.069 7670 7670 I abb : StartCommandInProcess(7061636b61676500696e7374616c6c00 package.install. [truncated])
+10-26 12:42:42.136 891 891 W Binder:891_B: type=1400 audit(0.0:5979): avc: denied { getopt } for scontext=u:r:system_server:s0 tcontext=u:r:shell:s0 tclass=unix_stream_socket permissive=0
+10-26 12:42:42.160 891 891 W Binder:891_B: type=1400 audit(0.0:5980): avc: denied { getopt } for scontext=u:r:system_server:s0 tcontext=u:r:shell:s0 tclass=unix_stream_socket permissive=0
+10-26 12:42:42.164 7670 7675 I abb : oneway function results will be dropped but finished with status OK and parcel size 4
+10-26 12:42:42.165 0 0 W audit : audit_lost=3296 audit_rate_limit=5 audit_backlog_limit=64
+10-26 12:42:42.165 0 0 E audit : rate limit exceeded
+10-26 12:42:42.233 0 0 I [wlan][1202]halSetDriverOwn: (INIT INFO) DRIVER OWN Done[2006 us]
+10-26 12:42:42.240 0 0 I [WMT-CONSYS-HW][I]wmt_thermal_get_temp_cb: thermal = 21000
+10-26 12:42:42.256 0 0 I [wlan][1202]halSetFWOwn: (INIT INFO) FW OWN:1, IntSta:0x10000001

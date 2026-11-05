@@ -1,0 +1,65 @@
+UNPUBLISHED CAPTIONS
+
+Graphic 01 — English launch caption
+
+Photo too large for a form or email?
+
+I built PhotoFeather for Android to make that step a little easier: choose photos, set a file-size target or resize them, check the result, then save new JPEG copies or share them.
+
+Everything is processed on your device. Your originals stay untouched. No account, ads or purchases.
+
+JPEG compression can reduce quality, so you can compare before saving. Results vary by photo and settings.
+
+Try it and tell me which upload limits you run into most often.
+
+— Andrei, Made by Kreativ
+
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=launch_social&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dlaunch_social%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+====================
+
+Romanian launch caption
+
+Fotografia este prea mare pentru un formular sau un e-mail?
+
+Am lansat PhotoFeather pentru Android: alegi fotografiile, setezi o dimensiune maximă a fișierului sau redimensionezi imaginea, verifici rezultatul și salvezi copii JPEG noi.
+
+Procesarea se face pe dispozitiv, iar originalele rămân intacte. Fără cont, reclame sau achiziții.
+
+Compresia JPEG poate reduce calitatea. Poți compara înainte de salvare, iar rezultatele diferă în funcție de fotografie și setări. Interfața aplicației este în engleză.
+
+— Andrei, Made by Kreativ
+
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=launch_ro&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dlaunch_ro%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+====================
+
+Graphic 02 — file-size target
+
+200 KB, 500 KB, 1 MB—or your own maximum. PhotoFeather helps prepare photos for upload limits. Check the actual output size and dimensions before saving a new JPEG copy. Targets can reduce both resolution and quality; some targets cannot be met.
+
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=size_targets&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dsize_targets%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+====================
+
+Graphic 03 — measured results
+
+See what changed before you save: original size, output size, final dimensions and a before-and-after comparison. PhotoFeather processes photos on your Android device and keeps your originals. The graphic shows one demo result; savings vary.
+
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=measured_results&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dmeasured_results%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+====================
+
+24-second screenshot tour
+
+Choose → resize → set a maximum → check → compare → dark mode. A 24-second tour of PhotoFeather using the screenshots currently published on Google Play, not live footage. On-device photo compression and resizing for Android. JPEG output is lossy; results vary.
+
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=screenshot_tour&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dscreenshot_tour%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+====================
+
+Community introduction — where promotion is permitted
+
+Disclosure: I am the developer. I made PhotoFeather, a small Android app for making photos fit upload limits. It supports file-size targets, resize presets, measured results and comparisons, with processing on the device and no ads or account. Output is lossy JPEG, so it is useful for sharing copies rather than replacing originals. I would welcome feedback on the workflow, especially awkward form limits—not a particular rating or review.
+
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=community&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dcommunity%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610

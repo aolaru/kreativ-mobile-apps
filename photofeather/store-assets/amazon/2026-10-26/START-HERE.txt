@@ -1,0 +1,34 @@
+PHOTOFEATHER AMAZON FIRE-TABLET PILOT — UPDATED 26 OCTOBER 2026
+
+Amazon draft is saved, NOT submitted for store review.
+App: amzn1.devportal.mobileapp.3120e04df3c74381a4db5e3616141a76
+Release: amzn1.devportal.apprelease.06d7d75970e04242a5422cb09001a229
+
+DONE
+- Production APK code 3 accepted; automatic DRM off; English UI declared.
+- Short/full descriptions, 5 feature bullets, keywords, business email and app URL.
+- Both 512px/114px icons verified saved; optional original-logo promotional image
+  uploaded and saved. All assets are original app artwork; no AI generation/marks.
+- Content questionnaire complete. Target audience 16–17 and 18+ (not child-directed).
+- Privacy answer reflects no developer collection; policy URL saved. Amazon wrapper
+  distinction added to website policy, commit 9197889; see portal-status.json for
+  deployment verification (published successfully and verified live). Amazon signing certificate hashes recorded in evidence.
+- Automated Fire-tablet functional/performance test successfully submitted under
+  PhotoFeather 1.0.0-3 signed Fire tablets 2026-10-26. In progress, not a pass yet.
+  The first run used an unsigned upload and failed at installation. A corrected
+  test-signed copy has byte-identical runtime entries; the store draft is unchanged.
+
+REMAINING
+- Review Amazon test results. This test covers basic install/launch/exit and
+  performance, not the entire photo-processing workflow.
+- Three genuine tablet screenshots. Amazon's review page identifies this as the
+  remaining form blocker; Submit App is disabled. The existing Android emulator
+  fails its free-disk-space check. Asked owner to free at least 5 GB.
+- A real Android tablet emulator capture can show the actual app tablet layout;
+  record it as emulator footage, not as a Fire-device capture. Keep Fire testing
+  evidence separate. Never repaint or stretch phone screenshots into tablet UI.
+- Inspect the completed release and test evidence before any final submission.
+
+No physical Fire tablet is available. No hardware purchase or paid testing begun.
+No runtime source edits, package rename or new production signing key created.
+See portal-status.json and evidence/ for precise observed status.

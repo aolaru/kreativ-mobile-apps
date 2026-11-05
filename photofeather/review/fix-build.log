@@ -1,0 +1,126 @@
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugBuildConfig
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :image-engine:preBuild UP-TO-DATE
+> Task :image-engine:preDebugBuild UP-TO-DATE
+> Task :image-engine:writeDebugAarMetadata UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :image-engine:generateDebugResValues UP-TO-DATE
+> Task :image-engine:generateDebugResources UP-TO-DATE
+> Task :image-engine:packageDebugResources UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :image-engine:extractDeepLinksDebug UP-TO-DATE
+> Task :image-engine:processDebugManifest UP-TO-DATE
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :image-engine:compileDebugLibraryResources UP-TO-DATE
+> Task :image-engine:parseDebugLocalResources UP-TO-DATE
+> Task :image-engine:generateDebugRFile UP-TO-DATE
+> Task :image-engine:javaPreCompileDebug UP-TO-DATE
+
+> Task :image-engine:compileDebugJavaWithJavac
+warning: unknown enum constant Scope.LIBRARY
+  reason: class file for androidx.annotation.RestrictTo$Scope not found
+warning: unknown enum constant Scope.LIBRARY
+warning: unknown enum constant Scope.LIBRARY
+warning: unknown enum constant Scope.LIBRARY
+warning: unknown enum constant Scope.LIBRARY
+5 warnings
+
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :image-engine:mergeDebugShaders UP-TO-DATE
+> Task :image-engine:compileDebugShaders NO-SOURCE
+> Task :image-engine:generateDebugAssets UP-TO-DATE
+> Task :image-engine:packageDebugAssets UP-TO-DATE
+> Task :image-engine:bundleLibCompileToJarDebug
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :image-engine:processDebugJavaRes NO-SOURCE
+> Task :image-engine:bundleLibRuntimeToJarDebug
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :image-engine:mergeDebugJniLibFolders UP-TO-DATE
+> Task :image-engine:mergeDebugNativeLibs NO-SOURCE
+> Task :image-engine:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeDebugNativeLibs NO-SOURCE
+> Task :image-engine:bundleLibRuntimeToDirDebug
+> Task :app:processDebugManifestForPackage
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :image-engine:stripDebugDebugSymbols NO-SOURCE
+> Task :image-engine:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :image-engine:extractDebugAnnotations
+> Task :image-engine:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :image-engine:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :image-engine:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :image-engine:prepareDebugArtProfile UP-TO-DATE
+> Task :image-engine:prepareLintJarForPublish UP-TO-DATE
+> Task :image-engine:mergeDebugJavaResource UP-TO-DATE
+> Task :image-engine:syncDebugLibJars
+> Task :image-engine:bundleDebugLocalLintAar
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :image-engine:createFullJarDebug
+> Task :image-engine:writeDebugLintModelMetadata UP-TO-DATE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :image-engine:extractProguardFiles UP-TO-DATE
+> Task :image-engine:generateDebugLintModel
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :image-engine:preDebugAndroidTestBuild UP-TO-DATE
+> Task :image-engine:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :app:mergeLibDexDebug
+> Task :image-engine:generateDebugAndroidTestLintModel
+> Task :image-engine:preDebugUnitTestBuild UP-TO-DATE
+> Task :image-engine:generateDebugUnitTestLintModel
+> Task :image-engine:generateDebugUnitTestStubRFile UP-TO-DATE
+> Task :image-engine:javaPreCompileDebugUnitTest UP-TO-DATE
+> Task :image-engine:compileDebugUnitTestJavaWithJavac UP-TO-DATE
+> Task :image-engine:processDebugUnitTestJavaRes NO-SOURCE
+> Task :image-engine:lintAnalyzeDebugUnitTest
+> Task :app:processDebugResources
+> Task :image-engine:testDebugUnitTest
+> Task :image-engine:lintAnalyzeDebugAndroidTest
+> Task :image-engine:lintAnalyzeDebug
+
+> Task :app:compileDebugJavaWithJavac
+Note: /Users/andreiolaru/Documents/ChatGPT/Utility apps/photofeather/app/src/main/java/com/kreativ/photofeather/MainActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:generateDebugLintReportModel
+> Task :app:mergeProjectDexDebug
+> Task :app:generateDebugAndroidTestLintModel
+> Task :app:generateDebugUnitTestLintModel
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+> Task :app:lintAnalyzeDebugUnitTest
+> Task :app:lintAnalyzeDebugAndroidTest
+> Task :app:lintAnalyzeDebug
+
+> Task :app:lintReportDebug
+Wrote HTML report to file:///Users/andreiolaru/Documents/ChatGPT/Utility%20apps/photofeather/app/build/reports/lint-results-debug.html
+
+> Task :app:lintDebug
+
+BUILD SUCCESSFUL in 3s
+86 actionable tasks: 36 executed, 50 up-to-date

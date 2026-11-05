@@ -1,0 +1,10 @@
+{
+  "purpose": "Amazon automated testing only; not a production signing key or store replacement",
+  "package": "com.kreativ.photofeather",
+  "versionCode": 3,
+  "runtimeSourceChanged": false,
+  "allOriginalZipEntriesOutsideMetaInfIdentical": true,
+  "entriesCompared": 56,
+  "signer": "Existing Android debug test certificate, SHA256 176b2123033f56bfde41dd0f29f2ab67f251a979a94b36d162fa7629477e44dc",
+  "testApkSha256": "dab5fafcdb8f20f5da163ac6a1adcc0aa208f6580595f670a70e0472dcf4a400"
+}

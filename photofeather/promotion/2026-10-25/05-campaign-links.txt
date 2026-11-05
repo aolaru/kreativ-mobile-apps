@@ -1,0 +1,22 @@
+launch_social
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=launch_social&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dlaunch_social%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+launch_ro
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=launch_ro&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dlaunch_ro%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+size_targets
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=size_targets&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dsize_targets%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+measured_results
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=measured_results&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dmeasured_results%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+screenshot_tour
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=screenshot_tour&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dscreenshot_tour%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+community
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=community&utm_medium=social&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dcommunity%26utm_medium%3Dsocial%26utm_campaign%3Dphotofeather_launch_202610
+
+Website
+https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=madebykreativ&utm_medium=website&utm_campaign=photofeather_launch_202610&referrer=utm_source%3Dmadebykreativ%26utm_medium%3Dwebsite%26utm_campaign%3Dphotofeather_launch_202610
+
+Tags and an install-referrer parameter are supplied for campaign comparison; attribution is not guaranteed. No analytics SDK added.

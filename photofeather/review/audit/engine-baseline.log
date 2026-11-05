@@ -1,0 +1,67 @@
+> Task :image-engine:preBuild UP-TO-DATE
+> Task :image-engine:preDebugBuild UP-TO-DATE
+> Task :image-engine:generateDebugResValues UP-TO-DATE
+> Task :image-engine:generateDebugResources UP-TO-DATE
+> Task :image-engine:packageDebugResources UP-TO-DATE
+> Task :image-engine:parseDebugLocalResources UP-TO-DATE
+> Task :image-engine:generateDebugRFile UP-TO-DATE
+> Task :image-engine:javaPreCompileDebug UP-TO-DATE
+> Task :image-engine:compileDebugJavaWithJavac UP-TO-DATE
+> Task :image-engine:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :image-engine:preDebugAndroidTestBuild UP-TO-DATE
+> Task :image-engine:writeDebugAarMetadata UP-TO-DATE
+> Task :image-engine:javaPreCompileDebugAndroidTest
+> Task :image-engine:compileDebugLibraryResources UP-TO-DATE
+> Task :image-engine:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :image-engine:checkDebugAndroidTestAarMetadata
+> Task :image-engine:mapDebugAndroidTestSourceSetPaths
+> Task :image-engine:generateDebugAndroidTestResources
+> Task :image-engine:extractDeepLinksDebug UP-TO-DATE
+> Task :image-engine:processDebugManifest UP-TO-DATE
+> Task :image-engine:mergeDebugAndroidTestResources
+> Task :image-engine:processDebugAndroidTestManifest
+> Task :image-engine:mergeDebugAndroidTestShaders
+> Task :image-engine:compileDebugAndroidTestShaders NO-SOURCE
+> Task :image-engine:generateDebugAndroidTestAssets UP-TO-DATE
+> Task :image-engine:mergeDebugShaders UP-TO-DATE
+> Task :image-engine:compileDebugShaders NO-SOURCE
+> Task :image-engine:generateDebugAssets UP-TO-DATE
+> Task :image-engine:packageDebugAssets UP-TO-DATE
+> Task :image-engine:mergeDebugAndroidTestAssets
+> Task :image-engine:compressDebugAndroidTestAssets
+> Task :image-engine:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :image-engine:desugarDebugAndroidTestFileDependencies
+> Task :image-engine:processDebugAndroidTestJavaRes NO-SOURCE
+> Task :image-engine:processDebugJavaRes NO-SOURCE
+> Task :image-engine:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :image-engine:mergeDebugJniLibFolders UP-TO-DATE
+> Task :image-engine:mergeDebugNativeLibs NO-SOURCE
+> Task :image-engine:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :image-engine:mergeDebugAndroidTestJniLibFolders
+> Task :image-engine:mergeDebugAndroidTestNativeLibs NO-SOURCE
+> Task :image-engine:stripDebugAndroidTestDebugSymbols NO-SOURCE
+> Task :image-engine:validateSigningDebugAndroidTest
+> Task :image-engine:writeDebugAndroidTestSigningConfigVersions
+> Task :image-engine:checkDebugAndroidTestDuplicateClasses
+> Task :image-engine:mergeLibDexDebugAndroidTest
+> Task :image-engine:mergeDebugAndroidTestJavaResource
+> Task :image-engine:processDebugAndroidTestResources
+> Task :image-engine:mergeExtDexDebugAndroidTest
+
+> Task :image-engine:compileDebugAndroidTestJavaWithJavac
+Note: /private/tmp/photofeather-review/image-engine/src/androidTest/java/com/kreativ/imageengine/ImageEngineTest.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :image-engine:dexBuilderDebugAndroidTest
+> Task :image-engine:mergeDebugAndroidTestGlobalSynthetics
+> Task :image-engine:mergeProjectDexDebugAndroidTest
+> Task :image-engine:packageDebugAndroidTest
+> Task :image-engine:createDebugAndroidTestApkListingFileRedirect
+
+> Task :image-engine:connectedDebugAndroidTest
+Starting 13 tests on SM-A556B - 16
+
+Finished 13 tests on SM-A556B - 16
+
+BUILD SUCCESSFUL in 12s
+44 actionable tasks: 25 executed, 19 up-to-date

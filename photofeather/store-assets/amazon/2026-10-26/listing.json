@@ -1,0 +1,51 @@
+{
+  "title": "PhotoFeather: Photo Compressor",
+  "packageName": "com.kreativ.photofeather",
+  "versionName": "1.0.0",
+  "versionCode": 3,
+  "minimumAndroidApi": 26,
+  "targetAndroidApi": 36,
+  "price": "Free",
+  "ads": false,
+  "inAppPurchases": false,
+  "subscriptions": false,
+  "loginRequired": false,
+  "supportEmail": "info@madebykreativ.com",
+  "website": "https://madebykreativ.com/apps/photofeather/",
+  "privacyPolicy": "https://madebykreativ.com/privacy/photofeather/",
+  "tutorial": "https://madebykreativ.com/news/compress-photos-android-photofeather/",
+  "shortDescription": "Compress and resize photos for forms, email and sharing. Check measured file sizes, compare before and after, and save new JPEG copies while keeping your originals.",
+  "longDescription": "Lighter photos. Ready to share.\n\nPhotoFeather by Made by Kreativ helps you make photos smaller for upload forms, email and messaging. Select your photos, choose a file-size target or resize setting, preview the measured results, then save new copies or share them.\n\nCHOOSE A FILE-SIZE TARGET\nTry 200 KB, 500 KB, 1 MB or a custom maximum. PhotoFeather adjusts JPEG quality and, when needed, resolution within its processing limits. Results show the actual encoded file size. If a target cannot be met, the app explains it and does not offer that unsuccessful result for export.\n\nRESIZE WITH CLEAR DIMENSIONS\nChoose Small (1280 px), Medium (1920 px), Large (2560 px) or a custom longest edge from 64 to 8192 pixels. Aspect ratio is preserved and smaller photos are never enlarged. Planned width and height appear before processing; results show the final dimensions. Use resize-only mode when you do not need a file-size target.\n\nCHECK BEFORE YOU SAVE\nCompare original and output sizes, dimensions and percentage saved. Zoom and pan in the before-and-after view. Optional advanced JPEG quality controls let you set a quality limit. Large photos may be reduced to fit the app's memory limit, and a file-size target may reduce dimensions further.\n\nWORK WITH ONE PHOTO OR A BATCH\nSelect multiple photos, follow progress, cancel processing and review per-photo results. Retry failed items or export selected successful copies. Unsupported or unreadable files are identified individually. Larger or same-sized results require your explicit choice before export.\n\nKEEP YOUR ORIGINALS\nPhotoFeather saves new JPEG copies and never overwrites or deletes originals. Share copies through Android's share sheet. Transparent PNG and WebP images need an opaque background for JPEG output; choose the background before converting.\n\nON-DEVICE PROCESSING\nPhoto processing stays on your device. No accounts, advertising, purchases or subscriptions. Our source app has no internet permission or analytics SDK. Amazon applies its own store wrapper and may process store-related diagnostics under its policies. The system picker may retrieve photos from a cloud provider you choose; that provider handles retrieval.\n\nMETADATA REMOVED FROM COPIES\nSource metadata, including embedded location metadata, is removed from newly encoded JPEG copies and checked before export. This does not anonymise photos or remove faces, text or sensitive details visible in the image.\n\nSUPPORTED FORMATS AND LIMITS\nInputs: JPEG, PNG and static WebP. Output: lossy JPEG. HEIC/HEIF, AVIF, GIF and animated images are not supported. JPEG compression can reduce visible quality; lossless compression and guaranteed visual quality are not promised. File-size units are decimal: 1 KB = 1000 bytes and 1 MB = 1000000 bytes.\n\nSupports dark mode, large text and labelled accessibility controls. All features described here are included in version 1.0.0, with no purchases.\n\nSTEP-BY-STEP GUIDE\nhttps://madebykreativ.com/news/compress-photos-android-photofeather/\n\nSupport: info@madebykreativ.com\n\nPrivacy: https://madebykreativ.com/privacy/photofeather/",
+  "featureBullets": [
+    "Choose 200 KB, 500 KB, 1 MB or a custom file-size target",
+    "Resize one photo or a batch and preserve aspect ratio",
+    "Compare measured sizes and dimensions before saving",
+    "Save and share new JPEG copies without overwriting originals",
+    "Process photos on-device, with no ads, account or purchases"
+  ],
+  "keywords": [
+    "photo compressor",
+    "resize photos",
+    "reduce image size",
+    "JPEG",
+    "offline",
+    "file size"
+  ],
+  "language": "English",
+  "category": "Photo & Video",
+  "refinements": [
+    "Photo Editing",
+    "Photo Sharing"
+  ],
+  "devices": "Fire tablets only; exclude Fire TV and Android phones. minSdk 26 excludes Fire OS 6 (API 25) and older. Verify Fire OS 7/API 28 and Fire OS 8/API 30 in portal.",
+  "drmRecommendation": "No automatically applied DRM for the free offline utility. Amazon still wraps/re-signs the APK.",
+  "ageRating": "Content-rating questionnaire complete in portal; summary rating assigned by Amazon",
+  "status": "Draft created; not submitted",
+  "appId": "amzn1.devportal.mobileapp.3120e04df3c74381a4db5e3616141a76",
+  "releaseId": "amzn1.devportal.apprelease.06d7d75970e04242a5422cb09001a229",
+  "targetAudience": [
+    "16-17",
+    "18+"
+  ],
+  "promotionalImage": "promotional-image.png"
+}

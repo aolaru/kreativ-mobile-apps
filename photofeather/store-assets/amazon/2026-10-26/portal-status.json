@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-26",
+  "appId": "amzn1.devportal.mobileapp.3120e04df3c74381a4db5e3616141a76",
+  "releaseId": "amzn1.devportal.apprelease.06d7d75970e04242a5422cb09001a229",
+  "state": "Incomplete draft; not submitted for store review. Corrected Fire-device test in progress; tablet screenshots pending disk space.",
+  "apkUpload": "Verified 1 file uploaded; version code 3",
+  "apk": "PhotoFeather-1.0.0-code3-UNSIGNED.apk",
+  "drm": "No; confirmed checked and Last saved",
+  "language": "English; confirmed checked",
+  "category": "Photo & Video",
+  "refinements": [
+    "Photo Editing",
+    "Photo Sharing"
+  ],
+  "supportEmail": "info@madebykreativ.com",
+  "supportPhone": "empty",
+  "website": "https://madebykreativ.com/apps/photofeather/",
+  "description": "English US Complete; 164-character short, 3101-character long, 5 feature bullets, keywords",
+  "largeIcon": "Verified saved tablet_large_icon",
+  "smallIcon": "Verified saved tablet_small_icon in Appstore details and Review & submit",
+  "screenshots": "None; genuine tablet captures pending",
+  "deviceTargeting": "Portal default: 12 Fire tablets selected; 0 Fire TV; 0 Automotive. Not verified by functional testing.",
+  "privacyUrl": "Verified saved in Review & submit",
+  "privacyAndContentQuestionnaires": "Content rating Complete; 7 subject-matter answers None; academic and 5 additional-information answers No. Source-based data privacy No; Amazon wrapper disclosed separately in linked policy.",
+  "physicalFireTablet": "User confirmed none available",
+  "automatedTesting": "Corrected signed-APK Fire Tablets run successfully submitted: PhotoFeather 1.0.0-3 signed Fire tablets 2026-10-26. Status In progress at submission confirmation. No compatibility pass claimed yet.",
+  "remoteLiveDevices": "Only virtual Fire TV offered on this account landing page; no physical tablet access shown.",
+  "browserBlocker": null,
+  "promotionalImage": "Original-logo 1024x500 PNG uploaded and verified tablet_promotional_image; no AI generation, no screenshot compositing",
+  "targetAudience": [
+    "16-17 years of age",
+    "18+ years of age"
+  ],
+  "audienceRationale": "General-purpose file utility; not designed for children. Does not alter Amazon-assigned maturity rating.",
+  "automatedTestingEvidence": [
+    "evidence/automated-run-2-current.png",
+    "evidence/automated-run-2-current.txt"
+  ],
+  "amazonCertificate": "evidence/amazon-certificate.txt",
+  "privacyPolicy": {
+    "commit": "9197889f7c43c5879bf4a58746479912ff13a2e3",
+    "validation": "npm run validate passed",
+    "workflow": "https://github.com/aolaru/madebykreativ.com/actions/runs/40284621438",
+    "deployment": "success",
+    "liveVerified": "Effective 26 October 2026, Amazon Appstore editions section present"
+  },
+  "remainingFormBlocker": "At least 3 tablet screenshots required; Submit App disabled",
+  "screenshotBlocker": "Existing emulator launch failed hasSufficientDiskSpace. User asked to free at least 5 GB. No device/emulator screenshots fabricated or resized from phone captures.",
+  "testRuns": [
+    {
+      "name": "PhotoFeather 1.0.0-3 Fire tablets 2026-10-26",
+      "runId": "run#1792998489773",
+      "binary": "UNSIGNED",
+      "status": "Complete",
+      "outcome": "0/8 devices compatible; installation failed; launch/exit skipped on inspected Fire HD 10 (2023). Not a valid runtime compatibility result for an unsigned APK."
+    },
+    {
+      "name": "PhotoFeather 1.0.0-3 signed Fire tablets 2026-10-26",
+      "binary": "TEST-SIGNED",
+      "status": "In progress",
+      "submitted": true,
+      "releaseCodeIdentical": true,
+      "notes": "Existing Android debug test certificate applied to a copy of production APK. Store draft production artifact unchanged. See evidence/test-signing.json.",
+      "lastChecked": "2026-10-26 07:31 UTC"
+    }
+  ]
+}

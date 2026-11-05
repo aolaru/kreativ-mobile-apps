@@ -1,0 +1,200 @@
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.kreativ.photofeather.RegressionTest:
+INSTRUMENTATION_STATUS: test=comparisonReturnAndRotationPreserveScroll
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=comparisonReturnAndRotationPreserveScroll
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=completedPreviewBringsResultsIntoView
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=completedPreviewBringsResultsIntoView
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=settingsChangesPreserveScrollAndEditorFocus
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=settingsChangesPreserveScrollAndEditorFocus
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=incompletePendingGalleryCopyIsRemoved
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.kreativ.photofeather.RegressionTest.incompletePendingGalleryCopyIsRemoved(RegressionTest.java:145)
+
+INSTRUMENTATION_STATUS: stream=
+Error in incompletePendingGalleryCopyIsRemoved(com.kreativ.photofeather.RegressionTest):
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.kreativ.photofeather.RegressionTest.incompletePendingGalleryCopyIsRemoved(RegressionTest.java:145)
+
+INSTRUMENTATION_STATUS: test=incompletePendingGalleryCopyIsRemoved
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=mixedRetryResultsRetainIndividualSettingsAcrossRecovery
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=mixedRetryResultsRetainIndividualSettingsAcrossRecovery
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=failedRetryKeepsSavedStatusAndPreviousPreview
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=failedRetryKeepsSavedStatusAndPreviousPreview
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=publishedCopySurvivesJournalCommitFailureAndRepeatedRecovery
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at org.junit.Assert.assertFalse(Assert.java:75)
+	at com.kreativ.photofeather.RegressionTest.publishedCopySurvivesJournalCommitFailureAndRepeatedRecovery(RegressionTest.java:119)
+
+INSTRUMENTATION_STATUS: stream=
+Error in publishedCopySurvivesJournalCommitFailureAndRepeatedRecovery(com.kreativ.photofeather.RegressionTest):
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at org.junit.Assert.assertFalse(Assert.java:75)
+	at com.kreativ.photofeather.RegressionTest.publishedCopySurvivesJournalCommitFailureAndRepeatedRecovery(RegressionTest.java:119)
+
+INSTRUMENTATION_STATUS: test=publishedCopySurvivesJournalCommitFailureAndRepeatedRecovery
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=cancelledRetryKeepsPreviousPreviewAndItsSettings
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.junit.Assert.assertNotNull(Assert.java:723)
+	at com.kreativ.photofeather.RegressionTest.cancelledRetryKeepsPreviousPreviewAndItsSettings(RegressionTest.java:194)
+
+INSTRUMENTATION_STATUS: stream=
+Error in cancelledRetryKeepsPreviousPreviewAndItsSettings(com.kreativ.photofeather.RegressionTest):
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.junit.Assert.assertNotNull(Assert.java:723)
+	at com.kreativ.photofeather.RegressionTest.cancelledRetryKeepsPreviousPreviewAndItsSettings(RegressionTest.java:194)
+
+INSTRUMENTATION_STATUS: test=cancelledRetryKeepsPreviousPreviewAndItsSettings
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=truncatedJpegNeverProducesAnExportableResult
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.kreativ.photofeather.RegressionTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=truncatedJpegNeverProducesAnExportableResult
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 22.787
+There were 3 failures:
+1) incompletePendingGalleryCopyIsRemoved(com.kreativ.photofeather.RegressionTest)
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.kreativ.photofeather.RegressionTest.incompletePendingGalleryCopyIsRemoved(RegressionTest.java:145)
+2) publishedCopySurvivesJournalCommitFailureAndRepeatedRecovery(com.kreativ.photofeather.RegressionTest)
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at org.junit.Assert.assertFalse(Assert.java:75)
+	at com.kreativ.photofeather.RegressionTest.publishedCopySurvivesJournalCommitFailureAndRepeatedRecovery(RegressionTest.java:119)
+3) cancelledRetryKeepsPreviousPreviewAndItsSettings(com.kreativ.photofeather.RegressionTest)
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertNotNull(Assert.java:713)
+	at org.junit.Assert.assertNotNull(Assert.java:723)
+	at com.kreativ.photofeather.RegressionTest.cancelledRetryKeepsPreviousPreviewAndItsSettings(RegressionTest.java:194)
+
+FAILURES!!!
+Tests run: 9,  Failures: 3
+
+
+INSTRUMENTATION_CODE: -1
