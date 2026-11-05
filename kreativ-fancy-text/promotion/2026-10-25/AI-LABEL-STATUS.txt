@@ -1,0 +1,36 @@
+KREATIV FANCY TEXT — AI DECLARATION CORRECTED 25 OCTOBER 2026
+
+The live en-US listing had AI labels on icon-512.png and feature-1024x500.png.
+All five genuine interface screenshots were already unlabelled.
+
+Source review: public/icon.svg is vector artwork. scripts/prepare-store.mjs
+renders the icon from that vector and the feature graphic from HTML/CSS,
+bundled fonts and real app-rendered canvases. store/graphics/manifest.json
+records their provenance and hashes. No raster image-generation service or
+stock AI photograph is involved. This is not removal of a watermark from
+generated imagery.
+
+With the owner's explicit request, unticked the icon and feature graphic in
+Label AI-generated assets, then selected Label assets and submit. Console
+returned Don't label assets = 1 and Label assets using AI = 0. Reopened the
+listing from Publishing overview and verified the saved state again.
+
+Publishing overview showed Last published on 25 October 2026, with no pending
+or in-review change table. No additional submission was offered/needed.
+Title, short description (68), full description (1848), icon, feature graphic,
+five screenshot files/order, release, pricing and permissions were unchanged.
+Only the asset declarations were corrected. No other languages were edited.
+
+Public listing accessible and version 1.0.1 confirmed. Inspected public header
+and screenshot strip: no visible AI badge. Other surfaces/caches may propagate
+separately; this is not a guarantee of immediate removal in every region.
+
+Evidence:
+../../store/review/ai-labels-off-2026-10-25.png
+../../store/review/public-listing-2026-10-25.png
+
+The new promotion-pack copy, graphics and tutorial are separate local drafts.
+Nothing posted to social media, emailed or published to the website.
+
+Guidance consulted:
+https://support.google.com/googleplay/android-developer/answer/17262077?hl=en-GB

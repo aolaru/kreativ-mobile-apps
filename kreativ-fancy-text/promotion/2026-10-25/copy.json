@@ -1,0 +1,63 @@
+{
+  "app": "Kreativ Fancy Text",
+  "date": "2026-10-25",
+  "version": "1.0.1",
+  "status": "Approved en-US listing refresh saved: short/full copy, five screenshots and feature graphic, with AI labels off. Promotional-wording warning fixed in the short description. Submission not confirmed; manual Send required. Website/social/outreach remain drafts. See listing/SUBMISSION-STATUS.txt.",
+  "store": "https://play.google.com/store/apps/details?id=com.kreativfont.studio",
+  "privacy": "https://madebykreativ.com/privacy/kreativ-fancy-text/",
+  "listing": {
+    "title": "Kreativ Fancy Text",
+    "shortDescription": "Create fancy Unicode text and PNG designs. Style words and work offline.",
+    "fullDescription": "Make your words feel like you.\n\nKreativ Fancy Text turns a short thought, name or message into copyable Unicode text and matching PNG artwork. Create on your device, without an account, advertising or an internet connection.\n\nSTYLE THE WHOLE MESSAGE OR ONE WORD\nExplore 17 text styles, including bold, italic, script, gothic, monospace, bubble and small caps. Tap a word to give it a different text style or image color. Undo and redo edits while you work.\n\nCHOOSE A LOOK\nStart with six coordinated themes: The original, Lilac daydream, After hours, Love notes, Ink & paper and Golden hour. Adjust text size and alignment, and add an optional signature to your image.\n\nCOPY TEXT OR SAVE AN IMAGE\nCopy styled Unicode text or open Android's share sheet. Export PNG artwork as a square, portrait or story, at standard or 2x resolution. Choose an optional transparent background. Save PNG opens Android's file picker so you choose the destination.\n\nKEEP DESIGNS ON YOUR DEVICE\nYour current draft restores when you reopen the app. Save up to 50 complete designs, reopen them and continue editing. Deleted saved designs can be recovered during the current app session. Edit history and deletion recovery are not backups.\n\nOFFLINE AND AD-FREE\nFonts and assets are bundled. The Android app has no account, advertising or analytics SDK, cloud sync or internet permission. It does not install phone fonts or a keyboard and does not request accessibility service access.\n\nKNOW WHAT YOU ARE SHARING\nCopy text keeps Unicode characters, not image colors, decorations or the bundled image font. Appearance and character support depend on the receiving app and its fonts. Unsupported letters remain in their original form. Use PNG when you want to preserve the visual design.\n\nInput supports up to 1,200 UTF-16 code units; some characters use more than one. Long messages shrink to fit the image. If a message still cannot fit, export is blocked with an explanation: shorten it, remove line breaks or choose a taller format.\n\nDrafts and saved designs are local to this installation. Clearing storage or uninstalling removes them. Exported or shared copies stay where you put them. Sharing to another app is your choice and follows that app's policies.\n\nPrivacy: https://madebykreativ.com/privacy/kreativ-fancy-text/\nSupport: info@madebykreativ.com"
+  },
+  "posts": [
+    {
+      "name": "Graphic 01 — launch caption",
+      "channel": "launch_social",
+      "text": "A little text. A little personality.\n\nI made Kreativ Fancy Text for Android: write a message, style individual words, then copy the fancy text or save a matching PNG design.\n\n17 text styles. Six themes. Square, portrait and story images. Everything is created on your device—no account, ads or internet connection needed.\n\nCopied text uses Unicode, so its appearance depends on the app you paste into. PNG keeps your colors and design.\n\nTry it and tell me what you would make first.\n\n— Andrei, Made by Kreativ"
+    },
+    {
+      "name": "Romanian launch caption",
+      "channel": "launch_ro",
+      "text": "Un mesaj scurt, cu personalitate.\n\nAm lansat Kreativ Fancy Text pentru Android: scrii un mesaj, personalizezi cuvintele, apoi copiezi textul stilizat sau salvezi un design PNG.\n\n17 stiluri de text, șase teme și imagini pătrate, portret sau story. Funcționează offline, fără cont și fără reclame.\n\nTextul copiat folosește caractere Unicode și poate arăta diferit în alte aplicații. Imaginea PNG păstrează culorile și designul. Interfața aplicației este în engleză.\n\n— Andrei, Made by Kreativ"
+    },
+    {
+      "name": "Graphic 02 — explain the difference",
+      "channel": "text_vs_png",
+      "text": "Copy the characters—or keep the whole look. Kreativ Fancy Text creates styled Unicode text and matching PNG designs. Copied text depends on the receiving app; PNG preserves colors and artwork. Offline, ad-free, no account."
+    },
+    {
+      "name": "Graphic 03 — saved designs",
+      "channel": "saved_designs",
+      "text": "Keep a little collection of words worth revisiting. Save up to 50 designs locally in Kreativ Fancy Text, reopen them and keep editing. No cloud sync: clearing storage or uninstalling removes saved designs. Export the images you want to keep."
+    },
+    {
+      "name": "Screenshot-tour caption",
+      "channel": "screenshot_tour",
+      "text": "Write → style a word → preview → export → save a design. A 20-second screenshot tour of Kreativ Fancy Text for Android. Actual app interface screenshots, not live footage. Offline and ad-free. Unicode text appearance varies between apps."
+    },
+    {
+      "name": "Community introduction — only where promotion is permitted",
+      "channel": "community",
+      "text": "Disclosure: I am the developer. I built a small offline Android typography tool called Kreativ Fancy Text. It mixes per-word Unicode styles with PNG artwork, without an account or ads. It is not a keyboard, phone-font installer or font-identification app. I would welcome feedback on the text-to-image workflow—not a particular rating or review."
+    }
+  ],
+  "outreach": [
+    {
+      "name": "Android utility editor",
+      "subject": "For consideration: an offline text-and-PNG typography tool",
+      "body": "Hello, I am Andrei, the developer of Kreativ Fancy Text. It is a free Android app for per-word Unicode styling and matching PNG designs. It works offline, without an account or ads. I have a five-screen tour and screenshots available. Would this fit your utility-app coverage? No coverage or positive review is expected."
+    },
+    {
+      "name": "Typography/design newsletter",
+      "subject": "A small mobile tool for styled messages and PNG designs",
+      "body": "Hello, I publish Made by Kreativ. Kreativ Fancy Text combines copyable Unicode text with six visual themes and per-word image colors. It is not a font installer, font identifier or full design editor. If a short mobile-typography item fits your newsletter, I can share genuine screenshots and a walkthrough."
+    },
+    {
+      "name": "Privacy/offline-app editor",
+      "subject": "Kreativ Fancy Text: offline by design, no advertising SDK",
+      "body": "Hello, I developed Kreativ Fancy Text for Android. The packaged app has bundled fonts/assets, no internet permission, no account and no advertising or analytics SDK. Drafts and saved designs stay local; user-initiated sharing goes through Android. If useful for your coverage, I can provide the privacy policy and a screenshot walkthrough. This is a developer introduction, not a request for a favourable review."
+    }
+  ],
+  "proposedTutorialPath": "/news/fancy-text-png-designs-android-kreativ/"
+}

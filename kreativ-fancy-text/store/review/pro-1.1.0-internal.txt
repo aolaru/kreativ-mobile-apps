@@ -1,0 +1,105 @@
+- progressbar
+- generic: Loading Google Play Console
+- banner:
+  - link "Google Play Console logo":
+    - /url: /console/u/0/developers/7594712361231234431/home
+    - button "Google Play Console logo"
+  - button "Unread notifications Open notification centre":
+    - img: notifications_unread
+    - generic: Unread notifications
+  - button "Switch developer accounts":
+    - img: more_vert
+  - 'button "Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership"':
+- navigation:
+  - list:
+    - listitem "Home":
+      - button "Home":
+        - img: home
+    - listitem "Manage account":
+      - button "Manage account":
+        - img: badge
+    - listitem "Kreativ Fancy Text":
+      - button "Kreativ Fancy Text":
+        - img: play_prism
+    - listitem "Dashboard":
+      - button "Dashboard":
+        - img: dashboard
+    - listitem "Statistics":
+      - button "Statistics":
+        - img: bar_chart
+    - listitem "Publishing overview":
+      - button "Publishing overview":
+        - img: overview
+    - listitem "Protected with Play":
+      - button "Protected with Play":
+        - img: shield
+    - listitem "Test and release":
+      - button "Test and release":
+        - img: rocket_launch
+    - listitem "Monitor and improve":
+      - button "Monitor and improve":
+        - img: vital_signs
+    - listitem "Grow users":
+      - button "Grow users":
+        - img: finance_mode
+    - listitem "Monetise with Play":
+      - button "Monetise with Play":
+        - img: sell
+- heading "Internal testing" [level=1]
+- button "Select form factors. Phones, Tablets, Desktop (Googlebook OS, ChromeOS), Android XR":
+  - img: phonelink
+  - generic: Phones, Tablets, Desktop (Googlebook OS, ChromeOS), Android XR
+  - img: arrow_drop_down
+- button "Create new release":
+  - generic: Create new release
+- text: Create and manage internal testing releases to make your app available to up to 100 internal testers.
+- link "Learn more about Internal testing (opens in a new tab)":
+  - /url: https://play.google.com/console/about/internal-testing
+  - text: Learn more
+- heading "Track summary (Phones, Tablets, Desktop, Android XR)" [level=4]
+- button "Pause track":
+  - generic: Pause track
+- list:
+  - listitem: Inactive
+  - listitem: "Latest release: 1.1.0 (7) — Pro purchase tests"
+- tablist:
+  - tab "Releases" [selected]:
+    - generic: Releases
+  - tab "Testers":
+    - generic: Testers
+- heading "Releases" [level=2]
+- heading "Release 1.1.0 (7) — Pro purchase tests" [level=3]: 1.1.0 (7) — Pro purchase tests
+- link "Manage release 1.1.0 (7) — Pro purchase tests":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/tracks/4701453847955130384/releases/1/details
+  - generic: Manage release
+- button "Promote release":
+  - generic: Promote release
+  - img: arrow_drop_down
+- paragraph:
+  - img: check_circle
+  - generic: Available to internal testers
+  - img: brightness_1
+  - generic: 1 version code
+  - img: brightness_1
+  - generic: Released on 4 Nov 10:26
+- button "Show summary for 1.1.0 (7) — Pro purchase tests":
+  - generic: Show summary
+  - img: expand_more
+- heading "Release history" [level=2]
+- 'button "Show content: Release history"':
+  - generic: Show
+  - img: expand_more
+- link "Product updates":
+  - /url: https://play.google.com/console/about/whats-new/
+- link "Status dashboard":
+  - /url: https://status.play.google.com/
+- link "Help":
+  - /url: /console/u/0/developers/7594712361231234431/help-and-support?app=4976006210494663211
+- generic: © 2026 Google
+- link "Privacy":
+  - /url: https://www.google.com/policies/privacy/
+- link "Developer Distribution Agreement":
+  - /url: https://play.google.com/about/developer-distribution-agreement.html
+- link "Terms of Service":
+  - /url: https://play.google.com/about/console/terms-of-service/
+- status

@@ -1,0 +1,171 @@
+- progressbar
+- generic: Loading Google Play Console
+- banner:
+  - link "Google Play Console logo":
+    - /url: /console/u/0/developers/7594712361231234431/home
+    - button "Google Play Console logo"
+  - button "Unread notifications Open notification centre":
+    - img: notifications_unread
+    - generic: Unread notifications
+  - button "Switch developer accounts":
+    - img: more_vert
+  - 'button "Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership"':
+- navigation:
+  - list:
+    - listitem "Home":
+      - button "Home":
+        - img: home
+        - generic: Home
+    - listitem "Manage account":
+      - button "Manage account":
+        - img: badge
+        - generic: Manage account
+    - listitem "Kreativ Fancy Text":
+      - button "Kreativ Fancy Text":
+        - img: play_prism
+        - generic: Kreativ Fancy Text
+        - img: swap_horiz
+    - listitem "Dashboard":
+      - button "Dashboard":
+        - img: dashboard
+        - generic: Dashboard
+    - listitem "Statistics":
+      - button "Statistics":
+        - img: bar_chart
+        - generic: Statistics
+    - listitem "Publishing overview":
+      - button "Publishing overview":
+        - img: overview
+        - generic: Publishing overview
+    - listitem "Protected with Play":
+      - button "Protected with Play":
+        - img: shield
+        - generic: Protected with Play
+    - listitem "Test and release":
+      - button "Test and release":
+        - img: rocket_launch
+        - generic: Test and release
+      - list:
+        - listitem "Latest releases and bundles":
+          - button "Latest releases and bundles":
+            - generic: Latest releases and bundles
+        - listitem "Production":
+          - button "Production":
+            - generic: Production
+        - listitem "Testing":
+          - button "Testing":
+            - generic: Testing
+            - img: expand_more
+        - listitem "Pre-registration":
+          - button "Pre-registration":
+            - generic: Pre-registration
+        - listitem "App integrity":
+          - button "App integrity":
+            - generic: App integrity
+        - listitem "Advanced settings":
+          - button "Advanced settings":
+            - generic: Advanced settings
+    - listitem "Monitor and improve":
+      - button "Monitor and improve":
+        - img: vital_signs
+        - generic: Monitor and improve
+    - listitem "Grow users":
+      - button "Grow users":
+        - img: finance_mode
+        - generic: Grow users
+    - listitem "Monetise with Play":
+      - button "Monetise with Play":
+        - img: sell
+        - generic: Monetise with Play
+- heading "Test and release" [level=1]
+- button "Select form factors. Phones, Tablets, Desktop (Googlebook OS, ChromeOS), Android XR":
+  - img: phonelink
+  - generic: Phones, Tablets, Desktop (Googlebook OS, ChromeOS), Android XR
+  - img: arrow_drop_down
+- img: overview
+- generic: Publishing overview
+- generic: You have no unpublished changes
+- link "Go to publishing page":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/publishing
+  - img: arrow_right_alt
+- img: rocket
+- heading "Latest production release" [level=2]
+- list:
+  - img: draft
+  - generic: 1.0.2 (5)
+  - generic: "Release name: 1.0.2 (5)"
+  - text: •
+  - img: schedule
+  - generic: 35 minutes ago
+- link "Go to Latest production release page":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/tracks/production?releaseType=defaultReleases
+  - img: arrow_right_alt
+- generic: Roll-out percentage
+- generic: 100%
+- button "Total release installs"
+- generic: "0"
+- button "Install base"
+- generic: 0.0%
+- button "App installs"
+- generic: "3"
+- button "Release crash rate"
+- generic: "-"
+- button "Hourly granularity":
+  - generic: Hourly
+  - img: arrow_drop_down
+- link "Go to Android vitals":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/vitals/metrics/details?versionCode=5&aggregationPeriod=AGGREGATION_PERIOD_24H&days=28&metric=USER_PERCEIVED_CRASHES&granularity=HOURLY_GRANULARITY
+  - img: arrow_right_alt
+- button "Release ANR rate"
+- generic: "-"
+- button "Hourly granularity":
+  - generic: Hourly
+  - img: arrow_drop_down
+- link "Go to Android vitals":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/vitals/metrics/details?versionCode=5&aggregationPeriod=AGGREGATION_PERIOD_24H&days=28&metric=USER_PERCEIVED_ANRS&granularity=HOURLY_GRANULARITY
+  - img: arrow_right_alt
+- img: slow_motion_video
+- heading "Open testing" [level=2]
+- link "Get started with Open testing":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/tracks/open-testing?releaseType=defaultReleases
+  - generic: Get started
+  - img: arrow_right_alt
+- generic: Let anyone sign up to test your app publicly on Play to gather early feedback from a large number of users, and monitor key metrics before you launch
+- img: sound_sampler
+- heading "Closed testing" [level=2]
+- link "Get started with Closed testing":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/closed-testing?releaseType=defaultReleases
+  - generic: Get started
+  - img: arrow_right_alt
+- generic: Test your app with a larger group of trusted users using email addresses, Google Groups or access codes. You can create multiple closed testing tracks to test different features at the same time.
+- img: motion_play
+- heading "Internal testing" [level=2]
+- link "Go to Internal testing page":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/tracks/internal-testing?releaseType=defaultReleases
+  - img: arrow_right_alt
+- img: draft
+- generic: 1.1.0 (7) — Pro purchase tests
+- generic: "Release name: 1.1.0 (7) — Pro purchase tests"
+- img: calendar_month
+- generic: 10 minutes ago
+- generic: "Serving time: 10 minutes ago"
+- img: send_to_mobile
+- heading "Internal app sharing" [level=2]
+- link "Get started with Internal app sharing":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/releases/internal-app-sharing
+  - generic: Get started
+  - img: arrow_right_alt
+- generic: Easily share app bundles with your internal team using a link, to iterate on early versions of your app
+- link "Product updates":
+  - /url: https://play.google.com/console/about/whats-new/
+- link "Status dashboard":
+  - /url: https://status.play.google.com/
+- link "Help":
+  - /url: /console/u/0/developers/7594712361231234431/help-and-support?app=4976006210494663211
+- generic: © 2026 Google
+- link "Privacy":
+  - /url: https://www.google.com/policies/privacy/
+- link "Developer Distribution Agreement":
+  - /url: https://play.google.com/about/developer-distribution-agreement.html
+- link "Terms of Service":
+  - /url: https://play.google.com/about/console/terms-of-service/

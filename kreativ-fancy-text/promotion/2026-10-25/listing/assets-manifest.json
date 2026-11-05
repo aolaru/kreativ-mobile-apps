@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-25",
+  "status": "Approved feature and five screenshot layouts uploaded and saved in Console, in order 01-05. AI labels off. Submission not confirmed; manual Send required. See SUBMISSION-STATUS.txt.",
+  "counts": {
+    "title": 18,
+    "shortDescription": 72,
+    "fullDescription": 2331
+  },
+  "aiMarks": "No baked-in AI marks or generated photos. Outer designs built with SVG; interface screenshots unaltered. Existing public AI declarations handled separately.",
+  "featureGraphic": {
+    "width": 1024,
+    "height": 500,
+    "source": "Code-built SVG plus genuine interface screenshot."
+  },
+  "files": [
+    {
+      "file": "01-create.png",
+      "source": "../../store/graphics/screenshots/01-create.png",
+      "sourceSha256": "54d72776d9a0ec025b38486add38976e99d3beac7d4bcea73045683bd54f1868",
+      "capture": "Actual 1.0.1 bundled interface, Chromium 432x768 CSS px at 2.5x. Not a physical-phone capture.",
+      "processing": "Unchanged source image, proportional scaling only; no repainted UI.",
+      "alt": "Actual editor with message input and per-word style controls."
+    },
+    {
+      "file": "02-word-styles.png",
+      "source": "../../store/graphics/screenshots/02-word-styles.png",
+      "sourceSha256": "376744ceaefd0ffcc44e41979fcaab8f35220f4540b034b8dd6091633e07475e",
+      "capture": "Actual 1.0.1 bundled interface, Chromium 432x768 CSS px at 2.5x. Not a physical-phone capture.",
+      "processing": "Unchanged source image, proportional scaling only; no repainted UI.",
+      "alt": "Actual word chips, selected script style, color control and theme options."
+    },
+    {
+      "file": "03-matching-image.png",
+      "source": "../../store/graphics/screenshots/03-matching-image.png",
+      "sourceSha256": "0b0c38bc2c10f196eab1009a08a0f7b5c2cf7e49e1c798504754b74921c2485a",
+      "capture": "Actual 1.0.1 bundled interface, Chromium 432x768 CSS px at 2.5x. Not a physical-phone capture.",
+      "processing": "Unchanged source image, proportional scaling only; no repainted UI.",
+      "alt": "Actual preview of the Lilac daydream image design."
+    },
+    {
+      "file": "04-png-options.png",
+      "source": "../../store/graphics/screenshots/04-png-options.png",
+      "sourceSha256": "bffda64b33a67185216618e3ef3573b47c948ab4bb389916a2d6af630922d087",
+      "capture": "Actual 1.0.1 bundled interface, Chromium 432x768 CSS px at 2.5x. Not a physical-phone capture.",
+      "processing": "Unchanged source image, proportional scaling only; no repainted UI.",
+      "alt": "Actual copyable text and PNG export settings."
+    },
+    {
+      "file": "05-saved-designs.png",
+      "source": "../../store/graphics/screenshots/05-saved-designs.png",
+      "sourceSha256": "0e290674fc8fedf76469df7220c48dafee49c1445df3c4c9a7d9bf9ac52d2ca1",
+      "capture": "Actual 1.0.1 bundled interface, Chromium 432x768 CSS px at 2.5x. Not a physical-phone capture.",
+      "processing": "Unchanged source image, proportional scaling only; no repainted UI.",
+      "alt": "Actual saved-design collection with two locally stored designs."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+KREATIV FANCY TEXT LISTING REFRESH — 25 OCTOBER 2026
+
+User approved new copy, five screenshots and feature graphic, without AI marks.
+
+SAVED, NOT YET CONFIRMED SUBMITTED
+Four changes saved in the en-US default listing:
+- Short description: 72/80, Create fancy Unicode text and PNG designs. Style words and work offline.
+- Full description: 2331/4000, exact text in ../copy.json.
+- Five 1440x2560 phone screenshots in order 01, 02, 03, 04, 05.
+- Feature graphic: feature-graphic.png, 1024x500.
+
+Name and icon retained. No app binary, release, pricing, permission, account,
+website or social changes. Old assets retained in the Console asset library.
+Don't label assets selected and verified after saving and reopening.
+
+Google flagged the originally proposed short description's promotional wording
+(ad-free). Removed that phrase from the short description only; full description
+and truthful privacy statements retained. The new short remains 72 characters.
+
+The Send confirmation closes but Google still shows Changes not yet submitted
+for review. Semantic, coordinate and keyboard actions did not change this state.
+No browser console errors were exposed. Quick checks are running, up to 14
+minutes remaining at last observation. Submission/approval/publication are NOT
+confirmed. Managed publishing remains OFF. Owner's manual Send click is needed.
+
+Proof of screenshot order: console-screenshot-order.png.
+Proof of saved AI selection: console-ai-labels-off.png.
+Submission handoff screenshot: console-send-handoff.png.

@@ -1,0 +1,55 @@
+{
+  "version": "1.1.0",
+  "generatedAt": "2026-11-04T08:59:56.146Z",
+  "assets": [
+    {
+      "file": "screenshots/01-create.png",
+      "width": 1080,
+      "height": 1920,
+      "source": "Actual bundled web interface in Chromium, 432×768 CSS px at 2.5×; no Android system chrome.",
+      "sha256": "78195d4e0cc77692e5aa30ee8b62159d44dc52615f9ca46348b90b03c641d258"
+    },
+    {
+      "file": "screenshots/02-word-styles.png",
+      "width": 1080,
+      "height": 1920,
+      "source": "Actual bundled web interface in Chromium, 432×768 CSS px at 2.5×; no Android system chrome.",
+      "sha256": "686d27a28ea98c400ba211000e7260b083f47041ad08520eb9b851ed82edc319"
+    },
+    {
+      "file": "screenshots/03-matching-image.png",
+      "width": 1080,
+      "height": 1920,
+      "source": "Actual bundled web interface in Chromium, 432×768 CSS px at 2.5×; no Android system chrome.",
+      "sha256": "7f10324e77b66e7bc7419e429d4532a6e16efcd0858aaf9bd4139d76fd6dfd4f"
+    },
+    {
+      "file": "screenshots/04-png-options.png",
+      "width": 1080,
+      "height": 1920,
+      "source": "Actual bundled web interface in Chromium, 432×768 CSS px at 2.5×; no Android system chrome.",
+      "sha256": "0798fac96c9fb57514c23d5a319fb7c2dc479278a87ae58a56cc1d773023b502"
+    },
+    {
+      "file": "screenshots/05-saved-designs.png",
+      "width": 1080,
+      "height": 1920,
+      "source": "Actual bundled web interface in Chromium, 432×768 CSS px at 2.5×; no Android system chrome.",
+      "sha256": "0e290674fc8fedf76469df7220c48dafee49c1445df3c4c9a7d9bf9ac52d2ca1"
+    },
+    {
+      "file": "icon-512.png",
+      "width": 512,
+      "height": 512,
+      "source": "Existing public/icon.svg, full-bleed square for the Play icon mask.",
+      "sha256": "c11b45756061c03f9f4faf6c15d3e2a2cf869790ea5a5ad18ef5cc0b7f196088"
+    },
+    {
+      "file": "feature-1024x500.png",
+      "width": 1024,
+      "height": 500,
+      "source": "Brand vector, bundled font, and artwork rendered by the app; no stock imagery.",
+      "sha256": "01f547f8a50e844dd2e295eb241017f767ffef6dea939b7d678c86058219b864"
+    }
+  ]
+}

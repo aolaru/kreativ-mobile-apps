@@ -1,0 +1,106 @@
+- progressbar
+- generic: Loading Google Play Console
+- banner:
+  - link "Google Play Console logo":
+    - /url: /console/u/0/developers/7594712361231234431/home
+    - button "Google Play Console logo"
+  - button "Unread notifications Open notification centre":
+    - img: notifications_unread
+    - generic: Unread notifications
+  - button "Switch developer accounts":
+    - img: more_vert
+  - 'button "Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership"':
+- navigation:
+  - list:
+    - listitem "Home":
+      - button "Home":
+        - img: home
+    - listitem "Manage account":
+      - button "Manage account":
+        - img: badge
+    - listitem "Kreativ Fancy Text":
+      - button "Kreativ Fancy Text":
+        - img: play_prism
+    - listitem "Dashboard":
+      - button "Dashboard":
+        - img: dashboard
+    - listitem "Statistics":
+      - button "Statistics":
+        - img: bar_chart
+    - listitem "Publishing overview":
+      - button "Publishing overview":
+        - img: overview
+    - listitem "Protected with Play":
+      - button "Protected with Play":
+        - img: shield
+    - listitem "Test and release":
+      - button "Test and release":
+        - img: rocket_launch
+    - listitem "Monitor and improve":
+      - button "Monitor and improve":
+        - img: vital_signs
+    - listitem "Grow users":
+      - button "Grow users":
+        - img: finance_mode
+    - listitem "Monetise with Play":
+      - button "Monetise with Play":
+        - img: sell
+- heading "Publishing overview" [level=1]
+- text: See an overview of the changes made to your app and control when changes are sent for review or published.
+- button "Show more details about Publishing overview": Show more
+- button "Managed publishing off":
+  - img: sync_disabled
+  - generic: Managed publishing off
+  - img: arrow_drop_down
+- img: history
+- generic: Last published on 25 October 2026
+- link "Submission activity":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/publishing/submission-activity
+  - generic: Submission activity
+  - img: arrow_right_alt
+- heading "Changes in review" [level=2]
+- button "More information about 'Changes in review'":
+  - img: help
+- button "Remove changes": Remove changes
+- 'button "Hide content: Changes in review" [expanded]':
+  - generic: Hide
+  - img: expand_less
+- heading "Running quick checks for commonly found issues" [level=4]
+- meter "Running quick checks for commonly found issues"
+- paragraph:
+  - text: These checks help to find certain policy and app quality issues, so that you can fix them before review. Changes will be sent for review as soon as checks complete successfully.
+  - link "Go to the Help Centre to learn more about the automated checks that we run to detect issues before you send your changes for review":
+    - /url: https://support.google.com/googleplay/android-developer/answer/14807773
+    - text: Learn more
+- paragraph: Up to 14 minutes remaining
+- grid "Changes":
+  - row "Item changed Description":
+    - columnheader "Item changed"
+    - columnheader "Description"
+    - cell
+  - row "Production":
+    - img: rocket_launch
+    - gridcell "Production"
+  - row "1.0.2 (5) Start full rollout":
+    - gridcell "1.0.2 (5)":
+      - generic: 1.0.2 (5)
+    - gridcell "Start full rollout":
+      - generic: Start full rollout
+    - gridcell:
+      - listbox "More actions":
+        - button "More actions":
+          - img: more_vert
+- link "Product updates":
+  - /url: https://play.google.com/console/about/whats-new/
+- link "Status dashboard":
+  - /url: https://status.play.google.com/
+- link "Help":
+  - /url: /console/u/0/developers/7594712361231234431/help-and-support?app=4976006210494663211
+- generic: © 2026 Google
+- link "Privacy":
+  - /url: https://www.google.com/policies/privacy/
+- link "Developer Distribution Agreement":
+  - /url: https://play.google.com/about/developer-distribution-agreement.html
+- link "Terms of Service":
+  - /url: https://play.google.com/about/console/terms-of-service/
+- status

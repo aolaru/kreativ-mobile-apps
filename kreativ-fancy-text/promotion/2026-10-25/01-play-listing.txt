@@ -1,0 +1,39 @@
+PROPOSED COPY — NOT SAVED TO GOOGLE PLAY
+
+TITLE (18/30) — RETAIN
+Kreativ Fancy Text
+
+SHORT DESCRIPTION (72/80)
+Create fancy Unicode text and PNG designs. Style words and work offline.
+
+FULL DESCRIPTION (2331/4000)
+Make your words feel like you.
+
+Kreativ Fancy Text turns a short thought, name or message into copyable Unicode text and matching PNG artwork. Create on your device, without an account, advertising or an internet connection.
+
+STYLE THE WHOLE MESSAGE OR ONE WORD
+Explore 17 text styles, including bold, italic, script, gothic, monospace, bubble and small caps. Tap a word to give it a different text style or image color. Undo and redo edits while you work.
+
+CHOOSE A LOOK
+Start with six coordinated themes: The original, Lilac daydream, After hours, Love notes, Ink & paper and Golden hour. Adjust text size and alignment, and add an optional signature to your image.
+
+COPY TEXT OR SAVE AN IMAGE
+Copy styled Unicode text or open Android's share sheet. Export PNG artwork as a square, portrait or story, at standard or 2x resolution. Choose an optional transparent background. Save PNG opens Android's file picker so you choose the destination.
+
+KEEP DESIGNS ON YOUR DEVICE
+Your current draft restores when you reopen the app. Save up to 50 complete designs, reopen them and continue editing. Deleted saved designs can be recovered during the current app session. Edit history and deletion recovery are not backups.
+
+OFFLINE AND AD-FREE
+Fonts and assets are bundled. The Android app has no account, advertising or analytics SDK, cloud sync or internet permission. It does not install phone fonts or a keyboard and does not request accessibility service access.
+
+KNOW WHAT YOU ARE SHARING
+Copy text keeps Unicode characters, not image colors, decorations or the bundled image font. Appearance and character support depend on the receiving app and its fonts. Unsupported letters remain in their original form. Use PNG when you want to preserve the visual design.
+
+Input supports up to 1,200 UTF-16 code units; some characters use more than one. Long messages shrink to fit the image. If a message still cannot fit, export is blocked with an explanation: shorten it, remove line breaks or choose a taller format.
+
+Drafts and saved designs are local to this installation. Clearing storage or uninstalling removes them. Exported or shared copies stay where you put them. Sharing to another app is your choice and follows that app's policies.
+
+Privacy: https://madebykreativ.com/privacy/kreativ-fancy-text/
+Support: info@madebykreativ.com
+
+INTERNAL: en-US only. Review before submission. Do not add a tutorial URL until the article is published and verified. Existing live copy was retained in Console.

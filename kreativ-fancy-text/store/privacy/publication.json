@@ -1,0 +1,18 @@
+{
+  "verified": true,
+  "url": "https://madebykreativ.com/privacy/kreativ-fancy-text/",
+  "httpStatus": 200,
+  "access": "Public HTTPS; HTTP verified without authentication or cookies",
+  "verifiedAt": "2026-11-04T11:21:29.952599+00:00",
+  "sourcePolicySha256": "3ce5bbda439c86d086218461abe4cbc796f0fd92f58e18457d05953ac0f13b17",
+  "websiteRepository": "https://github.com/aolaru/madebykreativ.com",
+  "commit": "47ebe374a95e35d7e22b51cff1e6614e2286464f",
+  "deploymentRun": "https://github.com/aolaru/madebykreativ.com/actions/runs/41818762707",
+  "deploymentConclusion": "success",
+  "allPolicySectionsAndMetadataMatch": true,
+  "contentVerification": "Rendered public page text; includes Cloudflare-decoded public contact email",
+  "localWebsiteTests": {
+    "passed": 143,
+    "skipped": 2
+  }
+}

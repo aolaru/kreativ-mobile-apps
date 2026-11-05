@@ -1,0 +1,12 @@
+PUBLISHED WEBSITE TUTORIAL — 25 OCTOBER 2026
+
+Tutorial: https://madebykreativ.com/news/fancy-text-png-designs-android-kreativ/
+App page: https://madebykreativ.com/apps/kreativ-fancy-text/
+Source commit: 3b9e8bf — published to main in aolaru/madebykreativ.com.
+Deployment: https://github.com/aolaru/madebykreativ.com/actions/runs/40204795163
+
+Publication completed after the user reported the missing tutorial and app entry. App card, app page, tutorial cross-links, support selection, sharing artwork, Updates, both RSS feeds and sitemap were updated. Five unchanged original PNG screenshots and ten responsive WebP versions are published. All 22 live URLs and all 15 tutorial image files were verified; images match the built source. See PUBLICATION-STATUS.json and catalogue-live-2026-10-25.png.
+
+The full deployment quality gate passed: HTML, internal links, artifacts, redirects, Chromium, Firefox, WebKit, accessibility, responsive layouts, mobile performance and production smoke checks. No Google Play fields were changed during this website publication. Adding the tutorial URL to Play remains a separate action.
+
+All five screenshots are actual bundled 1.0.1 interface browser captures, not physical-phone captures. Native clipboard/file/share flows were not re-tested in this promotion task. Prior 1.0.1 phone checks remain deferred.

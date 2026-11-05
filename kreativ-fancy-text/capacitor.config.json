@@ -1,0 +1,17 @@
+{
+  "appId": "com.kreativfont.studio",
+  "appName": "Kreativ",
+  "webDir": "dist",
+  "backgroundColor": "#f7f6f2",
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#f7f6f2"
+  },
+  "plugins": {
+    "SystemBars": {
+      "style": "LIGHT",
+      "insetsHandling": "css"
+    }
+  },
+  "loggingBehavior": "debug"
+}

@@ -1,0 +1,35 @@
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, chmodSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import path from 'node:path';
+import os from 'node:os';
+import { fileURLToPath } from 'node:url';
+const root = fileURLToPath(new URL('../', import.meta.url));
+process.chdir(root);
+const backup = process.argv[2];
+if (!backup) throw new Error('Pass the private backed-up CapacitorStorage.xml path.');
+const java = process.env.JAVA_HOME || '/Applications/Android Studio.app/Contents/jbr/Contents/Home';
+const sdk = process.env.ANDROID_HOME || path.join(os.homedir(), 'Library/Android/sdk');
+const bt = path.join(sdk, 'build-tools/36.1.0');
+const androidJar = path.join(sdk, 'platforms/android-36/android.jar');
+const work = path.join(root, '.local/release-harness'); mkdirSync(work, { recursive: true, mode: 0o700 });
+chmodSync(work, 0o700);
+for (const name of ['classes', 'dex']) mkdirSync(path.join(work, name), { recursive: true });
+const run = (command, args, options = {}) => execFileSync(command, args, { env: { ...process.env, JAVA_HOME: java }, stdio: 'pipe', ...options });
+run(path.join(java, 'bin/javac'), ['--release', '17', '-cp', androidJar, '-d', path.join(work, 'classes'), 'scripts/release-harness/ReleaseChecks.java']);
+const classFiles = dir => readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
+  const file = path.join(dir, entry.name);
+  return entry.isDirectory() ? classFiles(file) : file.endsWith('.class') ? [file] : [];
+});
+const classes = classFiles(path.join(work, 'classes'));
+run(path.join(bt, 'd8'), ['--lib', androidJar, '--min-api', '24', '--output', path.join(work, 'dex'), ...classes]);
+const manifest = `<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.kreativfont.studio.releasechecks"><uses-sdk android:minSdkVersion="24" android:targetSdkVersion="36"/><application android:label="Local release checks" android:debuggable="false" android:allowBackup="false"/><instrumentation android:name="com.kreativfont.studio.releasechecks.ReleaseChecks" android:targetPackage="com.kreativfont.studio" android:functionalTest="true"/></manifest>`;
+writeFileSync(path.join(work, 'AndroidManifest.xml'), manifest);
+const unsigned = path.join(work, 'unsigned.apk'), aligned = path.join(work, 'aligned.apk'), signed = path.join(work, 'release-checks.apk');
+run(path.join(bt, 'aapt2'), ['link', '-I', androidJar, '--manifest', path.join(work, 'AndroidManifest.xml'), '-o', unsigned]);
+// The sensitive preference snapshot is packaged only in this ignored, private local harness.
+run('python3', ['-c', 'import sys,zipfile\nwith zipfile.ZipFile(sys.argv[1],"a",zipfile.ZIP_DEFLATED) as z:\n z.write(sys.argv[2],"classes.dex")\n z.write(sys.argv[3],"assets/original-preferences.xml")', unsigned, path.join(work, 'dex/classes.dex'), path.resolve(backup)]);
+run(path.join(bt, 'zipalign'), ['-f', '4', unsigned, aligned]);
+const config = JSON.parse(readFileSync(path.join(os.homedir(), '.config/kreativ-android/signing.json'), 'utf8'));
+run(path.join(bt, 'apksigner'), ['sign', '--ks', config.keystore, '--ks-key-alias', config.alias, '--ks-pass', 'env:LOCAL_TEST_STORE_PASSWORD', '--key-pass', 'env:LOCAL_TEST_KEY_PASSWORD', '--out', signed, aligned], { env: { ...process.env, JAVA_HOME: java, LOCAL_TEST_STORE_PASSWORD: config.storePassword, LOCAL_TEST_KEY_PASSWORD: config.keyPassword } });
+for (const file of [unsigned, aligned, signed]) chmodSync(file, 0o600);
+console.log(`Prepared temporary same-signer instrumentation: ${signed}`);

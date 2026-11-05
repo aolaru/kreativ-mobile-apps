@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kreativ</string>
+    <string name="title_activity_main">Kreativ</string>
+    <string name="package_name">com.kreativfont.studio</string>
+    <string name="custom_url_scheme">com.kreativfont.studio</string>
+</resources>

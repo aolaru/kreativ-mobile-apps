@@ -1,0 +1,26 @@
+KREATIV FANCY TEXT PROMOTION PACK — 25 OCTOBER 2026
+
+LATEST LISTING UPDATE: Four approved en-US changes are saved (new copy,
+five screenshots and feature graphic). AI labels verified off. Google flagged
+ad-free in the short description; compliant replacement saved at 72 characters.
+Automated Send actions did not register; submission is NOT confirmed.
+See listing/SUBMISSION-STATUS.txt. Other marketing items remain drafts.
+Preparation notes below are historical.
+
+Open index.html for the complete visual review board.
+
+READY FOR REVIEW
+- Five 1440x2560 store screenshot layouts around unchanged real 1.0.1 UI captures.
+- One 1024x500 code-built feature graphic.
+- Three 1080x1350 social graphics.
+- 20-second 1080x1920 silent screenshot tour plus captions (not live footage).
+- Proposed en-US Play copy; current name retained.
+- English/Romanian launch captions, community copy and tracked links.
+- Five-image website tutorial preview and website copy proposal.
+- Three unsent outreach templates; recipients/contact routes not selected.
+
+No generated photos, fake UI or baked-in AI marks. Captures are of the actual bundled mobile interface in Chromium, not phone screenshots. See listing/assets-manifest.json for source hashes.
+
+Public AI declaration correction is the only authorised external change in this task; see AI-LABEL-STATUS.txt. All new copy, graphics, tutorial and outreach remain drafts. No social posts, emails or website publication.
+
+NEXT: review Graphic 01 and its launch caption; choose an existing public channel. Approve proposed listing assets/copy and website publication separately. Do not upload the entire internal pack.

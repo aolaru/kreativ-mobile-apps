@@ -1,0 +1,13 @@
+CLAIMS AND SOURCES — 25 OCTOBER 2026
+
+Public listing: https://play.google.com/store/apps/details?id=com.kreativfont.studio
+Privacy: https://madebykreativ.com/privacy/kreativ-fancy-text/
+Local implementation: ../../src/model.js, unicode.js, render.js, platform.js and AndroidManifest.xml.
+Source screenshots and provenance: ../../store/graphics/manifest.json (1.0.1). Hashes rechecked during generation.
+Asset generation: ../../scripts/prepare-store.mjs; vector brand source ../../public/icon.svg. No image-generation service used.
+Google AI guidance checked: https://support.google.com/googleplay/android-developer/answer/17262077?hl=en-GB
+
+SUPPORTED: 17 styles, six themes, per-word image color/Unicode style, three PNG shapes, standard/2x resolution, optional alpha, up to 50 saved designs, current draft restore, session-only undo/deletion recovery.
+LIMITS: Unicode appearance/support varies; copied text has no colors or embedded font. Input is 1200 UTF-16 code units. Export can fail if text cannot fit. Local designs are not backed up. Native sharing is voluntary and destination policies apply.
+NOT CLAIMED: AI generation, keyboard replacement, phone-font installation, font recognition, handwriting generation, video editing, universal character support, cloud backup or guaranteed accessibility of styled Unicode.
+The app is currently free with no paid entitlement; do not invent Pro features or pricing. No native release testing performed during this marketing task.

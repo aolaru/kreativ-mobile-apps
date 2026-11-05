@@ -1,0 +1,30 @@
+UNSENT TEMPLATES — RECIPIENTS AND CONTACT ROUTES NOT YET SELECTED OR VERIFIED
+No email drafted in Gmail or sent; choose a relevant recipient before tailoring.
+
+Android utility editor
+Subject: For consideration: an offline text-and-PNG typography tool
+
+Hello, I am Andrei, the developer of Kreativ Fancy Text. It is a free Android app for per-word Unicode styling and matching PNG designs. It works offline, without an account or ads. I have a five-screen tour and screenshots available. Would this fit your utility-app coverage? No coverage or positive review is expected.
+
+https://play.google.com/store/apps/details?id=com.kreativfont.studio
+Privacy: https://madebykreativ.com/privacy/kreativ-fancy-text/
+
+====================
+
+Typography/design newsletter
+Subject: A small mobile tool for styled messages and PNG designs
+
+Hello, I publish Made by Kreativ. Kreativ Fancy Text combines copyable Unicode text with six visual themes and per-word image colors. It is not a font installer, font identifier or full design editor. If a short mobile-typography item fits your newsletter, I can share genuine screenshots and a walkthrough.
+
+https://play.google.com/store/apps/details?id=com.kreativfont.studio
+Privacy: https://madebykreativ.com/privacy/kreativ-fancy-text/
+
+====================
+
+Privacy/offline-app editor
+Subject: Kreativ Fancy Text: offline by design, no advertising SDK
+
+Hello, I developed Kreativ Fancy Text for Android. The packaged app has bundled fonts/assets, no internet permission, no account and no advertising or analytics SDK. Drafts and saved designs stay local; user-initiated sharing goes through Android. If useful for your coverage, I can provide the privacy policy and a screenshot walkthrough. This is a developer introduction, not a request for a favourable review.
+
+https://play.google.com/store/apps/details?id=com.kreativfont.studio
+Privacy: https://madebykreativ.com/privacy/kreativ-fancy-text/

@@ -1,0 +1,2228 @@
+- progressbar
+- generic: Loading Google Play Console
+- banner:
+  - link "Google Play Console logo":
+    - /url: /console/u/0/developers/7594712361231234431/home
+    - button "Google Play Console logo"
+  - button "Unread notifications Open notification centre":
+    - img: notifications_unread
+    - generic: Unread notifications
+  - button "Switch developer accounts":
+    - img: more_vert
+  - 'button "Google Account: Andrei Olaru (andrei.olaru@gmail.com), Google membership"':
+- navigation:
+  - list:
+    - listitem "Home":
+      - button "Home":
+        - img: home
+    - listitem "Manage account":
+      - button "Manage account":
+        - img: badge
+    - listitem "Kreativ Fancy Text":
+      - button "Kreativ Fancy Text":
+        - img: play_prism
+    - listitem "Dashboard":
+      - button "Dashboard":
+        - img: dashboard
+    - listitem "Statistics":
+      - button "Statistics":
+        - img: bar_chart
+    - listitem "Publishing overview":
+      - button "Publishing overview":
+        - img: overview
+    - listitem "Protected with Play":
+      - button "Protected with Play":
+        - img: shield
+    - listitem "Test and release":
+      - button "Test and release":
+        - img: rocket_launch
+    - listitem "Monitor and improve":
+      - button "Monitor and improve":
+        - img: vital_signs
+    - listitem "Grow users":
+      - button "Grow users":
+        - img: finance_mode
+    - listitem "Monetise with Play":
+      - button "Monetise with Play":
+        - img: sell
+- link "Go back to One-time products | Kreativ Pro":
+  - /url: /console/u/0/developers/7594712361231234431/app/4976006210494663211/one-time-products/sku/kreativ_pro_lifetime#detail
+  - img: keyboard_backspace
+  - generic: One-time products | Kreativ Pro
+- heading "Edit purchase option" [level=1]
+- button "Deactivate":
+  - generic: Deactivate
+- button "Add offer":
+  - generic: Add offer
+  - img: arrow_drop_down
+- button "Manage your one-time products with AI agent":
+  - img: pen_spark
+  - generic: Manage with AI
+- img: check_circle
+- generic: Active
+- img: brightness_1
+- generic: buy
+- generic: Purchase type
+- generic: Buy
+- group "Tags":
+  - text: Tags
+  - button "More information about 'Tags'":
+    - img: help
+  - grid:
+    - row:
+      - gridcell:
+        - textbox "Enter tags":
+          - /placeholder: ""
+  - generic: Must start with a lowercase letter, and can contain numbers (0–9), lowercase letters (a–z), hyphens (-) and be at most 20 characters.
+- button "Expand to manage advanced options":
+  - generic: Advanced options
+  - img: expand_more
+- heading "Availability and pricing" [level=2]
+- button "Edit availability and access":
+  - generic: Edit availability and access
+  - img: arrow_drop_down
+- button "Set prices":
+  - generic: Set prices
+  - img: arrow_drop_down
+- button "All regions":
+  - generic: All regions
+  - img: arrow_drop_down
+- search "Search by country or region":
+  - img: search
+  - generic: Search by country or region
+  - textbox "Search by country or region"
+- grid "Prices":
+  - row "Country/region Price Tax Availability":
+    - columnheader "Country/region"
+    - columnheader "Price"
+    - columnheader "Tax"
+    - columnheader "Availability"
+    - cell
+  - row "Albania USD 5.49 Table cell Available":
+    - gridcell "Albania":
+      - generic: Albania
+    - gridcell "USD 5.49":
+      - generic: USD 5.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Algeria DZD 625.00 Table cell Available":
+    - gridcell "Algeria":
+      - generic: Algeria
+    - gridcell "DZD 625.00":
+      - generic: DZD 625.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Angola USD 4.69 Table cell Available":
+    - gridcell "Angola":
+      - generic: Angola
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Antigua & Barbuda USD 4.69 Table cell Available":
+    - gridcell "Antigua & Barbuda":
+      - generic: Antigua & Barbuda
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Argentina ARS 7,250.00 Table cell Available":
+    - gridcell "Argentina":
+      - generic: Argentina
+    - gridcell "ARS 7,250.00":
+      - generic: ARS 7,250.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Armenia USD 4.69 Table cell Available":
+    - gridcell "Armenia":
+      - generic: Armenia
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Aruba USD 4.69 Table cell Available":
+    - gridcell "Aruba":
+      - generic: Aruba
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Australia AUD 7.49 Table cell Available":
+    - gridcell "Australia":
+      - generic: Australia
+    - gridcell "AUD 7.49":
+      - generic: AUD 7.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 10%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Austria EUR 4.99 Table cell Available":
+    - gridcell "Austria":
+      - generic: Austria
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Azerbaijan AZN 7.99 Table cell Available":
+    - gridcell "Azerbaijan":
+      - generic: Azerbaijan
+    - gridcell "AZN 7.99":
+      - generic: AZN 7.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Bahamas USD 4.69 Table cell Available":
+    - gridcell "Bahamas":
+      - generic: Bahamas
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Bahrain USD 4.99 Table cell Available":
+    - gridcell "Bahrain":
+      - generic: Bahrain
+    - gridcell "USD 4.99":
+      - generic: USD 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 10%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Bangladesh BDT 650.00 Table cell Available":
+    - gridcell "Bangladesh":
+      - generic: Bangladesh
+    - gridcell "BDT 650.00":
+      - generic: BDT 650.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 15%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Belarus USD 5.49 Table cell Available":
+    - gridcell "Belarus":
+      - generic: Belarus
+    - gridcell "USD 5.49":
+      - generic: USD 5.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Belgium EUR 4.99 Table cell Available":
+    - gridcell "Belgium":
+      - generic: Belgium
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 21%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Belize USD 4.69 Table cell Available":
+    - gridcell "Belize":
+      - generic: Belize
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Benin EUR 4.99 Table cell Available":
+    - gridcell "Benin":
+      - generic: Benin
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Bermuda USD 4.69 Table cell Available":
+    - gridcell "Bermuda":
+      - generic: Bermuda
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Bolivia BOB 55.99 Table cell Available":
+    - gridcell "Bolivia":
+      - generic: Bolivia
+    - gridcell "BOB 55.99":
+      - generic: BOB 55.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Bosnia & Herzegovina USD 4.69 Table cell Available":
+    - gridcell "Bosnia & Herzegovina":
+      - generic: Bosnia & Herzegovina
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Botswana USD 4.69 Table cell Available":
+    - gridcell "Botswana":
+      - generic: Botswana
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Brazil BRL 25.99 Table cell Available":
+    - gridcell "Brazil":
+      - generic: Brazil
+    - gridcell "BRL 25.99":
+      - generic: BRL 25.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "British Virgin Islands USD 4.69 Table cell Available":
+    - gridcell "British Virgin Islands":
+      - generic: British Virgin Islands
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Bulgaria EUR 4.99 Table cell Available":
+    - gridcell "Bulgaria":
+      - generic: Bulgaria
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Burkina Faso EUR 4.99 Table cell Available":
+    - gridcell "Burkina Faso":
+      - generic: Burkina Faso
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Cambodia USD 4.69 Table cell Available":
+    - gridcell "Cambodia":
+      - generic: Cambodia
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Cameroon XAF 3,200 Table cell Available":
+    - gridcell "Cameroon":
+      - generic: Cameroon
+    - gridcell "XAF 3,200":
+      - generic: XAF 3,200
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 19.25%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Canada CAD 6.49 Table cell Available":
+    - gridcell "Canada":
+      - generic: Canada
+    - gridcell "CAD 6.49":
+      - generic: CAD 6.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Cape Verde USD 4.69 Table cell Available":
+    - gridcell "Cape Verde":
+      - generic: Cape Verde
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Cayman Islands USD 4.69 Table cell Available":
+    - gridcell "Cayman Islands":
+      - generic: Cayman Islands
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Central African Republic EUR 4.99 Table cell Available":
+    - gridcell "Central African Republic":
+      - generic: Central African Republic
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Chad USD 4.69 Table cell Available":
+    - gridcell "Chad":
+      - generic: Chad
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Chile CLP 5,400 Table cell Available":
+    - gridcell "Chile":
+      - generic: Chile
+    - gridcell "CLP 5,400":
+      - generic: CLP 5,400
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 19%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Colombia COP 15,000 Table cell Available":
+    - gridcell "Colombia":
+      - generic: Colombia
+    - gridcell "COP 15,000":
+      - generic: COP 15,000
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Comoros USD 4.69 Table cell Available":
+    - gridcell "Comoros":
+      - generic: Comoros
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Congo - Brazzaville USD 4.69 Table cell Available":
+    - gridcell "Congo - Brazzaville":
+      - generic: Congo - Brazzaville
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Congo - Kinshasa USD 4.69 Table cell Available":
+    - gridcell "Congo - Kinshasa":
+      - generic: Congo - Kinshasa
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Costa Rica CRC 2,100.00 Table cell Available":
+    - gridcell "Costa Rica":
+      - generic: Costa Rica
+    - gridcell "CRC 2,100.00":
+      - generic: CRC 2,100.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Croatia EUR 4.99 Table cell Available":
+    - gridcell "Croatia":
+      - generic: Croatia
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 25%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Cyprus EUR 4.99 Table cell Available":
+    - gridcell "Cyprus":
+      - generic: Cyprus
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 19%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Czechia CZK 119.99 Table cell Available":
+    - gridcell "Czechia":
+      - generic: Czechia
+    - gridcell "CZK 119.99":
+      - generic: CZK 119.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 21%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Côte d’Ivoire XOF 3,200 Table cell Available":
+    - gridcell "Côte d’Ivoire":
+      - generic: Côte d’Ivoire
+    - gridcell "XOF 3,200":
+      - generic: XOF 3,200
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 18%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Denmark DKK 39.00 25% with 2 location overrides Available":
+    - gridcell "Denmark":
+      - generic: Denmark
+    - gridcell "DKK 39.00":
+      - generic: DKK 39.00
+    - gridcell "25% with 2 location overrides":
+      - generic "25% with 2 location overrides":
+        - generic: 25% with 2 location overrides
+        - generic: Hover over to see all rates
+      - alert
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Djibouti USD 4.69 Table cell Available":
+    - gridcell "Djibouti":
+      - generic: Djibouti
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Dominica USD 4.69 Table cell Available":
+    - gridcell "Dominica":
+      - generic: Dominica
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Dominican Republic USD 4.69 Table cell Available":
+    - gridcell "Dominican Republic":
+      - generic: Dominican Republic
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Ecuador USD 4.69 Table cell Available":
+    - gridcell "Ecuador":
+      - generic: Ecuador
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Egypt EGP 289.99 Table cell Available":
+    - gridcell "Egypt":
+      - generic: Egypt
+    - gridcell "EGP 289.99":
+      - generic: EGP 289.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 14%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "El Salvador USD 4.69 Table cell Available":
+    - gridcell "El Salvador":
+      - generic: El Salvador
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Eritrea USD 4.69 Table cell Available":
+    - gridcell "Eritrea":
+      - generic: Eritrea
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Estonia EUR 4.99 Table cell Available":
+    - gridcell "Estonia":
+      - generic: Estonia
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 24%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Ethiopia ETB 750.00 Table cell Available":
+    - gridcell "Ethiopia":
+      - generic: Ethiopia
+    - gridcell "ETB 750.00":
+      - generic: ETB 750.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Fiji USD 4.69 Table cell Available":
+    - gridcell "Fiji":
+      - generic: Fiji
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Finland EUR 4.99 25.5% with 1 location override Available":
+    - gridcell "Finland":
+      - generic: Finland
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "25.5% with 1 location override":
+      - generic "25.5% with 1 location override":
+        - generic: 25.5% with 1 location override
+        - generic: Hover over to see all rates
+      - alert
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "France EUR 4.99 20% with 11 location overrides Available":
+    - gridcell "France":
+      - generic: France
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "20% with 11 location overrides":
+      - generic "20% with 11 location overrides":
+        - generic: 20% with 11 location overrides
+        - generic: Hover over to see all rates
+      - alert
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Gabon EUR 4.99 Table cell Available":
+    - gridcell "Gabon":
+      - generic: Gabon
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Gambia USD 4.69 Table cell Available":
+    - gridcell "Gambia":
+      - generic: Gambia
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Georgia GEL 14.00 Table cell Available":
+    - gridcell "Georgia":
+      - generic: Georgia
+    - gridcell "GEL 14.00":
+      - generic: GEL 14.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 18%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Germany EUR 4.99 Table cell Available":
+    - gridcell "Germany":
+      - generic: Germany
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 19%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Ghana GHS 65.00 Table cell Available":
+    - gridcell "Ghana":
+      - generic: Ghana
+    - gridcell "GHS 65.00":
+      - generic: GHS 65.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Gibraltar GBP 3.49 Table cell Available":
+    - gridcell "Gibraltar":
+      - generic: Gibraltar
+    - gridcell "GBP 3.49":
+      - generic: GBP 3.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Greece EUR 4.99 Table cell Available":
+    - gridcell "Greece":
+      - generic: Greece
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 24%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Grenada USD 4.69 Table cell Available":
+    - gridcell "Grenada":
+      - generic: Grenada
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Guatemala USD 4.69 Table cell Available":
+    - gridcell "Guatemala":
+      - generic: Guatemala
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Guinea USD 4.69 Table cell Available":
+    - gridcell "Guinea":
+      - generic: Guinea
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Guinea-Bissau EUR 4.99 Table cell Available":
+    - gridcell "Guinea-Bissau":
+      - generic: Guinea-Bissau
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Haiti USD 4.69 Table cell Available":
+    - gridcell "Haiti":
+      - generic: Haiti
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Honduras USD 4.69 Table cell Available":
+    - gridcell "Honduras":
+      - generic: Honduras
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Hong Kong HKD 38.00 Table cell Available":
+    - gridcell "Hong Kong":
+      - generic: Hong Kong
+    - gridcell "HKD 38.00":
+      - generic: HKD 38.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Hungary HUF 1,899 Table cell Available":
+    - gridcell "Hungary":
+      - generic: Hungary
+    - gridcell "HUF 1,899":
+      - generic: HUF 1,899
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 27%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Iceland EUR 4.99 Table cell Available":
+    - gridcell "Iceland":
+      - generic: Iceland
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 24%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "India INR 520.00 Table cell Available":
+    - gridcell "India":
+      - generic: India
+    - gridcell "INR 520.00":
+      - generic: INR 520.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 18%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Indonesia IDR 85,000 Table cell Available":
+    - gridcell "Indonesia":
+      - generic: Indonesia
+    - gridcell "IDR 85,000":
+      - generic: IDR 85,000
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Iraq IQD 7,050 Table cell Available":
+    - gridcell "Iraq":
+      - generic: Iraq
+    - gridcell "IQD 7,050":
+      - generic: IQD 7,050
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Ireland EUR 4.99 Table cell Available":
+    - gridcell "Ireland":
+      - generic: Ireland
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 23%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Israel ILS 14.90 Table cell Available":
+    - gridcell "Israel":
+      - generic: Israel
+    - gridcell "ILS 14.90":
+      - generic: ILS 14.90
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Italy EUR 4.99 Table cell Available":
+    - gridcell "Italy":
+      - generic: Italy
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 22%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Jamaica USD 4.69 Table cell Available":
+    - gridcell "Jamaica":
+      - generic: Jamaica
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Japan JPY 820 Table cell Available":
+    - gridcell "Japan":
+      - generic: Japan
+    - gridcell "JPY 820":
+      - generic: JPY 820
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 10%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Jordan JOD 3.300 Table cell Available":
+    - gridcell "Jordan":
+      - generic: Jordan
+    - gridcell "JOD 3.300":
+      - generic: JOD 3.300
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Kazakhstan KZT 2,490.00 Table cell Available":
+    - gridcell "Kazakhstan":
+      - generic: Kazakhstan
+    - gridcell "KZT 2,490.00":
+      - generic: KZT 2,490.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 16%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Kenya KES 700.00 Table cell Available":
+    - gridcell "Kenya":
+      - generic: Kenya
+    - gridcell "KES 700.00":
+      - generic: KES 700.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 16%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Kuwait USD 4.69 Table cell Available":
+    - gridcell "Kuwait":
+      - generic: Kuwait
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Kyrgyzstan USD 4.69 Table cell Available":
+    - gridcell "Kyrgyzstan":
+      - generic: Kyrgyzstan
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Laos USD 4.69 Table cell Available":
+    - gridcell "Laos":
+      - generic: Laos
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Latvia EUR 4.99 Table cell Available":
+    - gridcell "Latvia":
+      - generic: Latvia
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 21%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Lebanon USD 4.69 Table cell Available":
+    - gridcell "Lebanon":
+      - generic: Lebanon
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Liberia USD 4.69 Table cell Available":
+    - gridcell "Liberia":
+      - generic: Liberia
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Libya USD 4.69 Table cell Available":
+    - gridcell "Libya":
+      - generic: Libya
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Liechtenstein CHF 4.10 Table cell Available":
+    - gridcell "Liechtenstein":
+      - generic: Liechtenstein
+    - gridcell "CHF 4.10":
+      - generic: CHF 4.10
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 8.1%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Lithuania EUR 4.99 Table cell Available":
+    - gridcell "Lithuania":
+      - generic: Lithuania
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 21%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Luxembourg EUR 4.99 Table cell Available":
+    - gridcell "Luxembourg":
+      - generic: Luxembourg
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 17%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Macao MOP 37.88 Table cell Available":
+    - gridcell "Macao":
+      - generic: Macao
+    - gridcell "MOP 37.88":
+      - generic: MOP 37.88
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Malaysia MYR 19.99 Table cell Available":
+    - gridcell "Malaysia":
+      - generic: Malaysia
+    - gridcell "MYR 19.99":
+      - generic: MYR 19.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 8%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Maldives USD 4.69 Table cell Available":
+    - gridcell "Maldives":
+      - generic: Maldives
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Mali EUR 4.99 Table cell Available":
+    - gridcell "Mali":
+      - generic: Mali
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Malta EUR 4.99 Table cell Available":
+    - gridcell "Malta":
+      - generic: Malta
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 18%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Mauritius USD 4.69 Table cell Available":
+    - gridcell "Mauritius":
+      - generic: Mauritius
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Mexico MXN 99.00 Table cell Available":
+    - gridcell "Mexico":
+      - generic: Mexico
+    - gridcell "MXN 99.00":
+      - generic: MXN 99.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 16%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Micronesia USD 4.69 Table cell Available":
+    - gridcell "Micronesia":
+      - generic: Micronesia
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Moldova USD 5.49 Table cell Available":
+    - gridcell "Moldova":
+      - generic: Moldova
+    - gridcell "USD 5.49":
+      - generic: USD 5.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Monaco EUR 4.99 Table cell Available":
+    - gridcell "Monaco":
+      - generic: Monaco
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Mongolia MNT 16,800.00 Table cell Available":
+    - gridcell "Mongolia":
+      - generic: Mongolia
+    - gridcell "MNT 16,800.00":
+      - generic: MNT 16,800.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Morocco MAD 54.99 Table cell Available":
+    - gridcell "Morocco":
+      - generic: Morocco
+    - gridcell "MAD 54.99":
+      - generic: MAD 54.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Mozambique USD 4.69 Table cell Available":
+    - gridcell "Mozambique":
+      - generic: Mozambique
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Myanmar (Burma) MMK 10,000 Table cell Available":
+    - gridcell "Myanmar (Burma)":
+      - generic: Myanmar (Burma)
+    - gridcell "MMK 10,000":
+      - generic: MMK 10,000
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Namibia USD 4.69 Table cell Available":
+    - gridcell "Namibia":
+      - generic: Namibia
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Nepal USD 5.49 Table cell Available":
+    - gridcell "Nepal":
+      - generic: Nepal
+    - gridcell "USD 5.49":
+      - generic: USD 5.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 13%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Netherlands EUR 4.99 Table cell Available":
+    - gridcell "Netherlands":
+      - generic: Netherlands
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 21%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "New Zealand NZD 9.49 Table cell Available":
+    - gridcell "New Zealand":
+      - generic: New Zealand
+    - gridcell "NZD 9.49":
+      - generic: NZD 9.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 15%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Nicaragua USD 4.69 Table cell Available":
+    - gridcell "Nicaragua":
+      - generic: Nicaragua
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Niger EUR 4.99 Table cell Available":
+    - gridcell "Niger":
+      - generic: Niger
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Nigeria NGN 6,750.00 Table cell Available":
+    - gridcell "Nigeria":
+      - generic: Nigeria
+    - gridcell "NGN 6,750.00":
+      - generic: NGN 6,750.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 7.5%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "North Macedonia USD 5.49 Table cell Available":
+    - gridcell "North Macedonia":
+      - generic: North Macedonia
+    - gridcell "USD 5.49":
+      - generic: USD 5.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 18%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Norway NOK 55.00 25% with 1 location override Available":
+    - gridcell "Norway":
+      - generic: Norway
+    - gridcell "NOK 55.00":
+      - generic: NOK 55.00
+    - gridcell "25% with 1 location override":
+      - generic "25% with 1 location override":
+        - generic: 25% with 1 location override
+        - generic: Hover over to see all rates
+      - alert
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Oman USD 4.89 Table cell Available":
+    - gridcell "Oman":
+      - generic: Oman
+    - gridcell "USD 4.89":
+      - generic: USD 4.89
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 5%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Pakistan PKR 1,300.00 Table cell Available":
+    - gridcell "Pakistan":
+      - generic: Pakistan
+    - gridcell "PKR 1,300.00":
+      - generic: PKR 1,300.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Panama USD 4.69 Table cell Available":
+    - gridcell "Panama":
+      - generic: Panama
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Papua New Guinea USD 4.69 Table cell Available":
+    - gridcell "Papua New Guinea":
+      - generic: Papua New Guinea
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Paraguay PYG 30,000 Table cell Available":
+    - gridcell "Paraguay":
+      - generic: Paraguay
+    - gridcell "PYG 30,000":
+      - generic: PYG 30,000
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Peru PEN 15.99 Table cell Available":
+    - gridcell "Peru":
+      - generic: Peru
+    - gridcell "PEN 15.99":
+      - generic: PEN 15.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Philippines PHP 330.00 Table cell Available":
+    - gridcell "Philippines":
+      - generic: Philippines
+    - gridcell "PHP 330.00":
+      - generic: PHP 330.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 12%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Poland PLN 22.99 Table cell Available":
+    - gridcell "Poland":
+      - generic: Poland
+    - gridcell "PLN 22.99":
+      - generic: PLN 22.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 23%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Portugal EUR 4.99 Table cell Available":
+    - gridcell "Portugal":
+      - generic: Portugal
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 23%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Qatar QAR 17.00 Table cell Available":
+    - gridcell "Qatar":
+      - generic: Qatar
+    - gridcell "QAR 17.00":
+      - generic: QAR 17.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Romania RON 26.99 Table cell Available":
+    - gridcell "Romania":
+      - generic: Romania
+    - gridcell "RON 26.99":
+      - generic: RON 26.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 21%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Russia RUB 379.00 Table cell Available":
+    - gridcell "Russia":
+      - generic: Russia
+    - gridcell "RUB 379.00":
+      - generic: RUB 379.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Rwanda USD 4.69 Table cell Available":
+    - gridcell "Rwanda":
+      - generic: Rwanda
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Samoa USD 4.69 Table cell Available":
+    - gridcell "Samoa":
+      - generic: Samoa
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "San Marino EUR 4.99 Table cell Available":
+    - gridcell "San Marino":
+      - generic: San Marino
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Saudi Arabia SAR 19.99 Table cell Available":
+    - gridcell "Saudi Arabia":
+      - generic: Saudi Arabia
+    - gridcell "SAR 19.99":
+      - generic: SAR 19.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 15%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Senegal XOF 3,200 Table cell Available":
+    - gridcell "Senegal":
+      - generic: Senegal
+    - gridcell "XOF 3,200":
+      - generic: XOF 3,200
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 18%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Serbia RSD 599 Table cell Available":
+    - gridcell "Serbia":
+      - generic: Serbia
+    - gridcell "RSD 599":
+      - generic: RSD 599
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Seychelles USD 4.69 Table cell Available":
+    - gridcell "Seychelles":
+      - generic: Seychelles
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Sierra Leone USD 4.69 Table cell Available":
+    - gridcell "Sierra Leone":
+      - generic: Sierra Leone
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Singapore SGD 6.49 Table cell Available":
+    - gridcell "Singapore":
+      - generic: Singapore
+    - gridcell "SGD 6.49":
+      - generic: SGD 6.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 9%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Slovakia EUR 4.99 Table cell Available":
+    - gridcell "Slovakia":
+      - generic: Slovakia
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 23%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Slovenia EUR 4.99 Table cell Available":
+    - gridcell "Slovenia":
+      - generic: Slovenia
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 22%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Solomon Islands USD 4.69 Table cell Available":
+    - gridcell "Solomon Islands":
+      - generic: Solomon Islands
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Somalia USD 4.69 Table cell Available":
+    - gridcell "Somalia":
+      - generic: Somalia
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "South Africa ZAR 87.99 Table cell Available":
+    - gridcell "South Africa":
+      - generic: South Africa
+    - gridcell "ZAR 87.99":
+      - generic: ZAR 87.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 15%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "South Korea KRW 6,900 Table cell Available":
+    - gridcell "South Korea":
+      - generic: South Korea
+    - gridcell "KRW 6,900":
+      - generic: KRW 6,900
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 10%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Spain EUR 4.99 21% with 4 location overrides Available":
+    - gridcell "Spain":
+      - generic: Spain
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "21% with 4 location overrides":
+      - generic "21% with 4 location overrides":
+        - generic: 21% with 4 location overrides
+        - generic: Hover over to see all rates
+      - alert
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Sri Lanka LKR 1,550.00 Table cell Available":
+    - gridcell "Sri Lanka":
+      - generic: Sri Lanka
+    - gridcell "LKR 1,550.00":
+      - generic: LKR 1,550.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "St Kitts & Nevis USD 4.69 Table cell Available":
+    - gridcell "St Kitts & Nevis":
+      - generic: St Kitts & Nevis
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "St Lucia USD 4.69 Table cell Available":
+    - gridcell "St Lucia":
+      - generic: St Lucia
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Suriname USD 4.69 Table cell Available":
+    - gridcell "Suriname":
+      - generic: Suriname
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Sweden SEK 55.00 Table cell Available":
+    - gridcell "Sweden":
+      - generic: Sweden
+    - gridcell "SEK 55.00":
+      - generic: SEK 55.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 25%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Switzerland CHF 3.80 Table cell Available":
+    - gridcell "Switzerland":
+      - generic: Switzerland
+    - gridcell "CHF 3.80":
+      - generic: CHF 3.80
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Taiwan TWD 160.00 Table cell Available":
+    - gridcell "Taiwan":
+      - generic: Taiwan
+    - gridcell "TWD 160.00":
+      - generic: TWD 160.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 5%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Tajikistan USD 4.69 Table cell Available":
+    - gridcell "Tajikistan":
+      - generic: Tajikistan
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Tanzania TZS 12,000.00 Table cell Available":
+    - gridcell "Tanzania":
+      - generic: Tanzania
+    - gridcell "TZS 12,000.00":
+      - generic: TZS 12,000.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Thailand THB 175.00 Table cell Available":
+    - gridcell "Thailand":
+      - generic: Thailand
+    - gridcell "THB 175.00":
+      - generic: THB 175.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 7%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Togo EUR 4.99 Table cell Available":
+    - gridcell "Togo":
+      - generic: Togo
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Tonga USD 4.69 Table cell Available":
+    - gridcell "Tonga":
+      - generic: Tonga
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Trinidad & Tobago USD 4.69 Table cell Available":
+    - gridcell "Trinidad & Tobago":
+      - generic: Trinidad & Tobago
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Tunisia USD 4.69 Table cell Available":
+    - gridcell "Tunisia":
+      - generic: Tunisia
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Turkmenistan USD 4.69 Table cell Available":
+    - gridcell "Turkmenistan":
+      - generic: Turkmenistan
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Turks & Caicos Islands USD 4.69 Table cell Available":
+    - gridcell "Turks & Caicos Islands":
+      - generic: Turks & Caicos Islands
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Türkiye TRY 279.99 Table cell Available":
+    - gridcell "Türkiye":
+      - generic: Türkiye
+    - gridcell "TRY 279.99":
+      - generic: TRY 279.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Uganda USD 5.49 Table cell Available":
+    - gridcell "Uganda":
+      - generic: Uganda
+    - gridcell "USD 5.49":
+      - generic: USD 5.49
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 18%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Ukraine UAH 254.99 Table cell Available":
+    - gridcell "Ukraine":
+      - generic: Ukraine
+    - gridcell "UAH 254.99":
+      - generic: UAH 254.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "United Arab Emirates AED 17.99 Table cell Available":
+    - gridcell "United Arab Emirates":
+      - generic: United Arab Emirates
+    - gridcell "AED 17.99":
+      - generic: AED 17.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 5%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "United Kingdom GBP 4.19 Table cell Available":
+    - gridcell "United Kingdom":
+      - generic: United Kingdom
+    - gridcell "GBP 4.19":
+      - generic: GBP 4.19
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 20%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "United States USD 4.69 No VAT with 7 location overrides Available":
+    - gridcell "United States":
+      - generic: United States
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "No VAT with 7 location overrides":
+      - generic "No VAT with 7 location overrides":
+        - generic: No VAT with 7 location overrides
+        - generic: Hover over to see all rates
+      - alert
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Uruguay USD 4.69 Table cell Available":
+    - gridcell "Uruguay":
+      - generic: Uruguay
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Uzbekistan UZS 62,280.00 Table cell Available":
+    - gridcell "Uzbekistan":
+      - generic: Uzbekistan
+    - gridcell "UZS 62,280.00":
+      - generic: UZS 62,280.00
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: 12%
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Vanuatu USD 4.69 Table cell Available":
+    - gridcell "Vanuatu":
+      - generic: Vanuatu
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Vatican City EUR 4.99 Table cell Available":
+    - gridcell "Vatican City":
+      - generic: Vatican City
+    - gridcell "EUR 4.99":
+      - generic: EUR 4.99
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Venezuela USD 4.69 Table cell Available":
+    - gridcell "Venezuela":
+      - generic: Venezuela
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Vietnam VND 120,000 Table cell Available":
+    - gridcell "Vietnam":
+      - generic: Vietnam
+    - gridcell "VND 120,000":
+      - generic: VND 120,000
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Yemen USD 4.69 Table cell Available":
+    - gridcell "Yemen":
+      - generic: Yemen
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Zambia USD 4.69 Table cell Available":
+    - gridcell "Zambia":
+      - generic: Zambia
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - row "Zimbabwe USD 4.69 Table cell Available":
+    - gridcell "Zimbabwe":
+      - generic: Zimbabwe
+    - gridcell "USD 4.69":
+      - generic: USD 4.69
+    - gridcell "Table cell":
+      - generic "Table cell":
+        - generic: No VAT
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+  - 'row "Expand row: New countries/regions New countries/regions Table cell with a pop-up Available"':
+    - 'gridcell "Expand row: New countries/regions New countries/regions"':
+      - 'button "Expand row: New countries/regions"':
+        - img: arrow_right
+      - generic: New countries/regions
+    - gridcell
+    - gridcell "Table cell with a pop-up":
+      - generic "Table cell with a pop-up"
+    - gridcell "Available":
+      - img: check_circle
+      - generic: Available
+    - gridcell
+- button "Save" [disabled]:
+  - generic: Save
+- link "Product updates":
+  - /url: https://play.google.com/console/about/whats-new/
+- link "Status dashboard":
+  - /url: https://status.play.google.com/
+- link "Help":
+  - /url: /console/u/0/developers/7594712361231234431/help-and-support?app=4976006210494663211
+- generic: © 2026 Google
+- link "Privacy":
+  - /url: https://www.google.com/policies/privacy/
+- link "Developer Distribution Agreement":
+  - /url: https://play.google.com/about/developer-distribution-agreement.html
+- link "Terms of Service":
+  - /url: https://play.google.com/about/console/terms-of-service/
+- status

@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-25",
+  "status": "Static checks passed. Approved listing refresh saved with corrected short description and AI labels off. Automated Send did not register; submission not confirmed. Other marketing remains draft.",
+  "counts": {
+    "title": 18,
+    "shortDescription": 72,
+    "fullDescription": 2331
+  },
+  "validatedPngs": 9,
+  "verifiedSourceHashes": 5,
+  "verifiedUnchangedTutorialScreenshots": 5,
+  "checkedLocalLinks": 41,
+  "htmlValidation": {
+    "pages": 2,
+    "errors": 0,
+    "warnings": 0
+  },
+  "tutorialImages": 5,
+  "media": {
+    "seconds": 20,
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "audio": false,
+    "bytes": 308138
+  },
+  "visualInspection": "All five listing layouts, all three social graphics, feature graphic and tutorial contact sheet inspected. No clipped outer copy, repainted interface or baked-in AI marks.",
+  "browserLayoutVerified": false,
+  "browserLimitation": "Local-file browser security restriction respected. No alternative browser or server workaround attempted; responsive layout and playback remain manual review.",
+  "consoleChange": "Four en-US listing changes saved: short/full copy, five ordered screenshots and feature graphic. Name/icon retained. Dont label assets persisted. Changes not yet submitted; manual Send required.",
+  "publicVersion": "1.0.1 confirmed in public About dialog",
+  "copyChangedInConsole": true,
+  "newAssetsUploaded": true,
+  "reviewSubmissionConfirmed": false,
+  "submissionEvidence": "listing/console-send-handoff.png",
+  "websitePublished": false,
+  "socialPublished": false,
+  "outreachSent": false,
+  "nativePhoneTestPerformed": false
+}
