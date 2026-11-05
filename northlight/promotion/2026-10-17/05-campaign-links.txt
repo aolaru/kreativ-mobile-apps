@@ -1,0 +1,28 @@
+NORTHLIGHT CAMPAIGN LINKS
+Campaign: northlight_offline_202610
+
+launch_social
+https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=launch_social&utm_medium=social&utm_campaign=northlight_offline_202610
+
+launch_ro
+https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=launch_ro&utm_medium=social&utm_campaign=northlight_offline_202610
+
+short_video
+https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=short_video&utm_medium=social&utm_campaign=northlight_offline_202610
+
+community
+https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=community&utm_medium=community&utm_campaign=northlight_offline_202610
+
+madebykreativ
+https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=madebykreativ&utm_medium=website&utm_campaign=northlight_offline_202610
+
+droid_life
+https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=droid_life&utm_medium=outreach&utm_campaign=northlight_offline_202610
+
+android_authority
+https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=android_authority&utm_medium=outreach&utm_campaign=northlight_offline_202610
+
+creator_roundup
+https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=creator_roundup&utm_medium=outreach&utm_campaign=northlight_offline_202610
+
+No analytics SDK was added. Attribution is not guaranteed. In Play Console compare listing visits, install clicks and CTR; review actual acquisitions separately in Grow users or Statistics. Low traffic may be grouped as Other.

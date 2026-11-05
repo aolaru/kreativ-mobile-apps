@@ -1,0 +1,70 @@
+UNSENT EDITORIAL PITCHES
+Verify the contact route before sending. No private codes, rewards, purchased reviews or favourable-review requests. Do not upload this internal pack wholesale.
+
+Droid Life
+Route: https://www.droid-life.com/contact/
+Status: Official contact form checked 17 October 2026; invites app tips. Unsent editorial pitch, no coverage promised.
+Subject: Android app tip: Northlight offline compass with spoken headings
+
+Hi Droid Life team,
+
+I am Andrei, the developer of Northlight. Your contact page invites app tips, so I wanted to share a focused Android utility.
+
+Northlight combines a free offline magnetic compass, optional spoken headings, GPS altitude estimates and light tools. The 1.2.0 release adds a larger dial, speech and an altimeter that displays the altitude reference and reported uncertainty. No ads or account. Optional one-time Pro adds saved bearings and extra light tools.
+
+A useful demonstration would be how a compass heading differs from route navigation, and why an altitude reading needs an uncertainty label. The app does not plan routes or call emergency services.
+
+If this fits your app coverage, I would welcome an independent look. No favourable review or placement is expected.
+
+Thanks,
+Andrei
+Made by Kreativ
+
+Google Play: https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=droid_life&utm_medium=outreach&utm_campaign=northlight_offline_202610
+Privacy: https://madebykreativ.com/privacy/northlight/
+
+==============================
+
+Android Authority
+Route: news@androidauthority.com
+Status: News address checked on the official contact page on 17 October 2026: https://www.androidauthority.com/contact/ . Unsent, unpaid editorial tip.
+Subject: App tip: a small offline compass with honest altitude feedback
+
+Hi Android Authority news team,
+
+I built Northlight, a small Android compass and light app. Its free tools include magnetic headings, installed-offline-voice readings, optional GPS altitude and practical screen/flash lights. No ads or account; optional Pro is a one-time unlock.
+
+The current 1.2.0 version puts accuracy information alongside the readings: calibration feedback for the compass, and reference plus reported vertical uncertainty for GPS altitude.
+
+It is not route navigation, an obstacle detector or an emergency communications service. I have prepared real screenshots and a short screenshot slideshow, not fabricated app footage.
+
+If useful for your Android-app coverage, the public listing and privacy policy are below. An independent review is welcome; no positive rating or guaranteed coverage is requested.
+
+Thanks,
+Andrei
+Made by Kreativ
+
+Google Play: https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=android_authority&utm_medium=outreach&utm_campaign=northlight_offline_202610
+Privacy: https://madebykreativ.com/privacy/northlight/
+
+==============================
+
+Android app roundup creator
+Route: Select a creator and verify their own current business-contact route before sending.
+Status: Reusable unsent pitch. No recipient or contact address has been verified for this draft.
+Subject: Android roundup candidate: Northlight compass and light tools
+
+Hi,
+
+I am the developer of Northlight, an Android utility with a large offline magnetic compass, optional spoken headings, GPS altitude estimates and light tools. Core features are free; a one-time Pro unlock adds saved bearings and more light controls.
+
+A short roundup demonstration could show a heading, a spoken reading and the GPS uncertainty label. The public Play build is available to test. I have attached no private access codes or purchase claims.
+
+Northlight describes phone orientation, not routes, obstacles or emergency communications. If it suits your audience, I would welcome an independent look. No favourable review is expected.
+
+Thanks,
+Andrei
+Made by Kreativ
+
+Google Play: https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=creator_roundup&utm_medium=outreach&utm_campaign=northlight_offline_202610
+Privacy: https://madebykreativ.com/privacy/northlight/

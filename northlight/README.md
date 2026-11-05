@@ -29,6 +29,47 @@ handling. The draft in `store-assets/play/privacy-policy/index.html` also
 describes that feature. Review Play Data safety, listing copy/screenshots, device
 behaviour and the signed release before submitting the update.
 
+## Marketing and listing preparation on 17 October 2026
+
+**Website publication update:** The screenshot-led tutorial is live at
+https://madebykreativ.com/news/offline-compass-android-northlight/ . The Northlight
+app page has current feature copy, a current genuine screenshot and a tutorial
+link. Updates, both RSS feeds and sitemap include it. Website commit `bb53f1a`
+passed the full GitHub Pages quality gate and deployed successfully; public
+routes and all four tutorial images were verified. See
+`promotion/2026-10-17/tutorial/PUBLISHING-NOTES.txt` for evidence. Social/outreach
+remain drafts; this step did not change Play Console.
+
+**Submission update:** The approved **Northlight: Offline Compass** title,
+short/full copy, five framed real screenshots and feature graphic were saved
+and submitted on 17 October. Play Console confirms **Changes in review**, with
+final automated checks running. All seven asset AI labels are off, including
+the retained icon. See `promotion/2026-10-17/listing/SUBMISSION-STATUS.txt` and
+its proof screenshots. Approval/public publication are not yet confirmed.
+The preparation notes below describe the earlier draft-only state; website,
+social and outreach work still remains unpublished and unsent.
+
+The public Google Play About this app dialog confirms **1.2.0 is live**, updated
+15 October. The older release-draft status below is historical. The current
+website privacy policy was verified with the same 15 October effective date;
+the public app page still describes the older compass/light feature set.
+
+An unpublished marketing package is in `promotion/2026-10-17/`. Open its
+`index.html` review board for a proposed **Northlight: Offline Compass** title,
+checked listing copy, five real-screen layouts, a matching feature graphic,
+three social graphics, a 20-second screenshot slideshow, English/Romanian
+captions, unsent editorial pitches and a screenshot-led tutorial draft.
+Website app-page changes are proposed separately; no website repository files,
+Console settings, app code, prices or store declarations were changed.
+
+The existing real-phone captures were cropped and proportionally scaled, not
+repainted. The GPS uncertainty warning is retained, and the Pro image is its
+benefits page rather than a purchased-workflow demonstration. The slideshow is
+not live app footage. No new app/device/audio/payment tests were run. Review
+`QA.txt` and `verification.json` in the package; local-file browser previews were
+blocked by browser policy, so responsive HTML layout and playback remain manual
+checks. Publication and store submission require a separate go-ahead.
+
 ## 1.2.0 release preparation — 15 October 2026
 
 The next release is **1.2.0 / version code 5** (Play's highest existing upload was

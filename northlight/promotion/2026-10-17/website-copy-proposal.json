@@ -1,0 +1,14 @@
+{
+  "description": "An offline magnetic compass for Android, with spoken headings, optional GPS altitude estimates and practical light tools.",
+  "features": [
+    "Read magnetic headings with a clear degree dial and accuracy feedback",
+    "Hear headings using an installed offline voice",
+    "Enable GPS altitude estimates with reference and uncertainty labels",
+    "Use the LED lantern, adjustable red screen light, SOS and Quick Settings torch tile"
+  ],
+  "proDescription": "Optional Northlight Pro adds up to eight saved magnetic bearings, spoken phone-turn guidance, optional alignment vibration, amber and green screen lights, and an adjustable strobe through a one-time Google Play purchase. Core compass, speech, GPS altitude, lantern, red light and SOS remain free. Your local Pro price is shown before purchase.",
+  "limitation": "Compass accuracy depends on the phone's sensors and nearby magnetic interference. GPS altitude is approximate; read the displayed reference and vertical uncertainty. Bearing cues describe phone orientation, not routes or safe paths. SOS is a flashing light, not an emergency call. Flash brightness and haptics depend on hardware and Android settings.",
+  "screenshotHeight": 1920,
+  "tutorialHeading": "Read a compass heading on your Android phone",
+  "tutorialDescription": "Follow the magnetic compass, calibration, spoken-heading, GPS altitude and light-tool steps with real Northlight screenshots."
+}

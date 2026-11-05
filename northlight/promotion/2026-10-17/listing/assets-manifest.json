@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-17",
+  "status": "Uploaded and submitted on 17 October 2026; Console confirms Changes in review; final automated checks running. See SUBMISSION-STATUS.txt.",
+  "liveVersionVerified": "1.2.0, checked in Google Play About this app on 17 October 2026",
+  "captureBuild": "1.2.0 storePreview on Galaxy A55, 15 October; release-shared UI; no seeded sensor readings, GPS values or purchases",
+  "processing": "Crops and proportional scaling only. No UI pixels repainted, removed within a panel, or reconstructed. Original sources unchanged.",
+  "featureGraphic": {
+    "file": "feature-graphic.png",
+    "width": 1024,
+    "height": 500,
+    "hasAlpha": false,
+    "alt": "Northlight. Find your bearing. Offline compass, spoken headings, GPS altitude and light tools with a real compass dial."
+  },
+  "storeLabels": "All seven asset AI checkboxes OFF, including retained icon. Don't label assets selected and verified after saving, as requested by the user.",
+  "counts": {
+    "title": 27,
+    "shortDescription": 77,
+    "fullDescription": 3042
+  },
+  "files": [
+    {
+      "file": "01-offline-compass.png",
+      "source": "../../store-assets/play/screenshots/1.2.0/01-compass.png",
+      "sourceSha256": "fc8465e5d4a7dd7d206c1c50d9c3f77e9aa616169f9cf3f73a728ddcceb36506",
+      "crop": {
+        "left": 52,
+        "top": 120,
+        "width": 976,
+        "height": 1680
+      },
+      "alt": "Northlight shows a real magnetic heading, a large degree dial, sensor accuracy and Lantern, Night light and SOS controls.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "02-spoken-headings.png",
+      "source": "../../store-assets/play/screenshots/1.2.0/03-spoken-compass.png",
+      "sourceSha256": "87d02fe84a838a47eae1e139635786adf64420dce7be9fcc64c3d2aa708eb6f6",
+      "crop": {
+        "left": 52,
+        "top": 225,
+        "width": 976,
+        "height": 810
+      },
+      "alt": "Free spoken compass controls with offline voice ready, Speak direction and a real captured phone-heading result.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "03-gps-altitude.png",
+      "source": "../../store-assets/play/screenshots/1.2.0/02-altimeter.png",
+      "sourceSha256": "41d2e3c3ac752dede63854e267af3dbe9ea376b17d1cc3f30c32e8397c12fa4e",
+      "crop": {
+        "left": 52,
+        "top": 150,
+        "width": 976,
+        "height": 850
+      },
+      "alt": "GPS altitude shows 94 m, mean-sea-level reference, reported uncertainty of plus or minus 84 m and a low-accuracy warning.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "04-red-screen-light.png",
+      "source": "../../store-assets/play/screenshots/1.2.0/07-red-light.png",
+      "sourceSha256": "f1da839670a57c4a0becdf4cb636fad44b9fed82ba0195e909219ead78c402d3",
+      "crop": {
+        "left": 0,
+        "top": 730,
+        "width": 1080,
+        "height": 1130
+      },
+      "alt": "Actual red screen-light mode with brightness control and the Close Red light button.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "05-optional-pro.png",
+      "source": "../../store-assets/play/screenshots/1.2.0/05-pro-benefits.png",
+      "sourceSha256": "079043f431bd89b8993700640c349bbad24a473440e9412cad570a975208ff5c",
+      "crop": {
+        "left": 52,
+        "top": 130,
+        "width": 976,
+        "height": 1650
+      },
+      "alt": "Northlight Pro benefits explain saved bearings, spoken phone-turn guidance, extra light colours and adjustable strobe.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    }
+  ]
+}

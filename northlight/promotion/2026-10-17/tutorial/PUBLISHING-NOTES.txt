@@ -1,0 +1,57 @@
+NORTHLIGHT WEBSITE TUTORIAL PUBLICATION CHECKLIST
+Published and publicly verified on 17 October 2026 with user approval.
+Live: https://madebykreativ.com/news/offline-compass-android-northlight/
+Website commit: bb53f1a7a98f919c565fb5d858c6761a165f2820
+Deployment: https://github.com/aolaru/madebykreativ.com/actions/runs/39060070589
+GitHub Pages build and deployment succeeded, including npm run check with
+responsive/accessibility checks and the two new Northlight tutorial tests.
+Local production build, HTML, link and artifact checks also passed.
+
+Four real screenshots were published with dimensions, alt text, captions and
+full-size links. The unused optional-Pro screenshot was not copied. The
+Northlight app page now has current speech/GPS/Pro copy, its current genuine
+compass screen and a tutorial link. The article is in Updates, both RSS feeds
+and sitemap. All ten checked public routes/assets returned HTTP 200; the four
+image responses were valid PNGs. The live article and current privacy scope
+were inspected in Chrome. Proof: website-published.png.
+
+No Play Console changes were made in this publication step. Its tutorial link
+can be added separately; do not assume it is in the submitted store listing.
+No social posts or outreach messages were sent.
+
+The original preparation checklist below is historical. The Markdown/HTML
+preview files in this promotion folder remain preparation snapshots; the live
+source is in the website repo src/content/news/.
+
+PROPOSED PAGE
+https://madebykreativ.com/news/offline-compass-android-northlight/
+
+FILES
+- offline-compass-android-northlight.md: editable article with existing Astro news frontmatter.
+- preview.html: local reading preview, noindex/nofollow.
+- article-body.html: generated body for CMS use, not a deployed page.
+- metadata.json: proposed title, description and route.
+- screenshots/: focused crops of genuine 1.2.0 Galaxy A55 app captures.
+
+BEFORE DEPLOYMENT
+1. Obtain publication approval. This folder is outside the website collection.
+2. Update dateLabel and sortDate to the actual publication date. The preparation date is not a claim of publication.
+3. Copy the article to the existing website src/content/news/offline-compass-android-northlight.md. Keep app: northlight; the current schema accepts that value and its news template supplies a Northlight-specific next step. Do not assign an unrelated project.
+4. Copy the five tutorial image files into public/images/northlight/tutorial/. Change article image and full-size-link paths from screenshots/ to /images/northlight/tutorial/. Preserve alt text and captions. The optional Pro benefits capture is available but is not used by this free-workflow article.
+5. Apply the approved website-copy-proposal.json fields only to the Northlight entry in src/data/apps.ts. Keep unrelated apps unchanged. Replace public/apps/northlight/screen.png with the genuine current 01-compass.png source from store-assets/play/screenshots/1.2.0/ and set screenshotHeight to 1920. Do not invent GPS values, saved bearings or purchase status.
+6. Add a Northlight-only tutorial section to src/pages/apps/[slug].astro, beside the existing ShareSafe-only section. Use the proposed tutorial heading/description and article route. The generic article template already supports app-specific tutorial links; no broad redesign is needed.
+7. Recheck the current public privacy policy and live released UI if publication happens later. The deployed privacy policy, effective 15 October, was verified in Chrome on October 17 and matches the local policy scope. The public app page was also verified and still omits speech and GPS altitude.
+8. Run the website's documented checks: npm run check, plus storefront link checks where relevant. Verify desktop/mobile images, local links, RSS, sitemap, app-specific next-step links and accessibility. The local promotion preview is not a production website build.
+9. Deploy only with approval, then verify the public page, each image and both Google Play CTA links. UTM source/campaign values are supported in Play reports; attribution is not guaranteed.
+10. After the tutorial is publicly verified, add its URL to the store full description and the app page. The draft store copy intentionally excludes this unpublished URL.
+
+PROVENANCE AND CLAIMS
+Screens are existing October 15 real-phone captures of Northlight 1.2.0's storePreview build. This separate preview package has release UI and does not replace a Play install or fabricate purchases. Google Play About this app confirmed the released version is 1.2.0 on October 17. The article explicitly distinguishes captured example readings from a reader's current phone state.
+
+Screens are cropped only to remove system bars and adjacent partial panels. Complete visible controls and important warning text are retained. Readings are not retouched. The altitude example retains 94 m, reported vertical uncertainty of ±84 m at 68 percent confidence, and its low-accuracy warning. Original sources and crop hashes are in listing/assets-manifest.json.
+
+The tutorial keeps the free workflow separate from the paid, one-time Pro features. It does not demonstrate purchased Pro tools, audible playback, navigation or emergency communications. No simulator, flashing-light test, purchase, location recording, phone installation or new device test was performed for this marketing preparation.
+
+The included MP4 is a screenshot slideshow for social use, not live app footage and not a validated Play preview video. Do not represent it as an actual recording of speech or sensor movement.
+
+No new website analytics, SDK, store declaration, account, price, bundle or permission change is part of this package.

@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-17",
+  "status": "Static checks passed; approved listing submitted, Console confirms Changes in review with final automated checks running. Other marketing artifacts remain drafts.",
+  "titleCharacters": 27,
+  "shortDescriptionCharacters": 77,
+  "fullDescriptionCharacters": 3042,
+  "validatedPngs": 9,
+  "verifiedSourceHashes": 5,
+  "checkedLocalLinks": 44,
+  "htmlValidation": {
+    "pages": 2,
+    "errors": 0,
+    "warnings": 0
+  },
+  "media": {
+    "durationSeconds": 20,
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "audio": false,
+    "bytes": 297699
+  },
+  "visualInspection": "Social contact sheet, five screenshot layouts and feature graphic inspected; no observed clipped text or fabricated app UI.",
+  "browserLayoutVerified": false,
+  "browserLimitation": "The browser security policy blocks local file URLs. No alternate browser or serving workaround was used. Responsive HTML layout and media playback remain manual checks.",
+  "websiteBuildOrDeployment": false,
+  "consoleMutation": true,
+  "reviewSubmissionConfirmed": true,
+  "assetAiLabels": "All seven off; Don't label assets selected after saving",
+  "submissionEvidence": "listing/console-submitted-in-review.png",
+  "aiLabelsEvidence": "listing/console-ai-labels-off.png",
+  "publication": false,
+  "outreach": false
+}

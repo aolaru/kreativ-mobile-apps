@@ -1,0 +1,4 @@
+FUTURE LIVE RECORDING
+The included MP4 is a five-screen slideshow, not live app footage, not proof of audible speech, and not a tested Play preview video.
+
+For a later live demo: record the real released app on a physical phone; show a reliable magnetic reading, one spoken heading using installed voice data, then an optional GPS panel with its uncertainty visible. Do not fabricate a fix or remove a low-accuracy warning. Do not flash SOS/strobe for a marketing recording. Use a steady red screen light instead. Keep notifications, account information and private bearing names out of shot. Do not imply a route, destination arrival or emergency call.

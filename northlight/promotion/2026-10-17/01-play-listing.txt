@@ -1,0 +1,54 @@
+UNPUBLISHED NORTHLIGHT LISTING PROPOSAL
+
+TITLE (27/30)
+Northlight: Offline Compass
+
+SHORT DESCRIPTION (77/80)
+Offline compass, spoken headings, GPS altitude and lights. Optional paid Pro.
+
+FULL DESCRIPTION (3042/4000)
+Find your bearing with Northlight, an offline magnetic compass for Android with optional spoken headings, GPS altitude estimates and useful light tools.
+
+Read a heading, hear the direction your phone is facing, check an approximate altitude or open a red screen light. The core tools are free, with no ads or account.
+
+FREE COMPASS AND SPOKEN HEADINGS
+- Large magnetic compass with degrees and direction inside the dial
+- Sensor accuracy feedback and figure-eight calibration guidance
+- Speak one heading or enable optional automatic announcements
+- Installed offline English or Romanian voices, with speed and interval controls
+- Screen-reader handoff when active
+
+OPTIONAL GPS ALTIMETER
+- Altitude estimates in metres or feet
+- Shows the altitude reference and reported vertical uncertainty when available
+- Starts only when enabled with precise foreground location permission
+- Stops when you leave the home screen or lock your phone; never restarts on its own
+
+LIGHT TOOLS
+- Camera LED lantern, with brightness control on supported phones
+- Adjustable red screen light
+- Repeating SOS flash signal
+- Quick Settings lantern tile
+
+OPTIONAL NORTHLIGHT PRO — ONE-TIME PURCHASE
+- Save up to eight named magnetic bearings on this device
+- Open saved bearings from the home screen; follow, rename or delete them
+- Optional spoken phone-turn guidance and alignment haptic feedback
+- Amber and green screen lights, plus an adjustable flash strobe
+- Restore ownership using the same Google Play account; no subscription
+
+Compass, spoken headings, GPS altitude, lantern, red light and SOS stay free. Features depend on your phone's sensors, camera flash, Android settings and permissions. Your local Pro price is shown before purchase.
+
+ON-DEVICE TOOLS
+No account, ads, analytics or tracking. Camera access is requested for flash tools only; Northlight does not take photos or record video. Location is optional and used only for the altimeter. Coordinates, routes and altitude history are not saved or uploaded. No microphone or audio recording is used.
+
+Compass and light tools work offline. Speech needs an installed offline voice; installing voices may require internet access. With a screen reader active, its own voice and privacy settings apply. GPS needs usable satellite reception. Google Play uses internet access for purchases and ownership checks. Website links open your browser only when tapped.
+
+IMPORTANT LIMITATIONS
+The compass shows magnetic north, not true north. Metal, magnets and cases can affect it. GPS altitude is an estimate: read its reference and uncertainty. WGS84 height is not sea level or height above ground. Spoken and saved-bearing cues describe phone orientation, not walking direction, routes, obstacles or arrival. SOS is a flashing light, not an emergency call. Northlight is not for safety-critical navigation or a substitute for emergency communications. Use flashing lights with care around people sensitive to flashes.
+
+Privacy: https://madebykreativ.com/privacy/northlight/
+Support: info@madebykreativ.com
+
+INTERNAL PUBLICATION NOTE — NOT PART OF THE LISTING
+After the tutorial is published and verified, add a STEP-BY-STEP GUIDE section with https://madebykreativ.com/news/offline-compass-android-northlight/ . Do not add this currently unpublished URL to a live listing yet.

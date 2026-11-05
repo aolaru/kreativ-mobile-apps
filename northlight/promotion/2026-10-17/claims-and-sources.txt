@@ -1,0 +1,30 @@
+NORTHLIGHT CLAIMS AND EVIDENCE
+
+Google Play About this app visibly confirmed version 1.2.0, updated 15 October, checked on 17 October 2026. The older README release-draft notes are historical and were not used to claim that the release is still unpublished.
+
+Primary local references:
+- northlight/README.md
+- northlight/store-assets/play/STORE_LISTING.md
+- app/src/main/res/values/strings.xml
+- app/src/main/java/com/kreativ/northlight/MainActivity.java
+- app/src/androidTest/java/com/kreativ/northlight/StoreCaptureTest.java
+- store-assets/play/privacy-policy/index.html
+- Existing seven 1.2.0 phone captures; SHA-256 and exact crops in listing/assets-manifest.json
+
+Source photographs/screens: real sensor and GPS states on a Galaxy A55, captured from the separate release-UI preview package on October 15. No private gallery, account flow, purchase or simulated reading is shown. The GPS example is 94 m with reported uncertainty of plus/minus 84 m (68 percent confidence), visibly marked low accuracy. Never replace that uncertainty with a more attractive value.
+
+Approved claims: magnetic north; free basic compass, speech, optional GPS altitude, lantern/red light/SOS; offline tools subject to hardware and voice/reception requirements; optional one-time paid Pro; no account/ads/analytics; on-device location/speech handling as described in the policy. Google Play purchases and ownership checks use internet access.
+
+Avoid: accurate everywhere; true north; route navigation; offline maps; obstacle detection; safe-crossing or rescue claims; GPS tracking/history; barometric altitude; guaranteed night-vision preservation; no network traffic; guaranteed install growth; speech or Pro functionality demonstrated when only a static benefits page is pictured. SOS does not call anyone.
+
+The website app page currently omits the live speech/altitude features and uses an older screenshot. website-copy-proposal.json and tutorial/PUBLISHING-NOTES.txt cover an unpublished correction. The website repository was not edited.
+
+External sources checked:
+https://play.google.com/store/apps/details?id=com.kreativ.northlight
+https://madebykreativ.com/privacy/northlight/
+https://support.google.com/googleplay/android-developer/answer/9866151?hl=en
+https://support.google.com/googleplay/android-developer/answer/9859173?hl=en
+https://www.droid-life.com/contact/
+https://www.androidauthority.com/contact/
+
+Droid Life's official form invites app tips. Android Authority's official contact page lists news@androidauthority.com. Neither outlet was contacted; no relationship or placement is claimed. The creator pitch has no verified recipient.

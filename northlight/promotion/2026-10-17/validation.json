@@ -1,0 +1,25 @@
+{
+  "prepared": "2026-10-17",
+  "liveVersion": "1.2.0",
+  "counts": {
+    "title": 27,
+    "shortDescription": 77,
+    "fullDescription": 3042
+  },
+  "screenshotCount": 5,
+  "socialCount": 3,
+  "video": {
+    "file": "video/northlight-screenshot-tour.mp4",
+    "width": 1080,
+    "height": 1920,
+    "seconds": 20,
+    "audio": false,
+    "liveRecording": false
+  },
+  "tutorial": "tutorial/preview.html",
+  "published": false,
+  "submitted": false,
+  "outreachSent": false,
+  "consoleChanged": false,
+  "websiteChanged": false
+}

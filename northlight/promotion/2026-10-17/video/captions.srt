@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:04,000
+Northlight: offline magnetic compass for Android.
+
+2
+00:00:04,000 --> 00:00:08,000
+Hear your phone heading using an installed offline voice.
+
+3
+00:00:08,000 --> 00:00:12,000
+Check GPS altitude and its reported uncertainty.
+
+4
+00:00:12,000 --> 00:00:16,000
+Open a red screen light and adjust brightness.
+
+5
+00:00:16,000 --> 00:00:20,000
+Optional Pro adds saved bearings and more light tools.

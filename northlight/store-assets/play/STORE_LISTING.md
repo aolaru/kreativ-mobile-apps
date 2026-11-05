@@ -1,5 +1,26 @@
 # Northlight — Google Play listing
 
+## Marketing follow up on 17 October 2026
+
+**Submission update:** The user approved **Northlight: Offline Compass** and
+the marketing listing refresh. The exact copy in
+`northlight/promotion/2026-10-17/copy.json`, new feature graphic and five phone
+screenshots (01–05 order) were saved and submitted. Console confirms **Changes
+in review** with final automated checks running. All asset AI labels are OFF;
+the icon image is unchanged. Approval/publication are not yet confirmed.
+See `northlight/promotion/2026-10-17/listing/SUBMISSION-STATUS.txt` for proof.
+The following preparation notes and October 15 release notes are historical.
+
+Google Play's public app details confirm version 1.2.0 is live. The older
+October 15 draft notes below are historical. The current store title is still
+Northlight. A proposed **Northlight: Offline Compass** title, revised listing
+copy and five real-screen layouts are ready for review in
+`../../promotion/2026-10-17/` (relative to the Northlight project root, use
+`promotion/2026-10-17/`). Nothing from that package has been uploaded, saved to
+Console or submitted. Existing store declarations are unchanged. The tutorial
+URL must not be added to the live listing until its publication is approved and
+the page is verified publicly.
+
 ## App details
 
 - App name: `Northlight`

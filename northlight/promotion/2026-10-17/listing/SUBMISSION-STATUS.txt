@@ -1,0 +1,34 @@
+NORTHLIGHT GOOGLE PLAY LISTING — 17 OCTOBER 2026
+
+User approved the name Northlight: Offline Compass, the prepared listing changes,
+new screenshots and submission for review, without AI marks.
+
+Saved in Google Play Console for com.kreativ.northlight / en-GB:
+- App name: Northlight: Offline Compass
+- Short description: 77 characters; exact copy in ../copy.json
+- Full description: 3042 characters; exact copy in ../copy.json
+- Feature graphic: feature-graphic.png, 1024 x 500
+- Phone screenshots, in order:
+  01-offline-compass.png
+  02-spoken-headings.png
+  03-gps-altitude.png
+  04-red-screen-light.png
+  05-optional-pro.png
+
+AI LABELS: All seven asset checkboxes are OFF, including the existing icon.
+The Review page displays Don't label assets selected after saving.
+Proof: console-ai-labels-off.png
+
+SUBMISSION: Confirmed. Console now shows Changes in review, with Remove changes
+instead of Submit 5 changes for review. Its final automated checks are still
+running (up to 10 minutes remaining at capture); changes proceed automatically
+when checks succeed. Approval and public publication are not yet confirmed.
+Proof: console-submitted-in-review.png
+
+Earlier send clicks closed the dialog without changing the pending state.
+After a Console refresh, confirming the focused Send button with native Return
+successfully moved all five changes into Changes in review.
+
+No app bundle, app code, permissions, pricing, billing, website, social posts
+or outreach were changed. The tutorial URL remains excluded until published.
+Managed publishing remains OFF as found; approval will publish automatically.

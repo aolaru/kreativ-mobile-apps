@@ -1,0 +1,35 @@
+NORTHLIGHT PROMOTION AND LISTING PACK
+WEBSITE UPDATE: Tutorial published and publicly verified on 17 October 2026.
+https://madebykreativ.com/news/offline-compass-android-northlight/
+Northlight's app page links to it and has current copy and a genuine screenshot.
+See tutorial/PUBLISHING-NOTES.txt. Social/outreach remain drafts. The earlier
+listing status below records its last check, not a new review-status lookup.
+
+Prepared 17 October 2026. Listing copy, feature graphic and five screenshots submitted with user approval. Play Console confirms Changes in review; final automated checks are still running. All asset AI labels are off. See listing/SUBMISSION-STATUS.txt. Website, social and outreach remain unpublished and unsent.
+
+Open index.html for the full review board.
+
+READY
+- A 27-character proposed name: Northlight: Offline Compass
+- Checked short/full listing copy in 01-play-listing.txt
+- Five 1440 x 2560 real-screen layouts in listing/screenshots/
+- Matching 1024 x 500 feature graphic in listing/
+- Three 1080 x 1350 social graphics in social/
+- 20-second silent screenshot slideshow and captions in video/
+- English/Romanian social captions and three unsent editorial pitches
+- Separate campaign links by channel
+- Screenshot-led website tutorial draft with editable Markdown and preview
+- Website app-page copy proposal reflecting the live 1.2.0 features
+
+LISTING APPROVAL
+The user approved Northlight: Offline Compass, the listing refresh and submission for review on 17 October. The existing app icon image is retained. No release, billing, permissions or pricing changes were made.
+
+THEN
+1. Check listing/SUBMISSION-STATUS.txt for the final Console submission state.
+2. Publish the tutorial only after a separate go-ahead and website checks.
+3. Add its verified URL to the store description and app page after publication.
+4. Choose one existing public channel for graphic 01; approve the actual post.
+5. Send at most a selected, approved editorial pitch. No messages were sent.
+6. Manually compare tagged traffic, listing clicks/CTR and actual acquisitions after enough traffic accumulates; no rankings or download lifts are promised.
+
+All sensor values are actual captured examples, not current readings. The Pro screenshot shows its real benefits screen, not purchased tools in use. The GPS low-accuracy warning is preserved. See claims-and-sources.txt and QA.txt.

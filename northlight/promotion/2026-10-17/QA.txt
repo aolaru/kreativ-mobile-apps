@@ -1,0 +1,52 @@
+NORTHLIGHT MARKETING AND LISTING QUALITY CHECKS
+Prepared 17 October 2026. Preparation checks below describe the original draft.
+Submission update: approved listing changes uploaded, saved and submitted;
+Console confirms Changes in review, with final automated checks still running.
+All asset AI labels are OFF. See listing/SUBMISSION-STATUS.txt and its screenshots.
+Website, social and outreach remain drafts. No approval/publication confirmed.
+
+SOURCE CHECKS
+- Google Play's public About this app dialog confirms version 1.2.0, updated 15 October.
+- Current full description/free-Pro split checked against local listing copy, source strings, app code and the 15 October privacy-policy HTML.
+- The deployed Northlight app page and privacy policy were also checked in Chrome. The policy includes speech and GPS altitude; the product page still omits those live features.
+- Existing 1080 x 1920 real-phone captures visually inspected before reuse.
+- Existing navy/amber visual identity retained; original app/store assets are not overwritten.
+- No new sensor readings, GPS fixes, purchases, audible speech or physical-device behavior are claimed to have been tested.
+
+AUTOMATED GENERATION GATES
+- Title <=30, short description <=80 and full description <=4000 characters.
+- Five 1440 x 2560 opaque RGB PNG store screenshots, each below 8 MiB.
+- One 1024 x 500 opaque RGB PNG feature graphic.
+- Three 1080 x 1350 opaque RGB social graphics.
+- Source image dimensions, SHA-256 hashes and exact crop bounds recorded.
+- Play asset alt descriptions <=140 characters.
+- Tutorial image paths must exist before rendering.
+- Review board and article preview have noindex/nofollow and explicit draft notices.
+- All Google Play campaign links retain the correct package and separate UTM source/campaign values.
+
+CONTENT CHECKS
+- Headings and short copy describe the actual app function, not guaranteed accuracy or rankings.
+- No route-navigation, emergency-call, rescue, true-north or guaranteed altitude claim.
+- GPS reference, uncertainty and low-accuracy text remain visible.
+- Installed offline voice and precise foreground location requirements remain clear.
+- Paid Pro is optional and one-time, not represented as a free or active purchased workflow.
+- Screenshot slideshow is disclosed as not live footage; no flashing SOS/strobe footage.
+- Unpublished tutorial URL excluded from store-facing draft copy until deployment.
+- English and Romanian launch captions include developer attribution and feature limitations.
+- Two official editorial contact routes checked; creator draft has no invented recipient.
+- No messages, public posts, website changes, Console edits, AI-label changes or submissions made.
+
+ADDITIONAL VERIFICATION
+Final output inspection and browser-layout/media checks are recorded in verification.json.
+Both HTML files pass the existing website's html-validate configuration with no
+errors or warnings. All 44 local preview references resolve, all five source
+hashes match, and all nine upload/social PNGs pass dimensions and opacity checks.
+ffprobe confirms a single H.264 1080 x 1920 video stream lasting exactly 20 seconds,
+with no audio. The contact sheets and feature graphic were visually inspected.
+The local-file browser policy prevented browser layout and playback checks;
+these remain manual review tasks. No workaround was attempted.
+Live app audio, purchases and sensor accuracy are outside this marketing-only pass.
+
+REBUILD
+node build-pack.cjs
+Use --skip-video only when preserving an already generated MP4 during editorial iteration.
