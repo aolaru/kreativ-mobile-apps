@@ -1,0 +1,64 @@
+UNSENT EDITORIAL PITCHES — NO COVERAGE OR POSITIVE REVIEW EXPECTED
+
+Android Authority editorial news desk
+Route: news@androidauthority.com — https://www.androidauthority.com/contact/
+Status: Official contact page checked 18 October 2026. News and paid advertising are separate routes; no placement is implied.
+Subject: Kreativ Font 2.3 for a design-focused Android app roundup
+
+Hello,
+
+I develop Kreativ Font, a free Android companion to kreativfont.com. Version 2.3 adds full-catalogue search with Commercial/Free filters, paged browsing, zoomable website previews and on-device favourites.
+
+This is font discovery, not phone-font installation, text editing or font identification. Fonts remain subject to the linked publisher's price and licence. Searches are sent to the website; favourites are local.
+
+If this fits a design-focused Android roundup, I can provide genuine screenshots and a short workflow guide. There is no expectation of coverage or a positive review.
+
+Thanks,
+Andrei
+Made by Kreativ
+
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=android_authority&utm_medium=outreach&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Dandroid_authority%26utm_medium%3Doutreach%26utm_campaign%3Dkreativfont_discovery_202610
+Privacy: https://kreativfont.com/blog/terms-of-use-privacy-policy#android-app-privacy
+
+====================
+
+Droid Life app tip
+Route: https://www.droid-life.com/contact/ — official contact form, apps/tips category where available
+Status: Official form and invitation for app tips checked 18 October 2026. Nothing submitted.
+Subject: App tip: a free Android companion for discovering typefaces
+
+Hello,
+
+I'm the developer of Kreativ Font for Android. It browses and searches the font articles on kreativfont.com, opens existing preview artwork full-screen and saves a local shortlist without an account.
+
+The app is free, but linked fonts may be paid and have separate licences. It is not an installer or editor. Current catalogue access needs internet and font-article links open in the browser.
+
+If it fits your app coverage, I can share real screenshots and the released 2.3 workflow. No paid placement or positive review is requested.
+
+Thanks,
+Andrei
+
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=droid_life&utm_medium=outreach&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Ddroid_life%26utm_medium%3Doutreach%26utm_campaign%3Dkreativfont_discovery_202610
+Privacy: https://kreativfont.com/blog/terms-of-use-privacy-policy#android-app-privacy
+
+====================
+
+Typography or design workflow creator
+Route: Select a relevant creator and verify their own business-contact route before sending.
+Status: Reusable draft only; no individual recipient selected or verified.
+Subject: A phone-based typeface discovery shortlist for design research
+
+Hello,
+
+I build Kreativ Font, a free Android companion to kreativfont.com for browsing font articles, searching the catalogue and keeping an on-device shortlist. It may fit a design-research workflow segment.
+
+It does not install fonts or test custom text. Linked publishers handle prices, downloads and licences. Website preview artwork remains credited to its creators.
+
+If relevant, I can send genuine app screenshots and a concise workflow. No positive review, placement or endorsement is expected.
+
+Thanks,
+Andrei
+Made by Kreativ
+
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=design_creator&utm_medium=outreach&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Ddesign_creator%26utm_medium%3Doutreach%26utm_campaign%3Dkreativfont_discovery_202610
+Privacy: https://kreativfont.com/blog/terms-of-use-privacy-policy#android-app-privacy

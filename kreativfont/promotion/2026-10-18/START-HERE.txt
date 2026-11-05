@@ -1,0 +1,66 @@
+KREATIV FONT MARKETING AND LISTING PACK
+LATEST PLAY UPDATE — 18 OCTOBER 2026
+Original listing refresh now published, confirmed in Console. Tutorial-link-only
+follow-up submitted: Changes in review, quick checks running. Link approval and
+publication pending. No other fields or assets changed; AI labels remain off.
+See listing/TUTORIAL-LINK-SUBMISSION.txt and listing/tutorial-link-submitted.png.
+Earlier submission/preparation notes below are historical.
+
+WEBSITE UPDATE: Tutorial published and publicly verified on 18 October 2026.
+https://madebykreativ.com/news/discover-fonts-android-kreativ-font/
+The app page links to it. Local validation, full GitHub quality gate, deployment
+and public screenshot/discovery checks passed. See tutorial/PUBLISHING-NOTES.txt.
+Social and outreach remain drafts. Play status below is its last check, not a
+new approval lookup. The local review board is a preparation snapshot.
+
+LISTING UPDATE: Approved refresh saved and submitted on 18 October 2026.
+Console confirms Changes in review for four default-listing changes. Quick checks
+still running; approval/publication pending. Name retained, translated text
+preserved, new visual sequence checked across locale views, Don't label assets
+selected after saving. See listing/SUBMISSION-STATUS.txt and submission proof.
+Website, social and outreach remain drafts. Preparation notes below are historical.
+
+Prepared 18 October 2026. Drafts only: no external changes or messages.
+
+Open index.html for the complete review board.
+
+RECOMMENDATION
+Keep Kreativ Font: Font Discovery. Its current purpose is already clear.
+Lead with finding a typeface and saving a shortlist, not changing phone fonts.
+The native app is free; linked font files have separate prices and licences.
+
+READY
+- Current public listing audit and revised English (United Kingdom) copy
+- Five 1440 x 2560 screenshot layouts from genuine released-app captures
+- A replacement 1024 x 500 feature graphic, built in SVG around real app UI
+- Three 1080 x 1350 social graphics and English/Romanian captions
+- A 20-second silent screenshot slideshow with SRT/VTT captions
+- A five-image website tutorial draft and publication checklist
+- Existing website app-page copy proposal and an owned-site promotion blurb
+- Three unsent editorial pitches with channel-specific campaign links
+- Source hashes, exact crops, asset checks and honest verification limits
+
+APPROVAL BOUNDARIES
+Nothing has been saved to Play Console, submitted, deployed, posted or emailed.
+No app code, bundle, price, permissions or account settings changed.
+Thirteen listing languages exist in the prior release. This new copy is en-GB;
+review other translations separately rather than overwriting them silently.
+The current app interface remains English, not Romanian or thirteen languages.
+
+AI MARKS
+No baked-in AI badges or generative imagery in these new assets. Existing
+Console flags were not inspected or changed. The earlier feature graphic was
+AI-assisted: replace it with the approved new asset before any non-AI declaration.
+Do not simply remove a disclosure from the old image. Screenshots are real UI.
+
+SUGGESTED SEQUENCE
+1. Approve the retained title, new copy, feature graphic and five screenshots.
+2. Review locale scope and individual asset flags, save, then submit if approved.
+3. Publish the tutorial with website quality checks and verify its public URL.
+4. With a separate listing approval, add the now-live tutorial URL to Play.
+5. Post graphic 01 with its caption on one existing account; approve that post.
+6. Add the approved app blurb to a relevant page on kreativfont.com.
+7. Send only a selected editorial pitch. No positive review or coverage expected.
+
+Do not rebuild a later submitted/published pack without preserving its status.
+The scripts here generate drafts and intentionally reset generated draft notes.

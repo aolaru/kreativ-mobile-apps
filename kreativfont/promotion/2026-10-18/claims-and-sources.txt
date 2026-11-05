@@ -1,0 +1,58 @@
+KREATIV FONT CLAIMS AND SOURCES — 18 OCTOBER 2026
+
+LIVE RELEASE
+Public Google Play About this app was read in the browser: 2.3.0, updated
+15 October, current title/short/full copy and two screenshot buttons. Evidence
+does not imply current installs, new-version adoption, review approval for this
+draft or rankings. The pack changes no Console settings.
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&hl=en_GB
+
+APP BEHAVIOUR
+../../app/src/main/java/com/kreativ/fontboard/MainActivity.java
+Card artwork opens the image viewer; titles open descriptions; View font opens
+the original article in a browser; bookmark toggles the actual local favourite.
+../../app/src/main/java/com/kreativ/fontboard/FontPreviewActivity.java
+../../app/src/main/java/com/kreativ/fontboard/FontSearch.java
+../../app/src/main/res/values/strings.xml
+../../app/src/main/AndroidManifest.xml
+../../README.md and ../../review/play-listing-2.3.0/README.txt
+The latter records four passing real-phone tests and prior release scope, not
+new testing performed in this marketing task. INTERNET is the capability used;
+no new builds, device changes, purchases or favourite changes were performed.
+
+PRIVACY AND LICENCES
+https://kreativfont.com/blog/terms-of-use-privacy-policy#android-app-privacy
+Public Android appendix checked 18 October; effective 15 October. It distinguishes
+native app behaviour from website membership, AI tools, ads and analytics.
+Do not claim fully offline, zero data collection, no hosting logs or all fonts
+free for commercial use. Favourites stay on the device; search queries go to
+the website. The native app contains no ad/analytics SDK, but hosting requests
+and browser visits have their own data handling. Favourite backup/transfer is
+disabled; uninstall/clear-data removes the shortlist. No account recovery.
+Website affiliate links may earn a commission. Artwork and font names belong
+to their respective creators. The app does not distribute commercial font files.
+
+SCREEN CAPTURES
+../../review/play-listing-2.3.0/phone/*.png
+Real 1080 x 2340 Galaxy A55 captures from 15 October, release 2.3.0 interface.
+Exact selected sources, SHA-256 hashes and bounds: listing/assets-manifest.json.
+Only crop, proportional scaling and outer code-built layout applied. No UI,
+lettering, bookmark state or article text repainted. Transient toast/status areas
+are outside chosen crop bounds. Original sources remain unchanged.
+Full-screen zoom is described from released behaviour, not pictured in this
+five-screen sequence; the existing viewer QA captures have distracting toasts.
+
+EDITORIAL CONTACT ROUTES
+https://www.androidauthority.com/contact/
+Official page checked 18 October: news@androidauthority.com is the news route.
+Paid advertising has a different route. No coverage or reply is promised.
+https://www.droid-life.com/contact/
+Official contact form checked 18 October; invites app tips. Nothing submitted.
+The third creator pitch has no selected recipient and must not be sent until one
+is chosen and their current business route is verified.
+
+WEBSITE DESTINATION
+https://madebykreativ.com/apps/kreativ-font/
+The current repository has the app entry, privacyUrl and article app schema enum.
+No new fake privacy route is needed. Use app: kreativ-font for the tutorial;
+folder name kreativfont is not its website slug. Publication still needs approval.

@@ -1,0 +1,70 @@
+KREATIV FONT TUTORIAL — PUBLISHED 18 OCTOBER 2026
+
+Live: https://madebykreativ.com/news/discover-fonts-android-kreativ-font/
+App page: https://madebykreativ.com/apps/kreativ-font/
+Website commit: 42fb7ff006dd03c9a84acf9a5ad4013bf51344b8
+Deployment: https://github.com/aolaru/madebykreativ.com/actions/runs/39152348112
+
+Published the approved tutorial with five genuine screenshot crops, responsive
+480/960 WebP variants, original full-size PNG links, alt text and captions.
+The existing app artwork, main app-page copy and privacy URL were preserved.
+Added a Kreativ Font-only tutorial section to its app page. No font files were
+published. The guide keeps discovery separate from installation/editing, the
+free app separate from font licences, and online search separate from local
+favourites. Screenshot examples and creator rights remain explicit.
+
+Local npm run validate passed: 58 pages built, HTML validation, 278 local links,
+24 required routes, 97 required assets and all three redirect-rule tests.
+GitHub's full quality gate, Firefox/WebKit journeys, mobile performance budgets,
+deployment and production smoke checks passed. Two tutorial-specific tests
+cover the images, intrinsic dimensions, tagged Play links, privacy route,
+app-specific next step/cross-link, Updates, both RSS feeds and sitemap.
+
+Public article and app-page cross-link verified in the in-app browser. Mobile
+header and screenshot presentation inspected. Updates, both RSS feeds and
+sitemap include the tutorial. All five public PNG originals match local SHA-256
+hashes; both responsive variants are available for each image.
+Proof: website-published.png and website-screenshot-section.png.
+
+The deployed article is maintained in the website repository under
+src/content/news/discover-fonts-android-kreativ-font.md. The local tutorial preview
+and original Markdown are preparation snapshots, not the deployed source.
+
+No Play Console, app bundle, pricing, permissions, developer identity, privacy
+policy content, social post or outreach message changed in this publication.
+The earlier Play review was not rechecked. Adding this now-live tutorial URL to
+the Play description still requires separate approval.
+
+HISTORICAL PREPARATION CHECKLIST
+Prepared 18 October 2026. Unpublished draft outside the website collection.
+Proposed URL: https://madebykreativ.com/news/discover-fonts-android-kreativ-font/
+
+1. Obtain approval to publish the tutorial and associated app-page link/copy.
+2. Inspect/fetch the latest website checkout; preserve unrelated changes.
+3. The website already has src/data/apps.ts slug kreativ-font and a matching
+   article schema value. Keep app: kreativ-font, not kreativfont or another app.
+4. Review website-copy-proposal.json against the current released app. Retain
+   existing artwork, responsive dimensions and external privacy link unless
+   their replacements are explicitly approved. Never deploy a fake /privacy/ URL.
+5. Copy the article to src/content/news/discover-fonts-android-kreativ-font.md.
+   Set publication dates to the actual publication date. Use the existing
+   tutorial-screenshot figure pattern with lazy loading and real dimensions.
+6. Copy the five selected screenshots into public/images/kreativ-font/tutorial/.
+   Change both image/link paths. Generate 480/960 WebP variants using the current
+   site helper, extending its tutorial-slug list to kreativ-font if necessary.
+7. Keep captions, original full-size PNG links and creator-rights context. No
+   font files are bundled. Favourites and results are captured examples.
+8. Add a Kreativ Font-only tutorial link to its app detail page. Keep the other
+   apps' tutorial sections and privacy/support links unchanged.
+9. Add coverage for five images, intrinsic dimensions, captions, tagged Play
+   links, app-specific next step, app-page cross-link, Updates, both RSS feeds
+   and sitemap. Run npm run check and the site's current deployment quality gate.
+10. Inspect responsive layouts and accessibility, deploy only with approval and
+    verify the public page, images, policy link and Play calls to action.
+11. Only after public verification and separate listing approval should its
+    URL be added to Play. Current listing copy intentionally excludes this URL.
+
+Exact source dimensions are in listing/assets-manifest.json. Tutorial figures
+show browse, load more, search, filter and a saved bookmark within search results,
+not a fabricated Favorites page. Zoom is described but not separately pictured.
+The local HTML is an unpublished preview, not an Astro production build.

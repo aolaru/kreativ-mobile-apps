@@ -1,0 +1,44 @@
+KREATIV FONT PUBLIC LISTING AUDIT — 18 OCTOBER 2026
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&hl=en_GB
+
+OBSERVED
+Public name: Kreativ Font: Font Discovery.
+Version: 2.3.0. Updated: 15 October 2026. Android 8.0+.
+Short: Browse and search font previews. Save favourites. Not a phone-font installer.
+Two phone screenshots were exposed on the public English page.
+The existing full description accurately covers browse/search/zoom/favourites,
+internet and licence limits, and English interface content.
+Data safety declares App activity, App info/performance and Device or other IDs.
+Do not replace that with a ShareSafe/PaperBuild-style No data collected claim.
+The public app is free, with no native Pro/IAP badge seen. Commercial font
+licensing and website affiliate links are separate from native app pricing.
+
+FIVE RECOMMENDED MOVES
+1. KEEP THE NAME. The current name already distinguishes discovery from a
+   system-font installer. No unsupported keyword or brand change is needed.
+2. REFINE THE COPY. Use scannable benefit-led sections while keeping the
+   installer warning prominent. Add the no-custom-text-testing distinction,
+   local-only shortlist limits and a direct Android privacy-section link.
+3. EXPAND THE VISUAL STORY. Replace two unframed captures with five genuine
+   layouts: browse, load more, search, filter and save a shortlist. Use explicit
+   captions; do not show an invented font editor, installer or identifier.
+4. REPLACE THE FEATURE GRAPHIC. The new layout uses code-built typography and
+   real app UI. Prior release notes identify the old feature as AI-assisted.
+   Never mislabel that old asset; replace it first and review all flags after
+   approval. This audit did not alter or inspect current Console flags.
+5. CONNECT DISCOVERY TRAFFIC. Prepare a screenshot-led tutorial, app-page link,
+   own-site blurb and one launch post. Publish the tutorial before adding its
+   link to Play, then measure actual listing visitors and acquisitions.
+
+EXPECTATIONS AND TRANSLATIONS
+The old reviews visible in the checked view concern the legacy experience,
+including confusion about paid fonts and browser links. Keep the existing
+honest developer reply; no review edits, incentives or ratings requests here.
+Do not present lifetime downloads as new-version adoption or claim better copy
+will automatically improve ranking. Evaluate performance after enough traffic.
+The 15 October release documented 13 languages. New copy here is en-GB only;
+locale review and actual submission require further approval.
+
+NOT PROPOSED
+No monetisation redesign, native paid tier, SDK, permission, privacy practice,
+app feature, website deployment or release update is part of this draft pack.

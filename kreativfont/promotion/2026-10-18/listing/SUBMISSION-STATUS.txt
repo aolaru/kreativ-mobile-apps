@@ -1,0 +1,58 @@
+KREATIV FONT LISTING SUBMISSION — 18 OCTOBER 2026
+
+LATEST UPDATE: Original refresh below is now published, confirmed in Console.
+A separate tutorial-link-only en-GB full-description update is submitted:
+Changes in review, quick checks running; approval/publication pending.
+All other fields unchanged. See TUTORIAL-LINK-SUBMISSION.txt and
+tutorial-link-submitted.png. The original submission notes below are historical.
+
+User approved retaining Kreativ Font: Font Discovery, the prepared listing
+refresh, new screenshots/feature graphic and submission without AI marks.
+
+SAVED AND SUBMITTED
+Play Console confirms Changes in review and showed 4 changes sent for review.
+Quick checks are still running; the changes enter review when checks succeed.
+Approval/publication is NOT yet confirmed. Managed publishing remains OFF,
+so successful approval can publish automatically. Last published: 16 October.
+Proof: console-submitted-in-review.png.
+
+Exactly four en-GB default-listing changes in Publishing overview:
+- Short description: 76/80 characters
+- Full description: 2783/4000 characters
+- Five phone screenshots: 1440 x 2560, verified order below
+- New feature graphic: 1024 x 500
+
+Name unchanged: Kreativ Font: Font Discovery, 28/30 characters.
+Exact copy: ../copy.json and ../01-play-listing.txt.
+Screenshot order:
+01-browse-fonts.png
+02-load-more.png
+03-search-catalogue.png
+04-filter-results.png
+05-save-shortlist.png
+
+LANGUAGES AND VISUAL INHERITANCE
+The en-GB short/full copy was updated. The text fields for en-US, nl-NL, fr-FR,
+de-DE, id, it-IT, pt-BR, pt-PT, ro, ru-RU, es-ES and es-US were read before/after
+and verified unchanged. Their asset views initially showed old selections;
+clearing those old selections made them display the five new default screenshots
+and new feature graphic. Each locale sequence was checked. Publishing overview
+records only four default-listing changes, not 26 separate translated-asset edits.
+
+AI DECLARATION
+The old AI-assisted feature graphic remained honestly labelled in the library.
+It was replaced, not reclassified. All five new screenshot labels and the new
+feature were initially unchecked in the individual dialog; the icon was also
+unchecked. Once old visual selections were cleared from the other locale views,
+Don't label assets was selected and verified after saving. No AI badge is baked
+into the new layouts. Proof of the saved declaration: console-ai-labels-off.png.
+
+UNCHANGED / OUT OF SCOPE
+Existing icon image, app name, translated text, production APK/release, price,
+permissions, Data safety, privacy-policy URL, developer identity, signing setup,
+website and social/outreach channels. Old visual assets remain recoverable in
+the Console asset library and local release evidence. No tutorial URL was added:
+the proposed Kreativ Font tutorial is not yet published.
+
+Do not rerun build-pack.cjs or validate-pack.cjs without preserving this submission
+record; their generated metadata describes a draft and resets status fields.

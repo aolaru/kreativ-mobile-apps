@@ -1,0 +1,31 @@
+{
+  "status": "Unpublished proposal; no website files changed",
+  "slug": "kreativ-font",
+  "name": "Kreativ Font",
+  "category": "Font discovery",
+  "accessLabel": "Free app; linked fonts have separate licences",
+  "description": "Discover typefaces for design projects, search font articles and save a shortlist on your Android phone.",
+  "features": [
+    "Browse separate commercial and free font sections, with Load 10 more",
+    "Search the full website catalogue with All, Commercial and Free filters",
+    "Inspect original website artwork with full-screen zoom and pan",
+    "Save font articles without an account and search favourites on the device"
+  ],
+  "proDescription": "The native app is free, with no optional Pro tier. Font purchases and downloads are handled by linked websites under their own prices and licences. A Free label does not guarantee unrestricted commercial use.",
+  "privacyUrl": "https://kreativfont.com/blog/terms-of-use-privacy-policy#android-app-privacy",
+  "privacyNote": "Online catalogue searches send your phrase to kreativfont.com; request URLs can appear in hosting logs. Favourites and favourites search stay on the device. Browser visits follow destination-site terms.",
+  "limitation": "Not a phone-font installer, text editor, font identifier or custom-text tester. Current catalogue access needs internet. Offline artwork depends on cache. Uninstalling or clearing storage removes favourites, with no cloud sync or account recovery. The interface and articles are English.",
+  "screenshotSource": "Keep the existing genuine website app screenshot unless a specific replacement is approved. Do not substitute a framed listing layout into the responsive screenshot pipeline.",
+  "tutorialHeading": "Discover fonts and save a shortlist on Android",
+  "tutorialDescription": "Follow browsing, catalogue search, filters and bookmarking with real Kreativ Font screenshots.",
+  "tutorialPath": "/news/discover-fonts-android-kreativ-font/",
+  "publicationPrerequisites": [
+    "Inspect the latest website checkout and preserve unrelated changes",
+    "Keep existing app slug kreativ-font and support the approved canonical external privacy URL",
+    "Copy the approved article and five screenshot crops into the existing news/image pattern",
+    "Generate responsive WebP variants, preserving full-size PNG links, alt text and captions",
+    "Add a Kreativ Font-only tutorial section to its app page",
+    "Verify Updates, both RSS feeds, sitemap, article metadata, app links and tagged Play CTAs",
+    "Run full website quality gates and verify deployment before linking from Play"
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-18",
+  "status": "Original visual/listing refresh published on 18 October 2026, confirmed in Console. Later tutorial-link-only description submission pending; no assets changed. See TUTORIAL-LINK-SUBMISSION.txt.",
+  "liveVersion": "2.3.0, public Google Play About this app checked 18 October 2026",
+  "captureBuild": "Released 2.3.0 UI on Samsung Galaxy A55, 15 October 2026; existing real-phone test captures",
+  "processing": "Crops and proportional scaling only. Original files unchanged. Status bars and unrelated transient toasts are outside selected crop bounds; no UI, text, bookmarks or artwork repainted.",
+  "rights": "Font preview artwork remains inside genuine app screenshots. Font names and artwork belong to their respective creators; no font files distributed or endorsement claimed.",
+  "aiMarks": "No baked-in AI marks or generative imagery. Old AI-assisted feature replaced, not reclassified. New asset flags inspected; Don't label assets selected and verified after saving. Old library assets remain recoverable. See SUBMISSION-STATUS.txt.",
+  "featureGraphic": {
+    "file": "feature-graphic.png",
+    "width": 1024,
+    "height": 500,
+    "hasAlpha": false
+  },
+  "counts": {
+    "title": 28,
+    "shortDescription": 76,
+    "fullDescription": 2783
+  },
+  "files": [
+    {
+      "file": "01-browse-fonts.png",
+      "source": "../../review/play-listing-2.3.0/phone/home-ten-per-section.png",
+      "sourceSha256": "13939ab843086ba726bf1abfba14c09142cbf71fd8d8aa3f2e4c80a6f67348de",
+      "crop": {
+        "left": 56,
+        "top": 110,
+        "width": 968,
+        "height": 1880
+      },
+      "alt": "Kreativ Font shows catalogue search, commercial article cards, Load 10 more and the Free Fonts heading.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "02-load-more.png",
+      "source": "../../review/play-listing-2.3.0/phone/commercial-load-more.png",
+      "sourceSha256": "99f8cfc638f30c389482fdc95238dadecdb6c5da290817f50c14acddc8bd6743",
+      "crop": {
+        "left": 56,
+        "top": 600,
+        "width": 968,
+        "height": 1150
+      },
+      "alt": "Real commercial section with 20 articles loaded and an Explore more fonts card with Load 10 more.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "03-search-catalogue.png",
+      "source": "../../review/play-listing-2.3.0/phone/whole-catalogue-search.png",
+      "sourceSha256": "71fe7a8f5cccccdfd8cf445281f040202dfda541cad641782767daf324d52a4e",
+      "crop": {
+        "left": 56,
+        "top": 250,
+        "width": 968,
+        "height": 1540
+      },
+      "alt": "Real Cookie search with All selected, a website catalogue message, font artwork and a Free-labelled article.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "04-filter-results.png",
+      "source": "../../review/play-listing-2.3.0/phone/commercial-search-filter.png",
+      "sourceSha256": "581e0abf727beaf5f7ee36f42613c50779135763c4d92d9c3ba995d788fdfe31",
+      "crop": {
+        "left": 56,
+        "top": 260,
+        "width": 968,
+        "height": 1550
+      },
+      "alt": "Actual serif search with Commercial selected and a commercial font article preview, description and bookmark.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "05-save-shortlist.png",
+      "source": "../../review/play-listing-2.3.0/phone/paged-search-results.png",
+      "sourceSha256": "d5f66fae2c1fe4d1179ee840200908804381301e5f9bdb8e221b9da4ae911bf6",
+      "crop": {
+        "left": 56,
+        "top": 1290,
+        "width": 968,
+        "height": 540
+      },
+      "alt": "Real Dorevant result with its name, Commercial label, description, View font action and filled saved bookmark.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    }
+  ]
+}

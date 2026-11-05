@@ -1,0 +1,34 @@
+KREATIV FONT PACK QA AND LIMITS
+
+Run node build-pack.cjs to regenerate draft assets from original captures.
+Run node validate-pack.cjs for character limits, PNG dimensions/opacity/size,
+source hashes/crops, local links, tutorial images/metadata, HTML and video checks.
+Rebuilding resets generated draft metadata, so preserve any later approval state.
+
+VISUAL INTEGRITY
+Five true app captures, no repainted interface or bookmarks. Outer layouts use
+SVG/text and proportional image embedding. No generative imagery or baked-in
+AI badges. Existing Console declarations were not inspected or changed.
+The old AI-assisted feature graphic is not reclassified; a replacement is drafted.
+Artwork remains within app screenshots and belongs to its respective creators.
+
+CONTENT
+Keep discovery/not-installer prominent. No OCR-style recognition, font identifier,
+custom-text tester, editor, phone-font installation, all-fonts-free promise,
+offline whole catalogue, cloud sync or no-data-collected claim.
+Search phrases go to the website. Local favourites and cached text do not imply
+that every preview image will remain offline or survive clearing/uninstalling.
+Licence guidance asks users to check the publisher; it is not legal advice.
+
+VERIFICATION LIMITS
+No new app build/device test, Play mutation, purchase, website deployment, post
+or email. Existing screenshots and released behaviour were checked against
+2.3.0 source and the public listing. Thirteen existing locales were not rewritten.
+No growth/rankings, publisher endorsement or paid placement is promised.
+Browser preview status and exact static results are recorded in verification.json.
+If a local-file preview is blocked, do not work around it with a different browser
+or local server. Deliver local files and state which layout/playback checks remain.
+
+Accessibility/layout review: readable contrast, semantic headings, visible focus,
+alt text and captions are built in. Inspect actual rendered results where possible;
+static validators do not prove screen-reader, keyboard or playback behaviour.

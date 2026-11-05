@@ -1,0 +1,19 @@
+KREATIV FONT TUTORIAL LINK — SUBMITTED 18 OCTOBER 2026
+
+Original listing refresh: published, confirmed in Play Console (last published
+18 October 2026 and App update published notification).
+
+Added to the en-GB default listing full description:
+Step-by-step tutorial: https://madebykreativ.com/news/discover-fonts-android-kreativ-font/
+
+Full description: 2783 -> 2875 characters / 4000.
+Exactly one change: Change full description. Title, short description, visuals,
+translations, privacy/support links and other settings unchanged.
+Don't label assets remained selected on review and after saving.
+
+Console confirms: 1 change sent for review; Changes in review.
+Quick checks running, up to 14 minutes remaining at confirmation. Google states
+changes enter review when checks complete successfully. Approval/publication
+of this follow-up is NOT confirmed. Managed publishing remains OFF.
+
+Proof: tutorial-link-submitted.png

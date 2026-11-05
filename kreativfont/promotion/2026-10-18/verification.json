@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-18",
+  "status": "Original refresh published on 18 October 2026, confirmed in Console. Tutorial-link-only en-GB full-description change submitted with user approval: Changes in review, quick checks running; link approval/publication pending. Other fields, visuals and AI declaration unchanged. Website tutorial live; social/outreach remain drafts.",
+  "titleCharacters": 28,
+  "shortDescriptionCharacters": 76,
+  "fullDescriptionCharacters": 2875,
+  "validatedPngs": 9,
+  "verifiedSourceHashRecords": 5,
+  "verifiedUnalteredTutorialCrops": 5,
+  "checkedLocalLinks": 46,
+  "htmlValidation": {
+    "pages": 2,
+    "errors": 0,
+    "warnings": 0
+  },
+  "tutorialImages": 5,
+  "tutorialPlayLinks": 2,
+  "media": {
+    "seconds": 20,
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "audio": false,
+    "bytes": 300621
+  },
+  "visualInspection": "Listing/social contact sheets, feature graphic and tutorial crops inspected. No repainted UI, clipped outer copy or AI badges observed. Source carousel partial cards and ellipses preserved.",
+  "browserLayoutVerified": false,
+  "browserLimitation": "Known local-file browser restriction respected; no alternate-browser or server workaround. Responsive HTML layout, keyboard/screen-reader interaction and video playback remain manual review.",
+  "consoleMutation": true,
+  "reviewSubmissionConfirmed": true,
+  "submissionEvidence": "listing/tutorial-link-submitted.png",
+  "aiDeclaration": "Don't label assets selected and verified after saving; old AI-assisted feature replaced rather than reclassified",
+  "localeTextPreserved": ["en-US", "nl-NL", "fr-FR", "de-DE", "id", "it-IT", "pt-BR", "pt-PT", "ro", "ru-RU", "es-ES", "es-US"],
+  "websiteBuildOrDeployment": true,
+  "websiteTutorialUrl": "https://madebykreativ.com/news/discover-fonts-android-kreativ-font/",
+  "websiteDeployment": "https://github.com/aolaru/madebykreativ.com/actions/runs/39152348112",
+  "websiteVerification": "Local validate and full GitHub quality gate, cross-browser tests, mobile performance budgets and deployment passed. Public tutorial, app-page cross-link, discovery feeds and all five original/responsive screenshots verified. Play review status was not rechecked.",
+  "publication": true,
+  "publicationScope": "Website tutorial only; social/outreach remain drafts",
+  "outreach": false
+}

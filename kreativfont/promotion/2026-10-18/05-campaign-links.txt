@@ -1,0 +1,25 @@
+launch_social
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=launch_social&utm_medium=social&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Dlaunch_social%26utm_medium%3Dsocial%26utm_campaign%3Dkreativfont_discovery_202610
+
+launch_ro
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=launch_ro&utm_medium=social&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Dlaunch_ro%26utm_medium%3Dsocial%26utm_campaign%3Dkreativfont_discovery_202610
+
+short_video
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=short_video&utm_medium=social&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Dshort_video%26utm_medium%3Dsocial%26utm_campaign%3Dkreativfont_discovery_202610
+
+community
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=community&utm_medium=community&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Dcommunity%26utm_medium%3Dcommunity%26utm_campaign%3Dkreativfont_discovery_202610
+
+madebykreativ
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=madebykreativ&utm_medium=website&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Dmadebykreativ%26utm_medium%3Dwebsite%26utm_campaign%3Dkreativfont_discovery_202610
+
+android_authority
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=android_authority&utm_medium=outreach&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Dandroid_authority%26utm_medium%3Doutreach%26utm_campaign%3Dkreativfont_discovery_202610
+
+droid_life
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=droid_life&utm_medium=outreach&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Ddroid_life%26utm_medium%3Doutreach%26utm_campaign%3Dkreativfont_discovery_202610
+
+design_creator
+https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=design_creator&utm_medium=outreach&utm_campaign=kreativfont_discovery_202610&referrer=utm_source%3Ddesign_creator%26utm_medium%3Doutreach%26utm_campaign%3Dkreativfont_discovery_202610
+
+Links include Google Play Install Referrer parameters. Compare actual listing visitors/acquisitions separately; attribution can be incomplete. No analytics SDK or growth promise.

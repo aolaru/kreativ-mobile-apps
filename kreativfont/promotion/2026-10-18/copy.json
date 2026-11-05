@@ -1,0 +1,71 @@
+{
+  "app": "Kreativ Font",
+  "date": "2026-10-18",
+  "version": "2.3.0",
+  "status": "Original refresh published on 18 October 2026, confirmed in Console. Tutorial-link-only en-GB full-description change submitted with user approval: Changes in review, quick checks running; link approval/publication pending. Other fields, visuals and AI declaration unchanged. Website tutorial live; social/outreach remain drafts.",
+  "campaign": "kreativfont_discovery_202610",
+  "store": "https://play.google.com/store/apps/details?id=com.kreativ.fontapp",
+  "privacy": "https://kreativfont.com/blog/terms-of-use-privacy-policy#android-app-privacy",
+  "tutorialPath": "/news/discover-fonts-android-kreativ-font/",
+  "listing": {
+    "currentTitle": "Kreativ Font: Font Discovery",
+    "title": "Kreativ Font: Font Discovery",
+    "currentShortDescription": "Browse and search font previews. Save favourites. Not a phone-font installer.",
+    "shortDescription": "Search fonts, zoom previews and save favourites. Not a phone-font installer.",
+    "fullDescription": "Find typefaces for your next design project with Kreativ Font, the free Android companion to kreativfont.com. Browse commercial and free font articles, inspect website preview artwork and keep a shortlist of favourites.\n\nThis is a font-discovery app, not a font installer or text editor. It does not change your phone's system font, create lettering or install fonts into other apps. The app is free; linked fonts have their own prices and licence terms.\n\nBROWSE AND SEARCH\n- Explore separate Commercial Fonts and Free Fonts sections\n- Start with 10 recent articles in each section and use Load 10 more to continue\n- Search the full website font catalogue, not just the articles already loaded\n- Filter online results with All, Commercial or Free\n- Load more search results in batches of up to 10 unique fonts\n- Refresh the latest sections to check for newly published articles\n\nINSPECT THE PREVIEW\nTap a preview image to open the website artwork full-screen. Pinch to zoom, drag to pan or double-tap to zoom or reset. Zoom in, Zoom out and Fit controls are also available. These are existing preview images, not a live type tester: you cannot enter your own text. Tap a font title to read its description, or View font to open its original article in your browser.\n\nKEEP A SHORTLIST\nTap a bookmark to save a font to Favorites without creating an account. Saved entries retain their description and article link after they leave the latest feed. Search saved favourites locally on your device, and remove bookmarks when you no longer need them.\n\nFavourites are stored only on this device. Clearing app storage or uninstalling removes them; there is no cloud sync or account-based recovery. Previously loaded article information can be viewed offline, but preview images depend on the local cache.\n\nKNOW WHAT YOU ARE OPENING\nAn internet connection is needed for current articles, online catalogue search and opening websites. Catalogue search sends your phrase to kreativfont.com; request URLs may appear in hosting logs. Avoid personal or sensitive details in searches. Searching saved favourites stays local.\n\nThe native app has no advertising or analytics SDKs and does not request camera, photo-library, contact or location access. Website requests still involve hosting/CDN request data. Browser visits follow the destination website's own privacy, cookie and affiliate terms.\n\nFont downloads, prices and licences are handled by the linked websites, not inside the app. A Free label is not a promise of unrestricted commercial use. Read the publisher's licence for each font and intended use. The app interface and website articles are in English.\n\nStep-by-step tutorial: https://madebykreativ.com/news/discover-fonts-android-kreativ-font/\n\nAndroid app privacy: https://kreativfont.com/blog/terms-of-use-privacy-policy#android-app-privacy\nSupport: contact@kreativfont.com",
+    "tutorialAddition": "Live tutorial link added and submitted with user approval; approval/publication pending. See listing/TUTORIAL-LINK-SUBMISSION.txt.",
+    "localeScope": "English (United Kingdom) short/full copy updated. Text in the other 12 languages was verified unchanged. Their old visual selections were cleared to use the refreshed default feature graphic and five-screen sequence; all locale asset views were checked."
+  },
+  "posts": [
+    {
+      "name": "Graphic 01 launch caption for an existing LinkedIn or Facebook account",
+      "source": "launch_social",
+      "medium": "social",
+      "text": "Your next design can start with a font shortlist.\n\nI rebuilt Kreativ Font for Android to make the discovery part easier: browse commercial and free font articles, search the website catalogue, inspect preview artwork and save favourites without an account.\n\nThe app is free. It is not a phone-font installer or text editor, and linked fonts have their own prices and licences. View font opens the original article in your browser.\n\nIf you try it, tell me what would make finding your next typeface easier.\n\n— Andrei, Made by Kreativ"
+    },
+    {
+      "name": "Romanian launch caption",
+      "source": "launch_ro",
+      "medium": "social",
+      "text": "Următorul proiect poate începe cu o listă scurtă de fonturi.\n\nAm refăcut Kreativ Font pentru Android: explorezi articole despre fonturi comerciale și gratuite, cauți în catalogul site-ului, mărești imaginile de prezentare și salvezi favorite fără cont.\n\nAplicația este gratuită. Nu instalează fonturi pe telefon și nu este editor de text. Fonturile de pe site-urile asociate au propriile prețuri și licențe. View font deschide articolul original în browser. Interfața aplicației este în engleză.\n\nDacă o încerci, spune-mi ce ar simplifica descoperirea următorului font.\n\n— Andrei, Made by Kreativ"
+    },
+    {
+      "name": "Screenshot tour caption",
+      "source": "short_video",
+      "medium": "social",
+      "text": "Browse → load more → search → filter → bookmark. A silent screenshot tour of Kreativ Font for Android, not live footage.\n\nThe app is free; linked fonts have their own prices and licences. Font discovery, not phone-font installation or text editing. Current catalogue browsing and search require internet."
+    },
+    {
+      "name": "Transparent introduction for a community that permits app sharing",
+      "source": "community",
+      "medium": "community",
+      "text": "Disclosure: I'm the developer of Kreativ Font for Android. I rebuilt it as a focused companion to kreativfont.com for discovering typefaces, searching font articles and saving a shortlist.\n\nIt is not a phone-font installer, editor or font identifier. The app is free; font purchases/downloads happen on linked websites under their own licences. Catalogue searches go to the website; favourites stay on the device.\n\nIf app sharing is welcome here, I'd value feedback on the browse/search workflow. No ratings or positive reviews requested.\n\n— Andrei"
+    }
+  ],
+  "outreach": [
+    {
+      "name": "Android Authority editorial news desk",
+      "route": "news@androidauthority.com — https://www.androidauthority.com/contact/",
+      "verified": "Official contact page checked 18 October 2026. News and paid advertising are separate routes; no placement is implied.",
+      "source": "android_authority",
+      "subject": "Kreativ Font 2.3 for a design-focused Android app roundup",
+      "text": "Hello,\n\nI develop Kreativ Font, a free Android companion to kreativfont.com. Version 2.3 adds full-catalogue search with Commercial/Free filters, paged browsing, zoomable website previews and on-device favourites.\n\nThis is font discovery, not phone-font installation, text editing or font identification. Fonts remain subject to the linked publisher's price and licence. Searches are sent to the website; favourites are local.\n\nIf this fits a design-focused Android roundup, I can provide genuine screenshots and a short workflow guide. There is no expectation of coverage or a positive review.\n\nThanks,\nAndrei\nMade by Kreativ"
+    },
+    {
+      "name": "Droid Life app tip",
+      "route": "https://www.droid-life.com/contact/ — official contact form, apps/tips category where available",
+      "verified": "Official form and invitation for app tips checked 18 October 2026. Nothing submitted.",
+      "source": "droid_life",
+      "subject": "App tip: a free Android companion for discovering typefaces",
+      "text": "Hello,\n\nI'm the developer of Kreativ Font for Android. It browses and searches the font articles on kreativfont.com, opens existing preview artwork full-screen and saves a local shortlist without an account.\n\nThe app is free, but linked fonts may be paid and have separate licences. It is not an installer or editor. Current catalogue access needs internet and font-article links open in the browser.\n\nIf it fits your app coverage, I can share real screenshots and the released 2.3 workflow. No paid placement or positive review is requested.\n\nThanks,\nAndrei"
+    },
+    {
+      "name": "Typography or design workflow creator",
+      "route": "Select a relevant creator and verify their own business-contact route before sending.",
+      "verified": "Reusable draft only; no individual recipient selected or verified.",
+      "source": "design_creator",
+      "subject": "A phone-based typeface discovery shortlist for design research",
+      "text": "Hello,\n\nI build Kreativ Font, a free Android companion to kreativfont.com for browsing font articles, searching the catalogue and keeping an on-device shortlist. It may fit a design-research workflow segment.\n\nIt does not install fonts or test custom text. Linked publishers handle prices, downloads and licences. Website preview artwork remains credited to its creators.\n\nIf relevant, I can send genuine app screenshots and a concise workflow. No positive review, placement or endorsement is expected.\n\nThanks,\nAndrei\nMade by Kreativ"
+    }
+  ]
+}
