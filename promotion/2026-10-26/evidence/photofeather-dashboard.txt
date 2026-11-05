@@ -1,0 +1,112 @@
+Loading Google Play Console
+notifications_unread
+Unread notifications
+more_vert
+home
+badge
+play_prism
+dashboard
+bar_chart
+overview
+shield
+rocket_launch
+vital_signs
+finance_mode
+sell
+
+PhotoFeather: Photo Compressor
+
+com.kreativ.photofeather
+check_circle
+View on Play
+overview
+Publishing overview
+You have no unpublished changes
+arrow_right_alt
+rocket_launch
+Test and release
+arrow_right_alt
+Latest production release
+schedule
+18 hours ago
+data_usage
+100%
+devices
+Phones and tablets, + 2 more
+Crash rate
+Crash rate
+–
+Installs
+Installs
+–
+Install base
+Install base
+–
+Data is not yet available. It will be ready soon.
+notifications
+App update published. Users should see changes immediately, but this may take longer.
+read_more
+vital_signs
+Monitor and improve
+arrow_right_alt
+calendar_today
+Last 28 days, compared to previous 28 days
+Crash rate
+Crash rate
+–
+ANR rate
+ANR rate
+–
+Average rating
+Average rating
+–
+finance_mode
+Grow users
+arrow_right_alt
+calendar_today
+Last 28 days, compared to previous 28 days
+Device acquisitions
+Device acquisitions
+–
+Device first opens
+Device first opens
+–
+Monthly active devices
+Monthly active devices
+–
+sell
+Monetise with Play
+
+Earn revenue through in-app products, subscriptions and more
+
+Get started
+arrow_right_alt
+Marketing activity
+help
+event_upcoming
+Upcoming (0)
+youtube_live
+Live (0)
+event_upcoming
+
+No upcoming marketing activity.
+
+Go to Grow users to help more people discover and engage with your app, or go to Monetise with Play to merchandise your SKUs and increase revenue.
+Accelerate your growth with new tools
+Streamline app links validation, speed up app localisation and drive visibility with powerful new features
+Read blog post
+Stay up to date with what's new
+Learn about the latest features and updates to help you manage and grow your app
+See what's new
+bar_chart
+Monitor KPI trends
+Need more metrics? Add KPIs here to customise your dashboard
+Select KPIs
+arrow_right_alt
+Product updates
+Status dashboard
+Help
+© 2026 Google
+Privacy
+Developer Distribution Agreement
+Terms of Service

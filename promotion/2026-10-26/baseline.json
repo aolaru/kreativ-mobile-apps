@@ -1,0 +1,47 @@
+{
+  "captured": "2026-10-26",
+  "source": "Signed-in Play Console home; evidence/play-home.txt and photofeather-dashboard.txt",
+  "homeWindow": "Home cards compare with previous 30 days; exact date endpoints not displayed. These snapshots are not a fixed-period campaign report.",
+  "apps": [
+    {
+      "slug": "photofeather",
+      "installedAudienceHomeSnapshot": 0,
+      "userAcquisitionHomeSnapshot": null,
+      "note": "Detailed reports not yet available; acquisition is unknown, not zero."
+    },
+    {
+      "slug": "sharesafe",
+      "installedAudienceHomeSnapshot": 2,
+      "userAcquisitionHomeSnapshot": 1,
+      "note": null
+    },
+    {
+      "slug": "paperbuild",
+      "installedAudienceHomeSnapshot": 21,
+      "userAcquisitionHomeSnapshot": 33,
+      "note": null
+    },
+    {
+      "slug": "northlight",
+      "installedAudienceHomeSnapshot": 12,
+      "userAcquisitionHomeSnapshot": 25,
+      "note": null
+    },
+    {
+      "slug": "kreativ-fancy-text",
+      "installedAudienceHomeSnapshot": 0,
+      "userAcquisitionHomeSnapshot": 0,
+      "note": null
+    },
+    {
+      "slug": "kreativ-font",
+      "installedAudienceHomeSnapshot": 18,
+      "userAcquisitionHomeSnapshot": 3,
+      "note": null
+    }
+  ],
+  "fontGooglePlayRatingHome": 2.348,
+  "campaignVisitors": null,
+  "campaignInstallClicks": null,
+  "campaignAcquisitions": null
+}

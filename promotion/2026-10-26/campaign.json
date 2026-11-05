@@ -1,0 +1,193 @@
+{
+  "prepared": "2026-10-26",
+  "campaign": "kreativ_growth_20261026",
+  "start": null,
+  "paidSpend": 0,
+  "apps": [
+    {
+      "slug": "photofeather",
+      "name": "PhotoFeather",
+      "package": "com.kreativ.photofeather",
+      "graphic": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/photofeather/promotion/2026-10-25/social/01.png",
+      "video": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/photofeather/promotion/2026-10-25/video/photofeather-screenshot-tour.mp4",
+      "hook": "Photo too large for a form or email?",
+      "body": "Choose a file-size target or resize setting, compare the measured result, then save a new JPEG copy. Your originals stay untouched. All processing is on your device, with no account, ads or purchases. JPEG output is lossy; quality and savings vary, and some targets cannot be met.",
+      "channels": {
+        "linkedin": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=photofeather&referrer=utm_source%3Dlinkedin%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dphotofeather",
+          "tutorial": "https://madebykreativ.com/news/compress-photos-android-photofeather/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=photofeather"
+        },
+        "facebook": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=photofeather&referrer=utm_source%3Dfacebook%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dphotofeather",
+          "tutorial": "https://madebykreativ.com/news/compress-photos-android-photofeather/?utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=photofeather"
+        },
+        "instagram": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=photofeather&referrer=utm_source%3Dinstagram%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dphotofeather",
+          "tutorial": "https://madebykreativ.com/news/compress-photos-android-photofeather/?utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=photofeather"
+        },
+        "youtube": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.photofeather&utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=photofeather&referrer=utm_source%3Dyoutube%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dphotofeather",
+          "tutorial": "https://madebykreativ.com/news/compress-photos-android-photofeather/?utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=photofeather"
+        }
+      },
+      "graphicSha256": "95cedfe113a3cb16ea2970b24b222c30393c148fbdac840e5be72bb6b836cbcd",
+      "status": "prepared_unpublished"
+    },
+    {
+      "slug": "sharesafe",
+      "name": "ShareSafe",
+      "package": "com.kreativ.sharesafe",
+      "graphic": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/sharesafe/promotion/2026-10-17/social/01.png",
+      "video": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/sharesafe/promotion/2026-10-17/demo/sharesafe-explainer.mp4",
+      "hook": "Check what travels with your photo.",
+      "body": "ShareSafe creates new JPEG copies with embedded metadata removed. Cleaning and selected EXIF checks are free; Pro editing tools are optional. Photo processing stays on-device. Visible faces, addresses and text still need your review. The Play edition includes ML Kit diagnostics; photos are not uploaded to the developer.",
+      "channels": {
+        "linkedin": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=sharesafe&referrer=utm_source%3Dlinkedin%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dsharesafe",
+          "tutorial": "https://madebykreativ.com/news/remove-photo-metadata-android-sharesafe/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=sharesafe"
+        },
+        "facebook": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=sharesafe&referrer=utm_source%3Dfacebook%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dsharesafe",
+          "tutorial": "https://madebykreativ.com/news/remove-photo-metadata-android-sharesafe/?utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=sharesafe"
+        },
+        "instagram": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=sharesafe&referrer=utm_source%3Dinstagram%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dsharesafe",
+          "tutorial": "https://madebykreativ.com/news/remove-photo-metadata-android-sharesafe/?utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=sharesafe"
+        },
+        "youtube": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=sharesafe&referrer=utm_source%3Dyoutube%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dsharesafe",
+          "tutorial": "https://madebykreativ.com/news/remove-photo-metadata-android-sharesafe/?utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=sharesafe"
+        }
+      },
+      "graphicSha256": "79a1040e13f014e4d4f186e3a415d68c1fde1e8e4be90c18b9bc3deb00a599f9",
+      "status": "prepared_unpublished"
+    },
+    {
+      "slug": "paperbuild",
+      "name": "PaperBuild",
+      "package": "com.kreativ.paperbuild",
+      "graphic": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/paperbuild/promotion/2026-10-18/social/01.png",
+      "video": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/paperbuild/promotion/2026-10-18/video/paperbuild-screenshot-tour.mp4",
+      "hook": "A few page photos. One PDF.",
+      "body": "Select photos, crop and arrange the pages, then export a PDF on your Android phone. The free version supports up to 10 pages; optional one-time Pro adds more tools. Documents stay on-device, with no account or ads.",
+      "channels": {
+        "linkedin": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=paperbuild&referrer=utm_source%3Dlinkedin%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dpaperbuild",
+          "tutorial": "https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=paperbuild"
+        },
+        "facebook": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=paperbuild&referrer=utm_source%3Dfacebook%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dpaperbuild",
+          "tutorial": "https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/?utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=paperbuild"
+        },
+        "instagram": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=paperbuild&referrer=utm_source%3Dinstagram%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dpaperbuild",
+          "tutorial": "https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/?utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=paperbuild"
+        },
+        "youtube": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=paperbuild&referrer=utm_source%3Dyoutube%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dpaperbuild",
+          "tutorial": "https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/?utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=paperbuild"
+        }
+      },
+      "graphicSha256": "ce9100fe335a66a50c16b0e3cab70461a1ee80ff4676c258ba14faeb135e81bd",
+      "status": "prepared_unpublished"
+    },
+    {
+      "slug": "northlight",
+      "name": "Northlight",
+      "package": "com.kreativ.northlight",
+      "graphic": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/northlight/promotion/2026-10-17/social/01.png",
+      "video": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/northlight/promotion/2026-10-17/video/northlight-screenshot-tour.mp4",
+      "hook": "A clear compass heading, even offline.",
+      "body": "Northlight combines a magnetic compass, spoken headings and practical light tools. Core features are free, with optional one-time Pro tools. Compass accuracy depends on your phone and nearby interference; it is not route navigation. No account or ads.",
+      "channels": {
+        "linkedin": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=northlight&referrer=utm_source%3Dlinkedin%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dnorthlight",
+          "tutorial": "https://madebykreativ.com/news/offline-compass-android-northlight/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=northlight"
+        },
+        "facebook": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=northlight&referrer=utm_source%3Dfacebook%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dnorthlight",
+          "tutorial": "https://madebykreativ.com/news/offline-compass-android-northlight/?utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=northlight"
+        },
+        "instagram": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=northlight&referrer=utm_source%3Dinstagram%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dnorthlight",
+          "tutorial": "https://madebykreativ.com/news/offline-compass-android-northlight/?utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=northlight"
+        },
+        "youtube": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.northlight&utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=northlight&referrer=utm_source%3Dyoutube%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dnorthlight",
+          "tutorial": "https://madebykreativ.com/news/offline-compass-android-northlight/?utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=northlight"
+        }
+      },
+      "graphicSha256": "7aa2178fc506ebaef0ab3858d94843484d61564acacfc512c877962c5746febe",
+      "status": "prepared_unpublished"
+    },
+    {
+      "slug": "kreativ-fancy-text",
+      "name": "Kreativ Fancy Text",
+      "package": "com.kreativfont.studio",
+      "graphic": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/kreativ-fancy-text/promotion/2026-10-25/social/01.png",
+      "video": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/kreativ-fancy-text/promotion/2026-10-25/video/fancy-text-screenshot-tour.mp4",
+      "hook": "Make the words look like you.",
+      "body": "Style text to copy and paste, or export matching PNG artwork. Create on your Android phone, offline, with no account, ads or purchases. Copied text depends on the receiving app; use PNG to preserve the artwork. This does not change your phone's system font.",
+      "channels": {
+        "linkedin": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-fancy-text&referrer=utm_source%3Dlinkedin%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dkreativ-fancy-text",
+          "tutorial": "https://madebykreativ.com/news/fancy-text-png-designs-android-kreativ/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-fancy-text"
+        },
+        "facebook": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-fancy-text&referrer=utm_source%3Dfacebook%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dkreativ-fancy-text",
+          "tutorial": "https://madebykreativ.com/news/fancy-text-png-designs-android-kreativ/?utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-fancy-text"
+        },
+        "instagram": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-fancy-text&referrer=utm_source%3Dinstagram%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dkreativ-fancy-text",
+          "tutorial": "https://madebykreativ.com/news/fancy-text-png-designs-android-kreativ/?utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-fancy-text"
+        },
+        "youtube": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativfont.studio&utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-fancy-text&referrer=utm_source%3Dyoutube%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dkreativ-fancy-text",
+          "tutorial": "https://madebykreativ.com/news/fancy-text-png-designs-android-kreativ/?utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-fancy-text"
+        }
+      },
+      "graphicSha256": "80eee52d29a2c5ba404485cc8b263ff986ba1b4e44afd0e76c40142f838ab7ca",
+      "status": "prepared_unpublished"
+    },
+    {
+      "slug": "kreativ-font",
+      "name": "Kreativ Font",
+      "package": "com.kreativ.fontapp",
+      "graphic": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/kreativfont/promotion/2026-10-18/social/01.png",
+      "video": "/Users/andreiolaru/Documents/ChatGPT/Utility apps/kreativfont/promotion/2026-10-18/video/kreativfont-screenshot-tour.mp4",
+      "hook": "Build a better font shortlist.",
+      "body": "Browse the Kreativ Font catalogue, inspect previews and keep favorites on your Android phone. This is a font discovery app, not a phone-font installer. Browsing needs internet; linked fonts have their own prices and licences.",
+      "channels": {
+        "linkedin": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-font&referrer=utm_source%3Dlinkedin%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dkreativ-font",
+          "tutorial": "https://madebykreativ.com/news/discover-fonts-android-kreativ-font/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-font"
+        },
+        "facebook": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-font&referrer=utm_source%3Dfacebook%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dkreativ-font",
+          "tutorial": "https://madebykreativ.com/news/discover-fonts-android-kreativ-font/?utm_source=facebook&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-font"
+        },
+        "instagram": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-font&referrer=utm_source%3Dinstagram%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dkreativ-font",
+          "tutorial": "https://madebykreativ.com/news/discover-fonts-android-kreativ-font/?utm_source=instagram&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-font"
+        },
+        "youtube": {
+          "play": "https://play.google.com/store/apps/details?id=com.kreativ.fontapp&utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-font&referrer=utm_source%3Dyoutube%26utm_medium%3Dorganic_social%26utm_campaign%3Dkreativ_growth_20261026%26utm_content%3Dkreativ-font",
+          "tutorial": "https://madebykreativ.com/news/discover-fonts-android-kreativ-font/?utm_source=youtube&utm_medium=organic_social&utm_campaign=kreativ_growth_20261026&utm_content=kreativ-font"
+        }
+      },
+      "graphicSha256": "692d97acc6ead8b31452feb03d5e3ca97f5faab8db571fe0ca2bc796508fd6f7",
+      "status": "prepared_unpublished"
+    }
+  ],
+  "socialPublication": "On hold: user has no dedicated social accounts; no accounts created, posts sent, or schedule started.",
+  "websitePilot": {
+    "started": "2026-10-26",
+    "status": "live",
+    "scope": "Related-app links on six app pages and six tutorials; existing outbound click tracking; Play campaign UTM/referrer preservation. Analytics goal configuration not independently verified.",
+    "checkpointsSuggested": [
+      "2026-11-02",
+      "2026-11-09"
+    ],
+    "automaticChecksScheduled": false
+  }
+}

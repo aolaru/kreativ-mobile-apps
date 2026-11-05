@@ -1,0 +1,72 @@
+[
+  {
+    "heading": "PhotoFeather",
+    "overflow": false,
+    "play": [
+      "https://play.google.com/store/apps/details?id=com.kreativ.photofeather&referrer=utm_source%3Dmadebykreativ.com%26utm_medium%3Dwebsite%26utm_campaign%3Dkreativ-apps%26utm_content%3D%252Fapps%252Fphotofeather%252F-detail-hero&utm_source=madebykreativ.com&utm_medium=website&utm_campaign=kreativ-apps&utm_content=%2Fapps%2Fphotofeather%2F-detail-hero"
+    ],
+    "related": [
+      "/apps/sharesafe/",
+      "/apps/paperbuild/"
+    ],
+    "url": "https://madebykreativ.com/apps/photofeather/"
+  },
+  {
+    "heading": "ShareSafe",
+    "overflow": false,
+    "play": [
+      "https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&referrer=utm_source%3Dmadebykreativ.com%26utm_medium%3Dwebsite%26utm_campaign%3Dkreativ-apps%26utm_content%3D%252Fapps%252Fsharesafe%252F-detail-hero&utm_source=madebykreativ.com&utm_medium=website&utm_campaign=kreativ-apps&utm_content=%2Fapps%2Fsharesafe%2F-detail-hero"
+    ],
+    "related": [
+      "/apps/photofeather/",
+      "/apps/paperbuild/"
+    ],
+    "url": "https://madebykreativ.com/apps/sharesafe/"
+  },
+  {
+    "heading": "PaperBuild",
+    "overflow": false,
+    "play": [
+      "https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&referrer=utm_source%3Dmadebykreativ.com%26utm_medium%3Dwebsite%26utm_campaign%3Dkreativ-apps%26utm_content%3D%252Fapps%252Fpaperbuild%252F-detail-hero&utm_source=madebykreativ.com&utm_medium=website&utm_campaign=kreativ-apps&utm_content=%2Fapps%2Fpaperbuild%2F-detail-hero"
+    ],
+    "related": [
+      "/apps/photofeather/",
+      "/apps/sharesafe/"
+    ],
+    "url": "https://madebykreativ.com/apps/paperbuild/"
+  },
+  {
+    "heading": "Northlight",
+    "overflow": false,
+    "play": [
+      "https://play.google.com/store/apps/details?id=com.kreativ.northlight&referrer=utm_source%3Dmadebykreativ.com%26utm_medium%3Dwebsite%26utm_campaign%3Dkreativ-apps%26utm_content%3D%252Fapps%252Fnorthlight%252F-detail-hero&utm_source=madebykreativ.com&utm_medium=website&utm_campaign=kreativ-apps&utm_content=%2Fapps%2Fnorthlight%2F-detail-hero"
+    ],
+    "related": [
+      "/apps/sharesafe/",
+      "/apps/photofeather/"
+    ],
+    "url": "https://madebykreativ.com/apps/northlight/"
+  },
+  {
+    "heading": "Kreativ Fancy Text",
+    "overflow": false,
+    "play": [
+      "https://play.google.com/store/apps/details?id=com.kreativfont.studio&referrer=utm_source%3Dmadebykreativ.com%26utm_medium%3Dwebsite%26utm_campaign%3Dkreativ-apps%26utm_content%3D%252Fapps%252Fkreativ-fancy-text%252F-detail-hero&utm_source=madebykreativ.com&utm_medium=website&utm_campaign=kreativ-apps&utm_content=%2Fapps%2Fkreativ-fancy-text%2F-detail-hero"
+    ],
+    "related": [
+      "/apps/kreativ-font/"
+    ],
+    "url": "https://madebykreativ.com/apps/kreativ-fancy-text/"
+  },
+  {
+    "heading": "Kreativ Font",
+    "overflow": false,
+    "play": [
+      "https://play.google.com/store/apps/details?id=com.kreativ.fontapp&referrer=utm_source%3Dmadebykreativ.com%26utm_medium%3Dwebsite%26utm_campaign%3Dkreativ-apps%26utm_content%3D%252Fapps%252Fkreativ-font%252F-detail-hero&utm_source=madebykreativ.com&utm_medium=website&utm_campaign=kreativ-apps&utm_content=%2Fapps%2Fkreativ-font%2F-detail-hero"
+    ],
+    "related": [
+      "/apps/kreativ-fancy-text/"
+    ],
+    "url": "https://madebykreativ.com/apps/kreativ-font/"
+  }
+]

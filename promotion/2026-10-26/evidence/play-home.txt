@@ -1,0 +1,257 @@
+Loading Google Play Console
+notifications_unread
+Unread notifications
+more_vert
+home
+badge
+play_prism
+dashboard
+bar_chart
+overview
+shield
+rocket_launch
+vital_signs
+finance_mode
+sell
+Made by Kreativ
+badge
+Manage account
+Personal account
+brightness_1
+Account ID: 7594712361231234431
+Pinned apps
+help
+keep
+Manage pinned apps
+Hide
+expand_less
+ShareSafe: Metadata Remover
+View app
+arrow_right_alt
+com.kreativ.sharesafe
+brightness_1
+Last updated 25 Oct 2026
+brightness_1
+Production
+Installed audience
+2
+arrow_right_alt
+100.0%
+vs previous 30 days
+User acquisition
+1
+0.0%
+vs previous 30 days
+Google Play rating
+-
+Gross revenue
+-
+vs previous 30 days
+Northlight: Offline Compass
+View app
+arrow_right_alt
+com.kreativ.northlight
+brightness_1
+Last updated 25 Oct 2026
+brightness_1
+Production
+Installed audience
+12
+0.0%
+vs previous 30 days
+User acquisition
+25
+0.0%
+vs previous 30 days
+Google Play rating
+-
+Gross revenue
+-
+vs previous 30 days
+Kreativ Font: Font Discovery
+View app
+arrow_right_alt
+com.kreativ.fontapp
+brightness_1
+Last updated 25 Oct 2026
+brightness_1
+Production
+Installed audience
+18
+0.0%
+vs previous 30 days
+User acquisition
+3
+0.0%
+vs previous 30 days
+Google Play rating
+2.348
+star
+Gross revenue
+-
+PaperBuild: Photo to PDF
+View app
+arrow_right_alt
+com.kreativ.paperbuild
+brightness_1
+Last updated 25 Oct 2026
+brightness_1
+Production
+Installed audience
+21
+0.0%
+vs previous 30 days
+User acquisition
+33
+0.0%
+vs previous 30 days
+Google Play rating
+-
+Gross revenue
+-
+vs previous 30 days
+Kreativ Fancy Text
+View app
+arrow_right_alt
+com.kreativfont.studio
+brightness_1
+Last updated 25 Oct 2026
+brightness_1
+Production
+Installed audience
+0
+0.0%
+vs previous 30 days
+User acquisition
+0
+0.0%
+vs previous 30 days
+Google Play rating
+-
+Gross revenue
+-
+BLOCKSHIFT
+View app
+arrow_right_alt
+com.madebykreativ.blockshift
+brightness_1
+Last updated 17 Oct 2026
+brightness_1
+Draft
+brightness_1
+Internal testing
+Installed audience
+0
+0.0%
+vs previous 30 days
+User acquisition
+0
+0.0%
+vs previous 30 days
+Google Play rating
+-
+Gross revenue
+-
+12 apps
+Create app
+Filter by
+All
+arrow_drop_down
+search
+Search by app or package name
+App
+Installed audience
+help_outline
+App status
+Update status
+Last updated
+BLOCKSHIFT
+com.madebykreativ.blockshift
+0
+Draft
+Internal testing
+17 Oct 2026
+keep
+arrow_right_alt
+Kreativ Compass
+com.openapps.moderncompass
+4
+Removed by Google
+25 Oct 2026
+keep
+arrow_right_alt
+Kreativ Fancy Text
+com.kreativfont.studio
+0
+Production
+25 Oct 2026
+keep
+arrow_right_alt
+Kreativ Font Galaxy
+com.kreativ.fontexplorer
+0
+error
+Deleted
+25 Oct 2026
+keep
+arrow_right_alt
+Kreativ Font: Font Discovery
+com.kreativ.fontapp
+18
+Production
+25 Oct 2026
+keep
+arrow_right_alt
+Kreativ Jewels Crush
+com.candyknucklesstudios.jewelscrushfantasydeluxe
+0
+error
+Deleted
+25 Oct 2026
+keep
+arrow_right_alt
+Kreativ Photo App
+com.kreativ.photoapp
+0
+error
+Deleted
+25 Oct 2026
+keep
+arrow_right_alt
+Kreativ Piano Keyboard
+com.mp.piano
+0
+error
+Deleted
+25 Oct 2026
+keep
+arrow_right_alt
+Northlight: Offline Compass
+com.kreativ.northlight
+12
+Production
+25 Oct 2026
+keep
+arrow_right_alt
+PaperBuild: Photo to PDF
+com.kreativ.paperbuild
+21
+Production
+25 Oct 2026
+keep
+arrow_right_alt
+Show rows
+10
+arrow_drop_down
+1 - 10 of 12
+first_page
+chevron_left
+chevron_right
+last_page
+Product updates
+Status dashboard
+Help
+© 2026 Google
+Privacy
+Developer Distribution Agreement
+Terms of Service

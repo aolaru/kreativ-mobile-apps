@@ -1,0 +1,55 @@
+{
+  "dates": "Relative to the first actual publication; no posts scheduled or sent",
+  "posts": [
+    {
+      "day": 1,
+      "app": "photofeather",
+      "channel": "linkedin",
+      "creative": "File-size problem: graphic 01",
+      "status": "draft"
+    },
+    {
+      "day": 3,
+      "app": "sharesafe",
+      "channel": "facebook",
+      "creative": "Photo metadata: graphic 01",
+      "status": "draft"
+    },
+    {
+      "day": 5,
+      "app": "paperbuild",
+      "channel": "linkedin",
+      "creative": "Photo-to-PDF workflow: graphic 01",
+      "status": "draft"
+    },
+    {
+      "day": 7,
+      "app": "photofeather",
+      "channel": "youtube",
+      "creative": "Existing screenshot tour; label it as screenshot footage",
+      "status": "draft"
+    },
+    {
+      "day": 9,
+      "app": "kreativ-fancy-text",
+      "channel": "facebook",
+      "creative": "Text versus PNG: graphic 01",
+      "status": "draft"
+    },
+    {
+      "day": 11,
+      "app": "northlight",
+      "channel": "linkedin",
+      "creative": "Offline compass: graphic 01",
+      "status": "draft"
+    },
+    {
+      "day": 13,
+      "app": "kreativ-font",
+      "channel": "facebook",
+      "creative": "Discovery, not system-font installation; first review older low ratings",
+      "status": "draft"
+    }
+  ],
+  "status": "Deferred; user has no dedicated social channels. These are optional future drafts, not scheduled posts."
+}

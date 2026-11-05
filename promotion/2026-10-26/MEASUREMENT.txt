@@ -1,0 +1,34 @@
+TWO-WEEK ORGANIC PILOT — no paid spend, no in-app analytics added
+
+The start is the first real post, not the preparation date. Log publication URL,
+time, account, channel, creative and the exact tagged link in campaign.json.
+Use the account you own; check community promotion rules before any community post.
+
+Starting evidence: baseline.json contains only observed Console home snapshots.
+Installed audience is not cumulative downloads, and is not an acquisition total.
+PhotoFeather detailed reporting is not ready; missing metrics remain null.
+Kreativ Font's displayed rating is 2.348: review the low-rating themes before
+spending promotion time on that app. No rating requests or incentives are planned.
+
+Day 7 and day 14: export equal fixed date ranges in the same Console timezone.
+Grow users > Store performance > Store analysis / Conversion analysis:
+filter Ads and referrals and use UTM source / UTM campaign kreativ_growth_20261026.
+Current store reports emphasize visitors, install clicks and click-through rate.
+A store install click is not a completed installation.
+Use Statistics / export reports for actual acquisitions separately. Low-volume
+campaigns can appear under Other or be unavailable; do not fill those gaps with zero.
+
+Website: existing Plausible App Store Click events record outbound clicks, not
+downloads. Confirm that this custom event exists as a goal in the analytics account
+before relying on its dashboard. Analytics account access has not been verified.
+The campaign code forwards only allowlisted source/campaign labels to Play.
+Cloudflare page views do not prove either store visits or completed downloads.
+
+At day 14: compare reach -> website visits -> outbound clicks -> Play visitors ->
+install clicks -> acquisitions, keeping each measure and date window separate.
+Use findings to choose the next creative. Small counts are exploratory; don't
+claim a winner or spend on ads without a repeatable signal.
+No automatic checks, reminders or future publication have been scheduled.
+
+Google's metric definitions:
+https://support.google.com/googleplay/android-developer/answer/9859173?hl=en

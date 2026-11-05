@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-26",
+  "commit": "68eb5f95d2b2cf2bd3e3f677fa1371c6312b3648",
+  "branch": "main",
+  "pushed": true,
+  "deployment": "success",
+  "workflow": "https://github.com/aolaru/madebykreativ.com/actions/runs/40282810104",
+  "localValidation": "npm run validate passed",
+  "attributionTests": 3,
+  "browserCheck": "PhotoFeather detail layout and tagged tutorial CTA preserved source/campaign in Chrome",
+  "changes": [
+    "Related app recommendations on all six app detail pages and tutorials",
+    "Allowlisted campaign labels carried to top-level Play UTM fields and encoded referrer"
+  ],
+  "social": "No dedicated social accounts. All social drafts remain unpublished; no account creation.",
+  "liveVerification": "All six app detail pages and all six tutorials verified. Related links present; tutorial campaign source preserved; no horizontal overflow on app pages at current mobile viewport."
+}
