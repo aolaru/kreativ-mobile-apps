@@ -1,0 +1,79 @@
+KREATIV FONT 2.3.1 / CODE 206 — LOCAL R8 UPDATE, NOT SUBMITTED
+1 November 2026
+
+Scope
+- Enable R8 code shrinking, optimization and obfuscation for release builds.
+- Enable resource shrinking and the standard proguard-android-optimize.txt rules.
+- No blanket app keep/dontwarn rules, optimizer disable flags or toolchain upgrade.
+- Same package, original signing certificate, min API 26 and target API 36.
+- No new product features, SDK tracking, permissions or privacy-practice changes.
+- No Play Console upload/submission or Git commit/push authorized in this step.
+
+Measured APK size (actual signed files, not Play's download-size estimate)
+- Published 2.3.0/code 205: 2,814,223 bytes.
+  SHA256 a719b3034849d0abdf33b3f385adf4e0f1c11875ffc1354e415c55a35c4a9393
+- Optimized 2.3.1/code 206: 360,750 bytes (~87.2% smaller).
+  SHA256 78b48dfc833709c1a570b3f9b5b1b660ddf3b7ad7a87f1cbc40ecee7d87440b5
+- No startup/memory benchmark was performed; do not claim measured speed gains.
+
+Signing and release evidence
+- apksigner verifies APK Signature Scheme v2 with the original certificate:
+  8375b48072a21210cf1dae68be5b3bb39c0c98b65f64518a9eedad925a797d0f
+- Signed APK and AAB build successfully. R8 mapping.txt is generated.
+- Mapping SHA256:
+  4a8527677da3535574393a213cb30e77b81ef9c90f6db40f902aae57f276a02a
+- Exact APK/AAB, mapping and merged configuration are copied into the Git-ignored
+  .release-archives/2.3.1-code206-r8/ directory, outside Gradle's cleanable build
+  directory. Keep each published APK paired with its original mapping forever;
+  upload that mapping alongside this legacy APK when preparing a Play release.
+- Original 2.3.0 APK is preserved in .release-archives/2.3.0-code205/.
+
+Local verification
+- 32 unit tests pass. Three opt-in live API tests skipped in this run; real-phone
+  workflows exercise the live catalogue separately.
+- Final combined unit/lint/APK/AAB build passes after the test-harness changes.
+  lintRelease: zero errors, six dependency-version warnings.
+- Final physical Samsung run: OK (2 tests), 28.753 seconds. Both home shelves
+  load 10 -> 20, all three server search filters load 10 -> 20, selected filter
+  restores after activity recreation, and a UI-created temporary favorite persists
+  across recreation then is removed. Original saved-favorite keys remain unchanged.
+- Original-artwork full-screen loading, zoom-in, fit, zoom restoration after
+  recreation, dynamic plain version footer and separate 48dp maker link all pass.
+  The credit emits ACTION_VIEW for https://madebykreativ.com/apps with no forced
+  browser component. No product code or production keep rules changed for tests.
+- An intermediate parallel home-paging run stalled, and a subsequent sequential
+  run reached search paging but received HTTP 429 from the website. Public API
+  probes showed distinct Free pages; the final sequential/paced phone run passed
+  unchanged counts. Test pacing adds 3 seconds before filter and search-page
+  actions; there is no automatic network retry or weakened result-count assertion.
+- Temporary com.kreativ.fontapp.test helper removed after the passing run. Main
+  app reopened. No emulator, data clearing, device-setting or network changes.
+- Signed APK installed in place on Samsung SM-A556B, without clearing app data.
+- No emulator started. The app launches normally after installation.
+
+Release test harness
+- Older CatalogueWorkflowTest/PreviewWorkflowTest inspect app-private members;
+  they cannot establish correctness after unrestricted R8 optimization.
+- OptimizedReleaseTest checks UI controls, Android lifecycle and persisted JSON
+  without app-private classes, private-field reflection or production keep rules.
+- First AndroidX runner attempt failed at instrumentation startup because it
+  expected androidx.tracing.Trace removed from the optimized app. This was a
+  test-runner dependency failure, not a normal app launch failure.
+- The test-only OptimizedReleaseRunner uses platform Instrumentation instead;
+  opt in with -PkreativfontOptimizedChecks. No test runtime is shipped in the app.
+- Test-only Error Prone annotations resolve AndroidX Test's missing annotation
+  references during test APK optimization. No warning suppression is used.
+- Build: JAVA_HOME=/opt/homebrew/opt/openjdk@17 ./gradlew
+  -PkreativfontOptimizedChecks assembleReleaseAndroidTest
+- Run on the connected, unlocked Samsung (do not clear app data):
+  adb -s RZCXA128W0Y install -r app/build/outputs/apk/release/app-release.apk
+  adb -s RZCXA128W0Y install -r app/build/outputs/apk/androidTest/release/app-release-androidTest.apk
+  adb -s RZCXA128W0Y shell am instrument -w -r
+  com.kreativ.fontapp.test/com.kreativ.fontboard.OptimizedReleaseRunner
+- Remove only the temporary com.kreativ.fontapp.test helper after verification,
+  leaving the main app installed and its favorites unchanged.
+
+Before publication
+- Real-phone workflow checks are complete as recorded above.
+- Obtain explicit publication authorization, then upload the exact signed APK
+  and its matching mapping.txt. Do not enroll in Play App Signing or transfer keys.

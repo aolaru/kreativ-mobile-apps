@@ -1,0 +1,110 @@
+Kreativ Font Android privacy appendix — REVIEW DRAFT, NOT PUBLISHED
+Prepared for version 2.2.1 (com.kreativ.fontapp), 11 October 2026.
+
+This is an app-specific addition to the existing website policy, not a
+replacement for its website terms. Do not publish until the outstanding
+hosting/CDN details below have been verified and incorporated.
+
+Verified app behavior
+
+The Kreativ Font Android app displays the five latest commercial fonts and
+five latest free fonts from kreativfont.com, including article descriptions
+and preview images. It requests public catalogue data and images over HTTPS
+from kreativfont.com and WordPress image CDN servers.
+
+The app does not require an account and contains no advertising or analytics
+SDK. It does not request access to your camera, photos, contacts or device
+location. Website Google Analytics scripts are not executed inside the native
+app.
+
+Favorites, cached article details and downloaded preview images are stored
+locally in the app's private storage. In-app search filters the articles already
+loaded on your device. Favorites and in-app search terms are not uploaded by
+the native app. You can remove individual favorites, or use Android's Clear
+storage option or uninstall the app to remove its local data. Android cloud
+backup and device transfer are disabled for this app.
+
+Loading catalogue data and preview images involves network requests, which
+make your IP address and request information available to the serving website
+and CDN infrastructure. The actual information retained, purposes and
+retention periods must be described here after verification; absence of an
+analytics SDK does not imply absence of server-side collection.
+
+Article links and the privacy policy open in your browser. Browser visits are
+subject to the website's cookies, analytics and affiliate-link disclosures.
+Older migrated favorites without an article link may open a website search;
+in that case the browser sends the corresponding search query to the website.
+
+Questions about the app's privacy can be sent to contact@kreativfont.com.
+
+Outstanding checks before publication / Play Data safety submission
+
+Review findings (11 October 2026; public appendix approved and published)
+
+- The signed-in Cloudflare account contains three domains, but not
+  kreativfont.com. Its account switcher offers no additional accounts.
+  No Cloudflare settings were changed.
+- Public DNS lists ns1.wordpress.com, ns2.wordpress.com and ns3.wordpress.com,
+  with A records 192.0.78.224 and 192.0.78.166. The authenticated hosting
+  overview subsequently confirmed "Hosted on WordPress.com" (legacy Pro plan).
+- Jetpack Performance settings have Site Accelerator, image acceleration and
+  static-file acceleration enabled. This matches the app's wp.com image URLs.
+  Its feature-specific notice lists no visitor data use/activity tracking;
+  this is not a blanket exemption for the hosting server's access logs.
+  Source: https://jetpack.com/support/site-accelerator/
+- Jetpack Stats is configured for the website. Google Analytics is connected
+  through Site Kit, with its snippet inserted and Enhanced Measurement enabled.
+  Jetpack's separate Google Analytics toggle is off; that does not mean the
+  website has no Google Analytics. Native REST/image requests do not execute
+  these JavaScript snippets. Browser article visits are a separate context.
+- WordPress.com documents every server request in web-server logs and a
+  30-day retention period. No visitor logs were exported for this review.
+  Source: https://wordpress.com/support/site-logs/
+- Installed plugins include Redirection. Its Options page has redirect logs
+  and 404 logs set to "A day", full IP logging enabled, HTTP-header capture
+  disabled and external-redirect logging disabled. Its expiry depends on
+  WordPress cron; the setting is not a guaranteed immediate deletion deadline.
+  This may apply to native requests that redirect or encounter a missing file.
+  The plugin's optional external IP-geolocation/user-agent lookup is manual,
+  not automatic, according to its documentation. It was not used in this review.
+  Sources: https://redirection.me/support/options/
+           https://redirection.me/support/privacy-gdpr/
+- Automattic's visitor privacy notice says its website-server logs typically
+  retain IP/browser/OS information for approximately 30 days for investigating
+  issues. It also describes IP-derived geography for Site Stats. This is
+  provider-level documentation, not proof that every listed field or Stats
+  feature applies to this app's native REST/image requests.
+  Source: https://automattic.com/privacy-notice/
+
+Publication and declaration status / remaining release work
+
+1. The hosting identity, enabled image CDN and local redirect/404 logging
+   settings are now verified. Provider documentation confirms 30-day server
+   logging. Do not keep treating the absent Cloudflare zone as proof of an
+   unknown hosting provider: WordPress.com hosting has been confirmed.
+2. The user approved the exact app-specific addition in
+   android-privacy-appendix-for-approval.txt. It was appended to WordPress post
+   2145 and published, with the original website HTML preserved unchanged.
+   Public URL: https://kreativfont.com/blog/terms-of-use-privacy-policy#android-app-privacy
+   Proof: android-privacy-published.jpg. All original section headings remain.
+3. Data safety was completed, saved to Publishing overview and subsequently
+   included in the submitted changes. Types: Diagnostics and Device or other IDs (IP/network metadata).
+   Both collected, required and non-ephemeral; service-provider processing on
+   behalf of the app is exempt from sharing. Purposes: app functionality,
+   Analytics (Google includes diagnosing technical problems in this category),
+   and fraud prevention/security/compliance. This does not indicate a native
+   Google Analytics SDK or execution of website tracking JavaScript.
+   HTTPS transport, no accounts/login and deletion requests via the public
+   appendix/contact email are declared. Native IP-derived location has not
+   been established and is not declared simply because website Stats is on.
+   No visitor records were read or exported. Proof: play-data-safety-preview.jpg.
+4. The store listing was refreshed in all 13 languages with accurate V1 copy,
+   original logo, matching promotional artwork and three actual Samsung phone
+   screenshots. Old video/TV branding were removed from the listing. On
+   11 October 2026, 59 changes including production 2.2.1 and this declaration
+   were submitted. Console shows "Changes in review" with automated quick
+   checks running. Not approved and not publicly live yet.
+   Proof: play-listing-2.2.1/play-review-submitted.jpg.
+
+Reference for Google Play's definitions:
+https://support.google.com/googleplay/android-developer/answer/10787469

@@ -1,0 +1,23 @@
+RELEASE NOTES FOR 2.3.0 / CODE 205 — SAVED AND SUBMITTED 15 OCTOBER 2026
+
+<en-GB>
+Browse 10 latest commercial fonts and 10 free fonts, then load more.
+Search the whole catalogue with All, Commercial and Free filters.
+Open original website previews full-screen with pinch and double-tap zoom.
+Improved search paging, retry handling and favourites.
+Font discovery only: no phone-font installation.
+</en-GB>
+<en-US>
+Browse 10 latest commercial fonts and 10 free fonts, then load more.
+Search the whole catalog with All, Commercial and Free filters.
+Open original website previews full-screen with pinch and double-tap zoom.
+Improved search paging, retry handling and favorites.
+Font discovery only: no phone-font installation.
+</en-US>
+<ro>
+Explorează cele mai recente 10 fonturi comerciale și 10 gratuite, apoi încarcă mai multe.
+Caută în întregul catalog cu filtrele All, Commercial și Free.
+Deschide imaginile originale pe tot ecranul, cu zoom prin gesturi.
+Paginare, reîncercare și favorite îmbunătățite.
+Aplicație pentru descoperirea fonturilor: nu instalează fonturi pe telefon.
+</ro>

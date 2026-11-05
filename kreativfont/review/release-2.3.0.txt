@@ -1,0 +1,193 @@
+KREATIV FONT 2.3.0 / CODE 205 — SUBMITTED FOR GOOGLE PLAY REVIEW
+Prepared 12 October 2026; device and publication preparation updated 15 October 2026
+
+Submission completed 15 October 2026 (supersedes preparation states below)
+- User explicitly authorized uploading the signed APK and submitting all changes.
+- Uploaded original-key-signed app/build/outputs/apk/release/app-release.apk.
+  APK SHA256: a719b3034849d0abdf33b3f385adf4e0f1c11875ffc1354e415c55a35c4a9393
+  Package com.kreativ.fontapp; version 2.3.0/code 205; min 26, target 36.
+  Original certificate SHA256:
+  8375b48072a21210cf1dae68be5b3bb39c0c98b65f64518a9eedad925a797d0f
+- Saved release 2.3.0 with en-GB/en-US/ro release notes, 100% rollout in all
+  existing targeted countries. No Play App Signing enrollment/key transfer.
+- Validation: zero blocking errors, two warnings (APK optimization and missing
+  deobfuscation file). No device-support loss versus 2.2.1; no legacy APK retained.
+- Submitted all 42 changes together: production release plus 39 listing changes,
+  privacy-policy URL and Data safety questionnaire. Console confirmed Changes in
+  review. Automated quick checks were still running (up to 14 minutes shown);
+  checks must complete successfully before Google's review proceeds.
+- Managed publishing remains OFF: approval can automatically publish the full
+  rollout. This submission does not establish approval or live availability.
+- Evidence: play-listing-2.3.0/release-validation.jpg,
+  release-submitted.jpg and release-submitted-full.jpg in that same directory.
+- No Git commit or push made during submission. No new build or code edits.
+
+Publication preparation completed 15 October 2026
+- Android privacy appendix updated and publicly verified; website terms preserved.
+- Play Data safety now includes optional, non-ephemeral In-app search history.
+- Play privacy URL points directly to the Android privacy appendix.
+- All 13 listing languages updated (short/full descriptions), with two genuine
+  2.3.0 Samsung screenshots replacing the older selections via default images.
+- Publishing overview verifies 41 saved changes, NOT submitted for review.
+  No production APK/release is included yet. Existing production remains 2.2.1.
+  See play-listing-2.3.0/README.txt and android-privacy-2.3.0-published.txt.
+
+Changes
+- Latest 10 commercial and latest 10 free font articles on separate horizontal shelves.
+- Load 10 more at the end of each shelf, independent paging, preserved scroll,
+  deduplication, explicit catalogue end, loading and retry states.
+- Search the full public font catalogue using WordPress search (font categories
+  3 and 23584), relevance ordering, 10 results per page and Load 10 more.
+- Search results keep category badges, artwork, descriptions and local favorites.
+- User-approved additions in this same 2.3.0: All / Commercial / Free search
+  filters query the full server catalogue, reset pagination when changed, and
+  persist the selected filter across activity recreation.
+- Tapping artwork opens a private, full-screen viewer of the original website
+  image where available. Pinch zoom, bounded panning, double-tap zoom/reset,
+  Zoom in / Zoom out / Fit buttons, retry and zoom-state recreation are supported.
+  Decode size is bounded to 2048 x 2048; existing cached/favorite images remain
+  compatible. No synthetic specimens or font installation are introduced.
+- Search is debounced; replaced queries and destroyed activities ignore late replies.
+- Fixed short search batches caused by overlapping cached server pages. The
+  worker keeps a per-query/filter queue and ID set, reads additional source pages
+  to deliver 10 unique fonts (unless exhausted), and retains surplus for the next
+  tap. Partial progress survives request failure/Retry; per-tap work is bounded
+  to five source pages. Query/filter changes discard the old session. Article
+  deduplication remains enabled, with no fake/repeated cards or weaker assertions.
+- Favorites search remains local. No accounts, ads or analytics SDKs were added.
+- Northlight-style centered footer below website/privacy links: "Version 2.3.0 ·
+  Made by Kreativ". The displayed version comes from BuildConfig.VERSION_NAME;
+  it is not hard-coded. The footer is present on Fonts, search and Favorites.
+- Only "Made by Kreativ" is now a tappable indigo credit linking to the
+  user-selected https://madebykreativ.com/apps in the preferred browser, with a
+  48dp touch target. The version stays plain text. This exact trusted URL is
+  allowed without broadening the catalogue's article/image URL validation.
+- AndroidX Fragment constrained to 1.9.1, replacing the 1.3.6 transitive request
+  from Glide 4.16.0, matching Northlight's dependency-constraint approach.
+- 15 October UI refinement: the end-of-shelf card now matches the carousel height,
+  has a tinted indigo outline and a centered call to action. A full-width,
+  section-labelled Load more button below each carousel makes paging discoverable
+  without swiping to the end. Both use the same state and minimum 56dp tap targets.
+- Device regression coverage now checks end-card alignment, button bounds/tap size,
+  full-width footer placement, and paging through both end-card and footer actions.
+  These layout assertions passed on the real Samsung on 15 October.
+
+Verification
+- Final extended device verification after the overlap fix: OK (4 tests),
+  14.087 seconds on unlocked Samsung SM-A556B. Catalogue test explicitly checks
+  10 -> 20 results for All, Free AND Commercial search, plus independent shelf
+  paging, layout, older catalogue matches, recreation and favorite preservation.
+  Preview gestures/recreation and both footer/version/browser-intent tests pass.
+  Latest signed 2.3.0/code 205 installed in place, original certificate verified.
+  Test helper removed and main app reopened. No emulator or app-data clearing.
+- All 32 unit tests pass, including six new deterministic batch regressions.
+  All three expanded live API checks also passed (35 total unit/live checks),
+  including 20 distinct results for every search filter. APK/AAB/test APK and
+  lint pass with zero errors and five existing dependency-version warnings.
+  An intermediate extended phone run hit a Commercial batch-2 request failure;
+  the final full phone run passed without weakening any result-count assertions.
+  Diagnostics now expose only HTTP status or exception class, never search
+  phrases, request URLs or exception messages.
+- 15 October root cause confirmed by direct public API inspection: All/serif
+  page 1 was served as X-AC STALE with X-WP-Total 2874, while page 2 was served
+  as MISS with X-WP-Total 2907. Both contained article IDs 233508, 233504, 233500
+  and 233496. Different cached catalogue revisions caused overlapping pages;
+  the original pager correctly deduplicated but did not top up the short batch.
+  FontSearch now separates source pages from displayed batches and keeps queued
+  extras. Six deterministic regression tests cover the original 10+9 scenario,
+  all-duplicate pages, buffer drainage without extra requests, failures/retries,
+  empty/short catalogue ends, bounded work and isolated query sessions.
+- Earlier 15 October verification before the search-batch fix:
+  the Made by Kreativ credit links to /apps.
+  All 29 unit/live API tests pass; signed APK/AAB/test APK builds and lint pass
+  (no errors, five existing dependency-version warnings). Original release
+  signing certificate verified, and updated APK installed in place on Samsung.
+  After the user unlocked the Samsung, both footer tests and the preview workflow
+  passed. Credit dispatches ACTION_VIEW for exactly https://madebykreativ.com/apps,
+  leaving the browser choice to the user; the version stays non-clickable.
+  Four-test run: 9.806 seconds, one separate catalogue failure at the second
+  All/serif search page (19 unique entries, expected 20). Earlier catalogue
+  paging/layout assertions passed. The subsequent investigation confirmed
+  overlapping cached pages (see above). A diagnostic at that earlier time
+  returned HTTP 429 and probes were stopped; footer verification passed.
+  Apps URL now returns HTTP 200, title "Kreativ Apps | Made by Kreativ".
+  Temporary helper removed and main app reopened. No emulator or data clearing.
+- Earlier 15 October verification INCLUDING FOOTER AND FRAGMENT UPGRADE,
+  before making the maker credit clickable:
+  releaseRuntimeClasspath resolves androidx.fragment:fragment:1.9.1 by constraint,
+  and META-INF/androidx.fragment_fragment.version in the signed APK is 1.9.1.
+  All 29 unit/live API tests pass; signed APK/AAB/test APK build and lint pass
+  (no lint errors, five existing version-availability warnings).
+- Updated 2.3.0/code 205 was installed in place on the unlocked Samsung.
+  All THREE device workflows passed: CatalogueWorkflowTest, PreviewWorkflowTest,
+  VersionFooterTest. Result: OK (3 tests), 11.832 seconds. This includes dynamic
+  footer checks on Fonts, search and Favorites. Original favorites are unchanged.
+  Test helper APK removed and main app left open. No emulator was used.
+- Results below document earlier preview/Load more checks, also rerun successfully
+  as part of the latest verification. Google Play submission remains pending.
+- Latest 15 October build including the preview viewer and category filters:
+  all 29 unit/live API tests pass (26 unit, 3 live). Signed APK, AAB and device-test
+  APK build successfully. Lint has no errors and only the five existing
+  version-availability warnings. The latest signed APK is installed on the Samsung;
+  it has NOT been submitted or published to Google Play.
+- Final signed APK/AAB and release test APK build successfully. Lint reports no
+  errors and five version-availability warnings (two build/runtime, three test-only).
+- Live API coverage includes 20 real preview URLs, both second pages, Cookie
+  matches outside the loaded home cards, distinct paged serif results and
+  server-side Commercial / Free filtering.
+- Original signing certificate verified for release and release test APKs.
+- 2.3.0/code 205 installed in place on Samsung SM-A556B (RZCXA128W0Y), without
+  clearing data. No emulator was started.
+- Both full real-phone workflows PASS (OK, 2 tests). Catalogue workflow verifies
+  10+10, both paging entry points loading 20+20, 56dp controls and end-card alignment,
+  cached page numbers, whole-catalogue/paged search, both category filters and
+  selected-filter restoration after activity recreation.
+- A temporary favorite was saved through the UI, persisted across recreation,
+  then removed through the UI. Original favorites were verified unchanged;
+  no app data was cleared. A finally block also removes only that temporary item
+  in case of a failed test.
+- Preview workflow verifies full-size artwork, zoom buttons, fit/reset and restored
+  zoom after recreation, plus actual double-tap and two-finger pinch touch events.
+  Gestures and the Load more layout were also visually inspected in phone captures.
+- The test keeps only its activity screen awake; phone timeout/network settings
+  were not changed. No emulator was used. The temporary test helper APK was removed
+  after testing, leaving the main app installed and open.
+- Latest extended run: OK (2 tests), 11.753 seconds. Phone screenshots are in
+  review/phone-2.3.0/review/, including commercial-load-more.png,
+  home-after-favorite-round-trip.png and full-screen-preview-pinch.png.
+- Historical verification above preceded the publication preparation. Privacy,
+  Data safety and listings have since been updated as recorded at the top;
+  Play changes remain unsubmitted.
+
+Historical pre-submission checklist (completed by the submission above)
+- Upload the verified signed 2.3.0/code 205 APK and enter the drafted release
+  notes from play-listing-2.3.0/release-notes.txt. Review artifact and all metadata
+  together before submission; do not submit the new listings with only 2.2.1 live.
+- Obtain authorization for final Google Play review submission.
+- Keep the original signing key and APK update path; no Play App Signing change.
+
+Historical drafting notes (superseded by the published text in
+android-privacy-2.3.0-published.txt; do not reuse the outdated wording below):
+
+Suggested replacement for the privacy appendix's "Data stored on your device"
+paragraph:
+
+Favorites, cached article information and preview images are stored in the app's
+private storage on your device. Searching your saved favorites filters them locally.
+The native app does not upload favorites or persist search phrases. You can remove
+favorites individually. Clearing app storage or uninstalling removes local data.
+Android cloud backup and device transfer are disabled for the app.
+
+Suggested new paragraph under "Catalogue requests and hosting logs"
+(DRAFT; NOT PUBLISHED):
+
+Searching the website catalogue from the app sends your search phrase to
+kreativfont.com in an HTTPS request so that the website can return matching font
+articles. Search phrases are part of the requested URL and may therefore appear
+in the hosting logs described below. An internet connection is required. Avoid
+entering personal or sensitive information in font searches. This is separate
+from the local search of saved favorites.
+
+Also revise the final contact paragraph to distinguish inaccessible local favorites
+from server-side search request metadata. Do not promise that search phrases cannot
+be retrieved from hosting logs.
