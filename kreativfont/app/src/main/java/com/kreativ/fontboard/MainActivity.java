@@ -43,6 +43,8 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Locale;
+import org.json.JSONObject;
+import java.util.Collections;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -274,7 +276,7 @@ public class MainActivity extends Activity {
             status.setText(R.string.saved_on_device);
         } else if (searching) {
             status.setText(searchWaiting || searchPager.loading ? R.string.searching_catalogue
-                    : searchPager.failed ? R.string.search_failed : R.string.search_scope);
+                    : searchPager.busy ? R.string.service_busy : searchPager.failed ? R.string.search_failed : R.string.search_scope);
         } else if (loading) {
             status.setText(R.string.refreshing);
         } else if (!refreshError.isEmpty()) {
@@ -305,6 +307,11 @@ public class MainActivity extends Activity {
             TextView title = label(getString(showingFavorites ? R.string.favorites : R.string.search_results), 21, ink);
             title.setTypeface(Typeface.DEFAULT_BOLD);
             content.addView(title, matchWrap());
+            if (showingFavorites) {
+                Button projects = button(getString(R.string.projects), false);
+                projects.setOnClickListener(v -> showProjects());
+                content.addView(projects, margin(matchWrap(), 8));
+            }
             for (FontItem font : source) {
                 String haystack = (font.name + " " + font.title + " " + font.description + " " + font.availability).toLowerCase(Locale.ROOT);
                 if (showingFavorites && !haystack.contains(query)) continue;
@@ -412,6 +419,11 @@ public class MainActivity extends Activity {
         View footerControl = sectionPageControl(availability, true);
         footerControl.setTag("load_more_footer." + availability);
         content.addView(footerControl, margin(matchWrap(), 12));
+        if (page.busy) {
+            TextView busy = label(getString(R.string.service_busy), 14, ink);
+            busy.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
+            content.addView(busy, margin(matchWrap(), 8));
+        }
         shelves.put(availability, shelf);
         int position = shelfPositions.getOrDefault(availability, 0);
         shelf.post(() -> { if (!destroyed) shelf.scrollTo(position, 0); });
@@ -451,6 +463,7 @@ public class MainActivity extends Activity {
         }
         Button more = button(getString(page.loading ? R.string.loading_more
                 : page.failed ? R.string.retry_more : R.string.load_more), true);
+        if (page.busy) more.setContentDescription(getString(R.string.service_busy) + " " + getString(R.string.retry_more));
         more.setMinHeight(dp(56));
         more.setGravity(Gravity.CENTER);
         more.setEnabled(!page.loading && (page == searchPager || !loading));
@@ -507,7 +520,7 @@ public class MainActivity extends Activity {
                         ? "Catalogue request failed (HTTP " + ((FontApi.RequestFailure) failed).status + ")"
                         : "Catalogue request failed (" + failed.getClass().getSimpleName() + ")");
                 runOnUiThread(() -> {
-                    if (destroyed || isFinishing() || !searchPager.fail(request)) return;
+                    if (destroyed || isFinishing() || !searchPager.fail(request, isRateLimited(failed))) return;
                     renderFonts(true);
                 });
             }
@@ -531,7 +544,8 @@ public class MainActivity extends Activity {
                 });
             } catch (Exception failed) {
                 runOnUiThread(() -> {
-                    if (destroyed || isFinishing() || !page.fail(request)) return;
+                    if (destroyed || isFinishing() || !page.fail(request, isRateLimited(failed))) return;
+                    if (page.busy) Toast.makeText(this, R.string.service_busy, Toast.LENGTH_LONG).show();
                     renderFonts(true);
                 });
             }
@@ -632,6 +646,15 @@ public class MainActivity extends Activity {
         TextView text = label(font.description, 16, muted);
         text.setLineSpacing(dp(4), 1);
         body.addView(text, matchWrap());
+        TextView licence = label(getString(R.string.license_reminder), 14, ink);
+        body.addView(licence, margin(matchWrap(), 12));
+        Button share = button(getString(R.string.share_font), false);
+        share.setContentDescription(getString(R.string.share_font_description, font.name));
+        share.setOnClickListener(v -> shareFont(font));
+        body.addView(share, margin(matchWrap(), 12));
+        Button project = button(getString(R.string.add_to_project), false);
+        project.setOnClickListener(v -> chooseProject(font));
+        body.addView(project, margin(matchWrap(), 8));
         details.addView(body);
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle(font.name).setView(details)
@@ -699,12 +722,128 @@ public class MainActivity extends Activity {
                 runOnUiThread(() -> {
                     if (destroyed || isFinishing()) return;
                     loading = false;
-                    refreshError = getString(fonts.isEmpty() ? R.string.refresh_failed_empty : R.string.refresh_failed_cached);
+                    refreshError = getString(isRateLimited(failed) ? (fonts.isEmpty() ? R.string.service_busy_empty : R.string.service_busy)
+                            : (fonts.isEmpty() ? R.string.refresh_failed_empty : R.string.refresh_failed_cached));
                     if (showingFavorites) updateHeader();
                     else renderFonts(true);
                 });
             }
         });
+    }
+
+    private static boolean isRateLimited(Exception failure) {
+        return failure instanceof FontApi.RequestFailure && ((FontApi.RequestFailure) failure).status == 429;
+    }
+
+    private void shareFont(FontItem font) {
+        if (font.id <= 0 || !FontCatalog.safeUrl(font.articleUrl, false)) {
+            Toast.makeText(this, R.string.link_unavailable, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Intent share = new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, font.articleUrl);
+        try { startActivity(Intent.createChooser(share, getString(R.string.share_font))); }
+        catch (ActivityNotFoundException missing) { Toast.makeText(this, R.string.share_unavailable, Toast.LENGTH_SHORT).show(); }
+    }
+
+    private List<String> projectNames() {
+        List<String> names = new ArrayList<>();
+        java.util.Iterator<String> keys = store.projects().keys();
+        while (keys.hasNext()) names.add(keys.next());
+        Collections.sort(names, String.CASE_INSENSITIVE_ORDER);
+        return names;
+    }
+
+    private void createProject(FontItem add) {
+        EditText input = new EditText(this);
+        input.setSingleLine(true);
+        input.setHint(R.string.project_name);
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.new_project).setView(input)
+                .setPositiveButton(R.string.save, null).setNegativeButton(R.string.close, null).create();
+        dialog.setOnShowListener(unused -> dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+            String name = input.getText().toString().trim();
+            List<String> names = projectNames();
+            boolean exists = false;
+            for (String previous : names) if (previous.equalsIgnoreCase(name)) exists = true;
+            if (name.isEmpty() || exists || name.length() > 80) {
+                input.setError(getString(R.string.project_exists));
+                return;
+            }
+            try {
+                JSONObject projects = store.projects();
+                projects.put(name, new org.json.JSONArray());
+                if (!store.saveProjects(projects)) throw new IllegalStateException();
+                dialog.dismiss();
+                if (add != null) addToProject(name, add);
+                else showProject(name);
+            } catch (Exception failed) { Toast.makeText(this, R.string.project_error, Toast.LENGTH_LONG).show(); }
+        }));
+        dialog.show();
+    }
+
+    private void chooseProject(FontItem font) {
+        List<String> names = projectNames();
+        List<String> choices = new ArrayList<>(names);
+        choices.add(getString(R.string.new_project));
+        new AlertDialog.Builder(this).setTitle(R.string.add_to_project)
+                .setItems(choices.toArray(new String[0]), (d, which) -> {
+                    if (which == names.size()) createProject(font);
+                    else addToProject(names.get(which), font);
+                }).setNegativeButton(R.string.close, null).show();
+    }
+
+    private void addToProject(String name, FontItem font) {
+        try {
+            List<FontItem> items = store.projectFonts(name);
+            boolean exists = false;
+            for (FontItem item : items) if (item.key().equals(font.key())) exists = true;
+            if (!exists) items.add(font);
+            JSONObject projects = store.projects();
+            projects.put(name, new org.json.JSONArray(FontCatalog.encode(items)));
+            if (!store.saveProjects(projects)) throw new IllegalStateException();
+            Toast.makeText(this, R.string.added_to_project, Toast.LENGTH_SHORT).show();
+        } catch (Exception failed) { Toast.makeText(this, R.string.project_error, Toast.LENGTH_LONG).show(); }
+    }
+
+    private void showProjects() {
+        List<String> names = projectNames();
+        List<String> choices = new ArrayList<>(names);
+        choices.add(getString(R.string.new_project));
+        new AlertDialog.Builder(this).setTitle(R.string.projects)
+                .setItems(choices.toArray(new String[0]), (d, which) -> {
+                    if (which == names.size()) createProject(null); else showProject(names.get(which));
+                }).setNegativeButton(R.string.close, null).show();
+    }
+
+    private void showProject(String name) {
+        List<FontItem> items = store.projectFonts(name);
+        List<String> choices = new ArrayList<>();
+        for (FontItem item : items) choices.add(item.name);
+        if (items.isEmpty()) choices.add(getString(R.string.project_empty));
+        new AlertDialog.Builder(this).setTitle(name).setItems(choices.toArray(new String[0]), (d, which) -> {
+            if (items.isEmpty()) { showProject(name); return; }
+            FontItem selected = items.get(which);
+            new AlertDialog.Builder(this).setTitle(selected.name)
+                    .setItems(new String[]{getString(R.string.open_article), getString(R.string.share_font), getString(R.string.remove_from_project)}, (choice, action) -> {
+                        if (action == 0) openUrl(selected.articleUrl);
+                        else if (action == 1) shareFont(selected);
+                        else {
+                            try {
+                                items.remove(which);
+                                JSONObject projects = store.projects();
+                                projects.put(name, new org.json.JSONArray(FontCatalog.encode(items)));
+                                if (!store.saveProjects(projects)) throw new IllegalStateException();
+                                showProject(name);
+                            } catch (Exception failed) { Toast.makeText(this, R.string.project_error, Toast.LENGTH_LONG).show(); }
+                        }
+                    }).setNegativeButton(R.string.close, null).show();
+        }).setPositiveButton(R.string.close, null).setNeutralButton(R.string.delete_project, (d, which) ->
+                new AlertDialog.Builder(this).setMessage(R.string.delete_project_confirm)
+                        .setPositiveButton(R.string.delete_project, (confirm, action) -> {
+                            JSONObject projects = store.projects();
+                            projects.remove(name);
+                            if (!store.saveProjects(projects)) Toast.makeText(this, R.string.project_error, Toast.LENGTH_LONG).show();
+                            else showProjects();
+                        }).setNegativeButton(R.string.close, null).show()).show();
     }
 
     private void openUrl(String url) {

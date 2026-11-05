@@ -9,6 +9,8 @@ import android.os.SystemClock;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.accessibility.AccessibilityNodeInfo;
+import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
@@ -97,6 +99,111 @@ public class OptimizedReleaseTest {
 
     private String description(View view) {
         return view.getContentDescription() == null ? "" : view.getContentDescription().toString();
+    }
+
+    private void clickDialog(String text) {
+        long deadline = SystemClock.elapsedRealtime() + 10000;
+        while (SystemClock.elapsedRealtime() < deadline) {
+            for (android.view.accessibility.AccessibilityWindowInfo window :
+                    OptimizedReleaseRunner.instance.automation().getWindows()) {
+                AccessibilityNodeInfo root = window.getRoot();
+                if (root != null) for (AccessibilityNodeInfo node : root.findAccessibilityNodeInfosByText(text)) {
+                    if (node.getText() != null && text.equalsIgnoreCase(node.getText().toString())
+                            && node.isClickable() && node.isEnabled()
+                            && node.performAction(AccessibilityNodeInfo.ACTION_CLICK)) return;
+                }
+            }
+            SystemClock.sleep(100);
+        }
+        fail("Dialog control unavailable: " + text);
+    }
+
+    private AccessibilityNodeInfo editable(AccessibilityNodeInfo node) {
+        if (node == null) return null;
+        if (node.isEditable()) return node;
+        for (int i = 0; i < node.getChildCount(); i++) {
+            AccessibilityNodeInfo result = editable(node.getChild(i));
+            if (result != null) return result;
+        }
+        return null;
+    }
+
+    @Test public void shareAndProjectCollectionRoundTrip() throws Exception {
+        String project = "Kreativ test " + System.currentTimeMillis();
+        Context ctx = context();
+        Set<String> favoritesBefore = favoriteKeys();
+        JSONObject before = new JSONObject(ctx.getSharedPreferences("catalogue_v1", Context.MODE_PRIVATE)
+                .getString("collections", "{}"));
+        Instrumentation instrumentation = OptimizedReleaseRunner.instance;
+        AtomicReference<Intent> shared = new AtomicReference<>();
+        Instrumentation.ActivityMonitor monitor = new Instrumentation.ActivityMonitor() {
+            @Override public Instrumentation.ActivityResult onStartActivity(Intent intent) {
+                if (!Intent.ACTION_CHOOSER.equals(intent.getAction())) return null;
+                shared.set(intent.getParcelableExtra(Intent.EXTRA_INTENT));
+                return new Instrumentation.ActivityResult(Activity.RESULT_CANCELED, null);
+            }
+        };
+        try (Scenario scenario = launch("MainActivity")) {
+            await(scenario, a -> resultCount(a) >= 20 && tagged(a, "load_more_footer.Commercial").isEnabled());
+            scenario.onActivity(a -> find(a, v -> v instanceof TextView && !(v instanceof Button)
+                    && !(v instanceof EditText) && v.isClickable()).performClick());
+            instrumentation.addMonitor(monitor);
+            try { clickDialog("Share font"); }
+            finally { instrumentation.removeMonitor(monitor); }
+            assertNotNull("Share chooser should open", shared.get());
+            assertEquals(Intent.ACTION_SEND, shared.get().getAction());
+            assertEquals("text/plain", shared.get().getType());
+            assertTrue(shared.get().getStringExtra(Intent.EXTRA_TEXT).startsWith("https://kreativfont.com/"));
+            clickDialog("Add to collection");
+            clickDialog("New collection");
+            AccessibilityNodeInfo field = editable(OptimizedReleaseRunner.instance.automation().getRootInActiveWindow());
+            assertNotNull("Collection name input", field);
+            Bundle value = new Bundle();
+            value.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, project);
+            assertTrue(field.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, value));
+            clickDialog("Save");
+            JSONObject after = new JSONObject(ctx.getSharedPreferences("catalogue_v1", Context.MODE_PRIVATE)
+                    .getString("collections", "{}"));
+            assertEquals(1, after.getJSONArray(project).length());
+            scenario.recreate();
+            assertEquals(1, new JSONObject(ctx.getSharedPreferences("catalogue_v1", Context.MODE_PRIVATE)
+                    .getString("collections", "{}")).getJSONArray(project).length());
+            scenario.onActivity(a -> find(a, v -> v instanceof Button && ((Button) v).getText().toString().startsWith("Favorites (")).performClick());
+            scenario.onActivity(a -> find(a, v -> v instanceof Button && text(v, "Project collections")).performClick());
+            clickDialog(project);
+            clickDialog("Delete collection");
+            long confirmDeadline = SystemClock.elapsedRealtime() + 10000;
+            boolean confirmationVisible = false;
+            while (SystemClock.elapsedRealtime() < confirmDeadline) {
+                AccessibilityNodeInfo root = OptimizedReleaseRunner.instance.automation().getRootInActiveWindow();
+                if (root != null && !root.findAccessibilityNodeInfosByText("Delete this collection?").isEmpty()) {
+                    confirmationVisible = true;
+                    break;
+                }
+                SystemClock.sleep(100);
+            }
+            assertTrue("Delete confirmation should appear", confirmationVisible);
+            clickDialog("Delete collection");
+            instrumentation.waitForIdleSync();
+            JSONObject finalProjects = new JSONObject(ctx.getSharedPreferences("catalogue_v1", Context.MODE_PRIVATE)
+                    .getString("collections", "{}"));
+            assertFalse(finalProjects.has(project));
+            assertEquals(before.length(), finalProjects.length());
+            java.util.Iterator<String> keys = before.keys();
+            while (keys.hasNext()) {
+                String key = keys.next();
+                assertEquals(before.getJSONArray(key).toString(), finalProjects.getJSONArray(key).toString());
+            }
+            assertEquals(favoritesBefore, favoriteKeys());
+        } finally {
+            // If an assertion interrupted the UI cleanup, remove only this uniquely named test collection.
+            android.content.SharedPreferences prefs = ctx.getSharedPreferences("catalogue_v1", Context.MODE_PRIVATE);
+            JSONObject cleanup = new JSONObject(prefs.getString("collections", "{}"));
+            if (cleanup.has(project)) {
+                cleanup.remove(project);
+                assertTrue(prefs.edit().putString("collections", cleanup.toString()).commit());
+            }
+        }
     }
 
     private boolean text(View view, String value) {

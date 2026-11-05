@@ -83,6 +83,21 @@ public class FontPagingTest {
         assertEquals(2, pager.fonts.size());
     }
 
+    @Test public void busyResponsePreservesResultsAndClearsOnRetry() {
+        FontPager pager = new FontPager();
+        pager.restore(Collections.singletonList(font(1)), 1, 4);
+        FontPager.Request request = pager.begin();
+        assertTrue(pager.fail(request, true));
+        assertTrue(pager.busy);
+        assertEquals(1, pager.fonts.size());
+        assertEquals(1, pager.page);
+        FontPager.Request retry = pager.begin();
+        assertFalse(pager.busy);
+        assertEquals(2, retry.page);
+        assertTrue(pager.complete(retry, new FontApi.Page(Collections.singletonList(font(2)), 4)));
+        assertEquals(2, pager.fonts.size());
+    }
+
     @Test public void ignoresLateResultsAndFailuresAfterQueryChange() {
         FontPager pager = new FontPager();
         FontPager.Request old = pager.begin();

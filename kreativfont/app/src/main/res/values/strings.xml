@@ -73,4 +73,21 @@
     <string name="favorite_removed">Removed from favorites</string>
     <string name="link_unavailable">This article link is unavailable.</string>
     <string name="browser_unavailable">Install or enable a browser to open this article.</string>
+    <string name="service_busy">The website is receiving too many requests. Your results are still here; please wait a moment and try again.</string>
+    <string name="service_busy_empty">The website is receiving too many requests. Please wait a moment, then try again.</string>
+    <string name="share_font">Share font</string>
+    <string name="share_font_description">Share %1$s article</string>
+    <string name="license_reminder">Prices, downloads and licence terms are set by the font publisher. Check the original article and publisher before use.</string>
+    <string name="projects">Project collections</string>
+    <string name="new_project">New collection</string>
+    <string name="project_name">Collection name</string>
+    <string name="add_to_project">Add to collection</string>
+    <string name="project_empty">No fonts in this collection yet. Open a font and choose Add to collection.</string>
+    <string name="project_error">Couldn’t save the collection. Please try again.</string>
+    <string name="project_exists">Choose a unique, non-empty collection name.</string>
+    <string name="remove_from_project">Remove from collection</string>
+    <string name="delete_project">Delete collection</string>
+    <string name="delete_project_confirm">Delete this collection? Your favorites and other collections will remain.</string>
+    <string name="added_to_project">Added to collection</string>
+    <string name="share_unavailable">No app is available for sharing.</string>
 </resources>

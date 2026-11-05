@@ -2,6 +2,12 @@
 
 The focused Android companion to kreativfont.com, using the existing Google Play package `com.kreativ.fontapp`.
 
+## Local 2.4.0 update — phone verification
+
+Version 2.4.0 / code 207 adds project collections stored on the device. Open a font's details to add it to a collection or share its original article link; manage collections from Favorites. Collections retain their own article snapshots and do not remove existing favorites. Font details remind users to check the publisher's prices and licence. The sampled public feed did not expose reliable structured designer, price or licence fields, so no unverified values are inferred. HTTP 429 responses now show a busy message and keep already loaded results, with a manual retry.
+
+R8 remains enabled. The signed APK and matching mapping are archived in `.release-archives/2.4.0-code207-r8/`; this update has not been submitted to Play. The build and 33 local unit tests pass (three optional live tests skipped); lint reports zero errors and six dependency-version warnings. On 4 November all three optimized-release workflows passed on the physical Samsung: catalogue/search/favorites, preview/zoom/credit, and article sharing plus collection creation, persistence through activity recreation, and deletion while preserving existing favorites and collections. The latter test was corrected to wait for the delete confirmation before clicking it. Home, Favorites and the collections dialog were visually inspected at 150% system font size; the original setting was restored. The dialog's accessible labels were present in the UI hierarchy, but this is not a full TalkBack or accessibility audit. Temporary test helper removed; no emulator or app-data clearing.
+
 ## R8 update — 1 November 2026
 
 Local **2.3.1 / code 206** enables release code optimization, obfuscation and resource shrinking with the standard Android optimization rules. The signed APK is **360,750 bytes**, down from **2,814,223 bytes** for the published 2.3.0 APK (about **87.2% smaller**). This measures file size, not startup or memory performance. Package, signing key, Android compatibility, permissions and privacy practices are unchanged. This update has not been uploaded or submitted to Google Play; 2.3.0 remains the confirmed live app.

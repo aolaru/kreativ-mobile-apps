@@ -8,7 +8,7 @@ import java.util.List;
 final class FontPager {
     final List<FontItem> fonts = new ArrayList<>();
     int page, totalPages = Integer.MAX_VALUE;
-    boolean loading, failed;
+    boolean loading, failed, busy;
     private int generation;
 
     static final class Request {
@@ -18,7 +18,7 @@ final class FontPager {
 
     boolean hasMore() { return page < totalPages; }
 
-    void invalidate() { generation++; loading = false; failed = false; }
+    void invalidate() { generation++; loading = false; failed = false; busy = false; }
 
     void restore(List<FontItem> cached, int page, int totalPages) {
         invalidate();
@@ -34,6 +34,7 @@ final class FontPager {
         if (loading || !hasMore()) return null;
         loading = true;
         failed = false;
+        busy = false;
         return new Request(page + 1, generation);
     }
 
@@ -53,9 +54,14 @@ final class FontPager {
     }
 
     boolean fail(Request request) {
+        return fail(request, false);
+    }
+
+    boolean fail(Request request, boolean rateLimited) {
         if (!current(request)) return false;
         loading = false;
         failed = true;
+        busy = rateLimited;
         return true;
     }
 

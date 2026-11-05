@@ -9,6 +9,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 final class FontStore {
     private final SharedPreferences preferences;
@@ -20,6 +22,30 @@ final class FontStore {
 
     List<FontItem> feed() { return read("feed"); }
     List<FontItem> favorites() { return read("favorites"); }
+
+    JSONObject projects() {
+        try { return new JSONObject(preferences.getString("collections", "{}")); }
+        catch (Exception invalid) { Log.w("FontStore", "Could not read collections", invalid); return new JSONObject(); }
+    }
+
+    boolean saveProjects(JSONObject projects) {
+        // Never overwrite unreadable collection data with a newly created empty object.
+        try {
+            JSONObject existing = new JSONObject(preferences.getString("collections", "{}"));
+            java.util.Iterator<String> keys = existing.keys();
+            while (keys.hasNext()) FontCatalog.decode(existing.getJSONArray(keys.next()).toString());
+        } catch (Exception invalid) {
+            Log.w("FontStore", "Refusing to overwrite unreadable collections", invalid);
+            return false;
+        }
+        return preferences.edit().putString("collections", projects.toString()).commit();
+    }
+
+    List<FontItem> projectFonts(String name) {
+        JSONArray items = projects().optJSONArray(name);
+        try { return FontCatalog.decode(items == null ? "[]" : items.toString()); }
+        catch (Exception invalid) { return new ArrayList<>(); }
+    }
     long updatedAt() { return preferences.getLong("updated_at", 0); }
     int page(String availability) {
         return preferences.getInt("page_size", 0) == FontApi.PAGE_SIZE
