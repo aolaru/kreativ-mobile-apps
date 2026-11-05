@@ -1,0 +1,7 @@
+BLOCKSHIFT 0.5.1 — Internal test candidate
+
+Back up all saved mode boards, scores, daily results and preferences to a private file. Review a backup before restoring it, with Undo restore available afterward. Native file transfer requires Android 10 or later.
+
+Includes the hosted privacy-policy link. Classic, SHIFT, Zen and Daily remain offline, with no advertisements or purchases in this test.
+
+Feedback: info@madebykreativ.com

@@ -1,0 +1,13 @@
+{
+  "pickup_seconds": 0.14,
+  "landing_seconds": 0.17,
+  "shift_seconds": 0.30,
+  "clear_seconds": 0.38,
+  "points_seconds": 0.86,
+  "ring_seconds": 0.40,
+  "deal_seconds": 0.30,
+  "particles_max": 40,
+  "battery_particles_max": 16,
+  "page_fade_seconds": 0.14,
+  "sheet_fade_seconds": 0.20
+}

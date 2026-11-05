@@ -1,0 +1,12 @@
+{
+  "menu": "res://assets/audio/sfx/menu.wav",
+  "pickup": "res://assets/audio/sfx/pickup.wav",
+  "place": "res://assets/audio/sfx/place.wav",
+  "invalid": "res://assets/audio/sfx/invalid.wav",
+  "clear": "res://assets/audio/sfx/clear.wav",
+  "combo": "res://assets/audio/sfx/combo.wav",
+  "shift": "res://assets/audio/sfx/shift.wav",
+  "achievement": "res://assets/audio/sfx/achievement.wav",
+  "game_over": "res://assets/audio/sfx/game_over.wav",
+  "ambience": "res://assets/audio/ambience/ambience.wav"
+}

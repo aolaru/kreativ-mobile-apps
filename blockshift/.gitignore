@@ -1,0 +1,27 @@
+.godot/
+build/*
+!build/.gitkeep
+android/
+*.keystore
+*.jks
+*.p12
+credentials.json
+release-signing.properties
+.godot/export_credentials.cfg
+local.env
+.DS_Store
+
+__pycache__/
+*.pyc
+
+!/build/.gdignore
+
+# Keep device captures, runtime logs and player save snapshots local.
+/review/*
+!/review/.gdignore
+!/review/*.md
+*.blockshift
+*.apk
+*.aab
+*.apks
+*.idsig

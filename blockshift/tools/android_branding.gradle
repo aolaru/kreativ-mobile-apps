@@ -1,0 +1,19 @@
+// Godot generates this theme during export. Apply Android's color-only splash
+// attributes before resource processing; a drawable reference falls back to white.
+// This project's Android presets ship ARM64 only. Filter the other template
+// libraries before AGP's merge/strip copies to keep local disk use bounded.
+android.packagingOptions.jniLibs.excludes += ['**/armeabi-v7a/**', '**/x86/**', '**/x86_64/**']
+def blockshiftBranding = tasks.register('blockshiftBrandSplash') {
+    doLast {
+        def themeFile = file('res/values/themes.xml')
+        if (!themeFile.exists()) throw new GradleException('Godot splash theme was not generated.')
+        def xml = themeFile.getText('UTF-8')
+        xml = xml.replace('<item name="android:windowSplashScreenBackground">@mipmap/icon_background</item>',
+            '<item name="android:windowSplashScreenBackground">#080e1c</item>\n' +
+            '\t\t<item name="windowSplashScreenBackground">#080e1c</item>')
+        themeFile.setText(xml, 'UTF-8')
+    }
+}
+tasks.configureEach { task ->
+    if (task.name ==~ /(merge|parse|package).*Resources/) task.dependsOn(blockshiftBranding)
+}
