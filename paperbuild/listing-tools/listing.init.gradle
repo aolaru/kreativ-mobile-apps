@@ -1,0 +1,6 @@
+// Optional capture source set; the regular QA regression suite remains unchanged.
+allprojects {
+    plugins.withId('com.android.application') {
+        android.sourceSets.androidTest.java.setSrcDirs([rootProject.file('listing-tools/java')])
+    }
+}

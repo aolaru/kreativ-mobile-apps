@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="version_credit" type="id" />
+    <item name="crop_apply" type="id" />
+    <item name="crop_restore" type="id" />
+    <item name="recent_pdfs" type="id" />
+    <item name="export_options" type="id" />
+    <item name="saved_presets" type="id" />
+    <item name="edit_pdf" type="id" />
+    <item name="editor_choose" type="id" />
+    <item name="editor_export" type="id" />
+    <item name="editor_undo" type="id" />
+</resources>

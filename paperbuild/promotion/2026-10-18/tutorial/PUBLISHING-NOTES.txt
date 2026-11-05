@@ -1,0 +1,72 @@
+PAPERBUILD TUTORIAL — PUBLISHED 18 OCTOBER 2026
+
+Live: https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/
+App page: https://madebykreativ.com/apps/paperbuild/
+Deployment: https://github.com/aolaru/madebykreativ.com/actions/runs/39146702558
+Website commit: 1f286f35d6162c9766fa3108b42e871d8f072ed3
+
+GitHub Pages build and deployment succeeded, including full production checks,
+responsive/accessibility coverage, the new PaperBuild tests, Firefox/WebKit
+journeys and mobile performance budgets. The initial run stopped safely because
+a new test expected an exact link name without the site's decorative CTA arrow;
+the test was corrected to match the established Northlight pattern.
+
+Published the approved free-workflow guide with five genuine screenshot crops,
+full-size PNG links, responsive WebP variants, alt text and captions. No AI marks
+are baked into these assets. Pro benefits and limitations are explained in text;
+the unused Pro screenshot was not published. The existing PaperBuild catalogue
+entry, official store artwork and external privacy-policy route were preserved.
+Added a PaperBuild-only tutorial section to its existing app page.
+
+Public article and app-page cross-link verified in the in-app browser. Updates,
+both RSS feeds and sitemap contain the tutorial. Public screenshot originals
+match local SHA-256 hashes and both responsive variants are available.
+Proof: website-published.png. The deployed article is maintained in the website
+repository at src/content/news/photos-to-pdf-android-paperbuild.md; the local
+preview and source below remain the historical preparation snapshot.
+
+No Play Console, app bundle, pricing, permissions, account identity, privacy
+policy content, social post or outreach message changed in this publication.
+Adding the live tutorial URL to Play requires a separate listing approval.
+
+LOCAL VERIFICATION LIMIT: npm ci failed because the Mac ran out of disk space.
+Only its incomplete node_modules directory was removed; source was preserved.
+All production validation ran successfully in GitHub CI instead. After freeing
+disk space, rerun npm ci before the next local website build.
+
+HISTORICAL PREPARATION CHECKLIST
+Prepared 18 October 2026. Unpublished draft, outside the website collection.
+Proposed URL: https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/
+
+BEFORE DEPLOYMENT
+1. Obtain approval to publish. Update dateLabel/sortDate to the actual date.
+2. Inspect the current website checkout and preserve unrelated changes.
+3. Add PaperBuild to src/data/apps.ts using the proposal and add paperbuild to
+   src/content.config.ts's app enum. Do not mislabel the article as another app.
+4. Copy the existing icon and genuine 1.1 01-home.png to public/apps/paperbuild/.
+   The home screenshot is 1080 x 2340. Do not use the framed listing image here.
+5. Resolve the app template's hard-coded /privacy/<slug>/ link. Either publish a
+   separately approved, faithful website copy of the existing public policy,
+   or support its current external policy URL. Never deploy a broken privacy link.
+6. Add a PaperBuild-only tutorial link to the app detail page. Keep other apps.
+7. Copy photos-to-pdf-android-paperbuild.md into src/content/news/. Copy only the
+   five free-workflow crops into public/images/paperbuild/tutorial/ and update
+   both image/link paths. Do not publish the unused optional-Pro crop in the guide.
+8. Use the existing tutorial-screenshot figure pattern with actual intrinsic
+   dimensions, lazy loading, alt text, full-size links and captions. No fake UI.
+9. Check current released version, policy and Free/Pro scope again if delayed.
+10. Run the site's npm run check gate. Add tutorial-specific coverage for the
+    five loaded images, two correctly tagged Play links, app-specific next step,
+    app-page cross-link, Updates, both RSS feeds and sitemap; inspect mobile and
+    desktop layouts and accessibility. New schema/app code needs a website build.
+11. Deploy through the existing GitHub Pages workflow only after approval.
+    Verify the public route, images, policy link and two Play CTAs.
+12. Add the tutorial URL to the Play description only after public verification
+    and separate listing approval. This pack intentionally excludes it there.
+
+Screen sources: 1.1 QA build on Galaxy A55, 15 October, fictional pages. Google
+Play's public About this app confirmed released 1.1.0 on 18 October. The separate
+QA package has release UI; no Pro purchase or new device test is implied.
+Images are crops/scales only; source hashes and exact bounds are in the manifest.
+Private reviewer codes, purchase states, personal documents and prices are absent.
+Never describe the screenshot slideshow as live app footage.

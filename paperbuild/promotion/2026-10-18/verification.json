@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-18",
+  "status": "Original listing refresh published and publicly verified. Follow-up full-description-only tutorial-link addition submitted with user approval; Console shows Changes in review and quick checks still running. Follow-up approval/publication pending.",
+  "titleCharacters": 24,
+  "shortDescriptionCharacters": 78,
+  "fullDescriptionCharacters": 3153,
+  "validatedPngs": 10,
+  "verifiedSourceHashes": 6,
+  "checkedLocalLinks": 48,
+  "htmlValidation": {
+    "pages": 2,
+    "errors": 0,
+    "warnings": 0
+  },
+  "media": {
+    "durationSeconds": 24,
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "audio": false,
+    "bytes": 346981
+  },
+  "visualInspection": "Social contact sheet, six screenshot layouts and feature graphic inspected; no observed clipped text or fabricated app UI.",
+  "browserLayoutVerified": false,
+  "browserLimitation": "Established local-file browser restriction respected. No alternate browser or serving workaround was used. Responsive HTML layout and media playback remain manual checks.",
+  "websiteBuildOrDeployment": true,
+  "websiteTutorialUrl": "https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/",
+  "websiteDeployment": "https://github.com/aolaru/madebykreativ.com/actions/runs/39146702558",
+  "websiteVerification": "Full GitHub quality gate, Firefox/WebKit journeys, performance budgets and deployment passed. Public page, app-page cross-link, discovery feeds and all five original/responsive screenshots verified. Local npm ci failed for disk space; incomplete install removed.",
+  "consoleMutation": true,
+  "reviewSubmissionConfirmed": true,
+  "assetAiLabels": "All eight OFF, including retained icon; Don't label assets selected after saving",
+  "submissionEvidence": "listing/tutorial-link-submitted.png",
+  "aiLabelsEvidence": "listing/console-ai-labels-off.png",
+  "publication": false,
+  "outreach": false
+}

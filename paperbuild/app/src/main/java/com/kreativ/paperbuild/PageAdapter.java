@@ -19,7 +19,7 @@ import java.util.concurrent.Executors;
 
 /** Recycled rows with bounded thumbnail cache and decoding off the UI thread. */
 final class PageAdapter extends RecyclerView.Adapter<PageAdapter.Holder> {
-    interface Actions { void move(int from, int to); void rotate(int index); void remove(int index); }
+    interface Actions { void move(int from, int to); void rotate(int index); void crop(int index); void remove(int index); }
     private final List<PageItem> pages;
     private final Actions actions;
     private final DocumentProcessor processor;
@@ -53,6 +53,8 @@ final class PageAdapter extends RecyclerView.Adapter<PageAdapter.Holder> {
         Button up = control(controls, "↑", "Move page up");
         Button down = control(controls, "↓", "Move page down");
         Button rotate = control(controls, "↻", "Rotate page clockwise");
+        Button crop = Ui.button(row.getContext(), "Crop", false); crop.setContentDescription("Crop page");
+        row.addView(crop, new LinearLayout.LayoutParams(-1, -2)); Ui.gap(row, 6);
         boolean compact = row.getResources().getConfiguration().screenWidthDp < 360
                 || row.getResources().getConfiguration().fontScale > 1.15f;
         Button remove;
@@ -64,7 +66,7 @@ final class PageAdapter extends RecyclerView.Adapter<PageAdapter.Holder> {
             remove = control(controls, "Remove", "Remove page"); row.addView(controls);
         }
         remove.setTextColor(Color.rgb(181, 61, 61));
-        return new Holder(row, image, name, up, down, rotate, remove);
+        return new Holder(row, image, name, up, down, rotate, crop, remove);
     }
 
     @Override public void onBindViewHolder(Holder holder, int position) {
@@ -73,11 +75,13 @@ final class PageAdapter extends RecyclerView.Adapter<PageAdapter.Holder> {
         holder.image.setContentDescription("Preview of page " + (position + 1));
         holder.up.setEnabled(!busy && position > 0); holder.down.setEnabled(!busy && position < pages.size() - 1);
         holder.rotate.setEnabled(!busy); holder.remove.setEnabled(!busy);
+        holder.crop.setEnabled(!busy);
+        holder.crop.setOnClickListener(v -> { int p = holder.getBindingAdapterPosition(); if (!busy && p >= 0) actions.crop(p); });
         holder.up.setOnClickListener(v -> { int p = holder.getBindingAdapterPosition(); if (!busy && p > 0) actions.move(p, p - 1); });
         holder.down.setOnClickListener(v -> { int p = holder.getBindingAdapterPosition(); if (!busy && p >= 0 && p < pages.size() - 1) actions.move(p, p + 1); });
         holder.rotate.setOnClickListener(v -> { int p = holder.getBindingAdapterPosition(); if (!busy && p >= 0) actions.rotate(p); });
         holder.remove.setOnClickListener(v -> { int p = holder.getBindingAdapterPosition(); if (!busy && p >= 0) actions.remove(p); });
-        String key = page.uri + ":" + page.rotation;
+        String key = page.uri + ":" + page.rotation + ":" + page.crop.key();
         holder.image.setTag(key);
         Bitmap cached = cache.get(key);
         holder.image.setImageBitmap(cached);
@@ -104,9 +108,9 @@ final class PageAdapter extends RecyclerView.Adapter<PageAdapter.Holder> {
     }
     private static int dp(View view, int size) { return Math.round(size * view.getResources().getDisplayMetrics().density); }
     static final class Holder extends RecyclerView.ViewHolder {
-        final ImageView image; final TextView name; final Button up, down, rotate, remove;
-        Holder(View row, ImageView image, TextView name, Button up, Button down, Button rotate, Button remove) {
-            super(row); this.image = image; this.name = name; this.up = up; this.down = down; this.rotate = rotate; this.remove = remove;
+        final ImageView image; final TextView name; final Button up, down, rotate, crop, remove;
+        Holder(View row, ImageView image, TextView name, Button up, Button down, Button rotate, Button crop, Button remove) {
+            super(row); this.image = image; this.name = name; this.up = up; this.down = down; this.rotate = rotate; this.crop = crop; this.remove = remove;
         }
     }
 }

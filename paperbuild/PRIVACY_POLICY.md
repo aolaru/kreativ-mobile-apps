@@ -1,6 +1,6 @@
 # PaperBuild Privacy Policy
 
-Last updated: October 11, 2026
+Last updated: November 4, 2026
 
 PaperBuild is an offline Android document-maker from Kreativ. This policy explains how the app handles information when you use it.
 
@@ -16,9 +16,15 @@ PaperBuild does not upload your images, PDFs, document names, or page-order info
 
 ## Files created by the app
 
-PaperBuild copies selected images and camera captures to private app storage so your draft survives closing or rotating the app. It stores page order, rotation, document name, and export settings on your device. **New document** removes the current draft and its private page copies. Removed pages are also deleted from private storage; your originals are never changed.
+PaperBuild copies selected images and camera captures to private app storage so your draft survives closing or rotating the app. It stores page order, rotation, crop bounds, document name, and export settings on your device. Cropping does not overwrite the original. **New document** removes the current draft and its private page copies, not completed PDFs. Removed draft pages are deleted from private storage; your originals are never changed.
 
-Exported PDFs are temporary private files. Unreferenced exports older than seven days are removed on startup; the most recent export is retained while available. Temporary working copies used for PDF tools are removed after the operation or on the next startup after an interruption.
+Starting with version 1.2, the Pro PDF page editor keeps a separate private copy of the PDF you choose, together with its page order and rotations. **Clear PDF draft** removes this editor copy and its saved editing state. Choosing a different PDF replaces the editor copy after the new file opens successfully. Editing saves a new PDF in Recent PDFs and does not overwrite your original or your photo draft.
+
+Logo images selected for Pro watermarks are resized and saved as private PNG copies for reuse. Export settings and presets refer to these private copies. Changing a logo does not change an existing preset. Disabling a logo removes it from subsequent exports; previously imported logo copies remain on your device until the app's data is cleared or the app is uninstalled. Logos are not uploaded.
+
+Starting with version 1.1, completed PDFs are saved in a private **Recent PDFs** library on your device, with names and creation dates. They remain until you remove them or uninstall the app. **Removed PDFs** supports restore; permanent deletion requires confirmation and does not remove copies you exported elsewhere. Export copies before uninstalling if you want to keep them. Older temporary exports not in the library are cleaned after seven days, except the latest available export. Temporary working copies used for PDF tools are removed after the operation or on the next startup after an interruption.
+
+Pro export presets are stored locally and include page size, style, compression, watermark text, logo selection, page-number settings, and whether a password is required. Passwords are kept only in memory for the current export, not saved in drafts or presets, logged, or sent to Kreativ. Protected library PDFs retain their encryption; the library does not generate previews for them. Forgotten export passwords cannot be recovered. Draft images and temporary processing data are not protected by the exported PDF's password; they remain in Android's private app storage.
 
 When you choose **Share**, **Open**, or **Save to Downloads**, you control where a copy goes. Saved files are placed in `Downloads/PaperBuild` and are not removed by the app. Other apps you choose to open or share files with handle them under their own privacy terms.
 
@@ -28,6 +34,8 @@ PaperBuild does not collect, sell, rent, or share personal information. It does 
 
 If you choose to buy PaperBuild Pro, Google Play processes the purchase under its own terms. PaperBuild stores the Pro unlock status locally and uses purchase information returned by Google Play to acknowledge and restore it. PaperBuild does not receive or store payment-card information and does not send purchase information to Kreativ.
 
+Authorised reviewers can enter a signed review-access code instead of making a purchase. The code is verified and stored locally on the device; it is not uploaded. Leaving review access removes the saved code without affecting a Google Play purchase.
+
 ## Permissions
 
 On Android 8 and Android 9 only, PaperBuild may request storage permission when you choose to save a PDF to Downloads. This is required by those Android versions. On Android 10 and newer, saving uses Android's scoped storage and does not require that permission.
@@ -36,7 +44,7 @@ PaperBuild does not request broad photo-library access or direct camera permissi
 
 ## Children
 
-PaperBuild is not directed at children and does not knowingly collect personal information from children.
+PaperBuild is intended for teenagers aged 13 and older and adults. It is not directed at children under 13 and does not knowingly collect personal information from children.
 
 ## Changes to this policy
 

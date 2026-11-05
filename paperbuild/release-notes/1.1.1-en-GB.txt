@@ -1,0 +1,3 @@
+Reduced app download size through code and resource optimisation.
+
+Your PDF tools and existing lifetime Pro unlock stay unchanged.

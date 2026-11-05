@@ -1,0 +1,52 @@
+PAPERBUILD CLAIMS AND SOURCES
+Checked 18 October 2026.
+
+CURRENT PUBLIC STATE
+Google Play About this app: PaperBuild - Private PDF Maker; version 1.1.0;
+updated 16 October 2026. Six screenshots and current 1.1 Free/Pro description.
+https://play.google.com/store/apps/details?id=com.kreativ.paperbuild
+Public privacy policy effective October 15 matches local scope:
+https://github.com/aolaru/kreativ-mobile-apps/blob/main/paperbuild/PRIVACY_POLICY.md
+https://raw.githubusercontent.com/aolaru/kreativ-mobile-apps/main/paperbuild/PRIVACY_POLICY.md
+The website Apps directory has ShareSafe/Northlight, not PaperBuild, checked at:
+https://madebykreativ.com/apps/
+
+PRIMARY LOCAL REFERENCES
+paperbuild/README.md; STORE_LISTING.md; PRIVACY_POLICY.md; RELEASE_CHECKLIST.md
+app/src/main/AndroidManifest.xml; MainActivity.java; CropActivity.java;
+RecentPdfsActivity.java; DocumentProcessor.java; ExportOptions.java; ProActivity.java
+store-assets/play/screenshots/1.1/01-home.png through 06-pro.png
+
+SUPPORTED CLAIMS
+On-device image-to-PDF processing; no app internet permission; no account/ads;
+system image picker/camera handoff; manual crop, reorder and rotation; 10-page
+free limit; A4/US Letter and page treatments; private Recent PDFs; optional one-time
+Pro features as listed. Purchase/restore connectivity is handled by Google Play.
+Opening/sharing invokes another app and is not a promise of offline delivery.
+Password protection applies to exported PDFs, not source images or draft storage.
+
+DO NOT CLAIM
+OCR; searchable/editable recognised text; automatic page-edge detection;
+digital signatures; secure redaction; encrypted source/draft storage;
+protected PDF inputs; guaranteed compression ratio; guaranteed privacy after
+sharing; cloud sync or backup; unlimited free pages; tested purchases; guaranteed
+rankings/downloads; publication of the proposed website page.
+
+ASSET PROVENANCE
+Existing genuine 1080 x 2340 Galaxy A55 1.1 QA captures from October 15.
+Sample weekend plans are fictional, not a private document. Crops and scaling
+only, with no UI reconstruction or repainted controls. Source SHA-256 and crops
+are in listing/assets-manifest.json. Pro image is the feature list, not paid
+tools in use. Store icon remains existing. No generative imagery or AI marks.
+No assertion is made that existing Console AI labels have been checked/cleared.
+
+OFFICIAL DESIGN GUIDANCE
+https://support.google.com/googleplay/android-developer/answer/9866151?hl=en
+Six 9:16 opaque screenshots, short feature taglines, actual app UI, matching
+1024 x 500 feature graphic, no ranking, testimonial or invented-price claims.
+
+UNSENT EDITORIAL ROUTES
+https://www.droid-life.com/contact/ — official form invites app tips.
+https://www.androidauthority.com/contact/ — official page lists news@androidauthority.com.
+Creator draft has no selected/verified individual recipient.
+No outlet was contacted, and no relationship or promised coverage is implied.

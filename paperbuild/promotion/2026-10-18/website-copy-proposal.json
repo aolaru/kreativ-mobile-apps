@@ -1,0 +1,31 @@
+{
+  "status": "Unpublished proposal. No website files changed.",
+  "slug": "paperbuild",
+  "name": "PaperBuild",
+  "category": "Photo to PDF",
+  "accessLabel": "Free up to 10 pages + optional paid Pro",
+  "description": "Turn captured or selected images into a PDF on your Android phone, with manual cropping, page styles and a private Recent PDFs library.",
+  "features": [
+    "Add images or capture pages with your camera app",
+    "Crop, reorder and rotate up to 10 pages per document for free",
+    "Choose A4 or US Letter with colour, grayscale or contrast treatment",
+    "Open, share or save finished PDFs, and find them in a private local library"
+  ],
+  "proDescription": "Optional PaperBuild Pro is a one-time Google Play purchase for smaller exports, more pages, PDF merge and extraction, protected output, watermarks, page numbers and saved presets. No subscription. Your local price is shown before purchase.",
+  "limitation": "Not OCR, automatic edge detection, PDF text editing or secure redaction. Review readability before sharing. Export important copies before uninstalling. PDF tools do not accept protected inputs; output passwords do not encrypt source images or drafts. Forgotten passwords cannot be recovered.",
+  "screenshotSource": "paperbuild/store-assets/play/screenshots/1.1/01-home.png",
+  "screenshotWidth": 1080,
+  "screenshotHeight": 2340,
+  "stores": [{"platform":"Android","name":"Google Play","url":"https://play.google.com/store/apps/details?id=com.kreativ.paperbuild"}],
+  "currentPrivacyUrl": "https://github.com/aolaru/kreativ-mobile-apps/blob/main/paperbuild/PRIVACY_POLICY.md",
+  "tutorialHeading": "Make a PDF from page photos on Android",
+  "tutorialDescription": "Follow the free image import, manual crop, PDF export and Recent PDFs workflow with genuine app screenshots.",
+  "tutorialPath": "/news/photos-to-pdf-android-paperbuild/",
+  "publicationPrerequisites": [
+    "Add PaperBuild to src/data/apps.ts and the article app schema enum",
+    "Copy the original current home screenshot and existing icon into public/apps/paperbuild",
+    "Resolve the app template's hard-coded privacy route: publish an approved faithful policy page or explicitly support the current external policy URL",
+    "Add a PaperBuild-only tutorial link to its app page",
+    "Add approved article and five images; check Updates, RSS, sitemap and relevant tests"
+  ]
+}

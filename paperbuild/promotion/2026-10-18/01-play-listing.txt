@@ -1,0 +1,50 @@
+PAPERBUILD LISTING — TUTORIAL-LINK UPDATE SUBMITTED FOR REVIEW
+
+TITLE (24/30)
+PaperBuild: Photo to PDF
+
+SHORT DESCRIPTION (78/80)
+Photos to PDF offline, with cropping, page styles and an on-device PDF library
+
+FULL DESCRIPTION (3153/4000)
+Turn photos into a PDF on your Android phone. PaperBuild lets you capture a page with your camera app or choose images, arrange them, crop the edges and export one document. Processing happens on your device, without an account or ads.
+
+FREE PHOTO TO PDF TOOLS
+- Add images with Android's system picker or open your camera app to capture a page
+- Build documents with up to 10 pages
+- Preview, reorder, rotate and remove pages
+- Crop manually without changing the original; restore the full page when needed
+- Choose A4 or US Letter and colour, grayscale or high-contrast page treatment
+- Resume your privately saved draft after closing the app
+- Open, share or save the finished PDF to Downloads/PaperBuild
+
+FIND YOUR RECENT PDFS
+Completed documents are saved in a private on-device library. Preview unprotected PDFs, rename them, open or share a copy, or save to Downloads. Move a document to Removed PDFs when you no longer need it; restore it or confirm permanent deletion later. Exported copies stay untouched.
+
+OPTIONAL PAPERBUILD PRO — ONE-TIME PURCHASE
+- Smaller PDF exports
+- More than the free 10-page limit
+- Merge PDFs or extract a page or page range
+- Password-protect exported PDFs
+- Add custom text watermarks and page numbers
+- Save named export presets; passwords are never saved
+
+Pro is a permanent unlock, not a subscription. Your local Google Play price is shown before purchase. Restore ownership using the same Google Play account. The photo-to-PDF workflow, cropping and Recent PDFs remain free.
+
+ON-DEVICE PROCESSING
+PaperBuild has no account, advertising, analytics, tracking or internet permission. It does not upload your images or documents. Google Play handles connectivity for purchases and ownership checks. Android's image picker and camera app let you choose the pages; PaperBuild does not request broad gallery access or direct camera permission. Android 8 and 9 may require storage permission when saving to Downloads.
+
+When you open or share a PDF, the receiving app handles that copy under its own privacy terms. Keep important copies outside PaperBuild before uninstalling: uninstalling removes the private draft and Recent PDFs library. Saved Downloads are not removed by the app.
+
+BEFORE YOU EXPORT
+This is an image-to-PDF maker, not OCR, automatic edge detection or a PDF text editor. Review page order, cropping and readability before sharing. Smaller exports and page treatments can change image quality. PDF merge and extraction retain page content and sizes rather than rasterising pages. Password-protected input PDFs are not supported; use an unlocked copy. Editing invalidates digital signatures; extracted PDFs discard bookmarks and page labels. Watermarks and page numbers are not redaction or digital signatures.
+
+Output passwords protect exported PDFs, not source images or draft working files. Passwords are not saved in drafts or presets, and forgotten passwords cannot be recovered.
+
+Step-by-step tutorial: https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/
+
+Privacy: https://github.com/aolaru/kreativ-mobile-apps/blob/main/paperbuild/PRIVACY_POLICY.md
+Support: info@madebykreativ.com
+
+INTERNAL NOTE — NOT PART OF LISTING
+Do not add the proposed tutorial URL until its website publication is separately approved and publicly verified. Keep current privacy-policy URL until an approved replacement is live.

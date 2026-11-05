@@ -1,0 +1,59 @@
+UNPUBLISHED CAPTIONS — APPROVE THE ACTUAL CHANNEL AND POST BEFORE SENDING
+
+Graphic 01 launch caption for LinkedIn or Facebook
+
+A few photos. One PDF. Built on your phone.
+
+I built PaperBuild for Android to turn photographed pages into a document without creating an account or uploading the pages to a processing server.
+
+Choose images or capture a page, crop and arrange them, then export an A4 or US Letter PDF. The free workflow supports up to 10 pages and includes a private Recent PDFs library.
+
+Optional one-time Pro adds smaller exports, more pages, PDF merge and extraction, password-protected output and other export tools. No subscription.
+
+This is not OCR or automatic edge detection. Check every page before sharing, and save important copies outside the app before uninstalling.
+
+If you try it, tell me which step could be simpler.
+
+— Andrei, Made by Kreativ
+
+https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=launch_social&utm_medium=social&utm_campaign=paperbuild_photos_pdf_202610
+
+====================
+
+Romanian launch caption
+
+Câteva fotografii, un singur PDF — creat pe telefon.
+
+Am construit PaperBuild pentru Android: alegi imagini sau fotografiezi o pagină, decupezi și ordonezi paginile, apoi creezi un PDF A4 sau US Letter. Procesarea documentelor se face pe dispozitiv, fără cont și fără reclame.
+
+Varianta gratuită permite până la 10 pagini per document și include biblioteca locală Recent PDFs. Pro este opțional, cu plată unică: exporturi mai mici, mai multe pagini, combinare și extragere PDF, protecție cu parolă și alte opțiuni. Fără abonament.
+
+Aplicația nu face OCR sau detectare automată a marginilor. Verifică paginile înainte de partajare și salvează separat copiile importante înainte de dezinstalare.
+
+— Andrei, Made by Kreativ
+
+https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=launch_ro&utm_medium=social&utm_campaign=paperbuild_photos_pdf_202610
+
+====================
+
+Screenshot tour caption
+
+Photos → crop → page settings → PDF → Recent PDFs.
+
+A silent screenshot tour of PaperBuild for Android, not live footage. The free workflow supports up to 10 pages. Optional one-time Pro is shown separately. Document processing stays on your phone; Google Play handles purchase connectivity. No OCR or automatic edge detection.
+
+https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=short_video&utm_medium=social&utm_campaign=paperbuild_photos_pdf_202610
+
+====================
+
+Transparent community introduction
+
+Developer disclosure: I built PaperBuild, an Android photo-to-PDF app. I am sharing it only where developer posts are welcome.
+
+The free workflow captures/imports images, lets you crop, rotate and arrange up to 10 pages, then creates an A4 or Letter PDF locally. No account or ads. Recent PDFs are stored on the device; export copies before uninstalling.
+
+A one-time paid Pro unlock adds smaller exports, more pages, merge/extract, protected output and extra export options. It is not OCR or automatic edge detection.
+
+I would value feedback on page ordering and the export controls. No review, rating or purchase is expected.
+
+https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=community&utm_medium=community&utm_campaign=paperbuild_photos_pdf_202610

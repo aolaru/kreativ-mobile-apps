@@ -1,0 +1,64 @@
+UNSENT EDITORIAL PITCHES — VERIFY ROUTE BEFORE SENDING
+No paid placement, reviews, ratings or private access codes are promised or included.
+
+Droid Life
+Route: https://www.droid-life.com/contact/
+Status: Official app-tip contact form checked 18 October 2026. Unsent; editorial coverage is not promised.
+Subject: Android app tip: PaperBuild photo-to-PDF maker with on-device processing
+
+Hello Droid Life team,
+
+I am Andrei, the developer of PaperBuild for Android. It turns captured or selected images into a PDF on the device, with no account, ads or document upload.
+
+The free workflow includes manual cropping, page ordering, A4/Letter export, page treatments and a private Recent PDFs library, with up to 10 pages per document. A one-time paid Pro unlock adds smaller exports, more pages, merge/extract and protected output. It is not OCR or automatic edge detection.
+
+If this fits an Android utility roundup, the public listing is below. I can provide the genuine screenshots and a short feature summary. This is an editorial tip, not a request for a favourable review or guaranteed coverage.
+
+Thank you,
+Andrei
+Made by Kreativ
+
+https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=droid_life&utm_medium=outreach&utm_campaign=paperbuild_photos_pdf_202610
+Privacy: https://github.com/aolaru/kreativ-mobile-apps/blob/main/paperbuild/PRIVACY_POLICY.md
+
+====================
+
+Android Authority
+Route: https://www.androidauthority.com/contact/ — news@androidauthority.com
+Status: Official contact page checked 18 October 2026; lists news@androidauthority.com for news. Unsent editorial pitch.
+Subject: App roundup candidate: PaperBuild offline photo-to-PDF workflow
+
+Hello Android Authority team,
+
+I am the developer of PaperBuild, a small Android document utility. It converts captured or selected images into PDFs locally, with manual crop controls, page styles and a private Recent PDFs library. The free workflow supports up to 10 pages, without an account or ads.
+
+Optional paid Pro is a one-time unlock, not a subscription, for smaller exports, more pages, merge/extract and password-protected output. The app does not offer OCR, automatic edge detection or PDF text editing.
+
+If it is relevant to an upcoming utility roundup, the public listing is below. I can supply real app screenshots. No coverage or favourable review is expected.
+
+Best,
+Andrei
+Made by Kreativ
+
+https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=android_authority&utm_medium=outreach&utm_campaign=paperbuild_photos_pdf_202610
+Privacy: https://github.com/aolaru/kreativ-mobile-apps/blob/main/paperbuild/PRIVACY_POLICY.md
+
+====================
+
+Android utility roundup creator
+Route: Select a creator and verify their own current business-contact route before sending.
+Status: Reusable unsent draft. No individual recipient has been selected or verified.
+Subject: PaperBuild for a practical Android utility roundup
+
+Hello,
+
+I build PaperBuild for Android: an on-device photo-to-PDF utility with manual cropping, page ordering, page styles and Recent PDFs. Its free workflow allows up to 10 pages; an optional one-time Pro unlock adds extra export and PDF tools. There is no account or advertising, and documents are not uploaded for processing.
+
+If this fits your audience, I can send real screenshots and an accurate Free/Pro summary. It is not OCR or an automatic scanner, and no positive review or placement is expected.
+
+Thanks,
+Andrei
+Made by Kreativ
+
+https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&utm_source=creator_roundup&utm_medium=outreach&utm_campaign=paperbuild_photos_pdf_202610
+Privacy: https://github.com/aolaru/kreativ-mobile-apps/blob/main/paperbuild/PRIVACY_POLICY.md

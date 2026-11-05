@@ -1,0 +1,21 @@
+PAPERBUILD TUTORIAL LINK — 18 OCTOBER 2026
+
+The original listing refresh (submission 3) was confirmed Published in Console
+and the new title, short description and screenshots publicly verified.
+
+With separate user approval, added this line before the existing privacy link:
+Step-by-step tutorial: https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/
+
+Full description: 3153/4000 characters, previously 3064. All other copy and assets
+unchanged. English (United Kingdom), en-GB. Don't label assets remains selected.
+
+Saved, then submitted exactly ONE change: Change full description.
+Console confirms Changes in review. Automated quick checks are still running;
+Google says it will send the change for review when they complete successfully.
+Approval/publication of this follow-up is not yet confirmed.
+Proof: tutorial-link-submitted.png.
+
+Managed publishing remains OFF as found. No bundle, pricing, permissions,
+developer identity, privacy URL, AI labels or website changes in this step.
+
+Exact submitted copy: ../copy.json and ../01-play-listing.txt.

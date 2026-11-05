@@ -1,0 +1,29 @@
+PAPERBUILD MARKETING QUALITY CHECKS
+Prepared 18 October 2026. Drafts only.
+
+Verified public Play version 1.1.0, updated 16 October, and current description.
+Reviewed genuine source captures and current source/policy for claim boundaries.
+Kept free 10-page limit, optional one-time paid Pro, source-vs-output password
+scope, manual cropping, uninstall retention and sharing-app limits explicit.
+The Pages writing skill guided the tutorial's task-first sequence and kept
+conditions next to the actions they qualify. Website schema/app prerequisites
+are recorded separately, not disguised as published functionality.
+
+The six listing layouts, feature graphic and social contact sheet were visually
+inspected. The crop image was extended to retain the entire Cancel control.
+No AI marks, invented prices, secret codes or personal document content.
+No original images were overwritten. App source, website and Console untouched.
+
+Run node build-pack.cjs to regenerate, then node validate-pack.cjs. The validator
+checks title/copy limits, opaque image sizes, source hashes/crop bounds, local
+links, HTML, tutorial metadata and silent H.264 video dimensions/duration.
+See verification.json for actual results after running it.
+
+Browser layout, responsive preview behaviour and video playback remain manual
+checks. The previously established local-file browser restriction was respected;
+no server or alternate-browser workaround was used. Static HTML checks and raster
+visual inspection are not claimed as an interactive browser test.
+
+No new phone/emulator, PDF rendering, camera, purchase, restore, payment or app
+regression test was run for this marketing-only task. Prior release tests remain
+historical evidence and do not mean billing has been newly verified.

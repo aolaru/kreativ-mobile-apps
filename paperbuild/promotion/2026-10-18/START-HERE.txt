@@ -1,0 +1,59 @@
+PAPERBUILD MARKETING AND LISTING PACK
+LATEST PLAY UPDATE: Original listing refresh is Published (submission 3).
+The now-live tutorial link was added to the full description and submitted as
+one change. Console shows Changes in review with quick checks still running.
+See listing/TUTORIAL-LINK-SUBMISSION.txt. Earlier review notes below are historical.
+
+LISTING UPDATE: User approved the name/copy/assets and submission. These are now
+submitted in Play Console, with all eight AI flags OFF. Quick checks passed.
+After the user's manual final Send, Console confirms Changes in review.
+Approval/publication pending; see listing/SUBMISSION-STATUS.txt and evidence.
+WEBSITE UPDATE: Tutorial published and publicly verified on 18 October 2026.
+https://madebykreativ.com/news/photos-to-pdf-android-paperbuild/
+PaperBuild's app page links to it. Production quality gates and deployment passed.
+See tutorial/PUBLISHING-NOTES.txt. Social and outreach remain drafts.
+The preparation text below records
+the earlier state, not the current Console state.
+
+Prepared 18 October 2026. Drafts only: nothing uploaded, saved to Play Console,
+submitted, deployed, posted or emailed. No app code, price, permissions or account
+identity settings were changed.
+
+OPEN index.html for the complete review board.
+
+RECOMMENDATION
+Proposed name: PaperBuild: Photo to PDF (24/30 characters).
+Positioning: turn captured/selected images into a PDF on your phone, without
+an account or ads. Free up to 10 pages; optional one-time paid Pro.
+Keep the existing app icon. The current published title remains unchanged.
+
+READY
+- Listing audit and improved title/short/full description
+- Six 1440 x 2560 phone screenshot layouts from genuine 1.1 captures
+- One 1024 x 500 feature graphic
+- Three 1080 x 1350 social graphics; start with graphic 01 + launch caption
+- English/Romanian captions and transparent community introduction
+- 24-second silent screenshot slideshow with SRT/VTT captions
+- Five-screen website tutorial with editable Markdown and HTML preview
+- Website app-directory/detail-page copy proposal and publication prerequisites
+- Three unsent outreach pitches and separate campaign links by channel
+- Source hashes, crop bounds and asset checks
+
+APPROVALS AND NEXT ACTIONS
+1. Review the name, six-screen order, feature graphic and listing copy.
+2. With approval, upload/save the listing and inspect the individual AI labels.
+   No AI marks are baked into the visuals. No generative imagery was used, and
+   no Console declarations have been changed. Check labels before submission;
+   the app icon remains the existing asset.
+3. Publish the tutorial only with a separate go-ahead. PaperBuild is missing
+   from the site's app data and article schema; see tutorial/PUBLISHING-NOTES.txt.
+4. Only after public verification, add the tutorial URL to the store listing.
+5. Choose one existing social channel and approve the actual graphic 01 post.
+6. Send only a selected editorial pitch; respect community promotion rules.
+7. Compare visits and actual acquisitions after meaningful traffic. No ranking
+   or download uplift is promised, and no monitoring has been scheduled.
+
+App facts: Google Play About this app confirms 1.1.0, updated 16 October,
+checked 18 October. Older README/release notes describe historical draft status.
+Screens use fictional sample pages; Pro is a feature list, not a paid workflow.
+Read QA.txt for verification and manual-check limits. Existing sources unchanged.

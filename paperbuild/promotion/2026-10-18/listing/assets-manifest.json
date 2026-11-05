@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-18",
+  "status": "Submitted with user approval on 18 October 2026. Quick checks passed; Console confirms Changes in review after the user's manual final Send. Approval/publication pending. See SUBMISSION-STATUS.txt.",
+  "liveVersion": "1.1.0, public Google Play About this app checked 18 October 2026",
+  "captureBuild": "1.1 QA app on Samsung Galaxy A55, 15 October 2026; release interface; fictional sample pages",
+  "processing": "Crop and proportional scale only. Original files unchanged. No controls, readings, prices or document content repainted.",
+  "aiMarks": "No baked-in AI marks or generative imagery. All eight Console AI-label checkboxes verified OFF, including the retained icon. Don't label assets selected after saving.",
+  "featureGraphic": {
+    "file": "feature-graphic.png",
+    "width": 1024,
+    "height": 500,
+    "hasAlpha": false,
+    "alt": "PaperBuild turns photos into a PDF on your phone, with a genuine Ready to share result card."
+  },
+  "counts": {
+    "title": 24,
+    "shortDescription": 78,
+    "fullDescription": 3064
+  },
+  "files": [
+    {
+      "file": "01-photos-to-pdf.png",
+      "source": "../../store-assets/play/screenshots/1.1/01-home.png",
+      "sourceSha256": "40ab06753700ce9b00cd3453f264e77123b068dd43eaa664f287001362d240b9",
+      "crop": {
+        "left": 56,
+        "top": 136,
+        "width": 968,
+        "height": 1850
+      },
+      "alt": "PaperBuild home with Scan, Add images, a saved two-page draft and a sample page with crop and ordering controls.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "02-crop-pages.png",
+      "source": "../../store-assets/play/screenshots/1.1/02-crop.png",
+      "sourceSha256": "f62e32987a37ed2b1e848142f741fca0548c0a9ec1c90b05f32991abaf514234",
+      "crop": {
+        "left": 56,
+        "top": 270,
+        "width": 968,
+        "height": 1930
+      },
+      "alt": "Real crop screen with sample page, manual corners, Adjust crop bounds, Restore full page, Apply crop and Cancel.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "03-pdf-settings.png",
+      "source": "../../store-assets/play/screenshots/1.1/03-export.png",
+      "sourceSha256": "2b585aa36c8f8fd1259a7ec22be17e5d41a342570726d660eff67ff16bcfb63e",
+      "crop": {
+        "left": 56,
+        "top": 620,
+        "width": 968,
+        "height": 1510
+      },
+      "alt": "Actual export controls: document name, A4 or US Letter, page styles, Standard or Smaller Pro and Build PDF.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "04-save-share.png",
+      "source": "../../store-assets/play/screenshots/1.1/04-ready.png",
+      "sourceSha256": "36bb677877bfd07a554ee90675ffdb7e7eea386f2368a0ed31410bd9caed26d5",
+      "crop": {
+        "left": 56,
+        "top": 720,
+        "width": 968,
+        "height": 850
+      },
+      "alt": "Real Ready to share card for a fictional two-page PDF with Share PDF, Save PDF and Open PDF controls.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "05-recent-pdfs.png",
+      "source": "../../store-assets/play/screenshots/1.1/05-recent.png",
+      "sourceSha256": "25799effaba19ac38e2fcafca12f9da20c1f89fb43fba0f9c4d814ead9019c00",
+      "crop": {
+        "left": 56,
+        "top": 136,
+        "width": 968,
+        "height": 1500
+      },
+      "alt": "Recent PDFs library with a fictional sample, Open PDF, More options, Removed PDFs and the local-storage warning.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    },
+    {
+      "file": "06-optional-pro.png",
+      "source": "../../store-assets/play/screenshots/1.1/06-pro.png",
+      "sourceSha256": "0dea00a1d5503d26d2d7260abb262ce23ff77688f7f370763392899f185733ba",
+      "crop": {
+        "left": 56,
+        "top": 140,
+        "width": 968,
+        "height": 1760
+      },
+      "alt": "PaperBuild Pro benefits list: smaller PDFs, more pages, merge and extract, protected output, watermarks and saved presets.",
+      "width": 1440,
+      "height": 2560,
+      "hasAlpha": false
+    }
+  ]
+}

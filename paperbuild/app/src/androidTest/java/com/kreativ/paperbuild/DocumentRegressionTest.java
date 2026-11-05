@@ -17,8 +17,10 @@ import com.tom_roush.pdfbox.pdmodel.interactive.annotation.PDAnnotationLink;
 import com.tom_roush.pdfbox.pdmodel.interactive.action.PDActionURI;
 import com.tom_roush.pdfbox.text.PDFTextStripper;
 import java.io.File;
+import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -41,6 +43,17 @@ public class DocumentRegressionTest {
     }
     @After public void cleanup() { for (File file : files) file.delete(); }
     private File track(File file) { files.add(file); return file; }
+    private String text(PDDocument pdf) throws IOException {
+        // The extractor inserts line breaks between glyphs on rotated pages.
+        return new PDFTextStripper().getText(pdf).replaceAll("\\s+", "");
+    }
+    private byte[] contents(PDPage page) throws IOException {
+        try (InputStream input = page.getContents(); ByteArrayOutputStream output = new ByteArrayOutputStream()) {
+            byte[] buffer = new byte[4096]; int count;
+            while ((count = input.read(buffer)) != -1) output.write(buffer, 0, count);
+            return output.toByteArray();
+        }
+    }
 
     private File fixture(String label) throws Exception {
         File file = track(File.createTempFile("test-", ".pdf", context.getCacheDir()));
@@ -66,8 +79,12 @@ public class DocumentRegressionTest {
         File merged = track(processor.merge(Arrays.asList(Uri.fromFile(first), Uri.fromFile(second)), value -> { }));
         try (PDDocument pdf = PDDocument.load(merged)) {
             assertEquals(4, pdf.getNumberOfPages());
-            String text = new PDFTextStripper().getText(pdf);
-            assertTrue(text.contains("Alpha page 1")); assertTrue(text.contains("Beta page 2"));
+            assertEquals("Alphapage1Alphapage2Betapage1Betapage2", text(pdf));
+            try (PDDocument original = PDDocument.load(first)) {
+                assertEquals("Alphapage1Alphapage2", text(original));
+                assertArrayEquals(contents(original.getPage(0)), contents(pdf.getPage(0)));
+                assertArrayEquals(contents(original.getPage(1)), contents(pdf.getPage(1)));
+            }
             assertEquals(400, pdf.getPage(0).getMediaBox().getWidth(), .01f);
             assertEquals(700, pdf.getPage(1).getMediaBox().getWidth(), .01f);
             assertEquals(90, pdf.getPage(1).getRotation());
@@ -81,8 +98,11 @@ public class DocumentRegressionTest {
         File result = track(processor.split(Uri.fromFile(source), 2, 2));
         try (PDDocument pdf = PDDocument.load(result)) {
             assertEquals(1, pdf.getNumberOfPages());
-            String text = new PDFTextStripper().getText(pdf);
-            assertTrue(text.contains("Gamma page 2")); assertFalse(text.contains("Gamma page 1"));
+            assertEquals("Gammapage2", text(pdf));
+            try (PDDocument original = PDDocument.load(source)) {
+                assertEquals("Gammapage1Gammapage2", text(original));
+                assertArrayEquals(contents(original.getPage(1)), contents(pdf.getPage(0)));
+            }
             assertEquals(700, pdf.getPage(0).getMediaBox().getWidth(), .01f);
             assertEquals(90, pdf.getPage(0).getRotation());
             assertEquals(1, pdf.getPage(0).getAnnotations().size());

@@ -1,0 +1,41 @@
+PAPERBUILD GOOGLE PLAY LISTING — 18 OCTOBER 2026
+
+LATEST UPDATE: The original refresh below is now Published (submission 3),
+confirmed in Console and on the public listing. A subsequent description-only
+change adds the published tutorial URL and has been submitted with user approval.
+Console shows Changes in review; quick checks still running. See
+TUTORIAL-LINK-SUBMISSION.txt and tutorial-link-submitted.png for current evidence.
+The original submission record below is historical.
+
+User approved the name PaperBuild: Photo to PDF, prepared copy, new screenshots,
+feature graphic and submission for review, without AI marks.
+
+Saved for com.kreativ.paperbuild / English (United Kingdom), en-GB:
+- App name: PaperBuild: Photo to PDF (24 characters)
+- Short description: 78 characters; exact copy in ../copy.json
+- Full description: 3064 characters; exact copy in ../copy.json
+- Feature graphic: feature-graphic.png, 1024 x 500
+- Six phone screenshots, verified in order:
+  01-photos-to-pdf.png
+  02-crop-pages.png
+  03-pdf-settings.png
+  04-save-share.png
+  05-recent-pdfs.png
+  06-optional-pro.png
+
+AI LABELS: All eight checkboxes OFF, including the retained existing icon.
+The Review page shows Don't label assets selected after saving the listing.
+Evidence: console-all-ai-flags-off.png and console-ai-labels-off.png.
+
+SUBMISSION STATUS: Confirmed in review on 18 October 2026 after the user
+performed the final Send manually. Automated attempts had not registered.
+The Console now shows Changes in review and Your changes are now in review.
+All five expected changes are included: app name, short description, full
+description, phone screenshots and feature graphic. Quick checks completed.
+Evidence: console-submitted-in-review.png.
+Approval and publication are still pending; last published remains 16 October.
+
+No app bundle/release, pricing, Pro SKU, permissions, developer identity,
+privacy-policy URL, website, social post or outreach message was changed.
+The unpublished tutorial URL was not added to the listing.
+Managed publishing remains OFF as found, so approval may publish automatically.

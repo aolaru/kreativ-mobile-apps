@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 48 48">
+  <!-- Existing Android icon artwork on a full-bleed square background for Google Play. -->
+  <rect width="48" height="48" fill="#4C5FDF"/>
+  <path fill="#FFFFFF" d="M14,10h15l7,7v21H14z"/>
+  <path fill="#BBC6FF" d="M29,10v7h7z"/>
+  <path fill="#4C5FDF" d="M19,23h12v2H19zM19,28h12v2H19zM19,33h7v2h-7z"/>
+  <path fill="#96DFC4" d="M36,30a7,7 0,1 0,0 14a7,7 0,1 0,0 -14"/>
+  <path fill="#183D35" d="M32,36l2,2 5,-5 1,1 -6,6 -3,-3z"/>
+</svg>

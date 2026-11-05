@@ -2,4 +2,5 @@
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
     <cache-path name="paperbuild" path="paperbuild/" />
     <files-path name="pages" path="paperbuild/pages/" />
+    <files-path name="library" path="paperbuild/library/" />
 </paths>

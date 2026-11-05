@@ -24,6 +24,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,7 +50,7 @@ import java.util.Set;
 
 public class MainActivity extends Activity {
     private static final int PICK_IMAGES = 101, CAPTURE_PAGE = 102, WRITE_DOCUMENT = 103,
-            PICK_PDFS_TO_MERGE = 104, PICK_PDF_TO_SPLIT = 105;
+            PICK_PDFS_TO_MERGE = 104, PICK_PDF_TO_SPLIT = 105, PICK_LOGO = 106;
     private static final int A4_WIDTH = 595, A4_HEIGHT = 842, LETTER_WIDTH = 612, LETTER_HEIGHT = 792;
     private static final int ENHANCE_COLOR = 0, ENHANCE_GRAYSCALE = 1, ENHANCE_CONTRAST = 2;
     private static final int COMPRESSION_STANDARD = 0, COMPRESSION_SMALL = 1, FREE_PAGE_LIMIT = 10;
@@ -67,6 +68,8 @@ public class MainActivity extends Activity {
     private View emptyState;
     private Button settingsButton;
     private boolean settingsExpanded;
+    private Button recentButton, exportOptionsButton, presetsButton, editPdfButton;
+    private boolean logoPending;
     private int shownRevision = -1;
     private final Runnable sessionListener = this::renderSession;
 
@@ -75,6 +78,7 @@ public class MainActivity extends Activity {
         session = DocumentSession.get(this);
         pages = session.pages;
         settingsExpanded = state != null && state.getBoolean("settingsExpanded");
+        logoPending = state != null && state.getBoolean("logoPending");
         setContentView(buildScreen());
         documentName.addTextChangedListener(new TextWatcher() {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -95,6 +99,7 @@ public class MainActivity extends Activity {
     }
     @Override protected void onSaveInstanceState(Bundle state) {
         state.putBoolean("settingsExpanded", settingsExpanded);
+        state.putBoolean("logoPending", logoPending);
         super.onSaveInstanceState(state);
     }
     @Override protected void onStart() { super.onStart(); session.attach(sessionListener); }
@@ -136,7 +141,10 @@ public class MainActivity extends Activity {
             public void move(int from, int to) { movePage(from, to); }
             public void rotate(int index) {
                 PageItem page = pages.get(index);
-                pages.set(index, new PageItem(page.uri, page.name, (page.rotation + 90) % 360)); session.changed();
+                pages.set(index, page.clockwise()); session.changed();
+            }
+            public void crop(int index) {
+                if (!session.busy) startActivity(new Intent(MainActivity.this, CropActivity.class).putExtra("index", index));
             }
             public void remove(int index) {
                 PageItem removed = pages.remove(index); session.deletePageFile(removed); session.changed();
@@ -208,12 +216,27 @@ public class MainActivity extends Activity {
         mergeButton.setOnClickListener(v -> { if (requirePro()) choosePdfsForMerge(); });
         splitButton = button("Extract pages", false); Ui.icon(splitButton, R.drawable.ic_extract, Ui.ACCENT);
         splitButton.setOnClickListener(v -> { if (requirePro()) choosePdfForSplit(); });
-        tools.addView(actionRow(mergeButton, splitButton)); root.addView(tools); Ui.gap(root, 16);
+        tools.addView(actionRow(mergeButton, splitButton)); Ui.gap(tools, 12);
+        editPdfButton = button("Edit PDF pages", false); editPdfButton.setId(R.id.edit_pdf);
+        Ui.icon(editPdfButton, R.drawable.ic_stack, Ui.ACCENT);
+        editPdfButton.setOnClickListener(v -> { if (requirePro()) startActivity(new Intent(this, PdfEditorActivity.class)); });
+        tools.addView(editPdfButton, matchWrap()); Ui.gap(tools, 10);
+        exportOptionsButton = button("Pro export options", false); exportOptionsButton.setOnClickListener(v -> showExportOptions(null));
+        exportOptionsButton.setId(R.id.export_options);
+        tools.addView(exportOptionsButton, matchWrap()); Ui.gap(tools, 10);
+        presetsButton = button("Saved presets · Pro", false); presetsButton.setOnClickListener(v -> showPresets()); tools.addView(presetsButton, matchWrap());
+        presetsButton.setId(R.id.saved_presets);
+        root.addView(tools); Ui.gap(root, 16);
+        recentButton = button("Recent PDFs · Free", false);
+        recentButton.setId(R.id.recent_pdfs);
+        recentButton.setOnClickListener(v -> startActivity(new Intent(this, RecentPdfsActivity.class)));
+        root.addView(recentButton, matchWrap()); Ui.gap(root, 16);
         root.addView(proCard()); Ui.gap(root, 18);
         Button about = button("Privacy & About", false); Ui.icon(about, R.drawable.ic_shield, Ui.MUTED);
         about.setOnClickListener(v -> startActivity(new Intent(this, AboutActivity.class))); root.addView(about, matchWrap());
-        TextView footer = label("Made with care by Kreativ", 11, Ui.MUTED);
-        footer.setGravity(Gravity.CENTER); footer.setPadding(0, dp(18), 0, 0); root.addView(footer);
+        TextView footer = label(getString(R.string.version_credit, BuildConfig.VERSION_NAME), 12, Ui.MUTED);
+        footer.setId(R.id.version_credit);
+        footer.setGravity(Gravity.CENTER); footer.setPadding(0, dp(18), 0, 0); root.addView(footer, matchWrap());
         return scroll;
     }
 
@@ -221,7 +244,7 @@ public class MainActivity extends Activity {
         LinearLayout card = Ui.card(this, R.drawable.pro_panel);
         card.addView(Ui.text(this, "PAPERBUILD PRO", 11, Ui.ACCENT, true)); Ui.gap(card, 10);
         card.addView(Ui.text(this, "A little more possibility.", 22, Ui.INK, true)); Ui.gap(card, 8);
-        card.addView(label("Smaller files. Unlimited pages. More PDF tools.", 14, Ui.MUTED)); Ui.gap(card, 16);
+        card.addView(label("Protect. Personalise. Export your way.", 14, Ui.MUTED)); Ui.gap(card, 16);
         proButton = button(isPro() ? "Manage Pro" : "Explore Pro", true); proButton.setOnClickListener(v -> showPro());
         card.addView(proButton, matchWrap()); Ui.gap(card, 10);
         TextView copy = label("One-time purchase · No subscription", 12, Ui.MUTED); copy.setGravity(Gravity.CENTER); card.addView(copy);
@@ -253,6 +276,7 @@ public class MainActivity extends Activity {
     private void updateProUi() {
         if (isFinishing() || isDestroyed()) return;
         proButton.setText(isPro() ? "Manage Pro" : "Explore Pro");
+        exportOptionsButton.setText(isPro() ? session.options.summary() : "Pro export options");
         if (!isPro() && selectedCompression() == COMPRESSION_STANDARD) {
             compressionGroup.check(compressionGroup.getChildAt(0).getId());
         }
@@ -263,6 +287,9 @@ public class MainActivity extends Activity {
         boolean busy = session.busy;
         scanButton.setEnabled(!busy); addButton.setEnabled(!busy);
         mergeButton.setEnabled(!busy); splitButton.setEnabled(!busy); clearButton.setEnabled(!busy && !pages.isEmpty());
+        recentButton.setEnabled(!busy); exportOptionsButton.setEnabled(!busy); presetsButton.setEnabled(!busy);
+        editPdfButton.setEnabled(!busy);
+        exportOptionsButton.setText(isPro() ? session.options.summary() : "Pro export options");
         documentName.setEnabled(!busy);
         enableGroup(paperSizeGroup, !busy); enableGroup(enhancementGroup, !busy); enableGroup(compressionGroup, !busy);
         makePdfButton.setEnabled(!busy && !pages.isEmpty());
@@ -288,6 +315,10 @@ public class MainActivity extends Activity {
         for (Button button : new Button[]{shareButton, saveButton, openButton}) {
             button.setEnabled(result); button.setVisibility(result ? View.VISIBLE : View.GONE);
         }
+        if (logoPending && !busy) {
+            logoPending = false;
+            statusText.post(() -> { if (!isFinishing() && !isDestroyed()) showExportOptions(null); });
+        }
     }
     private void enableGroup(RadioGroup group, boolean enabled) {
         for (int i = 0; i < group.getChildCount(); i++) group.getChildAt(i).setEnabled(enabled);
@@ -298,11 +329,11 @@ public class MainActivity extends Activity {
     }
     private void clearDocument() {
         new AlertDialog.Builder(this).setTitle("Start a new document?")
-                .setMessage("This removes the current draft. PDFs saved to Downloads stay available.")
+                .setMessage("This removes the current draft. Recent PDFs and exported copies stay available.")
                 .setNegativeButton("Cancel", null).setPositiveButton("New document", (dialog, which) -> {
                     if (session.busy) return;
                     for (PageItem page : pages) session.deletePageFile(page);
-                    pages.clear(); session.name = "My document";
+                    pages.clear(); session.name = "My document"; session.options = session.options.withoutPassword();
                     documentName.setText(session.name); session.changed();
                 }).show();
     }
@@ -358,12 +389,14 @@ public class MainActivity extends Activity {
             if (!requirePro()) return;
             if (selected.size() < 2) { Toast.makeText(this, "Choose at least two PDFs.", Toast.LENGTH_LONG).show(); return; }
             DocumentProcessor processor = session.processor;
-            session.run("Merging PDFs…", progress -> {
-                File pdf = processor.merge(selected, progress);
-                return pdfResult(pdf, "Merged PDF is ready.");
-            });
+            withExportOptions(options -> session.run("Merging PDFs…", progress -> {
+                File pdf = processor.merge(selected, options, progress);
+                return pdfResult(pdf, "Merged PDF is ready.", "Merged PDF");
+            }));
         } else if (request == PICK_PDF_TO_SPLIT && !selected.isEmpty()) {
             if (requirePro()) askSplitRange(selected.get(0));
+        } else if (request == PICK_LOGO && !selected.isEmpty()) {
+            if (requirePro()) { logoPending = true; session.importLogo(this, selected.get(0)); }
         } else if (request == PICK_IMAGES) { importImages(selected); }
     }
     private void importImages(ArrayList<Uri> selected) {
@@ -403,7 +436,7 @@ public class MainActivity extends Activity {
             if (parsed == null) { range.setError("Use a page or range such as 1-3."); return; }
             if (!requirePro() || session.busy) return;
             DocumentProcessor processor = session.processor;
-            session.run("Extracting pages…", progress -> pdfResult(processor.split(uri, parsed[0], parsed[1]), "Extracted pages are ready."));
+            withExportOptions(options -> session.run("Extracting pages…", progress -> pdfResult(processor.split(uri, parsed[0], parsed[1], options), "Extracted pages are ready.", "Extracted pages")));
             dialog.dismiss();
         }));
         dialog.show();
@@ -417,19 +450,75 @@ public class MainActivity extends Activity {
         int treatment = selectedEnhancement();
         boolean compact = selectedCompression() == COMPRESSION_SMALL;
         DocumentProcessor processor = session.processor;
-        session.run("Building your PDF…", progress -> {
-            File pdf = processor.exportImages(snapshot, title, width, height, treatment, compact, progress);
-            return new DocumentSession.Result(pdf, pdf.getName() + "\n" + snapshot.size() + (snapshot.size() == 1 ? " page · " : " pages · ") + readableSize(pdf.length())
+        withExportOptions(options -> session.run("Building your PDF…", progress -> {
+            File pdf = processor.exportImages(snapshot, title, width, height, treatment, compact, options, progress);
+            return new DocumentSession.Result(pdf, DocumentProcessor.safeName(title) + ".pdf\n" + snapshot.size() + (snapshot.size() == 1 ? " page · " : " pages · ") + readableSize(pdf.length())
                     + "\n" + (width == LETTER_WIDTH ? "US Letter" : "A4") + " · " + (compact ? "Compact" : "Standard")
-                    + "\nCreated locally on this device", "Your PDF is ready.");
+                    + (options.protect ? " · Password protected" : "")
+                    + "\nSaved privately in Recent PDFs", "Your PDF is ready.", null, title);
+        }));
+    }
+    private static DocumentSession.Result pdfResult(File pdf, String message, String title) {
+        return new DocumentSession.Result(pdf, title + ".pdf\n" + readableSize(pdf.length()) + "\nSaved privately in Recent PDFs", message, null, title);
+    }
+    private void withExportOptions(java.util.function.Consumer<ExportOptions> export) {
+        if (session.busy) return;
+        ExportOptions options = isPro() ? session.options : ExportOptions.NONE;
+        try { options.validate(); }
+        catch (IllegalArgumentException missingPassword) { showExportOptions(() -> withExportOptions(export)); return; }
+        session.options = session.options.withoutPassword(); session.save(); export.accept(options);
+    }
+
+    private void showExportOptions(Runnable afterSave) {
+        if (session.busy || !requirePro()) return;
+        ExportOptionsDialog.show(this, session.options, options -> {
+            if (session.busy || !requirePro()) return;
+            session.options = options; session.changed(); if (afterSave != null) afterSave.run();
+        }, staged -> {
+            if (session.busy || !requirePro()) return;
+            session.options = staged; session.changed(); chooseFiles("image/*", false, PICK_LOGO, "Choose a logo");
         });
     }
-    private static DocumentSession.Result pdfResult(File pdf, String message) {
-        return new DocumentSession.Result(pdf, pdf.getName() + "\n" + readableSize(pdf.length()) + "\nCreated locally on this device", message);
+    private void showPresets() {
+        if (session.busy || !requirePro()) return;
+        PresetStore store = new PresetStore(this); java.util.List<PresetStore.Preset> presets = store.list();
+        String[] names = new String[presets.size() + 1]; names[0] = "Save current settings…";
+        for (int i = 0; i < presets.size(); i++) names[i + 1] = presets.get(i).name;
+        new AlertDialog.Builder(this).setTitle("Saved presets · Pro").setItems(names, (d, which) -> {
+            if (!requirePro() || session.busy) return;
+            if (which == 0) {
+                EditText name = new EditText(this); name.setHint("e.g. Small A4 with page numbers"); name.setContentDescription("Preset name"); name.setSingleLine(true);
+                AlertDialog save = new AlertDialog.Builder(this).setTitle("Save export preset")
+                        .setMessage("Saves page size, style, compression and Pro options. Never saves your password. An existing name will be replaced.")
+                        .setView(name).setNegativeButton("Cancel", null).setPositiveButton("Save", null).create();
+                save.setOnShowListener(ignored -> save.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+                    if (!requirePro() || session.busy) return;
+                    if (name.getText().toString().trim().isEmpty()) { name.setError("Enter a preset name."); return; }
+                    try {
+                        if (!store.save(new PresetStore.Preset(name.getText().toString(), selectedPaper(), selectedEnhancement(), selectedCompression(), session.options))) {
+                            name.setError("Couldn’t save. Try again."); return;
+                        }
+                        Toast.makeText(this, "Preset saved. Password not included.", Toast.LENGTH_SHORT).show(); save.dismiss();
+                    } catch (IllegalArgumentException invalid) { name.setError(invalid.getMessage()); }
+                })); save.show();
+            } else {
+                PresetStore.Preset preset = presets.get(which - 1);
+                new AlertDialog.Builder(this).setTitle(preset.name).setMessage("Use these export settings? Protected exports will ask for a fresh password.")
+                        .setNegativeButton("Cancel", null).setNeutralButton("Delete preset", (dialog, w) -> { if (!store.remove(preset.name)) Toast.makeText(this, "Couldn’t delete preset.", Toast.LENGTH_LONG).show(); })
+                        .setPositiveButton("Use preset", (dialog, w) -> {
+                            if (!requirePro() || session.busy) return;
+                            paperSizeGroup.check(paperSizeGroup.getChildAt(preset.paper).getId());
+                            enhancementGroup.check(enhancementGroup.getChildAt(preset.enhancement).getId());
+                            compressionGroup.check(compressionGroup.getChildAt(preset.compression).getId());
+                            session.options = preset.options; session.changed();
+                            Toast.makeText(this, preset.options.protect ? "Preset applied. Enter a password before exporting." : "Preset applied.", Toast.LENGTH_LONG).show();
+                        }).show();
+            }
+        }).show();
     }
     private void sharePdf() {
         File pdf = session.latestPdf; if (pdf == null || !pdf.exists()) return;
-        Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", pdf);
+        Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", pdf, session.latestTitle + ".pdf");
         Intent send = new Intent(Intent.ACTION_SEND).setType("application/pdf");
         send.putExtra(Intent.EXTRA_STREAM, uri); send.setClipData(ClipData.newRawUri("PaperBuild PDF", uri));
         send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -438,7 +527,7 @@ public class MainActivity extends Activity {
     }
     private void openPdf() {
         File pdf = session.latestPdf; if (pdf == null || !pdf.exists()) return;
-        Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", pdf);
+        Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", pdf, session.latestTitle + ".pdf");
         Intent view = new Intent(Intent.ACTION_VIEW).setDataAndType(uri, "application/pdf").addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         try { startActivity(Intent.createChooser(view, "Open PDF")); }
         catch (ActivityNotFoundException error) { Toast.makeText(this, "No PDF viewer is available.", Toast.LENGTH_LONG).show(); }
@@ -449,21 +538,25 @@ public class MainActivity extends Activity {
             requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_DOCUMENT); return;
         }
         File source = session.latestPdf;
+        String filename = DocumentProcessor.safeName(session.latestTitle) + ".pdf";
         ContextSave save = new ContextSave(getApplicationContext().getContentResolver());
         session.run("Saving to Downloads…", progress -> {
-            save.save(source);
+            save.save(source, filename);
             return new DocumentSession.Result(null, "", "Saved to Downloads/PaperBuild.");
         });
     }
     /** Contains no Activity reference, so a save continues safely during rotation. */
-    private static final class ContextSave {
+    static final class ContextSave {
         final ContentResolver resolver;
         ContextSave(ContentResolver resolver) { this.resolver = resolver; }
         void save(File source) throws IOException {
+            save(source, source.getName());
+        }
+        void save(File source, String displayName) throws IOException {
             if (Build.VERSION.SDK_INT < 29) {
                 File folder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "PaperBuild");
                 if (!folder.isDirectory() && !folder.mkdirs()) throw new IOException("Could not create the Downloads folder.");
-                String name = source.getName(); File destination = new File(folder, name);
+                String name = displayName; File destination = new File(folder, name);
                 int suffix = 1;
                 while (destination.exists()) destination = new File(folder, name.replace(".pdf", "-" + suffix++ + ".pdf"));
                 try (InputStream input = new FileInputStream(source); OutputStream output = new FileOutputStream(destination)) { copy(input, output); }
@@ -471,7 +564,7 @@ public class MainActivity extends Activity {
                 return;
             }
             ContentValues values = new ContentValues();
-            values.put(MediaStore.Downloads.DISPLAY_NAME, source.getName());
+            values.put(MediaStore.Downloads.DISPLAY_NAME, displayName);
             values.put(MediaStore.Downloads.MIME_TYPE, "application/pdf");
             values.put(MediaStore.Downloads.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS + "/PaperBuild");
             values.put(MediaStore.Downloads.IS_PENDING, 1);
