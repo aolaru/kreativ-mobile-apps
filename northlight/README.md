@@ -2,6 +2,33 @@
 
 An offline Android compass and emergency-light utility from Kreativ.
 
+## 1.3.0 saved places and release optimisation — 4 November 2026
+
+Local development version **1.3.0 / code 6** adds an optional Pro saved-place
+screen. It saves up to 24 user-selected GPS locations locally, with their names
+and reported accuracy. Fresh foreground GPS and a magnetic-declination-adjusted
+compass estimate straight-line distance and direction; unreliable or nearby
+fixes suppress direction. Spoken turn guidance and optional haptics reuse the
+existing offline speech and screen-reader behaviour. GPS and speech stop when
+the screen is left and never resume automatically. No route or obstacle guidance
+is provided. English and Romanian strings are included.
+
+Release builds now enable R8 and resource shrinking. The WorkManager purchase
+acknowledgement worker retains its original class name and constructor for
+pending work created by older app versions. When preparing the actual signed
+release, preserve `app/build/outputs/mapping/release/mapping.txt` with that
+exact bundle and confirm Google Play has its deobfuscation mapping.
+
+Local validation: 78 JVM tests passed and the R8-optimised, debug-signed
+`storePreview` build passed. Its mapping retains `AcknowledgeWorker` and its
+constructor. The optimized preview is not the Play upload bundle. No phone or
+emulator testing was performed for 1.3.0 at the user's request, and billing was
+not exercised with a real purchase. The public privacy policy was updated on
+4 November 2026 to describe the planned saved-place feature and its local data
+handling. The draft in `store-assets/play/privacy-policy/index.html` also
+describes that feature. Review Play Data safety, listing copy/screenshots, device
+behaviour and the signed release before submitting the update.
+
 ## 1.2.0 release preparation — 15 October 2026
 
 The next release is **1.2.0 / version code 5** (Play's highest existing upload was
