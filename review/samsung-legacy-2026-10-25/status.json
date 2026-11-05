@@ -1,0 +1,16 @@
+{
+  "app": "FontApp",
+  "contentId": "000000789080",
+  "uniqueAppCountInAllList": 1,
+  "saleRecord": {
+    "status": "Suspended",
+    "lastUpdated": "2022-01-07"
+  },
+  "historicalReviewRecord": {
+    "status": "Test Confirmation Rejected",
+    "lastUpdated": "2014-03-18"
+  },
+  "suspensionReason": "Suspension reason popup fields were empty; original reason unconfirmed",
+  "editRestrictionObserved": "From March 1, 2023, only corporate commercial sellers will be able to edit Android apps.",
+  "accountOrAppChanged": false
+}

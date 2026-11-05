@@ -1,0 +1,341 @@
+{
+  "sharesafe": {
+    "url": "https://play.google.com/store/apps/details?id=com.kreativ.sharesafe&hl=en_US&gl=US",
+    "titleVisible": true,
+    "shortDescriptionVisible": true,
+    "fullDescriptionVisible": true,
+    "screenshotCount": 5,
+    "assets": [
+      {
+        "contentType": "image/webp",
+        "id": "ead87ee35ef62df7",
+        "kind": "image",
+        "name": "GW3oMWu9eHzTgKXsTiTg6yzXI3gQIPXneC3i9rmAUYE72G_BC8BD3UoaU3zOuk0HszITM2XC8xSMdS7GdPVrPQ=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/4290ad4c-850c-434e-8869-73a2846f3e5b/ead87ee35ef62df7",
+        "url": "https://play-lh.googleusercontent.com/GW3oMWu9eHzTgKXsTiTg6yzXI3gQIPXneC3i9rmAUYE72G_BC8BD3UoaU3zOuk0HszITM2XC8xSMdS7GdPVrPQ=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "84bf9d677c79787c",
+        "kind": "image",
+        "name": "pHDMxuG5tqDsIEDLmZKd5Kd4ZYsWLEjhLxZD5cqND5zGL41Xotkhwgpw2-FjwmfFbVwSwpdIJkppGYiLPIwv=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/4290ad4c-850c-434e-8869-73a2846f3e5b/84bf9d677c79787c",
+        "url": "https://play-lh.googleusercontent.com/pHDMxuG5tqDsIEDLmZKd5Kd4ZYsWLEjhLxZD5cqND5zGL41Xotkhwgpw2-FjwmfFbVwSwpdIJkppGYiLPIwv=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "22f837cc062544f3",
+        "kind": "image",
+        "name": "NDj5ZOifLbZh3lFQ7_ZSi9jAe0uxNKZ9uzz1m9hFUI1qAZWxWFvQlfR6uwTA4WBxCONXB7R-uJz9AXceLNYY=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/4290ad4c-850c-434e-8869-73a2846f3e5b/22f837cc062544f3",
+        "url": "https://play-lh.googleusercontent.com/NDj5ZOifLbZh3lFQ7_ZSi9jAe0uxNKZ9uzz1m9hFUI1qAZWxWFvQlfR6uwTA4WBxCONXB7R-uJz9AXceLNYY=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "c447d93da51bfef9",
+        "kind": "image",
+        "name": "M8SOegFJ2_tJwbl_tL9mKvYz5gRbp5vlWf4l5lGtGcO3QNBvpOhktWGp73ZfrpiPlS07kbZHdPTCQnyJJIU=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/4290ad4c-850c-434e-8869-73a2846f3e5b/c447d93da51bfef9",
+        "url": "https://play-lh.googleusercontent.com/M8SOegFJ2_tJwbl_tL9mKvYz5gRbp5vlWf4l5lGtGcO3QNBvpOhktWGp73ZfrpiPlS07kbZHdPTCQnyJJIU=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "84ecc0e4818ee458",
+        "kind": "image",
+        "name": "krH94Odgkr4ATgF-GjcTyZtM692L4QztBKYwBKd5vqcrT57fc6C6UlyIID-o3-7ionZ1u_5OPlsuoW6kR4jO=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/4290ad4c-850c-434e-8869-73a2846f3e5b/84ecc0e4818ee458",
+        "url": "https://play-lh.googleusercontent.com/krH94Odgkr4ATgF-GjcTyZtM692L4QztBKYwBKd5vqcrT57fc6C6UlyIID-o3-7ionZ1u_5OPlsuoW6kR4jO=w1052-h592-rw"
+      }
+    ],
+    "publicGalleryHasAILabel": false,
+    "website": "https://madebykreativ.com/apps/sharesafe/",
+    "tutorialVisible": true
+  },
+  "northlight": {
+    "url": "https://play.google.com/store/apps/details?id=com.kreativ.northlight&hl=en_US&gl=US",
+    "titleVisible": true,
+    "shortDescriptionVisible": true,
+    "fullDescriptionVisible": true,
+    "tutorialVisible": true,
+    "website": "https://madebykreativ.com/apps/northlight/",
+    "websiteCorrect": true,
+    "screenshotCount": 5,
+    "assets": [
+      {
+        "contentType": "image/webp",
+        "id": "d5110f77d861d34e",
+        "kind": "image",
+        "name": "ixBGocGlcvv2GuK2NXA0L1ftnXkrKRLTCxvtKwTpenwJwRzDwvowIMTLlsRKOMv5VBRn-a4LqI1vpigY2FVx=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/c8c10928-2891-492b-9eed-ca6012e372a2/d5110f77d861d34e",
+        "url": "https://play-lh.googleusercontent.com/ixBGocGlcvv2GuK2NXA0L1ftnXkrKRLTCxvtKwTpenwJwRzDwvowIMTLlsRKOMv5VBRn-a4LqI1vpigY2FVx=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "0c1f2724a3173d89",
+        "kind": "image",
+        "name": "Qdx5qrEPFpk5jzDCfXVEByYXsjv7BseI6hdFufin0lhsfM6Kcn2hIlxwQmZokiDQpGxz-IVx1QojJwrz8Bfwza4=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/c8c10928-2891-492b-9eed-ca6012e372a2/0c1f2724a3173d89",
+        "url": "https://play-lh.googleusercontent.com/Qdx5qrEPFpk5jzDCfXVEByYXsjv7BseI6hdFufin0lhsfM6Kcn2hIlxwQmZokiDQpGxz-IVx1QojJwrz8Bfwza4=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "113ee70112f6209c",
+        "kind": "image",
+        "name": "z_FG96GffeGg-ZRXlOvgwn4CDbgkkdVi0PdYdq7esPFI7QIKX7ILm2uD-Km_hyA9tqOm3YrQKrOdDWPqdkR8MQ=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/c8c10928-2891-492b-9eed-ca6012e372a2/113ee70112f6209c",
+        "url": "https://play-lh.googleusercontent.com/z_FG96GffeGg-ZRXlOvgwn4CDbgkkdVi0PdYdq7esPFI7QIKX7ILm2uD-Km_hyA9tqOm3YrQKrOdDWPqdkR8MQ=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "029cccb6094c5636",
+        "kind": "image",
+        "name": "XLYIFlouWwjr1IPxe5e8Qz59R1OeMFscNHh6pcDM9WK-8OJoj9i53BIovzOkN0dnzdVoq1HLhwZnVOOXN-xRbQ=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/c8c10928-2891-492b-9eed-ca6012e372a2/029cccb6094c5636",
+        "url": "https://play-lh.googleusercontent.com/XLYIFlouWwjr1IPxe5e8Qz59R1OeMFscNHh6pcDM9WK-8OJoj9i53BIovzOkN0dnzdVoq1HLhwZnVOOXN-xRbQ=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "b2e5e45aa4aee76d",
+        "kind": "image",
+        "name": "NX6qNaSIxHw7VDaNtcP1KVsFI57X30noWbdnUid9FkorqbLRDF95Pvx4xEtMFcmOP2v1Zvf_jPDpGJ31WV1qDg=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/c8c10928-2891-492b-9eed-ca6012e372a2/b2e5e45aa4aee76d",
+        "url": "https://play-lh.googleusercontent.com/NX6qNaSIxHw7VDaNtcP1KVsFI57X30noWbdnUid9FkorqbLRDF95Pvx4xEtMFcmOP2v1Zvf_jPDpGJ31WV1qDg=w1052-h592-rw"
+      }
+    ]
+  },
+  "paperbuild": {
+    "url": "https://play.google.com/store/apps/details?id=com.kreativ.paperbuild&hl=en_US&gl=US",
+    "titleVisible": true,
+    "shortDescriptionVisible": true,
+    "fullDescriptionVisible": true,
+    "tutorialVisible": true,
+    "website": "https://madebykreativ.com/apps/paperbuild/",
+    "websiteCorrect": true,
+    "screenshotCount": 6,
+    "assets": [
+      {
+        "contentType": "image/webp",
+        "id": "24bafbb0e7265d82",
+        "kind": "image",
+        "name": "wGACsXfokYUWkHRfBJJE3LSFF2XtQQ2ixGk4NZJ0BeS7GT4Og4BKa-Y9tF1xqUYeKXs54KZCTTnw3AJlEvFSOQ=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/666c6d5e-665c-40ab-91a4-5d6f947464f2/24bafbb0e7265d82",
+        "url": "https://play-lh.googleusercontent.com/wGACsXfokYUWkHRfBJJE3LSFF2XtQQ2ixGk4NZJ0BeS7GT4Og4BKa-Y9tF1xqUYeKXs54KZCTTnw3AJlEvFSOQ=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "57dee72e60dd8074",
+        "kind": "image",
+        "name": "LUTBzX2ed2g_a_jb-JtiLPyrgffXypL61QlY_9fAGjG2Ilh-gCXElE1PruaIEmtXZr26ZGiSLBCq1hfZ56ypmA=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/666c6d5e-665c-40ab-91a4-5d6f947464f2/57dee72e60dd8074",
+        "url": "https://play-lh.googleusercontent.com/LUTBzX2ed2g_a_jb-JtiLPyrgffXypL61QlY_9fAGjG2Ilh-gCXElE1PruaIEmtXZr26ZGiSLBCq1hfZ56ypmA=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "b1ad25763b0b6485",
+        "kind": "image",
+        "name": "IZWqeIqHF0xzmftwjHMTqsICpc7YFnVa7J_B97HY4k3GfrOf_0jyLJmInrq2SrNNf__R3J4X4H2EudnpsNycXw=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/666c6d5e-665c-40ab-91a4-5d6f947464f2/b1ad25763b0b6485",
+        "url": "https://play-lh.googleusercontent.com/IZWqeIqHF0xzmftwjHMTqsICpc7YFnVa7J_B97HY4k3GfrOf_0jyLJmInrq2SrNNf__R3J4X4H2EudnpsNycXw=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "ee92b0364ac72230",
+        "kind": "image",
+        "name": "3O538KPlfQPvkplxKx_3XHe_IS9MJrGBf5ed1x0pvO2xqknTWBhTLk-pW7XGOA2mLcZ2mSJt1rQuEBQhnhUfhA=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/666c6d5e-665c-40ab-91a4-5d6f947464f2/ee92b0364ac72230",
+        "url": "https://play-lh.googleusercontent.com/3O538KPlfQPvkplxKx_3XHe_IS9MJrGBf5ed1x0pvO2xqknTWBhTLk-pW7XGOA2mLcZ2mSJt1rQuEBQhnhUfhA=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "f576bab5792099e9",
+        "kind": "image",
+        "name": "WuVqANsAWbxQ6hEf0IwQGvePY5HXY6-bhT1uFgOYxhM6aarmClsNiHtx5qH2khGmYluKGPf7BLTjAR5AAqEqnA=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/666c6d5e-665c-40ab-91a4-5d6f947464f2/f576bab5792099e9",
+        "url": "https://play-lh.googleusercontent.com/WuVqANsAWbxQ6hEf0IwQGvePY5HXY6-bhT1uFgOYxhM6aarmClsNiHtx5qH2khGmYluKGPf7BLTjAR5AAqEqnA=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "d8d5d228ba7d1333",
+        "kind": "image",
+        "name": "bk7JsdTfE7jl9Clm5Mo7oY25DiTq6qxDgVr_3pHnHa-eAgFpiksyOisJJANFL7yDY3J1n5W6pGuFZK3X6JvKvzU=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/666c6d5e-665c-40ab-91a4-5d6f947464f2/d8d5d228ba7d1333",
+        "url": "https://play-lh.googleusercontent.com/bk7JsdTfE7jl9Clm5Mo7oY25DiTq6qxDgVr_3pHnHa-eAgFpiksyOisJJANFL7yDY3J1n5W6pGuFZK3X6JvKvzU=w1052-h592-rw"
+      }
+    ]
+  },
+  "kreativ-font": {
+    "url": "https://play.google.com/store/apps/details?id=com.kreativ.fontapp&hl=en_US&gl=US",
+    "titleVisible": true,
+    "shortDescriptionVisible": true,
+    "fullDescriptionVisible": true,
+    "tutorialVisible": true,
+    "website": "https://www.kreativfont.com",
+    "websiteCorrect": null,
+    "screenshotCount": 5,
+    "assets": [
+      {
+        "contentType": "image/webp",
+        "id": "497c1d432fad6026",
+        "kind": "image",
+        "name": "o5N7IIrJeX56rfkCT7NHcJaACjvVtuTl2zt3BVoZ0NLT1SplhVobcLvIEH3w50K15xYoDudE6RyCxyFRObCT=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/89168316-fa7b-4ede-935a-ef1816b89d60/497c1d432fad6026",
+        "url": "https://play-lh.googleusercontent.com/o5N7IIrJeX56rfkCT7NHcJaACjvVtuTl2zt3BVoZ0NLT1SplhVobcLvIEH3w50K15xYoDudE6RyCxyFRObCT=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "569aa80cd173a188",
+        "kind": "image",
+        "name": "Mc1G40lMqIErk3Zyb22UStNwnAH2GFO9x70Oy82AAODbgguzOstD-h5ZBZE9qMWj--kxHA4qY0Hk5QSCOtofbg=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/89168316-fa7b-4ede-935a-ef1816b89d60/569aa80cd173a188",
+        "url": "https://play-lh.googleusercontent.com/Mc1G40lMqIErk3Zyb22UStNwnAH2GFO9x70Oy82AAODbgguzOstD-h5ZBZE9qMWj--kxHA4qY0Hk5QSCOtofbg=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "46bc2a6aaa8593a9",
+        "kind": "image",
+        "name": "CNFjQnYgPeZngCPjfH99_vIN3Ngj2IzQ5HVfxUlL1C7b8i_VDyMR--zceS6A4xb9crVwxxxWNtHxsqKQ85rFHcQ=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/89168316-fa7b-4ede-935a-ef1816b89d60/46bc2a6aaa8593a9",
+        "url": "https://play-lh.googleusercontent.com/CNFjQnYgPeZngCPjfH99_vIN3Ngj2IzQ5HVfxUlL1C7b8i_VDyMR--zceS6A4xb9crVwxxxWNtHxsqKQ85rFHcQ=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "103ab2747daf8731",
+        "kind": "image",
+        "name": "HhJ9bl4SqAJ7DCuWFzhH67t69uxlrMpqlEclqISzdohlnHANEsVFETvFdN4vyqwgrO-fwK82EM3lSzhvvLeR-Q=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/89168316-fa7b-4ede-935a-ef1816b89d60/103ab2747daf8731",
+        "url": "https://play-lh.googleusercontent.com/HhJ9bl4SqAJ7DCuWFzhH67t69uxlrMpqlEclqISzdohlnHANEsVFETvFdN4vyqwgrO-fwK82EM3lSzhvvLeR-Q=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "2bb0d3cea4571ac1",
+        "kind": "image",
+        "name": "OCQkK9KWZgwROxaUkAC_MITMIEMKhSpYsJbAK-yL2wzTjnv4oldocBlYxes6w8Hb6qTXnsERli9OhtBEVcnv9Q=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/89168316-fa7b-4ede-935a-ef1816b89d60/2bb0d3cea4571ac1",
+        "url": "https://play-lh.googleusercontent.com/OCQkK9KWZgwROxaUkAC_MITMIEMKhSpYsJbAK-yL2wzTjnv4oldocBlYxes6w8Hb6qTXnsERli9OhtBEVcnv9Q=w1052-h592-rw"
+      }
+    ],
+    "britishEnglish": {
+      "titleVisible": true,
+      "shortDescriptionVisible": true,
+      "fullDescriptionVisible": true,
+      "tutorialVisible": true
+    }
+  },
+  "kreativ-fancy-text": {
+    "url": "https://play.google.com/store/apps/details?id=com.kreativfont.studio&hl=en_US&gl=US",
+    "titleVisible": true,
+    "shortDescriptionVisible": true,
+    "fullDescriptionVisible": true,
+    "tutorialVisible": true,
+    "website": "https://madebykreativ.com/apps/kreativ-fancy-text/",
+    "websiteCorrect": true,
+    "screenshotCount": 5,
+    "assets": [
+      {
+        "contentType": "image/webp",
+        "id": "4a94c66492335c85",
+        "kind": "image",
+        "name": "JOqCBN_owLKOksfXaEok-lUmnIJt8eY_VEYlHzTvMSB9Q6ccvXi5zT7nORRifPqPH2xSHvydYwiCPy2y6zgUQA=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/cfd48ad2-c93c-4441-a4c0-78426fdef2d3/4a94c66492335c85",
+        "url": "https://play-lh.googleusercontent.com/JOqCBN_owLKOksfXaEok-lUmnIJt8eY_VEYlHzTvMSB9Q6ccvXi5zT7nORRifPqPH2xSHvydYwiCPy2y6zgUQA=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "2d469018229a1820",
+        "kind": "image",
+        "name": "fwbBTMrhZ5NIKfgWL1cxP2qWHr-Tkz13GvH1ZLpgBi3qfIXJCpmeqNaW8iXt3nkZXaLfmamkGNWuXUFqc-A3Ew=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/cfd48ad2-c93c-4441-a4c0-78426fdef2d3/2d469018229a1820",
+        "url": "https://play-lh.googleusercontent.com/fwbBTMrhZ5NIKfgWL1cxP2qWHr-Tkz13GvH1ZLpgBi3qfIXJCpmeqNaW8iXt3nkZXaLfmamkGNWuXUFqc-A3Ew=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "2c6157279e32420b",
+        "kind": "image",
+        "name": "_NU_La--jONm-2bKawOsJRY2o2yxIAPP-r0TSpyTljjMWGd9uZ17WLmk6QiPRoBVqStf1Ch6TgMCtOk9_B6wRg=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/cfd48ad2-c93c-4441-a4c0-78426fdef2d3/2c6157279e32420b",
+        "url": "https://play-lh.googleusercontent.com/_NU_La--jONm-2bKawOsJRY2o2yxIAPP-r0TSpyTljjMWGd9uZ17WLmk6QiPRoBVqStf1Ch6TgMCtOk9_B6wRg=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "85b588ceb46d159d",
+        "kind": "image",
+        "name": "E2N7Aint051_12l-3Y9W6gltkz33SWVaf0lSfSCAK_LawZacvUzn6h6aoXgwfASatG5liiJSugsGjOOkJNVTNtE=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/cfd48ad2-c93c-4441-a4c0-78426fdef2d3/85b588ceb46d159d",
+        "url": "https://play-lh.googleusercontent.com/E2N7Aint051_12l-3Y9W6gltkz33SWVaf0lSfSCAK_LawZacvUzn6h6aoXgwfASatG5liiJSugsGjOOkJNVTNtE=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "4141476eb34529ab",
+        "kind": "image",
+        "name": "MeA3_ZNBqL9uQAidDSkida-ZU0z3gDAYeAE6Ik29xDVdCK5POjsUxtbyH6MlHgrkNADvpiEHdBLDJFp2ZZZRGn4=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/cfd48ad2-c93c-4441-a4c0-78426fdef2d3/4141476eb34529ab",
+        "url": "https://play-lh.googleusercontent.com/MeA3_ZNBqL9uQAidDSkida-ZU0z3gDAYeAE6Ik29xDVdCK5POjsUxtbyH6MlHgrkNADvpiEHdBLDJFp2ZZZRGn4=w1052-h592-rw"
+      }
+    ]
+  },
+  "photofeather": {
+    "url": "https://play.google.com/store/apps/details?id=com.kreativ.photofeather&hl=en_US&gl=US",
+    "titleVisible": true,
+    "shortDescriptionVisible": true,
+    "fullDescriptionVisible": true,
+    "tutorialVisible": true,
+    "website": "https://madebykreativ.com/apps/photofeather/",
+    "websiteCorrect": true,
+    "screenshotCount": 6,
+    "assets": [
+      {
+        "contentType": "image/webp",
+        "id": "6022b34cb05760fd",
+        "kind": "image",
+        "name": "lGwSysYfCO67UVu9yrkFYBeEIdsJoAyDAog9uf1DgibnGbtFZd9bDIYqspXtPOcO80xg_hdI_SQbQCH-PnBL8mE=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/e33c514e-819f-4886-9591-581dc47717bc/6022b34cb05760fd",
+        "url": "https://play-lh.googleusercontent.com/lGwSysYfCO67UVu9yrkFYBeEIdsJoAyDAog9uf1DgibnGbtFZd9bDIYqspXtPOcO80xg_hdI_SQbQCH-PnBL8mE=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "c44cf247171f79a8",
+        "kind": "image",
+        "name": "gLo10MUbSgKd9bRdrB8F6LxWVcIb3VU_utIUphOSK8wI2YiXpT5wFo1CO99Scl3nJg7wxnQdVKQ8IO2qNOyyvQ=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/e33c514e-819f-4886-9591-581dc47717bc/c44cf247171f79a8",
+        "url": "https://play-lh.googleusercontent.com/gLo10MUbSgKd9bRdrB8F6LxWVcIb3VU_utIUphOSK8wI2YiXpT5wFo1CO99Scl3nJg7wxnQdVKQ8IO2qNOyyvQ=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "03e0ee819bacf305",
+        "kind": "image",
+        "name": "yiB4D0EiP7-aUAnYWjTYiztvztTDSnissON29WWCZ2YJVLSeC25Xl5ICiF5dMF7bPHaMrCPUXBulIC14dpPLMA=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/e33c514e-819f-4886-9591-581dc47717bc/03e0ee819bacf305",
+        "url": "https://play-lh.googleusercontent.com/yiB4D0EiP7-aUAnYWjTYiztvztTDSnissON29WWCZ2YJVLSeC25Xl5ICiF5dMF7bPHaMrCPUXBulIC14dpPLMA=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "52999a5c071d64bd",
+        "kind": "image",
+        "name": "9CAOO5VytIubhxzDEWRw6jqpjwwZ2XfVEgfRC9-bMG8prIvKJphjAmgJnYeW9eyuqeepvKoi4NQjN9KMLtC7-g=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/e33c514e-819f-4886-9591-581dc47717bc/52999a5c071d64bd",
+        "url": "https://play-lh.googleusercontent.com/9CAOO5VytIubhxzDEWRw6jqpjwwZ2XfVEgfRC9-bMG8prIvKJphjAmgJnYeW9eyuqeepvKoi4NQjN9KMLtC7-g=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "4513ea8bc219d827",
+        "kind": "image",
+        "name": "pBhLMto800ut3mncxGu_Ak_heyyMkmhXsWKdyQTmbfYXuI17OzqnrOKW368Sio4LIcYkevjnWSP39MH381RKEQ=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/e33c514e-819f-4886-9591-581dc47717bc/4513ea8bc219d827",
+        "url": "https://play-lh.googleusercontent.com/pBhLMto800ut3mncxGu_Ak_heyyMkmhXsWKdyQTmbfYXuI17OzqnrOKW368Sio4LIcYkevjnWSP39MH381RKEQ=w1052-h592-rw"
+      },
+      {
+        "contentType": "image/webp",
+        "id": "b9e3b0b1e30225b1",
+        "kind": "image",
+        "name": "77nIuZXpxZSXFPmBVKm9gZUEuU2KllObDDN9KjvcL3ep5k6DwTBhqzDFkbYXi5PY_0_6jgIr3aENlsgYzB_nKxw=w1052-h592-rw",
+        "path": "/var/folders/4x/6dgh3z4970jg1gkjd23bt9fm0000gn/T/browser-use/assets/e33c514e-819f-4886-9591-581dc47717bc/b9e3b0b1e30225b1",
+        "url": "https://play-lh.googleusercontent.com/77nIuZXpxZSXFPmBVKm9gZUEuU2KllObDDN9KjvcL3ep5k6DwTBhqzDFkbYXi5PY_0_6jgIr3aENlsgYzB_nKxw=w1052-h592-rw"
+      }
+    ]
+  },
+  "visualScreenshotReview": {
+    "count": 32,
+    "aiMarksSeen": false,
+    "shareSafeProScreenshotVisible": true
+  }
+}

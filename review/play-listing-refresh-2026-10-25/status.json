@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-25",
+  "homeAddressChanged": false,
+  "apps": {
+    "sharesafe": {
+      "status": "published_verified",
+      "newScreenshot": "../../sharesafe/promotion/2026-10-25/listing/screenshots/05-pro-cover.png",
+      "evidence": "sharesafe-published.png",
+      "evidenceText": "Changes in review; Your changes are now in review",
+      "copyMatchesApproved": true,
+      "aiAssetLabelsOff": true
+    },
+    "northlight": {
+      "status": "published_verified",
+      "changes": [
+        "en-GB short description",
+        "tutorial link"
+      ],
+      "websiteContactSaved": true,
+      "evidence": "northlight-published.png",
+      "websiteContactPublishedVerified": true,
+      "websiteContactEvidence": "northlight-contact-website.png",
+      "copyMatchesApproved": true,
+      "aiAssetLabelsOff": true
+    },
+    "paperbuild": {
+      "status": "published_verified",
+      "changes": [
+        "en-GB short description"
+      ],
+      "websiteContactSaved": true,
+      "evidence": "paperbuild-published.png",
+      "websiteContactPublishedVerified": true,
+      "websiteContactEvidence": "paperbuild-contact-website.png",
+      "evidenceText": "Changes in review; Your changes are now in review",
+      "copyMatchesApproved": true,
+      "aiAssetLabelsOff": true
+    },
+    "kreativ-font": {
+      "status": "published_verified",
+      "changes": [
+        "en-GB short description",
+        "en-US short description",
+        "en-US tutorial link"
+      ],
+      "evidence": "kreativ-font-published.png",
+      "copyMatchesApproved": true,
+      "aiAssetLabelsOff": true
+    },
+    "kreativ-fancy-text": {
+      "status": "published_verified",
+      "changes": [
+        "en-US short description",
+        "tutorial link"
+      ],
+      "websiteContactSaved": true,
+      "websiteContactPublishedVerified": true,
+      "websiteContactEvidence": "fancy-text-contact-website.png",
+      "evidence": "kreativ-fancy-text-approved.png",
+      "evidenceText": "Changes in review. Quick checks running; changes will be sent for review as soon as checks complete successfully.",
+      "copyMatchesApproved": true,
+      "aiAssetLabelsOff": true
+    },
+    "photofeather": {
+      "status": "published_verified",
+      "changes": [
+        "en-US tutorial link"
+      ],
+      "websiteContactSaved": true,
+      "websiteContactPublishedVerified": true,
+      "websiteContactEvidence": "photofeather-contact-website.png",
+      "evidence": "photofeather-approved.png",
+      "evidenceText": "Changes in review; Your changes are now in review",
+      "copyMatchesApproved": true,
+      "aiAssetLabelsOff": true
+    }
+  },
+  "website": {
+    "repository": "/Users/andreiolaru/Documents/ChatGPT/madebykreativ.com",
+    "commits": [
+      "9f23d60",
+      "6dfc26b"
+    ],
+    "validation": "passed",
+    "deploymentWorkflow": "https://github.com/aolaru/madebykreativ.com/actions/runs/40222733368",
+    "deploymentConclusion": "success",
+    "liveHttpReadback": "Verified in Chrome: October 25, 2026 and released in Google Play version 1.2.0"
+  },
+  "verificationReport": "verification-2026-10-25.json"
+}

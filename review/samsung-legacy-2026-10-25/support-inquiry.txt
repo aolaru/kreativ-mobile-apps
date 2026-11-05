@@ -1,0 +1,31 @@
+Subject: Romanian individual/PFA eligibility and restoring FontApp (000000789080)
+
+Hello Galaxy Store Seller Portal Support,
+
+I am an independent Android developer based in Romania, currently operating as an individual without an SRL company or registered PFA. My existing Seller Portal account shows Private Seller / Free Distribution Seller.
+
+I would like to restore and update my existing app and publish new free Android apps, starting with PhotoFeather, an on-device photo compression and resizing app with no ads, account or in-app purchases.
+
+Existing app:
+- Title: FontApp
+- Content ID: 000000789080
+- The sale record is Suspended, with Last Updated shown as 2022-01-07.
+- The same Content ID also has a historical Test Confirmation Rejected record dated 2014-03-18.
+- The Reasons for Suspension popup opens but its application title and reason fields are blank, so I cannot determine the original suspension reason.
+
+When viewing the app, the portal says that from March 1, 2023, only corporate commercial sellers can edit Android apps. When trying Add New Application > Android, it also requires conversion to a corporate Commercial Distribution Seller and blocks registration.
+
+Could you please clarify:
+
+1. What is the current reason for FontApp's suspension, and what steps are required to restore and update the existing listing under Content ID 000000789080?
+2. Can a Romanian individual without a registered business be verified to restore/update an existing Android app or publish a new free Android app? Is an individual commercial seller route or an exception available for either case?
+3. If business registration is required, would a Romanian PFA (Persoana Fizica Autorizata, a registered sole-trader form) be accepted for the corporate Commercial Distribution Seller status required by the portal, or is an incorporated company such as an SRL required?
+4. If a PFA is accepted, which documents and English translations are required? Is a D-U-N-S number mandatory, or can Romanian Trade Register registration documents be used instead? Please also confirm the account-holder naming requirements for payout details.
+5. Can the existing seller account be converted while retaining FontApp and its Content ID, or would an app/account transfer be necessary?
+
+Please confirm the applicable requirements for a Romanian developer before I register a business or request a D-U-N-S number. I am requesting clarification at this stage, not account conversion or changes to my existing app.
+
+Thank you,
+Andrei Olaru
+Made by Kreativ
+https://madebykreativ.com/

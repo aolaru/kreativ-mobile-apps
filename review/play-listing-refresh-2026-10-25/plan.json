@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-25",
+  "locale": "en-US",
+  "homeAddressChange": false,
+  "apps": [
+    {"key":"sharesafe","name":"ShareSafe: Metadata Remover","consoleId":"4976355471675436843","shortDescription":"Remove photo location and EXIF metadata. Share new copies, keep your originals.","tutorial":null,"website":null,"newProScreenshotRequired":true},
+    {"key":"northlight","name":"Northlight: Offline Compass","consoleId":"4976461611774904535","shortDescription":"Offline compass with spoken headings, GPS altitude estimates and light tools.","tutorial":"https://madebykreativ.com/news/offline-compass-android-northlight/","website":"https://madebykreativ.com/apps/northlight/"},
+    {"key":"paperbuild","name":"PaperBuild: Photo to PDF","consoleId":"4972394763301935501","shortDescription":"Turn photos into PDFs offline. Crop, arrange pages and save your documents.","tutorial":null,"website":"https://madebykreativ.com/apps/paperbuild/"},
+    {"key":"kreativ-font","name":"Kreativ Font: Font Discovery","consoleId":"4973509512986945331","shortDescription":"Discover fonts for design projects. Save favorites. Not a phone-font installer.","tutorial":"https://madebykreativ.com/news/discover-fonts-android-kreativ-font/","website":null},
+    {"key":"kreativ-fancy-text","name":"Kreativ Fancy Text","consoleId":"4976006210494663211","shortDescription":"Style text to copy and paste, or create matching PNG designs. Works offline.","tutorial":"https://madebykreativ.com/news/fancy-text-png-designs-android-kreativ/","website":"https://madebykreativ.com/apps/kreativ-fancy-text/"},
+    {"key":"photofeather","name":"PhotoFeather: Photo Compressor","consoleId":"4975471320992261227","shortDescription":null,"tutorial":"https://madebykreativ.com/news/compress-photos-android-photofeather/","website":"https://madebykreativ.com/apps/photofeather/"}
+  ]
+}
