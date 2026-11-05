@@ -1,6 +1,15 @@
 #!/bin/bash
 set -euo pipefail
 
+for release_arg in "$@"; do
+    case "$release_arg" in
+        -PsharesafeIsolatedTest*)
+            echo 'Use Gradle directly for isolated R8 tests; this script only builds production release bundles.' >&2
+            exit 1
+            ;;
+    esac
+done
+
 # Keep credentials in macOS Keychain; never print or save the password to the repo.
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 project_dir="$(cd -- "$script_dir/.." && pwd)"

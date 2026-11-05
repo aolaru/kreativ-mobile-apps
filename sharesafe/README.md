@@ -129,6 +129,59 @@ The SHA-256 upload certificate fingerprint verified against Play Console is:
 
 The signed bundle is written to `app/build/outputs/bundle/playRelease/app-play-release.aab`.
 
+### Testing an optimised release
+
+Release builds enable R8 code shrinking, optimisation and obfuscation, plus
+resource shrinking, using `proguard-android-optimize.txt`. Debug builds remain
+unminified. Version **1.2.1 / code 5** is the prepared optimisation update; it has
+not been uploaded. Keep the per-build `mapping.txt` with its matching bundle.
+AGP also embeds this mapping in the AAB for Google Play crash deobfuscation.
+
+Verify the actual bundle rather than inferring optimisation from Gradle flags:
+
+```sh
+python3 scripts/verify-release-optimization.py \
+  app/build/outputs/bundle/playRelease/app-play-release.aab \
+  --mapping app/build/outputs/mapping/playRelease/mapping.txt \
+  --configuration app/build/outputs/mapping/playRelease/configuration.txt
+python3 -B -m unittest discover -s scripts -p 'test_verify_release_optimization.py'
+```
+
+The verifier checks that app classes were renamed, that no effective global flag
+disables shrinking/optimisation/obfuscation, and that the embedded mapping matches.
+An optional `--baseline path/to/previous.aab` compares DEX sizes. These are local
+artifact checks, not a runtime test or Google's DEX optimisation score.
+
+Normal instrumentation builds target the debug variant. To build the Play release
+and its instrumentation APK instead, configure a matching test signing key for
+both APKs and run:
+
+```sh
+./gradlew -PsharesafeTestBuildType=release :app:assemblePlayRelease :app:assemblePlayReleaseAndroidTest
+```
+
+The release test variant uses the separate `androidTestOptimized` suite, which
+exercises photo cleaning, sharing, recreation and the bundled face detector through
+the app's UI and Android intents. The broader `androidTest` and `androidTestPlay`
+white-box suites remain available for debug; their direct references to internal
+classes and field names are not safe against R8's optimisations. Release tests do
+not change the production keep rules. The test-only R8 rules account for
+compile-time annotations referenced by AndroidX Test.
+
+Building the APKs is not a substitute for running release workflows on a device,
+including a separate Play purchase/restore check. Never upload a test-signed build
+to Play or install it over a production-signed app.
+
+For on-phone tests alongside the Play-installed app, add
+`-PsharesafeIsolatedTest` to the direct Gradle command above. It uses package
+`com.kreativ.sharesafe.r8test`, with all outputs under `app/build/isolated-r8/`.
+Configure the same signing key for both target and instrumentation APKs. That
+variant adds test-only keep rules for AndroidX Test's shared Kotlin/tracing
+dependencies; it is not byte-for-byte identical to the production artifact.
+Those rules do not retain ShareSafe's internal class names. The production
+build script rejects this property to prevent creating an upload candidate from
+the test package. Never upload isolated-test outputs.
+
 ## Store builds
 
 The project has distinct store variants so future billing SDKs can be added without

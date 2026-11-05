@@ -5,6 +5,11 @@ plugins {
 def releaseKeystorePath = System.getenv('KREATIV_SHARESAFE_KEYSTORE')
 def releaseKeystorePassword = System.getenv('KREATIV_SHARESAFE_KEYSTORE_PASSWORD')
 
+// Test-only keep rules and the isolated package must never replace release outputs.
+if (project.hasProperty('sharesafeIsolatedTest')) {
+    layout.buildDirectory.set(file('build/isolated-r8'))
+}
+
 android {
     namespace 'com.kreativ.sharesafe'
     compileSdk 36
@@ -13,6 +18,18 @@ android {
 
     buildFeatures {
         buildConfig true
+    }
+
+    // Opt in to testing the optimised release without changing normal debug tests.
+    testBuildType = project.findProperty('sharesafeTestBuildType') ?: 'debug'
+
+    // Release instrumentation tests use public UI and intents, so R8 can freely
+    // optimise internal classes. Keep the deeper white-box suite for debug.
+    if (testBuildType == 'release') {
+        sourceSets {
+            androidTest.java.setSrcDirs(['src/androidTestOptimized/java'])
+            androidTestPlay.java.setSrcDirs([])
+        }
     }
 
     compileOptions {
@@ -24,9 +41,10 @@ android {
         applicationId 'com.kreativ.sharesafe'
         minSdk 26
         targetSdk 36
-        versionCode 4
-        versionName '1.2.0'
+        versionCode 5
+        versionName '1.2.1'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        testProguardFiles 'test-proguard-rules.pro'
     }
 
     signingConfigs {
@@ -46,6 +64,15 @@ android {
         }
         release {
             signingConfig signingConfigs.release
+            // An isolated test package can coexist with the Play installation.
+            if (project.hasProperty('sharesafeIsolatedTest')) {
+                applicationIdSuffix '.r8test'
+                proguardFiles 'isolated-test-proguard-rules.pro'
+            }
+            // Reduce release DEX size and enable the code optimisation monitored by Play.
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
         }
     }
 
