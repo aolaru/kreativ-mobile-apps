@@ -1,0 +1,19 @@
+Fonts bundled unmodified under SIL OFL 1.1. Full copyright notices and licences accompany the app.
+
+fonts/lora.ttf
+Source: https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/lora/Lora%5Bwght%5D.ttf
+SHA-256: 822a6621ccbe8d97d20ac88c1c41f5615c9c2c202eaa75f272cd452aac6475a7
+
+licenses/lora-OFL.txt
+Source: https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/lora/OFL.txt
+SHA-256: 1d9a970809ac804b582a6ce7f0ebc4e7fefcbfd7ff6299cad35ee656a21be716
+
+fonts/dmsans.ttf
+Source: https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/dmsans/DMSans%5Bopsz%2Cwght%5D.ttf
+SHA-256: 8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d
+
+licenses/dmsans-OFL.txt
+Source: https://raw.githubusercontent.com/google/fonts/bd8f81ddb5c74d5c8897b36ad88b440266245103/ofl/dmsans/OFL.txt
+SHA-256: 9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1
+
+All template layouts, Canvas ornaments and the launcher icon were created for Kreativ Post. No stock photos or third-party templates are bundled. User media stays local.
