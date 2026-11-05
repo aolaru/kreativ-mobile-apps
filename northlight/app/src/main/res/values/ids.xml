@@ -1,4 +1,9 @@
 <resources>
+    <item name="place_gps" type="id" />
+    <item name="place_save" type="id" />
+    <item name="place_target" type="id" />
+    <item name="place_speak" type="id" />
+    <item name="place_auto" type="id" />
     <item name="field_compass" type="id" />
     <item name="field_heading" type="id" />
     <item name="field_direction" type="id" />

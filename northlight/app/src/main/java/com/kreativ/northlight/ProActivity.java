@@ -95,6 +95,7 @@ public class ProActivity extends Activity implements CompassSource.Listener, Bil
         upgradeBenefits.setOrientation(LinearLayout.VERTICAL); spacer(upgradeBenefits, 20);
         LinearLayout proCard = benefitsCard(R.string.pro_benefits_heading, true);
         addBenefit(proCard, R.string.pro_benefit_bearings, R.string.pro_benefit_bearings_body);
+        addBenefit(proCard, R.string.places_benefit, R.string.places_benefit_body);
         addBenefit(proCard, R.string.pro_benefit_voice, R.string.pro_benefit_voice_body);
         addBenefit(proCard, R.string.pro_benefit_lights, R.string.pro_benefit_lights_body);
         addBenefit(proCard, R.string.pro_benefit_strobe, R.string.pro_benefit_strobe_body);
@@ -133,6 +134,12 @@ public class ProActivity extends Activity implements CompassSource.Listener, Bil
 
         ownerTools = new LinearLayout(this); ownerTools.setId(R.id.pro_owner_tools); ownerTools.setOrientation(LinearLayout.VERTICAL);
         root.addView(ownerTools, matchWrap()); spacer(ownerTools, 14);
+        label(ownerTools, R.string.places_title);
+        ownerTools.addView(text(getString(R.string.places_hint), 15, mist()));
+        Button places = button(getString(R.string.places_open), false);
+        places.setOnClickListener(v -> { if (billing.entitled()) startActivity(new Intent(this, PlaceActivity.class)); });
+        addProControl(ownerTools, places);
+        spacer(ownerTools, 18);
         heading = text(getString(R.string.bearing_waiting), 15, gold()); heading.setGravity(Gravity.CENTER);
         heading.setPadding(dp(12), dp(12), dp(12), dp(12)); heading.setBackgroundResource(R.drawable.pill); ownerTools.addView(heading, matchWrap());
         accuracy = text(getString(R.string.compass_waiting_accuracy), 13, mist()); accuracy.setGravity(Gravity.CENTER); ownerTools.addView(accuracy, matchWrap());

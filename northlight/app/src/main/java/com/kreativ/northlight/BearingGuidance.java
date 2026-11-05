@@ -6,7 +6,7 @@ import android.content.Context;
 final class BearingGuidance {
     private static final int LEFT = -1, ALIGNED = 0, RIGHT = 1;
     private final Context context;
-    private final int target;
+    private int target;
     private final Runnable alignmentFeedback;
     private boolean aligned, announced, hapticLatched, hasPulsed;
     private int lastKind;
@@ -18,6 +18,11 @@ final class BearingGuidance {
         this.context = context; this.target = target; this.alignmentFeedback = alignmentFeedback;
     }
     int target() { return target; }
+    /** A moving GPS target changes bearing; retain feedback cooldown across updates. */
+    void target(int value) {
+        if (value < 0 || value >= 360) throw new IllegalArgumentException("Invalid bearing");
+        target = value;
+    }
     private float error(float heading) { return HeadingMath.difference(target, heading); }
     private int kind(float heading) {
         float delta = error(heading);
