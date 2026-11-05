@@ -1,0 +1,58 @@
+BLOCKSHIFT — Google Play internal testing handoff (26 October 2026)
+
+IDENTITY AND STATUS
+Package: com.madebykreativ.blockshift
+Signed candidate: 0.5.1 / version code 8 (uploaded; saved internal-test draft)
+Active Play internal release: 0.5.0 / code 7
+Publisher/operator: Made by Kreativ / Andrei Olaru
+Support: info@madebykreativ.com
+Policy: https://madebykreativ.com/privacy/blockshift/
+Audience: 13–15, 16–17 and 18+, explicitly confirmed by the developer
+Internal opt-in: https://play.google.com/apps/internaltest/4701679486737881255
+Both user-confirmed tester accounts are selected; no other lists were added.
+
+SAVED CONSOLE SETUP
+Privacy URL, unrestricted access, no ads, target audience, IARC content rating,
+Data safety, government/financial/health declarations, Puzzle category, public
+support contacts and default English listing with icon, feature and five phone
+screenshots are saved. IARC Terms were explicitly approved. PEGI 3 / ESRB Everyone
+is the content rating; the intended audience remains 13+. Assets carry the
+created/edited-with-AI declaration. The latest store changes await review submission.
+Production is inactive. Play App Signing is already enabled.
+
+NEXT INTERNAL UPDATE
+1. Finish the native progress-transfer check with a fresh backup: export latest
+   progress, preview and restore it, Undo, cold restart and verify every mode.
+2. Resume the saved 0.5.1 (8) internal draft. Upload and release notes are saved.
+   Play validation: zero blocking errors; two warnings for missing R8 mapping and
+   native symbols. Retain the existing tester list; roll out after native QA.
+3. Publishing overview currently disables review submission and points to dashboard.
+   Internal testing remains available with an unreviewed temporary name. Broader
+   review/distribution is a separate step; do not create a production release.
+4. The phone's debug certificate differs from Play's app certificate. Keep it
+   installed until external backups are verified and the user approves the switch.
+   Install through the opt-in link, restore latest progress and test the actual
+   Play-delivered build: tutorial, independent modes, saves, pause/background,
+   cold restart, audio, privacy/support and absence of ads/purchase prompts.
+5. Review Play validation and runtime reports before wider testing.
+
+VALIDATION AND LIMITS
+7,311 assertions passed with zero failures. Official bundletool, signing,
+permissions, release flags, ARM64 and 16 KB packaging/alignment checks passed
+for the signed candidate and its bundle-derived QA APK. The QA APK uses the
+upload key, not Play's app-signing key; do not distribute it as a Play substitute.
+Native export and restore preview passed; restore confirmation/Undo/restart and
+actual Play-installed runtime remain pending. The Mac locked and phone disconnected
+during the check. The installed game was not uninstalled/reset and private progress
+backups remain outside this handoff. See review/INTERNAL_TESTING_0_5_1.md.
+
+The current edition is free, offline, with no ads, purchases, accounts or analytics.
+VIBRATE is the only permission. Reassess disclosures for future SDK changes.
+Audible/haptic acceptance, broad device/accessibility QA, sustained battery/thermal
+and actual 16 KB runtime checks remain. Title/rights clearance is not implied.
+
+KEY RECOVERY
+Private signing key and credentials live outside the repository under Library/
+Application Support/Made by Kreativ/signing/blockshift. Back up this directory in
+a private encrypted vault. Never upload it or player backups as store/test assets.
+The PEM certificate is public. No passwords are printed in reports or build logs.

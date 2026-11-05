@@ -1,0 +1,10 @@
+class_name ReleaseInfo
+extends RefCounted
+## Public release information only. Never put signing credentials in this resource.
+static func details() -> Dictionary:
+	var value: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://config/release.json"))
+	return value if value is Dictionary else {}
+
+static func privacy_text() -> String:
+	var info: Dictionary = details()
+	return "Privacy policy · %s\n%s / %s\n\nBLOCKSHIFT works offline. It has no account, analytics, advertising, purchases or server connection. We do not collect or share your gameplay data.\n\nScores, statistics, settings, daily results and one saved board per mode stay in private storage on this device. Android app backup is disabled. In version 0.5.1 and later, Back up & restore progress lets you save a portable, unencrypted file to a location you choose. Restore validates the file, asks for confirmation, and keeps the previous local progress for Undo restore. A selected cloud provider may store your exported file under its own policy; nothing is sent to Made by Kreativ. Android 10 or later is required for the system file picker. Clearing app storage or uninstalling removes private app data, including Undo restore. Exported files remain in the location you chose until you delete them there.\n\nReset local progress removes scores, daily history and saved boards, while keeping your preferences. Restore default settings resets your preferences while keeping tutorial completion and game progress.\n\nOptional vibration is used only for haptic feedback. You can turn it off in Settings.\n\nIf you contact %s, we receive the information you choose to send and use it to respond. You may request deletion of that correspondence. Browser visits and email are handled by your chosen provider and the website's privacy policy. No gameplay data is attached by the game.\n\nThis policy applies to this offline internal-test edition. It will be updated before any advertising or purchase integration is enabled." % [info.get("effective_date", ""), info.get("publisher", "Made by Kreativ"), info.get("operator", ""), info.get("support_email", "")]

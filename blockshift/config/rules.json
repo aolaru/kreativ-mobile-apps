@@ -1,0 +1,39 @@
+{
+  "cell_points": 1,
+  "line_points": [
+    0,
+    100,
+    250,
+    450,
+    700
+  ],
+  "extra_line_points": 300,
+  "streak_bonus": 25,
+  "shift_capacity": 4,
+  "shift_per_line": 1,
+  "daily_target_lines": 8,
+  "ads_min_games": 4,
+  "ads_min_seconds": 240,
+  "modes": {
+    "classic": {
+      "title": "Classic",
+      "subtitle": "Find your flow. Make room.",
+      "shift": false
+    },
+    "shift": {
+      "title": "SHIFT",
+      "subtitle": "A small move. A whole new board.",
+      "shift": true
+    },
+    "zen": {
+      "title": "Zen",
+      "subtitle": "No finish line. Just a little space.",
+      "shift": false
+    },
+    "daily": {
+      "title": "Daily orbit",
+      "subtitle": "One day. One shared starting point.",
+      "shift": true
+    }
+  }
+}

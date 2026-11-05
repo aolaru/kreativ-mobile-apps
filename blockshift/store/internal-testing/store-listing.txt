@@ -1,0 +1,32 @@
+Title: BLOCKSHIFT
+
+Short description:
+Place blocks, clear lines and reshape your board with a strategic SHIFT.
+
+Full description:
+Make a little space. BLOCKSHIFT is an offline block puzzle from Made by Kreativ.
+
+Place three shapes on an 8 × 8 board. Clear complete rows and columns, build combinations and plan ahead to make room for your next move.
+
+SHIFT adds another way to think. Clearing lines charges one strategic move: slide a row or column by one cell and wrap tiles around the edge. Preview your choice before applying it, or cancel to keep your charge.
+
+FOUR WAYS TO PLAY
+Classic — familiar endless block placement and a personal best to beat.
+SHIFT — all the placement play, with a charged board movement when you need it.
+Zen — a softer atmosphere; when no piece fits, a fresh board unfolds and your score continues.
+Daily — a reproducible challenge each day with an eight-line goal and local completion history.
+
+PLAY AT YOUR PACE
+Each mode remembers its own board. Track your scores, line clears, combinations and playtime. Adjust drag height, sound effects, ambience, motion, particles, text size and haptics to make play comfortable.
+
+This internal-test edition works offline, requires no account and includes no advertisements or purchases. Game progress is stored locally. No gameplay data is sent to Made by Kreativ.
+
+Made by Kreativ / Andrei Olaru
+Support: info@madebykreativ.com
+
+Store settings (not description text):
+Category: Game / Puzzle
+Intended audience: 13–15, 16–17, 18+ (confirmed by publisher)
+Website: https://madebykreativ.com/
+Privacy: https://madebykreativ.com/privacy/blockshift/
+Name/rights clearance remains a public-release check.
