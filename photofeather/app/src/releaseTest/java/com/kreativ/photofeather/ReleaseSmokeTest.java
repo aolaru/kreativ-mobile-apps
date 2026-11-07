@@ -84,8 +84,8 @@ public class ReleaseSmokeTest {
                 PackageManager.GET_PERMISSIONS
                     | PackageManager.GET_ACTIVITIES
                     | PackageManager.GET_PROVIDERS);
-    assertEquals("1.0.0", info.versionName);
-    assertEquals(4, info.versionCode);
+    assertEquals("1.1.0", info.versionName);
+    assertEquals(5, info.versionCode);
     assertEquals(0, info.applicationInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE);
     for (ActivityInfo a : info.activities)
       assertFalse(

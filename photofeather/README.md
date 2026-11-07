@@ -1,6 +1,8 @@
 # PhotoFeather
 
-**Lighter photos. Ready to share.** A native Android app by Made by Kreativ that compresses and resizes photos on-device. Play title: **PhotoFeather: Photo Compressor**. The owner has chosen the name. Play accepted the signed `com.kreativ.photofeather` bundle on 24 October 2026. Version 1.0.0 (build 4), the listing and declarations were submitted for production review on 24 October 2026, with publication authorised after Google approval. Play Console shows Changes in review and managed publishing off. Internal testing remains inactive; the app is not yet confirmed live. Version **1.0.0** (build 4) adds free resize presets and live dimension previews alongside the release improvements: clear failed-target results, separate Settings/Results views, fixed primary actions and per-photo controls. See [production submission](review/production-submission/REPORT.md), [production preparation](review/production-preparation/REPORT.md), [latest resize validation](review/resize-presets/REPORT.md), [signed build and listing preparation](docs/PLAY_RELEASE.md) and [1.0.0 release limitations](review/release-1.0.0/REPORT.md).
+**Update, 7 November 2026:** Production build 4 is live. Version 1.1.0 (build 5) is prepared locally and has not been uploaded; see [release preparation](review/release-1.1.0/REPORT.md).
+
+**Lighter photos. Ready to share.** A native Android app by Made by Kreativ that compresses and resizes photos on-device. Play title: **PhotoFeather: Photo Compressor**. The owner has chosen the name. Play accepted the signed `com.kreativ.photofeather` bundle on 24 October 2026. Version 1.0.0 (build 4), the listing and declarations were submitted for production review on 24 October 2026, with publication authorised after Google approval. At the time of submission, Play Console showed changes in review and managed publishing off; build 4 was subsequently published. Version **1.0.0** (build 4) adds free resize presets and live dimension previews alongside the release improvements: clear failed-target results, separate Settings/Results views, fixed primary actions and per-photo controls. See [production submission](review/production-submission/REPORT.md), [production preparation](review/production-preparation/REPORT.md), [latest resize validation](review/resize-presets/REPORT.md), [signed build and listing preparation](docs/PLAY_RELEASE.md) and [1.0.0 release limitations](review/release-1.0.0/REPORT.md).
 
 ## Run
 
@@ -47,7 +49,7 @@ Originals are never written or deleted. Fresh JPEGs have all APP/comment metadat
 
 There is **no backend, internet permission, billing, ads or analytics SDK**. The system picker may retrieve a cloud-provider image at the user's request.
 
-The full offline privacy policy is available from **About → Privacy policy**. The [public privacy policy](https://madebykreativ.com/privacy/photofeather/) describes the previously submitted build. The updated in-app and `store-assets/play/privacy-policy.html` drafts describe saved presets, ZIP files and custom names; the public website must be updated before these features are released. The website source is maintained separately in `aolaru/madebykreativ.com`. Play listing copy, graphics and sourced screenshots are in `store-assets/play/`.
+The full offline privacy policy is available from **About → Privacy policy**. The [public privacy policy](https://madebykreativ.com/privacy/photofeather/) and the in-app policy describe saved presets, ZIP files and custom names. The website source is maintained separately in `aolaru/madebykreativ.com`. Play listing copy, graphics and sourced screenshots are in `store-assets/play/`.
 
 ## Tests and handoff
 
