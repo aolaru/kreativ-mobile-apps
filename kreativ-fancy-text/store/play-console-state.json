@@ -9,7 +9,7 @@
   "creationDeclarationsAcceptedWithOwnerConfirmation": true,
   "uploadKeyBackupConfirmedByOwner": true,
   "uploadCertificateSha256": "C7:E9:4D:08:11:22:6B:65:2E:B8:9E:8A:DD:A2:99:0D:AB:20:16:DA:D8:59:8E:5C:FE:16:27:B5:90:75:B4:B2",
-  "updatedAt": "2026-11-04T11:32:53.885057+00:00",
+  "updatedAt": "2026-11-07T14:52:52.013067+00:00",
   "targetAudience": [
     "13-15",
     "16-17",
@@ -32,7 +32,7 @@
   },
   "featureGraphicAiLabel": false,
   "listingSaved": true,
-  "listingStatus": "Updated Pro disclosure submitted for review",
+  "listingStatus": "Published with approved 1.1.0 update",
   "appAccess": "Restricted paid Pro features; free Google Play reviewer codes saved",
   "ads": false,
   "category": "Art & design",
@@ -83,13 +83,10 @@
     "reviewConclusion": "No developer/backend/analytics transmission; signed purchase receipt remains on device. Google Play handles checkout under its terms; no card data access."
   },
   "initialSetupComplete": true,
-  "releaseRolledOut": false,
+  "releaseRolledOut": true,
   "internalTestersSelected": false,
   "appReviewSubmissionReady": true,
-  "remainingReleaseWorkflow": [
-    "Await Google automated checks and review",
-    "Verify production 1.1.0 (9) and public availability after approval"
-  ],
+  "remainingReleaseWorkflow": [],
   "uploadedBundleSha256": "81ff85624e71b5052030e9654c1dcf50b052f61ffd08b7d5ae732d8bd2487876",
   "iconAiLabel": false,
   "aiLabeledGraphics": [],
@@ -143,7 +140,10 @@
     "uploadedAt": "2026-11-04T11:07:36.007082+00:00",
     "ratingRenewalConsentPending": false,
     "submittedAt": "2026-11-04T11:32:53.885057+00:00",
-    "productionSubmissionConfirmed": true
+    "productionSubmissionConfirmed": true,
+    "approvalConfirmed": true,
+    "published": true,
+    "publicationVerifiedOn": "2026-11-07"
   },
   "releaseTrackId": "4697703135566350538",
   "productionReleaseSaved": true,
@@ -169,14 +169,14 @@
   "submittedVersionName": "1.1.0",
   "submissionRequestedAt": "2026-11-04T11:32:53.885057+00:00",
   "submittedChangeCount": 3,
-  "publishingStatus": "Changes in review",
-  "automatedPreReviewChecks": "Running; Google will forward the submission once checks complete successfully",
+  "publishingStatus": "Published; no unpublished changes",
+  "automatedPreReviewChecks": "Completed before publication",
   "managedPublishing": false,
   "publiclyAvailableVerified": false,
   "submissionEvidence": "store/review/play-1.1.0-submitted-2026-11-04.png",
-  "lastStatusCheckedAt": "2026-11-04T11:32:53.885057+00:00",
-  "googleReviewStatus": "1.1.0 (9) submitted; awaiting automated checks and Google review",
-  "approvalConfirmed": false,
+  "lastStatusCheckedAt": "2026-11-07T14:52:52.013067+00:00",
+  "googleReviewStatus": "Approved and published: production Active, latest release 1.1.0 (9), 178 countries/regions",
+  "approvalConfirmed": true,
   "aiDeclarationCorrection": {
     "date": "2026-10-25",
     "ownerRequested": true,
@@ -232,8 +232,8 @@
     "update": "454 KB",
     "observedAt": "2026-11-04T07:36:36.028Z"
   },
-  "productionPublicationConfirmed": false,
-  "productionPublicationEvidence": "store/review/play-1.0.2-published-2026-11-04.png",
+  "productionPublicationConfirmed": true,
+  "productionPublicationEvidence": "store/review/PRODUCTION_1.1.0.md",
   "earlierLocalCandidate": {
     "versionName": "1.0.2",
     "versionCode": 5,
@@ -308,15 +308,31 @@
     "productionPublicationRequested": true,
     "productionUploadedVersionCode": 9,
     "productionSubmittedVersionCode": 9,
-    "productionSubmittedAt": "2026-11-04T11:32:53.885057+00:00"
+    "productionSubmittedAt": "2026-11-04T11:32:53.885057+00:00",
+    "productionApproved": true,
+    "productionPublished": true,
+    "productionPublishedVersionCode": 9,
+    "productionPublicationVerifiedOn": "2026-11-07"
   },
   "currentPublishedProduction": {
-    "versionName": "1.0.2",
-    "versionCode": 5,
+    "versionName": "1.1.0",
+    "versionCode": 9,
     "approved": true,
-    "rolloutPercentage": 100,
-    "remainsLiveUntilUpdateApproval": true,
-    "evidence": "store/review/play-1.0.2-published-2026-11-04.png"
+    "published": true,
+    "trackStatus": "Active",
+    "countryRegionCount": 178,
+    "verifiedOn": "2026-11-07",
+    "verification": {
+      "verifiedOn": "2026-11-07",
+      "source": "Live Google Play Console UI",
+      "productionUrl": "https://play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/tracks/production",
+      "trackStatus": "Active",
+      "latestRelease": "1.1.0 (9)",
+      "countryRegionCount": 178,
+      "publishingOverview": "You have no unpublished changes",
+      "exactPublicationTimestampEstablished": false
+    },
+    "evidence": "store/review/PRODUCTION_1.1.0.md"
   },
   "reviewerAccess": {
     "saved": true,
@@ -341,5 +357,24 @@
   },
   "ratingInteractiveElements": [
     "In-app purchases"
-  ]
+  ],
+  "previousPublishedProduction": {
+    "versionName": "1.0.2",
+    "versionCode": 5,
+    "approved": true,
+    "rolloutPercentage": 100,
+    "remainsLiveUntilUpdateApproval": false,
+    "evidence": "store/review/play-1.0.2-published-2026-11-04.png",
+    "supersededByVersionCode": 9
+  },
+  "productionPublicationVerification": {
+    "verifiedOn": "2026-11-07",
+    "source": "Live Google Play Console UI",
+    "productionUrl": "https://play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/tracks/production",
+    "trackStatus": "Active",
+    "latestRelease": "1.1.0 (9)",
+    "countryRegionCount": 178,
+    "publishingOverview": "You have no unpublished changes",
+    "exactPublicationTimestampEstablished": false
+  }
 }

@@ -1,16 +1,17 @@
-# Kreativ Fancy Text for Android — Pro 1.1.0 submitted for review
+# Kreativ Fancy Text for Android — Pro 1.1.0 published
 
-> **Submitted — 4 November 2026:** Exact **1.1.0 (9)** is under **Changes in review**
-> in Google Play. All 3 changes (production, English Pro description and rating)
-> sent, together with the saved free reviewer-access instructions. Rollout is set
-> to **100% across all 178 targeted countries**; managed publishing is off, so it
-> publishes automatically after approval. Current approved production remains
-> **1.0.2 (5)**. Hosted Pro policy is live and verified. Brazil rating is now 14+;
-> other ratings remain Everyone/PEGI 3 or equivalent with In-app purchases.
-> See [production record](store/review/PRODUCTION_1.1.0.md). Earlier entries below
-> describe implementation/test history, not current submission status.
+> **Approved and published — verified 7 November 2026:** Google Play Console shows
+> production **Active**, **Latest release: 1.1.0 (9)**, and **178 countries/regions**.
+> Publishing overview has **no unpublished changes**. The 4 November submission
+> is approved and the update is live; no further upload or review submission is
+> needed. This is the verification date, not a newly established publication date.
+> The release includes R8 optimisation, resource shrinking and AGP **9.0.1**.
+> App remains free with optional **Fancy Text Pro**, **€4.99 once** (localised prices).
+> Google approval does not add completed-purchase or owned-tool test evidence;
+> those native validation limits remain recorded in the production report.
+> See [production record](store/review/PRODUCTION_1.1.0.md). Entries below are history.
 
-> **Current — 4 November 2026:** Signed **1.1.0 (9)** is installed on the phone.
+> **Earlier billing test — 4 November 2026:** Signed **1.1.0 (9)** is installed on the phone.
 > Google Play now returns Fancy Text Pro / `buy` at **26.99 RON**; the test checkout
 > opens and cancellation is verified. No purchase was completed. Further tests
 > stopped at the owner's request; paid unlock/acknowledgement/owned tools remain

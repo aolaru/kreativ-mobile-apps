@@ -1,16 +1,17 @@
 # Kreativ Fancy Text Android app — project handoff
 
-> **Submitted — 4 November 2026:** Exact **1.1.0 (9)** is under **Changes in review**
-> in Google Play. All 3 changes (production, English Pro description and rating)
-> sent, together with the saved free reviewer-access instructions. Rollout is set
-> to **100% across all 178 targeted countries**; managed publishing is off, so it
-> publishes automatically after approval. Current approved production remains
-> **1.0.2 (5)**. Hosted Pro policy is live and verified. Brazil rating is now 14+;
-> other ratings remain Everyone/PEGI 3 or equivalent with In-app purchases.
-> See [production record](store/review/PRODUCTION_1.1.0.md). Earlier entries below
-> describe implementation/test history, not current submission status.
+> **Approved and published — verified 7 November 2026:** Google Play Console shows
+> production **Active**, **Latest release: 1.1.0 (9)**, and **178 countries/regions**.
+> Publishing overview has **no unpublished changes**. The 4 November submission
+> is approved and the update is live; no further upload or review submission is
+> needed. This is the verification date, not a newly established publication date.
+> The release includes R8 optimisation, resource shrinking and AGP **9.0.1**.
+> App remains free with optional **Fancy Text Pro**, **€4.99 once** (localised prices).
+> Google approval does not add completed-purchase or owned-tool test evidence;
+> those native validation limits remain recorded in the production report.
+> See [production record](store/review/PRODUCTION_1.1.0.md). Entries below are history.
 
-> **Current — 4 November 2026:** Signed **1.1.0 (9)** is installed on the phone.
+> **Earlier billing test — 4 November 2026:** Signed **1.1.0 (9)** is installed on the phone.
 > Google Play now returns Fancy Text Pro / `buy` at **26.99 RON**; the test checkout
 > opens and cancellation is verified. No purchase was completed. Further tests
 > stopped at the owner's request; paid unlock/acknowledgement/owned tools remain
@@ -45,13 +46,13 @@
 Moved on 24 October 2026 from the Fancy Text Generator website/plugin project
 into the Utility apps project, alongside the other Android utilities.
 
-## Current Pro work — 4 November 2026
+## Earlier Pro implementation — 4 November 2026
 
 The owner requested premium templates, custom backgrounds and saved style presets
 with one lifetime Pro purchase and explicitly selected **€4.99 once**. Implemented
-signed **1.1.0 (7)**. See `store/review/PRO_1.1.0.md` for the complete current status,
+signed **1.1.0 (7)**. See `store/review/PRO_1.1.0.md` for the earlier implementation status,
 exact artifacts/hashes, validation coverage and remaining launch tasks. This
-section supersedes all older “current” statements below.
+section is historical; the verified publication status at the top takes precedence.
 
 - Production **1.0.2 (5)** is now verified published in Console at **100% rollout**;
   evidence `store/review/play-1.0.2-published-2026-11-04.{png,txt}`. No Pro production

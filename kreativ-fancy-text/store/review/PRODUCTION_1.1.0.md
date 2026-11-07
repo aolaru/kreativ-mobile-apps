@@ -1,4 +1,18 @@
-# Kreativ Fancy Text 1.1.0 (9) — production submission
+# Kreativ Fancy Text 1.1.0 (9) — production publication
+
+**Approved and published — verified 7 November 2026.** Google Play Console's
+production track shows **Active**, **Latest release: 1.1.0 (9)** and
+**178 countries/regions**. Publishing overview reports **no unpublished changes**.
+The release is live; no duplicate upload or submission is needed. The exact
+approval/publication timestamp was not established by this check.
+
+Source: https://play.google.com/console/u/0/developers/7594712361231234431/app/4976006210494663211/tracks/production
+
+The submitted bundle includes R8 optimisation, resource shrinking and Android
+Gradle Plugin **9.0.1**. Native purchase/acknowledgement/owned-tool validation limits
+below are unchanged by Google's approval.
+
+The preparation and submission entries below are historical.
 
 4 November 2026. The owner explicitly requested publication of the current version.
 
@@ -27,10 +41,10 @@ AAB SHA-256: `81ff85624e71b5052030e9654c1dcf50b052f61ffd08b7d5ae732d8bd2487876`.
 APK SHA-256: `65c557f7078dc10c1a298c8270571149c8d678212e82a54c8cdaa0be31bc5621`.
 Do not reuse version code 9 for changed bytes after this upload.
 
-## Submission status
+## Earlier submission — 4 November 2026
 
 **Submitted 4 November 2026.** The owner approved the fresh IARC acceptance; accepted the displayed Terms of Use and completed the questionnaire using `info@madebykreativ.com`. Digital goods **Yes**, random/chance-based purchases **No**; no mature bundled content, native social network, remote content, age-restricted sales, location sharing, rewards/crypto/NFTs, browser/search or news/education category. Brazil now **14+**; ESRB **Everyone**, PEGI **3**, USK **All ages**, generic/Russia/South Korea **3+**. All show **In-app purchases**.
 
-Confirmed final send: **“3 changes sent for review”**, with **“Changes in review”** containing production **1.1.0 (9)** / Start full rollout, English full description and new content-rating questionnaire. Saved paid-access review instructions are included under What you've told us. Automated quick checks are running; Google forwards to review after successful checks. **Managed publishing off:** publish automatically after approval. Production **1.0.2 (5)** remains the last approved release; code 9 is not claimed approved or live.
+Confirmed final send: **“3 changes sent for review”**, with **“Changes in review”** containing production **1.1.0 (9)** / Start full rollout, English full description and new content-rating questionnaire. Saved paid-access review instructions are included under What you've told us. At submission, automated quick checks were running; Google would forward to review after successful checks. **Managed publishing off:** publish automatically after approval. At submission, production **1.0.2 (5)** was the last approved release. The 7 November check above confirms that code 9 has since been approved and published.
 
-Evidence: `play-1.1.0-submitted-2026-11-04.png` and `.txt`. Next: check review outcome and verify production/public availability. Do not re-upload or submit duplicates.
+Evidence: `play-1.1.0-submitted-2026-11-04.png` and `.txt`. Review outcome and active production availability were verified on 7 November as recorded above. Do not re-upload or submit duplicates.
