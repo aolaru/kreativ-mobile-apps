@@ -133,8 +133,9 @@ The signed bundle is written to `app/build/outputs/bundle/playRelease/app-play-r
 
 Release builds enable R8 code shrinking, optimisation and obfuscation, plus
 resource shrinking, using `proguard-android-optimize.txt`. Debug builds remain
-unminified. Version **1.2.1 / code 5** is the prepared optimisation update; it has
-not been uploaded. Keep the per-build `mapping.txt` with its matching bundle.
+unminified. Version **1.2.1 / code 5** was uploaded and submitted for production
+review on November 7, 2026. Managed publishing is off; publication follows approval.
+Keep the per-build `mapping.txt` with its matching bundle.
 AGP also embeds this mapping in the AAB for Google Play crash deobfuscation.
 
 Verify the actual bundle rather than inferring optimisation from Gradle flags:
@@ -181,6 +182,12 @@ dependencies; it is not byte-for-byte identical to the production artifact.
 Those rules do not retain ShareSafe's internal class names. The production
 build script rejects this property to prevent creating an upload candidate from
 the test package. Never upload isolated-test outputs.
+
+The three isolated minified phone workflows passed on the Galaxy A55 on November
+7, 2026, covering cleaning/sharing, Face Assist covers and export with undo/redo
+and recreation, and the durable billing-worker constructor. This is not an
+end-to-end Play purchase test or 16 KB runtime validation; see the submission
+checklist for the artifact hash, test-harness correction and remaining checks.
 
 ## Store builds
 

@@ -1,11 +1,28 @@
 # ShareSafe store-submission checklist
 
-## Prepared R8 optimisation update — November 1, 2026
+## R8 optimisation update — prepared November 1, submitted November 7, 2026
 
-**Version 1.2.1 / code 5 is built locally, not uploaded or submitted.** The live
-Play build remains 1.2.0 / code 4. Console's App size page still recommends
-enabling code shrinking and obfuscation; its reference-device download is 10.8 MB.
-The reported live 0% obfuscation score is not changed by preparing local code.
+**Version 1.2.1 / code 5 is uploaded and submitted for production review.**
+Console confirms **Changes in review**, with automated quick checks running (up
+to 14 minutes remaining at confirmation). The release is `1.2.1 – Optimised release`,
+set to 100% of the existing 178 targeted countries/regions. Managed publishing
+remains **off**, so publication follows approval automatically. Version 1.2.0 /
+code 4 remains live until then. The only submitted change is the production
+release; price, product, listings, app-content declarations and countries are
+unchanged. [Submission screenshot](release-evidence/1.2.1-submitted-2026-11-07.jpg).
+
+Play recognises the attached ReTrace mapping file. Release validation has no
+blocking errors and only one warning: missing native debug symbols for the
+prebuilt SDK library. Estimated reference download size is **7.76 MB**, about
+3 MB below the previous release; estimated update size is **816 KB**. No device
+support was lost. The live release's old optimisation score should not be treated
+as the analysis of this update; recheck it after approval/publication.
+
+The user explicitly requested upload and submission after the isolated phone
+tests passed and the outstanding payment/16 KB limitations were disclosed. No
+legal agreement or trader-status declaration was accepted. Console still displays
+a separate **Declare your trader status** account banner; it did not block this
+release submission and has not been resolved by this work.
 
 R8 settings were already present in the uncommitted local build configuration.
 They are preserved: release uses `minifyEnabled true`, `shrinkResources true`
@@ -43,15 +60,38 @@ production bundle or installed Play app. Test-only Kotlin/tracing keep rules do
 not apply to production. The production build script rejects the isolated-test
 property. Both isolated app and instrumentation APKs compile successfully (three
 workflow tests); package/target-package and matching signing are verified. The
-isolated app's internal EditorSession is still obfuscated (`w1.h`). Phone tests
-are pending: the A55 was disconnected, and the user asked for time to connect it.
-Do not claim a minified runtime pass from build/unit checks.
+isolated app's internal EditorSession is still obfuscated (`w1.h`).
 
-Before release: run the isolated minified workflows on the phone, perform an
-appropriate final production smoke check, retain the matching mapping, obtain
-upload/submission authorization, and inspect Play's new artifact analysis. No
-price, SKU, permission, privacy disclosure or feature change is included. Existing
-payment-test and 16 KB runtime limitations remain separate from this optimisation.
+Phone follow-up — November 7, 2026: **all three isolated minified workflow tests
+pass** on the Galaxy A55 (SM-A556B, Android 16, 4096-byte pages), in 46.785 seconds:
+
+- Clean a generated JPEG, preserve the original metadata, recreate the activity,
+  and share a verified metadata-free copy through the read-only FileProvider.
+- Detect faces in the public NASA fixture, apply selected solid covers, undo/redo,
+  recreate the editor, and export a readable flattened JPEG through the result API.
+- Retain the WorkManager worker's persisted class name and public constructor.
+
+The first run passed cleaning/sharing and the worker check, but the Face Assist
+test could not click the native dialog button. Android exposes the all-caps
+display label; a test-only case-insensitive label comparison fixed that harness
+interaction. The complete rerun passed without changing production app code or
+weakening any export assertions. The production AAB hash remains the one above.
+Six optimisation-verifier tests also pass again. These three isolated tests are
+not a rerun of the complete debug suite, a real Play payment test, a 16 KB test,
+or byte-for-byte runtime validation of the production artifact.
+
+An old instrumentation-only package had an incompatible test signature. Only
+`com.kreativ.sharesafe.r8test.test` was uninstalled and replaced by the matching
+signed runner; it is recoverable from the generated test APK. No normal app or
+user photo was removed. Only the isolated app/runner were installed: package
+queries found no `com.kreativ.sharesafe` installation before testing.
+
+Remaining verification: a Play-delivered production smoke check and the previously
+unverified payment/16 KB scenarios. The isolated tests are not byte-for-byte runtime
+validation of the uploaded bundle. The user authorized submission with the stated
+limitations; do not relabel them as passing tests. Retain the matching mapping and
+recheck Play's optimisation analysis after publication. No price, SKU, permission,
+privacy disclosure or feature change is included.
 
 ## Google Play listing refresh — October 17, 2026
 

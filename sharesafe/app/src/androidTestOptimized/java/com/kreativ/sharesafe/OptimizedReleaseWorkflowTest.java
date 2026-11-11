@@ -77,7 +77,9 @@ public class OptimizedReleaseWorkflowTest {
         while (SystemClock.uptimeMillis() < deadline) {
             AccessibilityNodeInfo root = instrumentation.getUiAutomation().getRootInActiveWindow();
             if (root != null) for (AccessibilityNodeInfo node : root.findAccessibilityNodeInfosByText(text)) {
-                if (text.contentEquals(node.getText()) && node.isEnabled() && node.isClickable()
+                // Platform dialog buttons may expose their all-caps display label.
+                if (node.getText() != null && text.equalsIgnoreCase(node.getText().toString())
+                        && node.isEnabled() && node.isClickable()
                         && node.performAction(AccessibilityNodeInfo.ACTION_CLICK)) return;
             }
             SystemClock.sleep(50);
