@@ -8,5 +8,7 @@
   "shift": "res://assets/audio/sfx/shift.wav",
   "achievement": "res://assets/audio/sfx/achievement.wav",
   "game_over": "res://assets/audio/sfx/game_over.wav",
-  "ambience": "res://assets/audio/ambience/ambience.wav"
+  "ambience_rain": "res://assets/audio/ambience/rain.ogg",
+  "ambience_forest": "res://assets/audio/ambience/forest.ogg",
+  "ambience_ocean": "res://assets/audio/ambience/ocean.ogg"
 }

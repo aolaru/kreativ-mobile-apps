@@ -2,7 +2,8 @@ class_name SettingsManager
 extends RefCounted
 const DRAG_MIN: float = 56.0
 const DRAG_MAX: float = 120.0
-const DEFAULTS: Dictionary = {"sfx": 0.75, "ambience": 0.35, "particles": true, "reduce_motion": false, "haptics": true, "text_scale": 1.0, "theme": "orbit", "tutorial_done": false, "drag_lift": 88.0, "battery_saver": false}
+const AMBIENCE_SOUNDS: Array[String] = ["rain", "forest", "ocean", "off"]
+const DEFAULTS: Dictionary = {"sfx": 0.75, "ambience": 0.35, "ambience_sound": "rain", "particles": true, "reduce_motion": false, "haptics": true, "text_scale": 1.0, "theme": "orbit", "tutorial_done": false, "drag_lift": 88.0, "battery_saver": false}
 var values: Dictionary = DEFAULTS.duplicate(true)
 
 func game_fps() -> int:
@@ -31,4 +32,6 @@ func restore(data: Variant) -> void:
 			else:
 				values[key] = clampf(number, 1.0 if key == "text_scale" else 0.0, 1.3 if key == "text_scale" else 1.0)
 		elif key == "theme" and data[key] in ["orbit", "dusk", "lagoon"]:
+			values[key] = data[key]
+		elif key == "ambience_sound" and data[key] is String and data[key] in AMBIENCE_SOUNDS:
 			values[key] = data[key]

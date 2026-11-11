@@ -1,5 +1,13 @@
 # Roadmap
 
+## Implemented in 0.5.3
+
+Forest has a much quieter continuous wind/noise bed and clearer bird phrases after real phone-listening feedback. Rain and Ocean are byte-identical to 0.5.2. Added decoded audio acceptance thresholds for quiet background level and bird-to-bed contrast. No gameplay or save-format changes.
+
+## Implemented in 0.5.2
+
+Rain, Forest and Ocean soundscapes plus Off, selected-sound previews, saved preferences and bounded crossfades. Three original 48-second stereo Vorbis loops ship offline. Older saves retain all game data and volume, adding Rain as the default. Runtime and UI tests cover switching, previews, mute, rapid transitions, focus loss and save/transfer persistence. Physical 0.5.2 listening and Play delivery remain separate acceptance checks.
+
 ## Implemented in 0.4.1
 
 Persistent save-failure warnings and retries, staged progress reset with failure preservation, explicit dialog Back destinations, final-clear presentation before results, saved manual-ending reasons, a zero-to-full SHIFT charging lesson and retained combo/points feedback. Added storage, navigation, completion and tutorial regression coverage. The Galaxy A55 upgrade, full charging tutorial, preview/Apply and independent Classic/Zen save/restart checks now pass; existing high scores and the prior SHIFT save are preserved.

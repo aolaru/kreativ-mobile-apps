@@ -315,6 +315,13 @@ func persistence() -> void:
 	preferences.restore({"sfx": 10, "particles": "invalid", "theme": "bad", "text_scale": -5})
 	check(preferences.values.sfx == 1 and preferences.values.particles == true and preferences.values.theme == "orbit" and preferences.values.text_scale == 1, "settings defensive loading")
 	check(preferences.values.drag_lift == 88 and not preferences.values.battery_saver and preferences.game_fps() == 60, "older saves receive comfortable control defaults")
+	check(preferences.values.ambience_sound == "rain", "older saves gain rain without changing their ambience volume")
+	for sound in SettingsManager.AMBIENCE_SOUNDS:
+		preferences.restore({"ambience_sound": sound, "ambience": 0.6})
+		check(preferences.values.ambience_sound == sound and preferences.values.ambience == 0.6, "soundscape selection restores: " + sound)
+	for invalid_sound in ["unknown", 4, null, {}, []]:
+		preferences.restore({"ambience_sound": invalid_sound, "ambience": 0.0})
+		check(preferences.values.ambience_sound == "rain" and preferences.values.ambience == 0.0, "invalid soundscape safely defaults while respecting mute")
 	preferences.restore({"drag_lift": -900, "battery_saver": true})
 	check(preferences.values.drag_lift == SettingsManager.DRAG_MIN and preferences.game_fps() == 30, "drag height lower bound and battery frame limit")
 	preferences.restore({"drag_lift": 900, "battery_saver": "invalid"})

@@ -28,10 +28,10 @@ Outputs:
 | `build/blockshift-debug.apk` | Sideloadable development build | Local debug key |
 | `build/blockshift-development.aab` | Development bundle, not a store release | Unsigned by the current exporter |
 | `build/blockshift-release-unsigned.aab` | Release variant and packaging validation | Deliberately unsigned |
-| `build/blockshift-internal-0.5.0.aab` | Internal-track upload candidate, version code 7 | Dedicated non-debug upload key |
-| `build/blockshift-internal-0.5.0.apk` | QA APK generated from that exact bundle | Dedicated upload key; Play delivery uses its app signing key |
+| `build/blockshift-internal-0.5.3.aab` | Internal-track upload candidate, version code 10 | Dedicated non-debug upload key |
+| `build/blockshift-internal-0.5.3.apk` | QA APK generated from that exact bundle | Dedicated upload key; Play delivery uses its app signing key |
 
-The last bundle exercises release compilation and strips debug flags; **it cannot be submitted as a signed production release**. The helper rejects logged Godot/Gradle errors even when the engine happens to exit with status 0. Build results and emulator coverage are recorded in `review/VALIDATION.md`.
+The unsigned validation bundle exercises release compilation and strips debug flags; it cannot be submitted until signed. The internal candidate is signed with the existing dedicated upload key. The helper rejects logged Godot/Gradle errors even when the engine happens to exit with status 0. Build results and emulator coverage are recorded in `review/VALIDATION.md`.
 
 ## Install and inspect
 
@@ -85,7 +85,7 @@ The first AAB attempt ran out of disk space while a legacy Jetifier task copied 
 
 ## Internal candidate checks
 
-The 0.5.0 release helpers use the local Java SDK and official bundletool; no Play service account or store credentials are embedded. Run `python3 tools/verify_android.py build/blockshift-internal-0.5.0.aab --java-sdk /path/to/jdk --bundletool /path/to/bundletool.jar` to inspect SDK, version, permissions, backup/debug flags, ARM64, native alignment and packaged release metadata. Godot puts resources in an install-time asset module; the verifier supports that layout.
+The 0.5.0 release helpers use the local Java SDK and official bundletool; no Play service account or store credentials are embedded. Run `python3 tools/verify_android.py build/blockshift-internal-0.5.3.aab --java-sdk /path/to/jdk --bundletool /path/to/bundletool.jar` to inspect SDK, version, permissions, backup/debug flags, ARM64, native alignment and packaged release metadata. Godot puts resources in an install-time asset module; the verifier supports that layout.
 
 After building the candidate, `python3 tests/signing_regressions.py` checks identity overwrite protection, refusal to re-sign an already signed input and rejection of modified content. Private credentials never enter the report.
 

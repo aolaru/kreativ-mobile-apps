@@ -921,10 +921,24 @@ func show_settings(return_to: String = "home", section: String = "") -> void:
 		_label("Set the mood.", 28)
 		_slider("Sound effects", "sfx")
 		_slider("Ambience", "ambience")
-		_label("Soft background tones. Uses your phone's media volume.", 13, ThemeManager.MUTED)
-		_button("Preview ambience", func() -> void:
+		var sounds: VBoxContainer = _card()
+		_label("YOUR SOUNDSCAPE", 11, Color("55ded2"), HORIZONTAL_ALIGNMENT_LEFT, sounds)
+		for row_index in 2:
+			var choices: HBoxContainer = _row(sounds)
+			for sound in SettingsManager.AMBIENCE_SOUNDS.slice(row_index * 2, row_index * 2 + 2):
+				var selected: bool = preferences.values.ambience_sound == sound
+				var choice: Button = _button(("✓ " if selected else "") + AudioManager.AMBIENCE_LABELS[sound], func() -> void:
+					preferences.values.ambience_sound = sound
+					audio.apply_settings()
+					show_settings(settings_return, "sound"), selected, choices)
+				choice.name = "Ambience" + sound.capitalize()
+				choice.tooltip_text = AudioManager.AMBIENCE_DESCRIPTIONS[sound]
+		_label(AudioManager.AMBIENCE_DESCRIPTIONS[preferences.values.ambience_sound], 14, ThemeManager.MUTED, HORIZONTAL_ALIGNMENT_LEFT, sounds)
+		_label("Plays softly in the background. Uses your phone's media volume. Your choice saves automatically.", 13, ThemeManager.MUTED)
+		var selected_title: String = AudioManager.AMBIENCE_LABELS[preferences.values.ambience_sound]
+		_button("Preview " + selected_title if preferences.values.ambience_sound != "off" else "Preview ambience", func() -> void:
 			var played: bool = audio.preview_ambience()
-			var box: VBoxContainer = _sheet("Ambience is playing" if played else "Ambience is muted", "Listen for soft, sustained tones. Adjust your phone's media volume if needed." if played else "Raise the Ambience slider, then preview again.")
+			var box: VBoxContainer = _sheet(selected_title + " is playing" if played else "Ambience is off" if preferences.values.ambience_sound == "off" else "Ambience is muted", AudioManager.AMBIENCE_DESCRIPTIONS[preferences.values.ambience_sound] + " Adjust your phone's media volume if needed." if played else "Choose Rain, Forest or Ocean and raise the Ambience slider to preview.")
 			_button("Done", _close_modal, true, box)).name = "PreviewAmbience"
 	elif settings_section == "play":
 		_label("Make it comfortable.", 27)

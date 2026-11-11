@@ -5,6 +5,10 @@ var settings: SettingsManager
 var streams: Dictionary = {}
 var voices: Array[AudioStreamPlayer] = []
 var ambience: AudioStreamPlayer
+var fading_ambience: AudioStreamPlayer
+var ambience_tween: Tween
+const AMBIENCE_LABELS: Dictionary = {"rain": "Rain", "forest": "Forest", "ocean": "Ocean", "off": "Off"}
+const AMBIENCE_DESCRIPTIONS: Dictionary = {"rain": "Gentle rain on leaves.", "forest": "Soft wind and distant birds.", "ocean": "Slow waves on the shore.", "off": "A quiet space. Sound effects stay separate."}
 var cursor: int = 0
 var suspended: bool = false
 
@@ -22,8 +26,9 @@ func setup(preferences: SettingsManager) -> void:
 	ambience = AudioStreamPlayer.new()
 	ambience.bus = "Ambience"
 	add_child(ambience)
-	if streams.has("ambience"):
-		ambience.stream = streams.ambience
+	fading_ambience = AudioStreamPlayer.new()
+	fading_ambience.bus = "Ambience"
+	add_child(fading_ambience)
 	apply_settings()
 
 func apply_settings() -> void:
@@ -35,12 +40,27 @@ func apply_settings() -> void:
 	_sync_ambience()
 
 func _sync_ambience() -> void:
-	if ambience == null or ambience.stream == null:
+	if ambience == null:
 		return
+	var selected: AudioStream = streams.get("ambience_" + str(settings.values.ambience_sound))
+	if ambience.stream != selected:
+		# Two bounded voices; rapid changes cancel the previous transition safely.
+		if ambience_tween != null: ambience_tween.kill()
+		fading_ambience.stop()
+		var old: AudioStreamPlayer = ambience
+		ambience = fading_ambience
+		fading_ambience = old
+		ambience.stream = selected
+		ambience.volume_db = -60.0
+		ambience_tween = create_tween().set_parallel(true)
+		ambience_tween.tween_property(fading_ambience, "volume_db", -60.0, 0.45)
+		ambience_tween.tween_property(ambience, "volume_db", 0.0, 0.65)
+		ambience_tween.chain().tween_callback(fading_ambience.stop)
 	var muted: bool = float(settings.values.ambience) <= 0
-	if not muted and not suspended and not ambience.playing:
+	if selected != null and not muted and not suspended and not ambience.playing:
 		ambience.play()
 	ambience.stream_paused = suspended or muted
+	fading_ambience.stream_paused = suspended or muted
 
 func preview_ambience() -> bool:
 	if ambience == null or ambience.stream == null or suspended or float(settings.values.ambience) <= 0:

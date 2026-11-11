@@ -18,6 +18,7 @@ func _initialize() -> void:
 	var preferences: SettingsManager = SettingsManager.new()
 	preferences.values.tutorial_done = true
 	preferences.values.ambience = 0.48
+	preferences.values.ambience_sound = "ocean"
 	store.data.settings = preferences.values.duplicate(true)
 	for mode in GameModes.IDS:
 		var game: GameSession = GameSession.new(mode, 729, "2026-10-26")
@@ -31,6 +32,9 @@ func _initialize() -> void:
 	var encoded: String = SaveTransfer.encode(store.data)
 	var decoded: Dictionary = SaveTransfer.decode(encoded)
 	check(decoded.ok and decoded.data == original, "all modes, settings, counters and history survive portable encoding")
+	var restored_preferences: SettingsManager = SettingsManager.new()
+	restored_preferences.restore(decoded.data.settings)
+	check(restored_preferences.values.ambience_sound == "ocean" and restored_preferences.values.ambience == 0.48, "portable backup preserves soundscape and volume")
 	check(SaveTransfer.export_file(path + ".blockshift", store.data), "export is read back and verified")
 	check(SaveTransfer.inspect_file(path + ".blockshift").data == original, "file round trip")
 	var many_records: Dictionary = original.duplicate(true)

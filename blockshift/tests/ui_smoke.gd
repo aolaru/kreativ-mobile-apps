@@ -88,7 +88,7 @@ func _run() -> void:
 	check(app.screen == "home", "startup reaches home without a wake-up touch")
 	check(not OS.low_processor_usage_mode and Engine.max_fps == 30, "menus advance timers at a bounded frame rate")
 	check(not quit_on_go_back, "Android back does not use the engine default exit")
-	check(app.audio.ambience.playing and app.audio.ambience.stream.loop_mode == AudioStreamWAV.LOOP_FORWARD, "ambience starts as a continuous loop")
+	check(app.audio.ambience.playing and app.audio.ambience.stream is AudioStreamOggVorbis and app.audio.ambience.stream.loop, "rain starts as a continuous compressed loop")
 	app.preferences.values.ambience = 0.0
 	app.audio.apply_settings()
 	check(AudioServer.is_bus_mute(AudioServer.get_bus_index("Ambience")) and app.audio.ambience.stream_paused and not app.audio.preview_ambience(), "muted ambience stays silent including preview")
@@ -230,6 +230,32 @@ func _run() -> void:
 	app._close_modal()
 	app.show_settings("game", "sound")
 	app.audio._notification(Node.NOTIFICATION_APPLICATION_FOCUS_IN)
+	app.audio.set_meta("qa_controlled_focus", true)
+	app._checkpoint()
+	var soundscape_runs: Dictionary = app.store.data.runs.duplicate(true)
+	for sound in ["forest", "ocean", "rain"]:
+		await click(app.page.find_child("Ambience" + sound.capitalize(), true, false))
+		check(app.preferences.values.ambience_sound == sound and app.audio.ambience.stream == app.audio.streams["ambience_" + sound], "native soundscape selection: " + sound)
+		var saved_sound: SaveManager = SaveManager.new(save_path)
+		check(saved_sound.data.settings.ambience_sound == sound and JSON.parse_string(JSON.stringify(saved_sound.data.runs)) == JSON.parse_string(JSON.stringify(soundscape_runs)), "soundscape persists without changing saved boards: " + sound)
+		await click(app.page.find_child("PreviewAmbience", true, false))
+		check(app.modal != null and app.audio.ambience.playing, "selected soundscape previews: " + sound)
+		app._close_modal()
+	await click(app.page.find_child("AmbienceOff", true, false))
+	await create_timer(0.75).timeout
+	check(app.audio.ambience.stream == null and not app.audio.fading_ambience.playing and not app.audio.preview_ambience() and app.preferences.values.ambience > 0, "Off stops both ambience voices and remembers volume")
+	await click(app.page.find_child("AmbienceRain", true, false))
+	for sound in ["forest", "ocean", "off", "rain", "ocean"]:
+		app.preferences.values.ambience_sound = sound
+		app.audio.apply_settings()
+	app.audio.set_meta("qa_controlled_focus", false)
+	app.audio._notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	check(app.audio.ambience.stream_paused and app.audio.fading_ambience.stream_paused, "backgrounding pauses both sides of a rapid soundscape transition")
+	app.audio._notification(Node.NOTIFICATION_APPLICATION_FOCUS_IN)
+	app.audio.set_meta("qa_controlled_focus", true)
+	await create_timer(0.8).timeout
+	check(app.audio.ambience.stream == app.audio.streams.ambience_ocean and not app.audio.fading_ambience.playing, "rapid changes settle on the latest sound with one active voice")
+	await click(app.page.find_child("AmbienceRain", true, false))
 	await click(app.page.find_child("PreviewAmbience", true, false))
 	if app.modal == null or not app.audio.ambience.playing:
 		print("Audio UI diagnostic: screen=", app.screen, " modal=", app.modal != null, " playing=", app.audio.ambience.playing, " suspended=", app.audio.suspended, " value=", app.preferences.values.ambience)

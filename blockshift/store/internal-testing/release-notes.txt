@@ -1,7 +1,7 @@
-BLOCKSHIFT 0.5.1 — Internal test candidate
+BLOCKSHIFT 0.5.3 — Internal test candidate
 
-Back up all saved mode boards, scores, daily results and preferences to a private file. Review a backup before restoring it, with Undo restore available afterward. Native file transfer requires Android 10 or later.
+Forest now has a much softer wind/noise bed so the birds are clearer. Rain and Ocean are unchanged. Your selected sound, volume and saved games remain compatible.
 
-Includes the hosted privacy-policy link. Classic, SHIFT, Zen and Daily remain offline, with no advertisements or purchases in this test.
+All soundscapes work offline. No advertisements, purchases or new permissions.
 
 Feedback: info@madebykreativ.com
