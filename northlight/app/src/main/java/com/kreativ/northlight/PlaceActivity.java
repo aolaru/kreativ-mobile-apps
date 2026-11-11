@@ -11,6 +11,8 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.view.Gravity;
@@ -25,12 +27,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.json.JSONException;
+import java.util.concurrent.Executors;
 
 /** A private foreground-only point-back tool: straight-line estimates, not navigation. */
 public class PlaceActivity extends Activity implements CompassSource.Listener, CompassSpeech.Listener,
-        PlaceLocationSource.Listener, BillingManager.Listener {
+        PlaceLocationSource.Listener, BillingManager.Listener, PlaceWriter.Listener {
     private static final String KEY = "saved_places";
     private static final int LOCATION_REQUEST = 410;
+    private static PlaceWriter placeWriter;
     private BillingManager billing;
     private PlaceLocationSource location;
     private CompassSource compass;
@@ -48,6 +52,13 @@ public class PlaceActivity extends Activity implements CompassSource.Listener, C
         super.onCreate(state);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         billing = BillingManager.get(this);
+        if (placeWriter == null) {
+            SharedPreferences storage = getApplicationContext().getSharedPreferences(BillingManager.PREFS, MODE_PRIVATE);
+            Handler main = new Handler(Looper.getMainLooper());
+            placeWriter = new PlaceWriter(Executors.newSingleThreadExecutor(), main::post,
+                    value -> storage.edit().putString(KEY, value).commit());
+        }
+        placeWriter.addListener(this);
         location = new PlaceLocationSource(this, this);
         compass = new CompassSource(this, this);
         speech = new CompassSpeech(this, this);
@@ -65,7 +76,11 @@ public class PlaceActivity extends Activity implements CompassSource.Listener, C
         foreground = false; location.stop(); compass.stop(); speech.pause(); billing.removeListener(this);
         heading = Float.NaN; super.onPause();
     }
-    @Override protected void onDestroy() { speech.close(); super.onDestroy(); }
+    @Override protected void onDestroy() { placeWriter.removeListener(this); speech.close(); super.onDestroy(); }
+    @Override public void onPlaceWriteChanged(boolean failed) {
+        if (failed) toast(R.string.place_store_error);
+        loadPlaces(); update();
+    }
     @Override public void onBillingChanged() {
         if (!billing.entitled()) {
             if (location != null && location.active()) location.stop();
@@ -142,19 +157,16 @@ public class PlaceActivity extends Activity implements CompassSource.Listener, C
     }
     private SharedPreferences prefs() { return getSharedPreferences(BillingManager.PREFS, MODE_PRIVATE); }
     private PlaceData data() throws JSONException { return new PlaceData(prefs().getString(KEY, "[]")); }
-    private boolean persist(PlaceData data) {
-        if (!prefs().edit().putString(KEY, data.toString()).commit()) { toast(R.string.place_store_error); return false; }
-        loadPlaces(); update(); return true;
-    }
+    private void persist(PlaceData data) { placeWriter.save(data.toString()); }
     private void savePlace() {
         Location captured = location.fix();
-        if (!foreground || !billing.entitled() || captured == null) return;
+        if (!foreground || !billing.entitled() || captured == null || placeWriter.pending()) return;
         try { if (data().size() >= PlaceData.LIMIT) { toast(R.string.place_full); return; } }
         catch (JSONException invalid) { toast(R.string.place_store_error); return; }
         EditText name = nameInput("");
         new AlertDialog.Builder(this).setTitle(R.string.place_save).setMessage(getString(R.string.place_capture_accuracy, Math.round(captured.getAccuracy())))
                 .setView(name).setNegativeButton(R.string.cancel, null).setPositiveButton(R.string.save, (dialog, which) -> {
-                    if (!billing.entitled()) return;
+                    if (!billing.entitled() || placeWriter.pending()) return;
                     try {
                         PlaceData data = data();
                         if (!data.add(clean(name), captured.getLatitude(), captured.getLongitude(), captured.getAccuracy())) toast(R.string.place_full);
@@ -163,10 +175,11 @@ public class PlaceActivity extends Activity implements CompassSource.Listener, C
                 }).show();
     }
     private void manage(int index) {
-        if (!billing.entitled()) return;
+        if (!billing.entitled() || placeWriter.pending()) return;
         try {
             PlaceData current = data();
             new AlertDialog.Builder(this).setTitle(current.name(index)).setItems(R.array.place_actions, (dialog, action) -> {
+                if (placeWriter.pending()) return;
                 try {
                     PlaceData fresh = data(); if (index >= fresh.size()) { update(); return; }
                     if (action == 0) { speech.pauseSpeech(); selected = index; clearDirection(); update(); }
@@ -174,11 +187,13 @@ public class PlaceActivity extends Activity implements CompassSource.Listener, C
                         EditText name = nameInput(fresh.name(index));
                         new AlertDialog.Builder(this).setTitle(R.string.place_rename).setView(name).setNegativeButton(R.string.cancel, null)
                                 .setPositiveButton(R.string.save, (d, w) -> {
+                                    if (placeWriter.pending()) return;
                                     try { PlaceData latest = data(); if (index < latest.size()) { latest.rename(index, clean(name)); persist(latest); } }
                                     catch (JSONException invalid) { toast(R.string.place_store_error); }
                                 }).show();
                     } else new AlertDialog.Builder(this).setTitle(R.string.place_delete).setMessage(R.string.place_delete_confirm)
                             .setNegativeButton(R.string.cancel, null).setPositiveButton(R.string.delete, (d, w) -> {
+                                if (placeWriter.pending()) return;
                                 try { PlaceData latest = data(); if (index < latest.size()) { latest.delete(index); selected = -1; clearDirection(); persist(latest); } }
                                 catch (JSONException invalid) { toast(R.string.place_store_error); }
                             }).show();
@@ -202,7 +217,7 @@ public class PlaceActivity extends Activity implements CompassSource.Listener, C
             default: message = R.string.place_off;
         }
         status.setText(message); gps.setText(location.active() ? R.string.place_stop_gps : location.state() == PlaceLocationSource.State.GPS_OFF ? R.string.altimeter_location_settings : R.string.place_start_gps);
-        save.setEnabled(foreground && billing.entitled() && location.fix() != null);
+        save.setEnabled(!placeWriter.pending() && foreground && billing.entitled() && location.fix() != null);
         updateTarget();
     }
     private void loadPlaces() {
@@ -212,7 +227,7 @@ public class PlaceActivity extends Activity implements CompassSource.Listener, C
             PlaceData data = data();
             if (data.size() == 0) places.addView(text(getString(R.string.place_empty), 14, mist()));
             for (int i = 0; i < data.size(); i++) {
-                final int index = i; Button row = button(data.name(i)); row.setOnClickListener(v -> manage(index)); places.addView(row, match());
+                final int index = i; Button row = button(data.name(i)); row.setEnabled(!placeWriter.pending()); row.setOnClickListener(v -> manage(index)); places.addView(row, match());
             }
         } catch (JSONException invalid) { places.addView(text(getString(R.string.place_store_error), 14, mist())); }
     }
